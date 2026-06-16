@@ -1,2 +1,13 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Treat office/binary deliverables as binary so git never line-ends or merges them
+*.docx   binary
+*.xlsx   binary
+*.pptx   binary
+*.pdf    binary
+*.psd    binary
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gsheet binary

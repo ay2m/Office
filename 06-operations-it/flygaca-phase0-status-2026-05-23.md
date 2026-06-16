@@ -4,6 +4,10 @@
 **Owner:** Captain Adel Al-Subaie
 **Covers:** Progress on Phase 0 — Foundations.
 
+> **Point-in-time snapshot.** This report reflects the state on 23 May 2026 and is ~3+ weeks
+> old as of 2026-06-16. It is kept as a historical record — for current status see
+> `../00-strategy/PHASE0.md`. **TODO(owner):** confirm whether a fresh status report is due.
+
 ## Summary
 
 Phase 0 is well underway. The technical foundations are largely in place — the repository

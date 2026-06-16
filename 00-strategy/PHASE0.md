@@ -6,6 +6,10 @@ the **Status** fields and tick the checkboxes as you go.
 
 **Last updated:** 2026-05-23
 
+> **Staleness check (2026-06-16):** the checklist state below has not been re-verified since
+> the date above (~3 weeks). Treat statuses as point-in-time until reviewed.
+> **TODO(owner):** re-confirm each Status field and bump "Last updated".
+
 **Phase 0 is done when:** the redistribution-rights question has a documented answer, the
 legal entity is registered, and the empty repository and Firebase project both exist.
 

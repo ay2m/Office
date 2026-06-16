@@ -7,6 +7,9 @@ edit the **Status** fields and tick the checkboxes as you go.
 **Last updated:** 2026-05-24
 **Status values:** `Not started` · `In progress` · `Blocked` · `Done`
 
+> **Staleness check (2026-06-16):** phase statuses below have not been re-verified since the
+> date above. Treat as point-in-time. **TODO(owner):** re-confirm and bump "Last updated".
+
 **Sequenced by dependency, not by date.** Solo build, no fixed deadline. The order below
 is the order things *can* be done in; where two tracks can run in parallel, that is called
 out explicitly.

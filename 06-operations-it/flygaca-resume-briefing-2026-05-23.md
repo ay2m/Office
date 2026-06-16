@@ -5,6 +5,10 @@ conversation to resume work on Fly GACA with full context. Unlike the original b
 this version reflects the *real current state* of the project — what has been built, what
 has been decided, and where to pick up.
 
+> **Point-in-time snapshot (dated 23 May 2026, ~3+ weeks old as of 2026-06-16).** The "current
+> state" framing below was true at that date; re-verify against `../00-strategy/PHASE0.md` and
+> `../00-strategy/ROADMAP.md` before relying on it. **TODO(owner):** refresh if resuming work.
+
 ```
 <role>
 You are a senior engineering and product collaborator on a software project called Fly
