@@ -5,8 +5,8 @@ conversation, or save it as the custom instructions of a Claude Project. It is s
 with XML tags, which Claude follows precisely, so context, scope, and constraints stay
 clear for every later message.
 
-Companion file: `flygaca-antigravity-AGENTS.md` carries the same plan formatted for Google
-Antigravity. The human-readable version is `Fly-GACA-Master-Plan.docx`.
+Companion file: `flygaca-antigravity-agents.md` carries the same plan formatted for Google
+Antigravity. The human-readable version is `fly-gaca-master-plan.docx`.
 
 ---
 

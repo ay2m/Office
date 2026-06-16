@@ -11,19 +11,19 @@ The working-narrative companion to the polished finance deliverables — the "wh
 policies and trackers, in diffable markdown.
 
 ## Authoritative deliverables (source of truth)
-- Banking & Treasury Policy.docx
-- Procurement Policy.docx
-- Expense & Travel Policy.docx
-- Petty Cash Policy.docx
-- Capital Expenditure (Capex) Policy.docx
-- Chart of Accounts (Saudi-Specific).docx
-- Monthly Close Checklist.docx
-- Budget vs Actual Tracker.xlsx
-- Financial Dashboard (KPIs).xlsx
-- MONETIZATION.md
+- banking-and-treasury-policy.docx
+- procurement-policy.docx
+- expense-and-travel-policy.docx
+- petty-cash-policy.docx
+- capital-expenditure-capex-policy.docx
+- chart-of-accounts-saudi-specific.docx
+- monthly-close-checklist.docx
+- budget-vs-actual-tracker.xlsx
+- financial-dashboard-kpis.xlsx
+- monetization.md
 
 ## 1. Financial model summary
-> TODO(owner): Summarize the revenue model (link MONETIZATION.md), cost structure, and the
+> TODO(owner): Summarize the revenue model (link monetization.md), cost structure, and the
 > current runway assumption. State the as-of date.
 
 ## 2. Budgeting & close rhythm

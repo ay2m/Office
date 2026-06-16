@@ -3,7 +3,7 @@
 **Location:** `06-product-eng/diagrams/`
 **Generated:** 2026-06-14
 **Covers:** the three core operational processes illustrated in the SVG diagrams in this folder.
-**Context docs:** `Fly-GACA-Review-Action-Plan.md` (especially §2.1, §4.1, §4.2), `captadel-plan.md`, `06-product-eng/SPEC-freshness-pipeline.md`, `06-product-eng/DIFF-TRACKER-SCOPE.md`, `06-product-eng/runbooks/RUNBOOK-source-updates.md`.
+**Context docs:** `fly-gaca-review-action-plan.md` (especially §2.1, §4.1, §4.2), `captadel-plan.md`, `06-product-eng/spec-freshness-pipeline.md`, `06-product-eng/diff-tracker-scope.md`, `06-product-eng/runbooks/runbook-source-updates.md`.
 
 ---
 
@@ -64,7 +64,7 @@ The automated pipeline detects and re-ingests changes. The editorial owner's rol
 4. Update reader-page prose if needed (e.g., a changed hour minimum in a guide).
 5. Sign off the freshness stamp (approve the `verified_cycle` update).
 
-**SLAs (from `SPEC-freshness-pipeline.md`):**
+**SLAs (from `spec-freshness-pipeline.md`):**
 - AIP-class (aerodromes, charts, AIS): re-verified within **72 hours** of each new AIRAC cycle.
 - GACAR Parts: re-ingested within **7 days** of a detected amendment.
 - Reference shelf (handbooks, ICAO, FAA): best-effort, monthly diff.
@@ -88,7 +88,7 @@ The automated pipeline detects and re-ingests changes. The editorial owner's rol
 | Editorial owner misses the 72-hour AIP window | Staleness banner shown to users | Checklist alert; escalation to backup owner |
 
 ### Action plan reference
-§2.1 (trust and authority gap), §4.1 (currency stamps + AIRAC flags), `SPEC-freshness-pipeline.md`, `RUNBOOK-source-updates.md`.
+§2.1 (trust and authority gap), §4.1 (currency stamps + AIRAC flags), `spec-freshness-pipeline.md`, `runbook-source-updates.md`.
 
 ---
 
@@ -167,7 +167,7 @@ Captain Adel product owner (system prompt, refusal taxonomy, eval case ownership
 | Cost spike from runaway eval or high traffic | Budget overrun | Per-tenant cost caps; eval concurrency limits; budget alert in Firebase |
 
 ### Action plan reference
-§2.3 (AI hallucination risk), §4.2 (strict fallback protocol), `captadel-plan.md` §1b (citation-faithfulness) and Wave 1 (eval foundation), `RUNBOOK-captain-adel.md`.
+§2.3 (AI hallucination risk), §4.2 (strict fallback protocol), `captadel-plan.md` §1b (citation-faithfulness) and Wave 1 (eval foundation), `runbook-captain-adel.md`.
 
 ---
 

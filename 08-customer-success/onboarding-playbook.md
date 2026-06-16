@@ -57,4 +57,4 @@ days.
 
 - [Customer Health Scoring](customer-health-scoring.md)
 - [QBR Template](qbr-template.md)
-- [Customer Success overview](../CUSTOMER_SUCCESS.md)
+- [Customer Success overview](../customer-success.md)

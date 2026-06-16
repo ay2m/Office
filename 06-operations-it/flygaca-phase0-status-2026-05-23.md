@@ -6,7 +6,7 @@
 
 > **Point-in-time snapshot.** This report reflects the state on 23 May 2026 and is ~3+ weeks
 > old as of 2026-06-16. It is kept as a historical record — for current status see
-> `../00-strategy/PHASE0.md`. **TODO(owner):** confirm whether a fresh status report is due.
+> `../00-strategy/phase0.md`. **TODO(owner):** confirm whether a fresh status report is due.
 
 ## Summary
 
@@ -27,7 +27,7 @@ needs a Saudi IP lawyer. The legal entity registration has not yet started.
 | P0-5 | Create the Firebase project | **Done** |
 | P0-6 | Set up the VPS pipeline box | In progress — provisioned; hardening underway |
 
-The live, detailed checklist lives in the repository at `flygaca/PHASE0.md`.
+The live, detailed checklist lives in the repository at `flygaca/phase0.md`.
 
 ## Research findings
 
@@ -133,7 +133,7 @@ OS, install Python 3.11 / Node.js 20 / git, and confirm the region.
 
 ## Decisions made this session
 
-- The Phase 0 tracker is kept as Markdown (`PHASE0.md`) inside the repository.
+- The Phase 0 tracker is kept as Markdown (`phase0.md`) inside the repository.
 - The repository is scaffolded inside the workspace folder as `flygaca/`.
 - Firebase: keep project `flygaca-com` (not the accidental duplicate); Firestore recreated
   as Standard edition `(default)` in me-central2.

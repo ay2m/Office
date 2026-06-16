@@ -30,7 +30,7 @@ Watch for expansion signals:
 | Add-on modules | Any tier | Cross-sell of document automation, analytics, training |
 
 Map upgrades to the customer segments in
-[`CUSTOMER_SUCCESS.md`](../CUSTOMER_SUCCESS.md) (flight schools, charter
+[`customer-success.md`](../customer-success.md) (flight schools, charter
 operators, MROs, commercial operators).
 
 ## Cross-Sell Modules

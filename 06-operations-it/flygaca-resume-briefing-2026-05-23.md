@@ -6,8 +6,8 @@ this version reflects the *real current state* of the project — what has been 
 has been decided, and where to pick up.
 
 > **Point-in-time snapshot (dated 23 May 2026, ~3+ weeks old as of 2026-06-16).** The "current
-> state" framing below was true at that date; re-verify against `../00-strategy/PHASE0.md` and
-> `../00-strategy/ROADMAP.md` before relying on it. **TODO(owner):** refresh if resuming work.
+> state" framing below was true at that date; re-verify against `../00-strategy/phase0.md` and
+> `../00-strategy/roadmap.md` before relying on it. **TODO(owner):** refresh if resuming work.
 
 ```
 <role>
@@ -157,7 +157,7 @@ Check, Hosting and the Blaze upgrade are deferred to their proper phases.
 
 P0-4 REPOSITORY — IN PROGRESS. The full structure above is scaffolded locally (folder
 tree, 11 HTML page stubs with the disclaimer baked in, README, .gitignore, CI workflow,
-issue/PR templates, Dependabot, a PHASE0.md tracker, legal/DISCLAIMER.md, and Phase 0
+issue/PR templates, Dependabot, a phase0.md tracker, legal/DISCLAIMER.md, and Phase 0
 setup walkthroughs in office/). Git is initialised with an initial commit. Still to do:
 create the private github.com/ay2m/flygaca repo and push. Note: an existing
 github.com/FlyGACA org with a Library repo should be reconciled.

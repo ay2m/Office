@@ -15,41 +15,41 @@ owns it, its current state, and what gates it blocks. The binding detail lives i
 ## Registrations & licensing
 | Item | Deliverable | Owner | Status | Blocks |
 |---|---|---|---|---|
-| MISA investment license | MISA Investment License Application Bundle.docx | TODO | TODO | TODO |
-| Monshaat SME registration | Monshaat SME Registration Kit.docx | TODO | TODO | TODO |
-| NTDP application | NTDP Application.docx | TODO | TODO | TODO |
-| Tamheer & Doroob | Tamheer & Doroob Program Application Pack.docx | TODO | TODO | TODO |
+| MISA investment license | misa-investment-license-application-bundle.docx | TODO | TODO | TODO |
+| Monshaat SME registration | monshaat-sme-registration-kit.docx | TODO | TODO | TODO |
+| NTDP application | ntdp-application.docx | TODO | TODO | TODO |
+| Tamheer & Doroob | tamheer-and-doroob-program-application-pack.docx | TODO | TODO | TODO |
 
 ## Tax & invoicing
 | Item | Deliverable | Owner | Status |
 |---|---|---|---|
-| VAT compliance | VAT Compliance Memo.docx | TODO | TODO |
-| ZATCA Fatoora e-invoicing | ZATCA Fatoora E-Invoicing Compliance Pack.docx | TODO | TODO |
-| Tax/compliance calendar | Saudi Tax & Compliance Calendar.docx | TODO | TODO |
+| VAT compliance | vat-compliance-memo.docx | TODO | TODO |
+| ZATCA Fatoora e-invoicing | zatca-fatoora-e-invoicing-compliance-pack.docx | TODO | TODO |
+| Tax/compliance calendar | saudi-tax-and-compliance-calendar.docx | TODO | TODO |
 
 ## Workforce
 | Item | Deliverable | Owner | Status |
 |---|---|---|---|
-| Saudization (Nitaqat) | Saudization Nitaqat Compliance Plan.docx | TODO | TODO |
+| Saudization (Nitaqat) | saudization-nitaqat-compliance-plan.docx | TODO | TODO |
 
 ## Data protection & security
 | Item | Deliverable | Owner | Status |
 |---|---|---|---|
-| PDPL program & DPIA | PDPL Compliance Program & DPIA.docx | TODO | TODO |
-| Information security | Information Security Policy.docx | TODO | TODO |
-| Sub-processors / DPA register | Sub-Processor List & DPA Register.docx | TODO | TODO |
-| Vendor management | Vendor Management Policy.docx | TODO | TODO |
-| Business continuity / DR | Business Continuity & Disaster Recovery Plan (BCP-DR).docx | TODO | TODO |
+| PDPL program & DPIA | pdpl-compliance-program-and-dpia.docx | TODO | TODO |
+| Information security | information-security-policy.docx | TODO | TODO |
+| Sub-processors / DPA register | sub-processor-list-and-dpa-register.docx | TODO | TODO |
+| Vendor management | vendor-management-policy.docx | TODO | TODO |
+| Business continuity / DR | business-continuity-and-disaster-recovery-plan-bcp-dr.docx | TODO | TODO |
 
 ## Launch gates
 > TODO(owner): Which of the above are hard gates on monetization vs. public launch?
-> Cross-reference `../00-strategy/PHASE0.md` and `../00-strategy/ROADMAP.md` (the Improvement
+> Cross-reference `../00-strategy/phase0.md` and `../00-strategy/roadmap.md` (the Improvement
 > Audit flags legal-entity registration and the PDPL DPIA as launch gates).
 
 ## Data-residency note
 PDPL target region is **me-central2 (Dammam, Saudi Arabia)**; interim compute runs in
-**me-central1 (Doha, Qatar)** — see `../06-operations-it/REPO-HEALTH-REPORT-2026-06-16.md` §2.1
-and `../06-operations-it/runbooks/RUNBOOK-pdpl-me-central2.md`.
+**me-central1 (Doha, Qatar)** — see `../06-operations-it/repo-health-report-2026-06-16.md` §2.1
+and `../06-operations-it/runbooks/runbook-pdpl-me-central2.md`.
 
 ## Open questions
 > TODO(owner): List blocking unknowns (e.g., which registrations are filed vs. pending).

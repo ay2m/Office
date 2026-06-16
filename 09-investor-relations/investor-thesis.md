@@ -11,12 +11,12 @@ The written-narrative companion to the pitch deck — the thesis in prose so it 
 diffed, and kept consistent with the deck and the finance model.
 
 ## Authoritative deliverables (source of truth)
-- Fly-GACA-Pitch-Deck-2026-06-16.pptx (+ slide-01…15.jpg exports)
-- Investor FAQ.docx
-- Due Diligence Questionnaire.docx
-- Monthly Investor Update Template.docx
-- Saudi Investor Target List.xlsx
-- Risk Register.xlsx
+- fly-gaca-pitch-deck-2026-06-16.pptx (+ slide-01…15.jpg exports)
+- investor-faq.docx
+- due-diligence-questionnaire.docx
+- monthly-investor-update-template.docx
+- saudi-investor-target-list.xlsx
+- risk-register.xlsx
 
 ## 1. The thesis in one paragraph
 > TODO(owner): The core "why now / why this team / why this market" in 3–4 sentences.
@@ -28,7 +28,7 @@ diffed, and kept consistent with the deck and the finance model.
 ## 3. Product & moat
 > TODO(owner): Summarize the moats (GACAR corpus depth, cited-to-Part AI, native bilingual).
 > Canonical corpus scale: 74 GACAR Parts · 21 handbooks · 190 reference docs (see
-> `../06-operations-it/REPO-HEALTH-REPORT-2026-06-16.md` §2.2).
+> `../06-operations-it/repo-health-report-2026-06-16.md` §2.2).
 
 ## 4. Business model & traction
 > TODO(owner): Pricing model (freemium + Pro + exam-term + school-seat + packs) and any
@@ -38,11 +38,11 @@ diffed, and kept consistent with the deck and the finance model.
 > TODO(owner): Raise amount, instrument, use of funds, milestones. Confirm with finance.
 
 ## 6. Risks
-> TODO(owner): Top risks; keep aligned with Risk Register.xlsx so the narrative and the
+> TODO(owner): Top risks; keep aligned with risk-register.xlsx so the narrative and the
 > register never diverge.
 
 ## 7. Target investors
-> TODO(owner): Summarize the segmentation behind Saudi Investor Target List.xlsx.
+> TODO(owner): Summarize the segmentation behind saudi-investor-target-list.xlsx.
 
 ## Open questions
 > TODO(owner): Unknowns blocking a fundraise-ready narrative.
