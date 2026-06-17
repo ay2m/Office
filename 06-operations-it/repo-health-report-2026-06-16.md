@@ -136,6 +136,28 @@ owner follow-ups (§4, X-rows) are tracked as Linear issues:
 | Google Drive | Filename reconciliation CSV (204 old→new pairs) | `drive.google.com/file/d/1VLQd71DoZ5SdvJjEdHJba5DBycyF0hTo` |
 | Repo | Same CSV, committed | `../drive-index-updates.csv` |
 | Linear (Flygaca) | FLY-5 compliance · FLY-6 finance · FLY-7 investor · FLY-8 stale-status · FLY-9 reconciliation | `linear.app/flygaca` |
+| Airtable | Base "The-Office Repo Health" — **Actions** (12 rows, this §4 tracker) + **Renames** (204 old→new pairs) | `airtable.com/appuQmMO0TK5o4RAZ` |
+| Lucid | Department-health scorecard diagram (doc-depth + FLY-5/6/7 gap callouts) | `lucid.app/lucidchart/696634c6-1850-4a11-a5dd-03a4f34c474e/view` |
+| Google Calendar | 5 reminders (Asia/Riyadh) for FLY-5…FLY-9, staggered by priority | `calendar.google.com` (flygaca@gmail.com) |
 
 The master paperwork-index Google Sheet is locked from AI access ("ineligible for generative
 AI contexts"), so it could not be auto-reconciled; FLY-9 carries the CSV for a manual paste.
+A Confluence mirror was requested but **skipped**: the connected Atlassian site
+(`flygaca.atlassian.net`) exposes Jira only — no Confluence product/scope — so the Notion page
+above remains the canonical non-git mirror.
+
+### Department-health diagram (Mermaid)
+
+A copy of the Lucid scorecard, embedded here so the visual lives in git:
+
+```mermaid
+graph TD
+  T["The-Office Repo Health 2026-06-16<br/>12 departments · 247 files"]
+  T --> S["Strong (md-deep)<br/>00-strategy · 02-legal · 06-operations-it · 08-customer-success"]
+  T --> G["Good<br/>01-governance · 11-brand"]
+  T --> M["Medium<br/>05-people · 07-gtm · 10-academy-curriculum"]
+  T --> P["GAP — scaffolded this pass"]
+  P --> F3["03-finance (md 1) → FLY-6"]
+  P --> F4["04-compliance-ksa (md 0, KSA-regulated) → FLY-5"]
+  P --> F9["09-investor-relations (md 0) → FLY-7"]
+```
