@@ -124,3 +124,18 @@ All files in The-Office use **lowercase kebab-case, ASCII only**:
 
 Examples: `Annual Strategic Plan & OKRs (FY2026-2027).docx` → `annual-strategic-plan-and-okrs-fy2026-2027.docx`;
 `SPEC-crm.md` → `spec-crm.md`; `00 Brainstorms — Index.docx` → `00-brainstorms-index.docx`.
+
+## 7. External mirrors & tracking
+
+This report is canonical in git. For visibility it is mirrored to connected apps, and the
+owner follow-ups (§4, X-rows) are tracked as Linear issues:
+
+| Where | What | Link |
+|---|---|---|
+| Notion | Readable mirror of this report | `app.notion.com/p/38228777bb7b81a89604f12382d15abd` |
+| Google Drive | Filename reconciliation CSV (204 old→new pairs) | `drive.google.com/file/d/1VLQd71DoZ5SdvJjEdHJba5DBycyF0hTo` |
+| Repo | Same CSV, committed | `../drive-index-updates.csv` |
+| Linear (Flygaca) | FLY-5 compliance · FLY-6 finance · FLY-7 investor · FLY-8 stale-status · FLY-9 reconciliation | `linear.app/flygaca` |
+
+The master paperwork-index Google Sheet is locked from AI access ("ineligible for generative
+AI contexts"), so it could not be auto-reconciled; FLY-9 carries the CSV for a manual paste.
