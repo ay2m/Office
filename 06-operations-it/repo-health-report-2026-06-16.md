@@ -139,6 +139,16 @@ owner follow-ups (§4, X-rows) are tracked as Linear issues:
 | Airtable | Base "The-Office Repo Health" — **Actions** (12 rows, this §4 tracker) + **Renames** (204 old→new pairs) | `airtable.com/appuQmMO0TK5o4RAZ` |
 | Lucid | Department-health scorecard diagram (doc-depth + FLY-5/6/7 gap callouts) | `lucid.app/lucidchart/696634c6-1850-4a11-a5dd-03a4f34c474e/view` |
 | Google Calendar | 5 reminders (Asia/Riyadh) for FLY-5…FLY-9, staggered by priority | `calendar.google.com` (flygaca@gmail.com) |
+| Jira (flygaca) | FLY-5…FLY-9 mirrored as tasks KAN-4…KAN-8 in the KAN project | `flygaca.atlassian.net/browse/KAN-4` |
+| Canva | One-page branded "Repository Health" report summary (4 pages, editable) | `canva.com/d/Hu3E3N-TmO1VSuT` |
+
+**Apps evaluated for wiring but intentionally not connected** (honest record):
+- **Cloudflare / Vercel / Netlify** — publishing this repo (which holds legal, finance, compliance
+  and investor documents) to a hosting provider would expose internal material; **not** auto-deployed.
+- **Semrush** — the connected plan does not include MCP/API access (`semrush.com/mcp-access`).
+- **HubSpot** — connected, but it models customers/deals, not repo artifacts; no clean fit.
+- **Zoom / Amplitude** — connected but empty (no recordings / no product events) — nothing to mirror.
+- **Confluence / Slack** — not available on the connected accounts (Jira-only Atlassian; no Slack link).
 
 The master paperwork-index Google Sheet is locked from AI access ("ineligible for generative
 AI contexts"), so it could not be auto-reconciled; FLY-9 carries the CSV for a manual paste.
