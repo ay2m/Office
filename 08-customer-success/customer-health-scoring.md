@@ -44,4 +44,4 @@ notifies the assigned CSM and enters the relevant playbook.
 
 - [Health Dashboard Spec](health-dashboard-spec.md)
 - [At-Risk Playbook](at-risk-playbook.md)
-- [Customer Success overview](../CUSTOMER_SUCCESS.md)
+- [Customer Success overview](../customer-success.md)

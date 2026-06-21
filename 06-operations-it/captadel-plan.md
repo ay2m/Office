@@ -1,6 +1,6 @@
 # Captain Adel — Execution Plan
 
-A working plan derived from `captadel/ROADMAP.md`. Four sections:
+A working plan derived from `captadel/roadmap.md`. Four sections:
 
 1. Critique & reprioritization of the roadmap
 2. Sequenced "Now" execution plan (~6 weeks)
