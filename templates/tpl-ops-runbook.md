@@ -90,15 +90,15 @@ tags: [operations, runbook, procedure]
 
 ### Phase 2: Execution
 4. **Initiate Procedure**: 
-   - [ ] Execute command: `[JetBrains Mono]/scripts/pre-check.sh`
-   - [ ] Validate output: `[JetBrains Mono] EXPECTED: "ALL CLEAR"`
+   - [ ] Execute command: `/scripts/pre-check.sh`
+   - [ ] Validate output: `EXPECTED: "ALL CLEAR"`
    - [ ] Proceed only if pre-check passes
    - **Expected Outcome**: System ready for changes
    - **Falcon Green Checkpoint**: [Pre-check script output]
 
 5. **Primary Action Steps**:
    - [ ] Step 5.1: [Specific action with system/path]
-     - Command: `[JetBrains Mono]specific-command --flag --value`
+     - Command: `specific-command --flag --value`
      - Verification: [How to confirm step completed]
      - **Falcon Orange Warning**: [If applicable - what to watch for]
    
@@ -183,7 +183,7 @@ tags: [operations, runbook, procedure]
 
 ### Rollback Steps
 1. **Initiate Rollback**: 
-   - [ ] Execute: `[JetBrains Mono]/scripts/rollback.sh [backup-timestamp]`
+   - [ ] Execute: `/scripts/rollback.sh [backup-timestamp]`
    - [ ] Verify rollback initiation confirmation
    - **Expected Outcome**: Rollback process started
 
