@@ -83,6 +83,10 @@ HR templates, policies, and operating rhythm.
 ## 06 — Operations / IT  _(renamed from 06-product-eng)_
 Digital office setup **plus** product/engineering specs, runbooks, and infra notes.
 
+> The specs and runbooks here document the product/engineering work; the actual
+> **code** — the `cloudflare-agents/` Workers project (Captain Adel + sales agents)
+> — lives in the workspace sibling `../Product-Engineering/`, not in this repo.
+
 - Office setup (01–08, .docx/.xlsx): 01-digital-office-setup-master-checklist ·
   02-tooling-stack-selection-guide · 03-drive-folder-structure · 04-email-aliases-map ·
   05-slack-workspace-blueprint · 06-hubspot-crm-configuration-guide · 07-calendar-and-operating-rhythm ·
@@ -151,3 +155,9 @@ Visual identity, design system, and print assets.
 
 ## templates/
 Reusable document starters: tpl-fin-report · tpl-hr-policy · tpl-legal-memo · tpl-ops-runbook · tpl-strat-proposal (.md)
+
+## ar/
+Parallel **Arabic (Saudi MSA)** localization of the office — 101 files mirroring the
+same 00–11 sections plus `templates/`. Has its own `ar/_INDEX.md` (Arabic master
+map), `ar/_GLOSSARY.md` (EN↔AR term glossary), and `ar/README.md`. Keep the English
+tree here and the Arabic tree in `ar/` in sync when documents change.
