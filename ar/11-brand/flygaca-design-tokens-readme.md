@@ -1,0 +1,52 @@
+---
+title: فلاي قاكا (Fly GACA) — رموز التصميم (استيراد Tokens Studio)
+section: 11-brand
+doc_type: readme
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
+# فلاي قاكا (Fly GACA) — رموز التصميم (استيراد Tokens Studio)
+
+مُستخرَجة من `flygaca/assets/css/tokens.css` + `base.css`. استورِدها إلى Figma باستخدام إضافة **Tokens Studio** (مجانية) — دون أيّ قيود على Figma MCP.
+
+## ما الذي يتضمنه الملف
+
+`flygaca-design-tokens.json` — 130 رمزًا عبر 8 مجموعات:
+
+| المجموعة | الرموز | ملاحظات |
+|-----|--------|-------|
+| `primitives` | لوحة الصقر، amber، الحالة، ink (نص داكن)، paper (محايدات فاتحة) | قيم خام؛ مُشار إليها، غير مُنسَّقة بثيم |
+| `spacing` | `space.1`–`space.16` | أساس 4px، بوحدة px |
+| `radius` | sm/md/lg/xl/pill | |
+| `typography` | الخط، الوزن، الحجم، ارتفاع السطر، التتبّع | الأحجام هي الحدّ الأعلى لسطح المكتب من مقياس `clamp()` في CSS |
+| `text` | display، h1–h3، lead، body، small، eyebrow، mono-label | أنماط طباعة مركّبة → تصبح أنماط نص في Figma |
+| `shadow` | sm، card، pop، amber، amber-strong | → أنماط تأثير في Figma |
+| `color-dark` | مجموعة دلالية كاملة | مُستخرَجة من الكود (داكن أولًا) |
+| `color-light` | مجموعة دلالية كاملة | ثيم فاتح **مؤلَّف حديثًا** |
+
+عُرِّف ثيمان — **داكن** و**فاتح** — ضمن مجموعة `mode`. ويُفعِّل كلٌّ منهما مجموعة ألوانه الخاصة ويتشارك مجموعات primitives، والمقياس، والطباعة، والظلال.
+
+## كيفية الاستيراد
+
+1. في Figma، ثبِّت **Tokens Studio for Figma** (Plugins ← find more ← "Tokens Studio").
+2. افتحها ← **Settings ← استخدم "Single file"**، أو ببساطة **Tools ← Import ← Import from file** واختر `flygaca-design-tokens.json`.
+3. تُحمِّل Tokens Studio جميع المجموعات الثماني وكلا الثيمين.
+4. افتح قائمة **Themes** المنسدلة ← لكل ثيم (داكن، فاتح) اضغط **Export to Figma** (أو "Create variables"). يُولِّد ذلك مجموعات متغيرات Figma حقيقية + أوضاعًا، إضافةً إلى أنماط النص والتأثير.
+5. حقول `$figmaCollectionId` / `$figmaModeId` تُترَك فارغة (null) عمدًا — تملؤها Tokens Studio عند أول تصدير بحيث تُحدِّث عمليات إعادة الاستيراد في مكانها بدلًا من التكرار.
+
+بعد التصدير ستحصل على متغيرات Figma أصلية (مع وضعَي فاتح/داكن في مجموعة الألوان)، وأنماط نص، وأنماط تأثير — وهي تحديدًا أساس المرحلة الأولى، لكن أنشأته الإضافة بدلًا من MCP.
+
+## القرارات المضمّنة (من مرحلة الاستكشاف)
+
+- **زر الحثّ على الإجراء الأساسي (CTA) = amber `#FFB020`** (`color.primary`)، وتعبئة العلامة = teal (`color.brand`). يطابق هذا `.btn-primary` المباشر، وهو amber رغم أن `--brand` هو teal.
+- **الوضع الفاتح جديد كليًّا.** الكود داكن فقط؛ ومجموعة `color-light` هي ثيم فاتح مؤلَّف يستخدم اللوحة ذاتها. تستخدم قيم `link`/`accent`/`danger-text` الفاتحة قيمًا أوّلية أغمق (`teal-deep`، `sage-deep`، `danger-deep`) مضافة لأجل تباين WCAG على الأبيض.
+- **القيم خارج اللوحة مدموجة** كقيم أوّلية: `palette.amber`، `palette.amber-bright`، `palette.amber-ink` (`#0A0E14`).
+
+## استئناف بناء Figma الأصلي
+
+عندما يُرفَع حدّ خطة Figma (أو عند الترقية)، يمكنني استئناف بناء MCP الأصلي — مكوّنات بمتغيرات وروابط متغيرات (Button، Field، Card، Chip، Nav، Footer) — باستخدام الحالة المحفوظة. يستهدف ملف JSON للرموز هذا وذلك البناء الملف نفسه، فهما متوافقان.
+
+— مرجع تعليمي مستقل. غير تابع للهيئة العامة للطيران المدني (GACA).
