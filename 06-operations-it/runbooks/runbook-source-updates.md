@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Source-update runbook
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # Fly GACA — Source-update runbook
 
 How Fly GACA keeps the **GACAR**, the **AIP** and the rest of the GACA corpus in

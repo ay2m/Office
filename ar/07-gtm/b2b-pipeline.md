@@ -1,3 +1,13 @@
+---
+title: دليل مسار B2B — فلاي قاكا للمدارس
+section: 07-gtm
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: ar
+---
+
 # دليل مسار B2B — فلاي قاكا للمدارس
 
 > النظير التشغيلي للاستراتيجية في [`03-finance/monetization.md`](../03-finance/monetization.md). المدارس هي

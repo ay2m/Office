@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Legal Gap Audit
+section: 02-legal
+doc_type: audit
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: en
+---
+
 # Fly GACA — Legal Gap Audit
 **Date:** 2026-06-14  
 **Prepared by:** Claude (AI assistant) — for founder review and Saudi-licensed legal counsel sign-off  

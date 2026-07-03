@@ -1,3 +1,13 @@
+---
+title: "RUNBOOK — Captain Adel SaaS (accounts, billing & quota on captadel.com)"
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # RUNBOOK — Captain Adel SaaS (accounts, billing & quota on captadel.com)
 
 > **Note (2026-06-13):** Captain Adel now lives in its own repo,

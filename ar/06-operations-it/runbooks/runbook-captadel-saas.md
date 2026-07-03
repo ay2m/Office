@@ -1,3 +1,13 @@
+---
+title: دليل تشغيل — الكابتن عادل SaaS (الحسابات والفوترة والحصص على captadel.com)
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # دليل تشغيل — الكابتن عادل SaaS (الحسابات والفوترة والحصص على captadel.com)
 
 > **ملاحظة (2026-06-13):** أصبح الكابتن عادل الآن في مستودعه الخاص،

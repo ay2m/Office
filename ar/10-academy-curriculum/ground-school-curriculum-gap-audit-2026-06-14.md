@@ -1,3 +1,13 @@
+---
+title: فلاي قاكا (Fly GACA) — تدقيق فجوات منهج المدرسة الأرضية
+section: 10-academy-curriculum
+doc_type: audit
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: ar
+---
+
 # فلاي قاكا (Fly GACA) — تدقيق فجوات منهج المدرسة الأرضية
 **التاريخ:** 2026-06-14  
 **النطاق:** منهج المعرفة النظرية لرخصة طيار خاص (مواءمة لوائح الطيران المدني السعودي (GACAR) / ملحق ICAO رقم 1)  

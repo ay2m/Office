@@ -1,3 +1,13 @@
+---
+title: Code of Conduct
+section: 01-governance
+doc_type: policy
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Code of Conduct
 
 ## Our pledge

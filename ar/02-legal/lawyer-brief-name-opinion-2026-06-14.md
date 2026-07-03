@@ -1,3 +1,13 @@
+---
+title: "موجز للمحامي — رأي بشأن اسم \"Fly GACA\" والعلامة التجارية"
+section: 02-legal
+doc_type: brief
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: ar
+---
+
 # موجز للمحامي — رأي بشأن اسم "Fly GACA" والعلامة التجارية
 **الوثيقة:** lawyer-brief-name-opinion-2026-06-14.md
 **الإصدار:** 1.0 — 2026-06-14

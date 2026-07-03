@@ -1,3 +1,13 @@
+---
+title: Renewal Management Playbook
+section: 08-customer-success
+doc_type: playbook
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # Renewal Management Playbook
 
 ## Purpose

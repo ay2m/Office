@@ -1,3 +1,13 @@
+---
+title: The-Office — تقرير صحة المستودع
+section: 06-operations-it
+doc_type: report
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: ar
+---
+
 # The-Office — تقرير صحة المستودع
 
 _الحالة: حالي · آخر تحديث: 2026-06-16 · المالك: ops_

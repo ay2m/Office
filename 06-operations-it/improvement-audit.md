@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Continuous Improvement Audit
+section: 06-operations-it
+doc_type: audit
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Fly GACA — Continuous Improvement Audit
 
 _Date: 2026-06-09 · Scope: Technical Code & Architecture, UI/UX & Web Design, Written

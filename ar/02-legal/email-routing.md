@@ -1,3 +1,13 @@
+---
+title: توجيه البريد الإلكتروني — فلاي قاكا (Fly GACA)
+section: 02-legal
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # توجيه البريد الإلكتروني — فلاي قاكا (Fly GACA)
 
 كيفية تعيين عناوين `@flygaca.com` العامة على صناديق بريد حقيقية.

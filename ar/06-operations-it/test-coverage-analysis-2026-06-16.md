@@ -1,3 +1,13 @@
+---
+title: تحليل تغطية الاختبارات — 2026-06-16
+section: 06-operations-it
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: ar
+---
+
 # تحليل تغطية الاختبارات — 2026-06-16
 
 > ملاحظة نطاق: **The-Office مستودع توثيق/مواصفات، لا مستودع شيفرة.**

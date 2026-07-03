@@ -1,3 +1,13 @@
+---
+title: Voice of Customer (VoC) Program
+section: 08-customer-success
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # Voice of Customer (VoC) Program
 
 ## Purpose

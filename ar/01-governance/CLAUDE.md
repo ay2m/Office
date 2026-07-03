@@ -1,3 +1,13 @@
+---
+title: CLAUDE.md
+section: 01-governance
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: ar
+---
+
 # CLAUDE.md
 
 > **نسخة منقولة** — هذا الملف هو إرشادات Claude الخاصة بمستودع التطبيق (`FlyGACA/flygaca`)،

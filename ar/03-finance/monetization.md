@@ -1,3 +1,13 @@
+---
+title: فلاي قاكا (Fly GACA) — استراتيجية تحقيق الدخل
+section: 03-finance
+doc_type: strategy
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # فلاي قاكا (Fly GACA) — استراتيجية تحقيق الدخل
 
 > الحالة: **مُعتمَدة في يونيو 2026.** هذه الوثيقة هي مصدر الحقيقة الوحيد للتسعير وخطة الإيرادات.

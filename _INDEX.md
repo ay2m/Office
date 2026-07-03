@@ -1,3 +1,13 @@
+---
+title: The Office — Master Index
+section: root
+doc_type: index
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # The Office — Master Index
 
 _Fly GACA operating documents. Last reorganized: 2026-06-16._

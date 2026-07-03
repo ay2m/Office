@@ -1,3 +1,13 @@
+---
+title: "فلاي قاكا (Fly GACA) — النفاذ إلى السوق: مدارس الطيران (B2B-أولًا)"
+section: 07-gtm
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # فلاي قاكا (Fly GACA) — النفاذ إلى السوق: مدارس الطيران (B2B-أولًا)
 
 **الحالة:** خطة، لم تُبنَ بعد · **تنطبق على:** `roadmap.md` المرحلة 5، `office/spec-instructor-dashboard.md`

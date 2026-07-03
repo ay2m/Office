@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Board Pack
+section: 01-governance
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # Fly GACA — Board Pack
 
 **Pre-Meeting Circulation · Strategic & Governance · July 2026**

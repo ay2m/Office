@@ -1,3 +1,13 @@
+---
+title: Runbook — Deploy Captain Adel (the RAG Cloud Function)
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Runbook — Deploy Captain Adel (the RAG Cloud Function)
 
 Captain Adel's chat UI (`chat.html`) is built and live. This runbook connects the

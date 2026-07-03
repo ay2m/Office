@@ -1,3 +1,13 @@
+---
+title: فلاي قاكا (Fly GACA) — موجز الاسم القابل للدفاع والحجية
+section: 02-legal
+doc_type: brief
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # فلاي قاكا (Fly GACA) — موجز الاسم القابل للدفاع والحجية
 
 **الحالة:** مُدخل قرار، وليس قراراً · **يرتبط بـ:** `phase0.md` P0-2، و`office/lawyer-brief.md`،

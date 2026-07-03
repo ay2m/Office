@@ -1,3 +1,13 @@
+---
+title: RUNBOOK — Fly GACA iOS app (Capacitor + Pro subscription)
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # RUNBOOK — Fly GACA iOS app (Capacitor + Pro subscription)
 
 The iOS app wraps the existing web PWA in a Capacitor shell and sells **Fly GACA

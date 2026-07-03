@@ -1,3 +1,13 @@
+---
+title: Fly GACA — موجز الاستئناف (حديث اعتبارًا من 23 مايو 2026)
+section: 06-operations-it
+doc_type: brief
+status: active
+owner: Founder
+last_updated: 2026-05-23
+lang: ar
+---
+
 # Fly GACA — موجز الاستئناف (حديث اعتبارًا من 23 مايو 2026)
 
 **كيفية استخدام هذا الملف.** الصق كل ما داخل كتلة الشيفرة أدناه في محادثة Claude

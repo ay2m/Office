@@ -1,3 +1,13 @@
+---
+title: طلب المستخدم الأصلي
+section: 00-strategy
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # طلب المستخدم الأصلي
 
 ## الطلب المبدئي — 2026-06-06T11:27:26Z

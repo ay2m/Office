@@ -1,3 +1,13 @@
+---
+title: AGENTS.md — Fly GACA
+section: 06-operations-it
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # AGENTS.md — Fly GACA
 
 > **كيفية استخدام هذا الملف.** ضعه في جذر مستودع `flygaca`. تقرأ Google

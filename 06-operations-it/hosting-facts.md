@@ -1,3 +1,13 @@
+---
+title: "Hosting facts (PDPL boundary, regions, domains)"
+section: 06-operations-it
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Hosting facts (PDPL boundary, regions, domains)
 
 Single-page reference for hosting decisions confirmed in PHASE0 / resume-briefing

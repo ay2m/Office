@@ -1,3 +1,13 @@
+---
+title: "Fly GACA — Leave & PTO Policy"
+section: 05-people
+doc_type: policy
+status: active
+owner: Founder / HR
+last_updated: 2026-06-14
+lang: en
+---
+
 # Fly GACA — Leave & PTO Policy
 **سياسة الإجازات وأيام العطلة المدفوعة — فلاي قاكا**
 

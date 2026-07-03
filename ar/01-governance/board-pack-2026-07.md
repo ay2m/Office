@@ -1,3 +1,13 @@
+---
+title: فلاي قاكا (Fly GACA) — حزمة المجلس
+section: 01-governance
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: ar
+---
+
 # فلاي قاكا (Fly GACA) — حزمة المجلس
 
 **تعميم ما قبل الاجتماع · الاستراتيجية والحوكمة · يوليو 2026**

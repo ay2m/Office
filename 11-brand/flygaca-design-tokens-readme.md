@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Design Tokens (Tokens Studio import)
+section: 11-brand
+doc_type: readme
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Fly GACA — Design Tokens (Tokens Studio import)
 
 Extracted from `flygaca/assets/css/tokens.css` + `base.css`. Import into Figma with the **Tokens Studio** plugin (free) — no Figma MCP limits involved.

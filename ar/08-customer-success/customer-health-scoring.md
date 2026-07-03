@@ -1,3 +1,13 @@
+---
+title: نموذج تسجيل درجة صحة العميل
+section: 08-customer-success
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # نموذج تسجيل درجة صحة العميل
 
 ## الغرض

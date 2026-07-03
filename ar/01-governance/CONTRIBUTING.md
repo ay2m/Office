@@ -1,3 +1,13 @@
+---
+title: المساهمة في Fly GACA
+section: 01-governance
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: ar
+---
+
 # المساهمة في Fly GACA
 
 > **نسخة منقولة** — هذا الملف هو دليل المساهمة الخاص بمستودع التطبيق (`FlyGACA/flygaca`)،

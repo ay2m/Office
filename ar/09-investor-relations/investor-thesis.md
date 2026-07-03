@@ -1,3 +1,13 @@
+---
+title: أطروحة المستثمر
+section: 09-investor-relations
+doc_type: strategy
+status: active
+owner: Founder
+last_updated: 2026-06-20
+lang: ar
+---
+
 # أطروحة المستثمر
 
 _الحالة: هيكل مبدئي (بحاجة لإدخال المالك) · أُنشئ: 2026-06-16 · المالك: TODO_

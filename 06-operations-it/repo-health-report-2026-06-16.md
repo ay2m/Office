@@ -1,3 +1,13 @@
+---
+title: The-Office — Repository Health Report
+section: 06-operations-it
+doc_type: report
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # The-Office — Repository Health Report
 
 _Status: current · Last updated: 2026-06-16 · Owner: ops_

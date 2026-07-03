@@ -1,3 +1,13 @@
+---
+title: E2E Test Suite Ready
+section: 06-operations-it
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # E2E Test Suite Ready
 
 ## Test Runner

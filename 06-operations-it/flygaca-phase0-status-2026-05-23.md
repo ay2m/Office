@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Phase 0 Status Report
+section: 06-operations-it
+doc_type: report
+status: active
+owner: Captain Adel Al-Subaie
+last_updated: 2026-05-23
+lang: en
+---
+
 # Fly GACA — Phase 0 Status Report
 
 **Date:** 23 May 2026

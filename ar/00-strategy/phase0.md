@@ -1,3 +1,13 @@
+---
+title: "Fly GACA — متعقّب المرحلة 0: الأسس"
+section: 00-strategy
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # Fly GACA — متعقّب المرحلة 0: الأسس
 
 ترسي المرحلة 0 الأساس القانوني والمؤسسي والتقني لمشروع Fly GACA. ولا يجوز بدء المراحل اللاحقة

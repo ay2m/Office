@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Disclaimer and Educational Use Notice
+section: 02-legal
+doc_type: legal
+status: draft
+owner: Founder
+last_updated: 2026-06-14
+lang: en
+---
+
 # Fly GACA — Disclaimer and Educational Use Notice
 **Document:** disclaimer-and-educational-use-notice-draft-2026-06-14.md
 **Version:** Draft 1.0 — 2026-06-14

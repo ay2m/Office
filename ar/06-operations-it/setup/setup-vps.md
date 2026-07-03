@@ -1,3 +1,13 @@
+---
+title: P0-6 دليل تنفيذي — إعداد الخادم الافتراضي الخاص (VPS) بوصفه جهاز خط المعالجة
+section: 06-operations-it
+doc_type: setup-guide
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # P0-6 دليل تنفيذي — إعداد الخادم الافتراضي الخاص (VPS) بوصفه جهاز خط المعالجة
 
 **الهدف:** إعداد خادم Hostinger KVM VPS (أوروبا — ألمانيا أو فرنسا) ليكون جهاز ابتلاع

@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Cookie and Tracking Notice
+section: 02-legal
+doc_type: legal
+status: draft
+owner: Founder
+last_updated: 2026-06-14
+lang: en
+---
+
 # Fly GACA — Cookie and Tracking Notice
 **Document:** cookie-and-tracking-notice-draft-2026-06-14.md
 **Version:** Draft 1.0 — 2026-06-14

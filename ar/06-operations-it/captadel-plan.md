@@ -1,3 +1,13 @@
+---
+title: الكابتن عادل — خطة التنفيذ
+section: 06-operations-it
+doc_type: plan
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # الكابتن عادل — خطة التنفيذ
 
 خطة عمل مشتقّة من `captadel/roadmap.md`. أربعة أقسام:

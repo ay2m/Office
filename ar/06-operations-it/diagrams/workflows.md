@@ -1,3 +1,13 @@
+---
+title: Fly GACA — توثيق سير العمليات
+section: 06-operations-it
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # Fly GACA — توثيق سير العمليات
 
 **الموقع:** `06-product-eng/diagrams/`

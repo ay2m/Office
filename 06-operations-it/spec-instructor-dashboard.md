@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Instructor Dashboard — Design Spec
+section: 06-operations-it
+doc_type: spec
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Fly GACA — Instructor Dashboard — Design Spec
 
 **Status:** design, not built · **Maps to:** action plan §5.2, `roadmap.md` Phase 5

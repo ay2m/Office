@@ -1,3 +1,13 @@
+---
+title: دليل تشغيل — تطبيق Fly GACA على iOS (Capacitor + اشتراك Pro)
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: ar
+---
+
 # دليل تشغيل — تطبيق Fly GACA على iOS (Capacitor + اشتراك Pro)
 
 يغلّف تطبيق iOS تطبيق الويب التقدمي القائم (PWA) داخل غلاف Capacitor ويبيع **Fly GACA

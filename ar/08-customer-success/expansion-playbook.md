@@ -1,3 +1,13 @@
+---
+title: الدليل الإجرائي للتوسّع / البيع الترقّوي
+section: 08-customer-success
+doc_type: playbook
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # الدليل الإجرائي للتوسّع / البيع الترقّوي
 
 ## الغرض

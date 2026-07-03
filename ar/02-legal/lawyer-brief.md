@@ -1,3 +1,13 @@
+---
+title: موجز لمحامٍ سعودي مختص بالملكية الفكرية — فلاي قاكا (Fly GACA) (P0-1 و P0-2)
+section: 02-legal
+doc_type: brief
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # موجز لمحامٍ سعودي مختص بالملكية الفكرية — فلاي قاكا (Fly GACA) (P0-1 و P0-2)
 
 **أعدّه:** الكابتن عادل الصبيعي — المؤسس، فلاي قاكا

@@ -1,3 +1,13 @@
+---
+title: Quarterly Business Review (QBR) Template
+section: 08-customer-success
+doc_type: template
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # Quarterly Business Review (QBR) Template
 
 ## Purpose

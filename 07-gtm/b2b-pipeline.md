@@ -1,3 +1,13 @@
+---
+title: B2B Pipeline Playbook — Fly GACA for Schools
+section: 07-gtm
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # B2B Pipeline Playbook — Fly GACA for Schools
 
 > The operational counterpart to the strategy in

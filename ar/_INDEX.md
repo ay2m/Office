@@ -1,3 +1,13 @@
+---
+title: المكتب — الفهرس الرئيسي
+section: root
+doc_type: index
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: ar
+---
+
 # المكتب — الفهرس الرئيسي
 
 _وثائق تشغيل فلاي قاكا (Fly GACA). آخر إعادة تنظيم: 2026-06-16._

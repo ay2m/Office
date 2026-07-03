@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Competitive Teardown (Red-Team)
+section: 07-gtm
+doc_type: strategy
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Fly GACA — Competitive Teardown (Red-Team)
 
 **Status:** strategy, not a build task · **Prepared:** 2026-05-30

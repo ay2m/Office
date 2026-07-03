@@ -1,3 +1,13 @@
+---
+title: Fly GACA — CEO Execution Roadmap (Go-to-Company)
+section: 00-strategy
+doc_type: plan
+status: active
+owner: You (solo)
+last_updated: 2026-07-03
+lang: en
+---
+
 # Fly GACA — CEO Execution Roadmap (Go-to-Company)
 
 > **Purpose.** The product roadmap (`roadmap.md`) is done — 11 phases built and deployed.

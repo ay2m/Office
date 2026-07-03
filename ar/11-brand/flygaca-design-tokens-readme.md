@@ -1,3 +1,13 @@
+---
+title: فلاي قاكا (Fly GACA) — رموز التصميم (استيراد Tokens Studio)
+section: 11-brand
+doc_type: readme
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # فلاي قاكا (Fly GACA) — رموز التصميم (استيراد Tokens Studio)
 
 مُستخرَجة من `flygaca/assets/css/tokens.css` + `base.css`. استورِدها إلى Figma باستخدام إضافة **Tokens Studio** (مجانية) — دون أيّ قيود على Figma MCP.

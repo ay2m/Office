@@ -1,3 +1,13 @@
+---
+title: موجز المحامي — مسألة حقوق متن الهيئة العامة للطيران المدني
+section: 02-legal
+doc_type: brief
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: ar
+---
+
 # موجز المحامي — مسألة حقوق متن الهيئة العامة للطيران المدني
 **الوثيقة:** lawyer-brief-corpus-rights-2026-06-14.md
 **الإصدار:** 1.0 — 2026-06-14

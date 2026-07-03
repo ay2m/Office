@@ -1,3 +1,13 @@
+---
+title: Contributing to Fly GACA
+section: 01-governance
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # Contributing to Fly GACA
 
 > **Vendored copy** — this is the application repo's (`FlyGACA/flygaca`) contributing guide,

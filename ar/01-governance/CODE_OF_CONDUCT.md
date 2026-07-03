@@ -1,3 +1,13 @@
+---
+title: مدونة السلوك
+section: 01-governance
+doc_type: policy
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # مدونة السلوك
 
 ## تعهّدنا

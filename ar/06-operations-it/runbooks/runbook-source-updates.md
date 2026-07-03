@@ -1,3 +1,13 @@
+---
+title: Fly GACA — دليل تشغيل تحديثات المصادر
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # Fly GACA — دليل تشغيل تحديثات المصادر
 
 كيف تُبقي فلاي قاكا **GACAR** و**AIP** وبقية متن الهيئة العامة للطيران المدني

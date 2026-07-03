@@ -1,3 +1,13 @@
+---
+title: فلاي قاكا (Fly GACA) — مسار الدراسة الذاتية للأفراد (B2C)
+section: 10-academy-curriculum
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: ar
+---
+
 # فلاي قاكا (Fly GACA) — مسار الدراسة الذاتية للأفراد (B2C)
 ## دليلك الشخصي للتحضير لرخصة الطيار الخاص السعودية (وما بعدها)
 

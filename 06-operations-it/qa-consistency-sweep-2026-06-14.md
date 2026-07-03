@@ -1,3 +1,13 @@
+---
+title: QA Consistency Sweep — 2026-06-14
+section: 06-operations-it
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: en
+---
+
 # QA Consistency Sweep — 2026-06-14
 
 **Scope:** Issue A (GCP region labelling) and Issue B (corpus-count conflicts) across the full project tree, excluding `node_modules/` and `.git/`. Git worktrees under `flygaca/.claude/worktrees/` are inventoried but treated as non-canonical (they mirror the main repo at older points and are not independently edited).

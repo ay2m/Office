@@ -1,3 +1,13 @@
+---
+title: Runbook — Launch Fly GACA
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Runbook — Launch Fly GACA
 
 Everything built this far is verified locally. This runbook takes it live. The

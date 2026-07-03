@@ -1,3 +1,13 @@
+---
+title: Lawyer Brief — GACA Corpus Rights Question
+section: 02-legal
+doc_type: brief
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: en
+---
+
 # Lawyer Brief — GACA Corpus Rights Question
 **Document:** lawyer-brief-corpus-rights-2026-06-14.md
 **Version:** 1.0 — 2026-06-14

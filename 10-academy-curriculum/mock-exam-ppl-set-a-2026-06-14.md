@@ -1,3 +1,13 @@
+---
+title: Fly GACA — PPL Mock Exam · Set A
+section: 10-academy-curriculum
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: en
+---
+
 # Fly GACA — PPL Mock Exam · Set A
 **Date:** 2026-06-14  
 **Level:** Private Pilot Licence (PPL) — theoretical knowledge  

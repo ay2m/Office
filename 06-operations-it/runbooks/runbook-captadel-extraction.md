@@ -1,3 +1,13 @@
+---
+title: "Runbook — Promote Captain Adel to its own repo (`FlyGACA/captadel`)"
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Runbook — Promote Captain Adel to its own repo (`FlyGACA/captadel`)
 
 > **STATUS — DONE (2026-06-13).** Captain Adel was split out to

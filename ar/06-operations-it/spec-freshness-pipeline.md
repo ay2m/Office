@@ -1,3 +1,13 @@
+---
+title: Fly GACA — خط معالجة حداثة المدوّنة — مواصفة التصميم
+section: 06-operations-it
+doc_type: spec
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # Fly GACA — خط معالجة حداثة المدوّنة — مواصفة التصميم
 
 **الحالة:** تصميم، غير مبنيّ بعد · **يرتبط بـ:** البنود الشاملة في `roadmap.md` (حداثة AIP/AIRAC)،

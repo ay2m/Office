@@ -1,3 +1,13 @@
+---
+title: Fly GACA — keyword prospecting brief
+section: 07-gtm
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Fly GACA — keyword prospecting brief
 
 A starting seed list of the words and phrases people use when looking for what Fly

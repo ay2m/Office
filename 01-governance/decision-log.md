@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Decision Log
+section: 01-governance
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # Fly GACA — Decision Log
 
 > Live decision log. Continues the series from `decision-log-template.docx`

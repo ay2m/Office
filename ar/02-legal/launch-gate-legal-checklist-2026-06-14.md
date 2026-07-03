@@ -1,3 +1,13 @@
+---
+title: فلاي قاكا (Fly GACA) — قائمة التحقق القانونية لبوابة الإطلاق
+section: 02-legal
+doc_type: checklist
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: ar
+---
+
 # فلاي قاكا (Fly GACA) — قائمة التحقق القانونية لبوابة الإطلاق
 **الوثيقة:** launch-gate-legal-checklist-2026-06-14.md
 **الإصدار:** 1.0 — 2026-06-14

@@ -1,3 +1,13 @@
+---
+title: P0-3 دليل تنفيذي — تسجيل الكيان القانوني
+section: 06-operations-it
+doc_type: setup-guide
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # P0-3 دليل تنفيذي — تسجيل الكيان القانوني
 
 **الهدف:** تأسيس الكيان القانوني المالك لـ Fly GACA، بحيث يتمكّن من امتلاك النطاق وحساب

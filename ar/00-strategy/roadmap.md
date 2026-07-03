@@ -1,3 +1,13 @@
+---
+title: Fly GACA — خارطة طريق المشروع
+section: 00-strategy
+doc_type: plan
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # Fly GACA — خارطة طريق المشروع
 
 الخطة الرئيسية من نهاية المرحلة 0 وصولًا إلى منتج جاهز للإطلاق، عبر المراحل الإحدى عشرة كاملةً.

@@ -1,3 +1,13 @@
+---
+title: فلاي قاكا (Fly GACA) — إشعار ملفات الارتباط والتتبع
+section: 02-legal
+doc_type: legal
+status: draft
+owner: Founder
+last_updated: 2026-06-14
+lang: ar
+---
+
 # فلاي قاكا (Fly GACA) — إشعار ملفات الارتباط والتتبع
 **الوثيقة:** cookie-and-tracking-notice-draft-2026-06-14.md
 **الإصدار:** Draft 1.0 — 2026-06-14

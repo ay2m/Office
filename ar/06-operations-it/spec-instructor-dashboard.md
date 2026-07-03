@@ -1,3 +1,13 @@
+---
+title: Fly GACA — لوحة المدرّب — مواصفة التصميم
+section: 06-operations-it
+doc_type: spec
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # Fly GACA — لوحة المدرّب — مواصفة التصميم
 
 **الحالة:** تصميم، غير مبنيّ بعد · **يرتبط بـ:** خطة العمل §5.2، `roadmap.md` المرحلة الخامسة

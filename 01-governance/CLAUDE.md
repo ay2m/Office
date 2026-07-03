@@ -1,3 +1,13 @@
+---
+title: CLAUDE.md
+section: 01-governance
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # CLAUDE.md
 
 > **Vendored copy** — this is the application repo's (`FlyGACA/flygaca`) Claude guidance, kept

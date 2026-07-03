@@ -1,3 +1,13 @@
+---
+title: فلاي قاكا (Fly GACA) — إجراء الإشعار باختراق البيانات الشخصية بموجب PDPL
+section: 02-legal
+doc_type: legal
+status: draft
+owner: Founder
+last_updated: 2026-06-14
+lang: ar
+---
+
 # فلاي قاكا (Fly GACA) — إجراء الإشعار باختراق البيانات الشخصية بموجب PDPL
 **الوثيقة:** pdpl-breach-notification-procedure-draft-2026-06-14.md
 **الإصدار:** مسودة 1.0 — 2026-06-14

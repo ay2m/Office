@@ -1,3 +1,13 @@
+---
+title: KSA Compliance Roadmap
+section: 04-compliance-ksa
+doc_type: plan
+status: scaffold
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # KSA Compliance Roadmap
 
 _Status: scaffold (needs owner input) · Created: 2026-06-16 · Owner: TODO_

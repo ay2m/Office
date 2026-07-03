@@ -1,3 +1,13 @@
+---
+title: دليل تشغيل — الاستضافة على Cloudflare
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # دليل تشغيل — الاستضافة على Cloudflare
 
 استضافة الإنتاج لـ `flygaca.com` هي **Cloudflare Worker** تخدم الموقع

@@ -1,3 +1,13 @@
+---
+title: فلاي قاكا (Fly GACA) — الاختبار التجريبي لرخصة طيار خاص · المجموعة A
+section: 10-academy-curriculum
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: ar
+---
+
 # فلاي قاكا (Fly GACA) — الاختبار التجريبي لرخصة طيار خاص · المجموعة A
 **التاريخ:** 2026-06-14  
 **المستوى:** رخصة طيار خاص (PPL) — المعرفة النظرية  

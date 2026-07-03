@@ -1,3 +1,13 @@
+---
+title: قالب مراجعة الأعمال الفصلية (QBR)
+section: 08-customer-success
+doc_type: template
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # قالب مراجعة الأعمال الفصلية (QBR)
 
 ## الغرض

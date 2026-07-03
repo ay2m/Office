@@ -1,3 +1,13 @@
+---
+title: استراتيجية التمويل
+section: 03-finance
+doc_type: strategy
+status: active
+owner: Founder
+last_updated: 2026-06-20
+lang: ar
+---
+
 # استراتيجية التمويل
 
 _الحالة: هيكل مبدئي (بحاجة لإدخال المالك) · أُنشئ: 2026-06-16 · المالك: TODO_

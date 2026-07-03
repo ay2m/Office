@@ -1,3 +1,13 @@
+---
+title: Fly GACA — سياسة الإجازات وأيام العطلة المدفوعة
+section: 05-people
+doc_type: policy
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: ar
+---
+
 # Fly GACA — سياسة الإجازات وأيام العطلة المدفوعة
 **سياسة الإجازات وأيام العطلة المدفوعة — فلاي قاكا**
 

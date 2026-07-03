@@ -1,3 +1,13 @@
+---
+title: Fly GACA — موجز مشروع Claude والخطة الرئيسية
+section: 06-operations-it
+doc_type: brief
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # Fly GACA — موجز مشروع Claude والخطة الرئيسية
 
 **كيفية استخدام هذا الملف.** الصق كل ما داخل كتلة الشيفرة أدناه في محادثة Claude

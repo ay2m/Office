@@ -1,3 +1,13 @@
+---
+title: P0-5 Walkthrough — Create the Firebase project
+section: 06-operations-it
+doc_type: setup-guide
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # P0-5 Walkthrough — Create the Firebase project
 
 **Goal:** create the managed cloud project that hosts the Fly GACA PWA, database, auth and

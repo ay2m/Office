@@ -1,3 +1,13 @@
+---
+title: خطة دمج المحتوى — رفع الأربعين ملفًا
+section: 06-operations-it
+doc_type: plan
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # خطة دمج المحتوى — رفع الأربعين ملفًا
 
 **أُنشئت:** 2026-05-23 · **الحالة:** خطة — بانتظار الموافقة

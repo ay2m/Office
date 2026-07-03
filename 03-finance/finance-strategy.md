@@ -1,3 +1,13 @@
+---
+title: Finance Strategy
+section: 03-finance
+doc_type: strategy
+status: scaffold
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Finance Strategy
 
 _Status: scaffold (needs owner input) · Created: 2026-06-16 · Owner: TODO_

@@ -1,3 +1,13 @@
+---
+title: Investor Thesis
+section: 09-investor-relations
+doc_type: strategy
+status: scaffold
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Investor Thesis
 
 _Status: scaffold (needs owner input) · Created: 2026-06-16 · Owner: TODO_

@@ -1,3 +1,13 @@
+---
+title: P0-5 دليل تنفيذي — إنشاء مشروع Firebase
+section: 06-operations-it
+doc_type: setup-guide
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # P0-5 دليل تنفيذي — إنشاء مشروع Firebase
 
 **الهدف:** إنشاء المشروع السحابي المُدار الذي يستضيف تطبيق الويب التقدّمي (PWA) الخاص بـ

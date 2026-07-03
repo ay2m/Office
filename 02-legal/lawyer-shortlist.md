@@ -1,3 +1,13 @@
+---
+title: "Saudi IP Lawyer — Candidate Shortlist (P0-1 & P0-2)"
+section: 02-legal
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Saudi IP Lawyer — Candidate Shortlist (P0-1 & P0-2)
 
 **Purpose:** candidates to send the `lawyer-brief.md` to, for a written opinion on the

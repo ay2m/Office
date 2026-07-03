@@ -1,3 +1,13 @@
+---
+title: فلاي قاكا (Fly GACA) — سجل القرارات
+section: 01-governance
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: ar
+---
+
 # فلاي قاكا (Fly GACA) — سجل القرارات
 
 > سجل قرارات حيّ. يُكمل السلسلة من `decision-log-template.docx`

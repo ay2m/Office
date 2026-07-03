@@ -1,3 +1,13 @@
+---
+title: "P0-6 Runbook — VPS hardening & pipeline runtime"
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # P0-6 Runbook — VPS hardening & pipeline runtime
 
 **Companion to `setup-vps.md`** (which covers the *why*). This file is the *exact how* —

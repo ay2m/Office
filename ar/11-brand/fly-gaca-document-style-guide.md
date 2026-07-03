@@ -1,3 +1,13 @@
+---
+title: دليل أسلوب وثائق فلاي قاكا (Fly GACA)
+section: 11-brand
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # دليل أسلوب وثائق فلاي قاكا (Fly GACA)
 
 ## نظرة عامة

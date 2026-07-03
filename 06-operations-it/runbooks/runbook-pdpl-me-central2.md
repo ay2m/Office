@@ -1,3 +1,13 @@
+---
+title: "Runbook — PDPL data residency: move to me-central2 (Dammam)"
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Runbook — PDPL data residency: move to me-central2 (Dammam)
 
 **Status:** Web app + AI backend LIVE on `flygaca-app` — Firestore in Dammam;

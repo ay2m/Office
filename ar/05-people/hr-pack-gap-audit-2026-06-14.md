@@ -1,3 +1,13 @@
+---
+title: حزمة الموارد البشرية في Fly GACA — تدقيق الفجوات
+section: 05-people
+doc_type: audit
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: ar
+---
+
 # حزمة الموارد البشرية في Fly GACA — تدقيق الفجوات
 **التاريخ:** 2026-06-14  
 **إعداد:** Claude (مساعد بحثي بالذكاء الاصطناعي) — وثيقة عمل داخلية  

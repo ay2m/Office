@@ -1,3 +1,13 @@
+---
+title: "Project: Fly GACA Sales Enablement Multi-Agent System"
+section: 00-strategy
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # Project: Fly GACA Sales Enablement Multi-Agent System
 
 ## Architecture
