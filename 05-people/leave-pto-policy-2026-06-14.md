@@ -207,9 +207,9 @@ Per **Saudi Labor Law Article 98**, working hours during Ramadan are reduced to 
 ### 14.1 Requesting Leave | طلب الإجازة
 
 1. **Advance notice:** Minimum notice required per leave type (see table below).
-2. **How to request:** Submit a leave request via [**Notion HR page / Google Form — link TBD**]. In the interim, submit via direct Slack message to your manager, who will confirm in writing.
+2. **How to request:** Submit a leave request via the leave-request form [Owner action: create and link the Google Form in the HR area of Drive — see 06-operations-it/03-drive-folder-structure.docx]. In the interim, submit via direct Slack message to your manager, who will confirm in writing.
 3. **Approval:** Manager approves and notifies HR (founder). Approval must be in writing (Slack DM or email is acceptable).
-4. **Recording:** HR records all approved leave in the leave tracker [link TBD].
+4. **Recording:** HR records all approved leave in the leave tracker [Owner action: create and link the Drive tracker sheet — see 06-operations-it/03-drive-folder-structure.docx].
 
 | Leave Type / نوع الإجازة | Minimum Notice / الحد الأدنى للإشعار |
 |--------------------------|--------------------------------------|

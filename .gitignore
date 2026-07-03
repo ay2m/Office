@@ -8,3 +8,5 @@ Thumbs.db
 # Backups / scratch
 *.bak
 *.bak-*
+tools/print/node_modules/
+tools/print/.buildcache.json.tmp
