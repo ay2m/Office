@@ -1,6 +1,16 @@
+---
+title: دليل مسار B2B — فلاي قاكا للمدارس
+section: 07-gtm
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: ar
+---
+
 # دليل مسار B2B — فلاي قاكا للمدارس
 
-> النظير التشغيلي للاستراتيجية في [`office/monetization.md`](../office/monetization.md). المدارس هي
+> النظير التشغيلي للاستراتيجية في [`03-finance/monetization.md`](../03-finance/monetization.md). المدارس هي
 > خط الإيراد الوحيد القابل للفوترة **اليوم** (فاتورة ZATCA إلكترونية يدوية + منح رخصة عبر الإدارة) —
 > وهذا الدليل هو كيفية تشغيل تلك الحركة حتى يُفتح الدفع الإلكتروني، وبعده.
 

@@ -1,3 +1,13 @@
+---
+title: جولة اتساق ضمان الجودة — 2026-06-14
+section: 06-operations-it
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: ar
+---
+
 # جولة اتساق ضمان الجودة — 2026-06-14
 
 **النطاق:** القضية أ (وسم إقليم GCP) والقضية ب (تعارضات عدّ المتن) عبر شجرة المشروع كاملةً، باستثناء `node_modules/` و`.git/`. وتُجرَد git worktrees تحت `flygaca/.claude/worktrees/` لكنها تُعامَل بوصفها غير معتمدة (تحاكي المستودع الرئيسي عند نقاط أقدم وليست محرَّرة باستقلال).

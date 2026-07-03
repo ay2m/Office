@@ -1,3 +1,13 @@
+---
+title: "دليل تشغيل — إقامة بيانات نظام حماية البيانات الشخصية (PDPL): الانتقال إلى me-central2 (الدمام)"
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # دليل تشغيل — إقامة بيانات نظام حماية البيانات الشخصية (PDPL): الانتقال إلى me-central2 (الدمام)
 
 **الحالة:** تطبيق الويب + الخلفية الذكية يعملان مباشرةً على `flygaca-app` — Firestore في الدمام؛

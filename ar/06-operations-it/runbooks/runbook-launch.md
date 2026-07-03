@@ -1,3 +1,13 @@
+---
+title: دليل تشغيل — إطلاق Fly GACA
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # دليل تشغيل — إطلاق Fly GACA
 
 كل ما بُني حتى الآن مُتحقَّق منه محلياً. يأخذ دليل التشغيل هذا المنتج إلى البيئة الحية.

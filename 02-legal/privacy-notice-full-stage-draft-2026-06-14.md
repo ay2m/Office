@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Privacy Notice (Full Platform Stage)
+section: 02-legal
+doc_type: legal
+status: draft
+owner: Founder
+last_updated: 2026-06-14
+lang: en
+---
+
 # Fly GACA — Privacy Notice (Full Platform Stage)
 **Version:** Draft 1.0 — 2026-06-14  
 **Replaces:** Pre-account draft in `flygaca/privacy.html` (effective when user accounts go live)  

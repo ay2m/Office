@@ -1,3 +1,13 @@
+---
+title: "Fly GACA — Phase 0 Tracker: Foundations"
+section: 00-strategy
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Fly GACA — Phase 0 Tracker: Foundations
 
 Phase 0 lays the legal, corporate and technical groundwork for Fly GACA. Later phases must

@@ -1,3 +1,13 @@
+---
+title: فلاي قاكا (Fly GACA) — اتفاقية معالجة البيانات للأعمال (DPA)
+section: 02-legal
+doc_type: legal
+status: draft
+owner: Founder
+last_updated: 2026-06-14
+lang: ar
+---
+
 # فلاي قاكا (Fly GACA) — اتفاقية معالجة البيانات للأعمال (DPA)
 **الوثيقة:** b2b-data-processing-agreement-draft-2026-06-14.md
 **الإصدار:** Draft 1.0 — 2026-06-14

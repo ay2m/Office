@@ -1,17 +1,27 @@
-# FlyGACA Customer Success
+---
+title: Fly GACA Customer Success
+section: 08-customer-success
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
 
-This document describes the Customer Success (CS) program for FlyGACA's B2B
-customers. FlyGACA is an educational platform and regulatory library for Saudi
+# Fly GACA Customer Success
+
+This document describes the Customer Success (CS) program for Fly GACA's B2B
+customers. Fly GACA is an educational platform and regulatory library for Saudi
 civil aviation; its organizational customers license it for their cadets,
 pilots, instructors, and staff. The CS program exists to drive adoption,
 retention, and growth across that customer base.
 
-> FlyGACA is independent and not affiliated with GACA. See the repository
+> Fly GACA is independent and not affiliated with GACA. See the repository
 > [README](README.md) for product details.
 
 ## Mission
 
-Help every customer realize measurable value from FlyGACA — faster training
+Help every customer realize measurable value from Fly GACA — faster training
 throughput, better exam outcomes, currency tracking, and confident access to the
 regulatory library — and turn that value into retention, expansion, and advocacy.
 

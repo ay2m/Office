@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Action Plan (v2)
+section: 00-strategy
+doc_type: plan
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Fly GACA — Action Plan (v2)
 
 **Updated:** 2026-05-24 · **Integrates:** the external UX/technical review **and** the

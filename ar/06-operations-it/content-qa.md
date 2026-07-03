@@ -1,3 +1,13 @@
+---
+title: ضمان جودة المحتوى — المتن المعالَج لـ GACAR مقابل المصدر الرسمي
+section: 06-operations-it
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # ضمان جودة المحتوى — المتن المعالَج لـ GACAR مقابل المصدر الرسمي
 
 متن اللوائح في `assets/data/parts/` مُستخرَج آليًا من ملفات PDF المنشورة من الهيئة العامة للطيران المدني.

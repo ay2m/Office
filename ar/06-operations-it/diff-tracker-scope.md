@@ -1,3 +1,13 @@
+---
+title: "ملاحظة نطاق — متتبِّع تعديلات GACAR / \"أحدث التغييرات\""
+section: 06-operations-it
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # ملاحظة نطاق — متتبِّع تعديلات GACAR / "أحدث التغييرات"
 
 **الحالة:** تصميم فقط، لا شيفرة. يحدِّد نطاق فكرة "مدقِّق الفروق التنظيمية" ("عُدِّل GACAR الجزء 61

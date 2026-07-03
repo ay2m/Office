@@ -1,3 +1,13 @@
+---
+title: Test Coverage Analysis — 2026-06-16
+section: 06-operations-it
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Test Coverage Analysis — 2026-06-16
 
 > Scope note: **The-Office is a documentation/spec repository, not a code repository.**

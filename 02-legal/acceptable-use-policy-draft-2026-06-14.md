@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Acceptable Use Policy (AUP)
+section: 02-legal
+doc_type: policy
+status: draft
+owner: Founder
+last_updated: 2026-06-14
+lang: en
+---
+
 # Fly GACA — Acceptable Use Policy (AUP)
 **Version:** Draft 1.0 — 2026-06-14  
 **Applies to:** All users of the Fly GACA platform (website, PWA, Android app, Captain Adel AI, Library, Academy Dashboard)  

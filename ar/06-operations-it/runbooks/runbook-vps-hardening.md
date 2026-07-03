@@ -1,3 +1,13 @@
+---
+title: دليل تشغيل P0-6 — تحصين VPS ووقت تشغيل خط الأنابيب
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # دليل تشغيل P0-6 — تحصين VPS ووقت تشغيل خط الأنابيب
 
 **رفيق لـ `setup-vps.md`** (الذي يغطّي *السبب*). هذا الملف هو *الكيفية الدقيقة* —

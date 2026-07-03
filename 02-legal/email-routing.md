@@ -1,3 +1,13 @@
+---
+title: Email routing — Fly GACA
+section: 02-legal
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Email routing — Fly GACA
 
 How the public-facing `@flygaca.com` addresses map to real inboxes.

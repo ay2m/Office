@@ -1,3 +1,13 @@
+---
+title: فلاي قاكا (Fly GACA) — خريطة رموز التصميم (مرآة التصميم)
+section: 11-brand
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: ar
+---
+
 # فلاي قاكا (Fly GACA) — خريطة رموز التصميم (مرآة التصميم)
 **2026-06-16 · المصدر: flygaca.com (الموقع المباشر) · الهدف: flygaca/ (محلي)**
 

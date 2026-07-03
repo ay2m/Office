@@ -1,3 +1,13 @@
+---
+title: Captain Adel — Execution Plan
+section: 06-operations-it
+doc_type: plan
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Captain Adel — Execution Plan
 
 A working plan derived from `captadel/roadmap.md`. Four sections:

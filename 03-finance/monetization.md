@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Monetization Strategy
+section: 03-finance
+doc_type: strategy
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Fly GACA — Monetization Strategy
 
 > Status: **adopted June 2026.** This document is the single source of truth for

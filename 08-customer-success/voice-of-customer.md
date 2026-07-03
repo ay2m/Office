@@ -1,8 +1,18 @@
+---
+title: Voice of Customer (VoC) Program
+section: 08-customer-success
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # Voice of Customer (VoC) Program
 
 ## Purpose
 
-The Voice-of-Customer program is how FlyGACA systematically collects, analyzes,
+The Voice-of-Customer program is how Fly GACA systematically collects, analyzes,
 and acts on customer feedback. It feeds the Sentiment dimension of the health
 score and sustains the targets of **NPS > 50** and **CSAT > 90%**.
 
@@ -24,13 +34,13 @@ score and sustains the targets of **NPS > 50** and **CSAT > 90%**.
 
 ## Survey Templates
 
-**NPS:** "How likely are you to recommend FlyGACA to another aviation operator?
+**NPS:** "How likely are you to recommend Fly GACA to another aviation operator?
 (0–10)" + "What is the primary reason for your score?"
 
 **CSAT:** "How satisfied were you with this interaction? (1–5)" + optional
 comment.
 
-**CES:** "How easy was it to achieve your goal with FlyGACA? (1–7)" + optional
+**CES:** "How easy was it to achieve your goal with Fly GACA? (1–7)" + optional
 comment.
 
 ## Segmentation

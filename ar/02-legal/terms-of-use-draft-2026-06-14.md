@@ -1,3 +1,13 @@
+---
+title: فلاي قاكا (Fly GACA) — شروط الاستخدام
+section: 02-legal
+doc_type: legal
+status: draft
+owner: Founder
+last_updated: 2026-06-14
+lang: ar
+---
+
 # فلاي قاكا (Fly GACA) — شروط الاستخدام
 **الوثيقة:** terms-of-use-draft-2026-06-14.md
 **الإصدار:** مسودة 1.0 — 2026-06-14

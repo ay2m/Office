@@ -1,3 +1,13 @@
+---
+title: RUNBOOK — Cloudflare hosting
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # RUNBOOK — Cloudflare hosting
 
 Production hosting for `flygaca.com` is a **Cloudflare Worker** that serves the

@@ -1,3 +1,13 @@
+---
+title: Fly GACA — تقرير حالة المرحلة 0
+section: 06-operations-it
+doc_type: report
+status: active
+owner: Founder
+last_updated: 2026-05-23
+lang: ar
+---
+
 # Fly GACA — تقرير حالة المرحلة 0
 
 **التاريخ:** 23 مايو 2026

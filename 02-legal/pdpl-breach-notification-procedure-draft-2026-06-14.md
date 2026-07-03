@@ -1,3 +1,13 @@
+---
+title: Fly GACA — PDPL Personal Data Breach Notification Procedure
+section: 02-legal
+doc_type: legal
+status: draft
+owner: Founder / DPO
+last_updated: 2026-06-14
+lang: en
+---
+
 # Fly GACA — PDPL Personal Data Breach Notification Procedure
 **Document:** pdpl-breach-notification-procedure-draft-2026-06-14.md
 **Version:** Draft 1.0 — 2026-06-14

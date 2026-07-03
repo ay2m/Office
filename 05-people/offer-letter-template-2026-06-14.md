@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Offer Letter Template
+section: 05-people
+doc_type: template
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: en
+---
+
 # Fly GACA — Offer Letter Template
 **نموذج خطاب العرض الوظيفي — فلاي قاكا**
 

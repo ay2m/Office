@@ -1,7 +1,13 @@
 ---
+title: "SPEC: GACAR-Aware Currency Tracker & Logbook"
+section: 06-operations-it
+doc_type: spec
+status: draft
+owner: Product & Engineering
+last_updated: 2026-06-16
+lang: en
 doc: "SPEC-currency-tracker"
 version: "0.1"
-status: "draft"
 author: "Product & Engineering"
 created: "2026-06-16"
 roadmap_phase: "3"

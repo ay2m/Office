@@ -1,3 +1,13 @@
+---
+title: P0-3 Walkthrough — Register the legal entity
+section: 06-operations-it
+doc_type: setup-guide
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # P0-3 Walkthrough — Register the legal entity
 
 **Goal:** stand up the legal entity that owns Fly GACA, so it can hold the domain, a bank

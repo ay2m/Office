@@ -1,3 +1,13 @@
+---
+title: AGENTS.md — Fly GACA
+section: 06-operations-it
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # AGENTS.md — Fly GACA
 
 > **How to use this file.** Place it at the root of the `flygaca` repository. Google

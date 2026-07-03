@@ -1,3 +1,13 @@
+---
+title: سياسة الأمن
+section: 01-governance
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # سياسة الأمن
 
 ## الإصدارات المدعومة

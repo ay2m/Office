@@ -1,3 +1,13 @@
+---
+title: Runbook — Deploy Fly GACA to Firebase Hosting
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Runbook — Deploy Fly GACA to Firebase Hosting
 
 The Phase 1 site (landing, library, reader, aerodrome dashboard + map, chart viewer,

@@ -1,3 +1,13 @@
+---
+title: "المشروع: نظام Fly GACA متعدد الوكلاء لتمكين المبيعات"
+section: 00-strategy
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # المشروع: نظام Fly GACA متعدد الوكلاء لتمكين المبيعات
 
 ## البنية المعمارية

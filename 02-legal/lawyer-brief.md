@@ -1,3 +1,13 @@
+---
+title: "Brief for a Saudi IP Lawyer — Fly GACA (P0-1 & P0-2)"
+section: 02-legal
+doc_type: brief
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Brief for a Saudi IP Lawyer — Fly GACA (P0-1 & P0-2)
 
 **Prepared by:** Captain Adel Al-Subaie — founder, Fly GACA

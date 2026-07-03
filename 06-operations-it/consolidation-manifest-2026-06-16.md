@@ -1,3 +1,13 @@
+---
+title: 06-product-eng Consolidation Manifest — 2026-06-16
+section: 06-operations-it
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # 06-product-eng Consolidation Manifest — 2026-06-16
 
 Closes master-index **GAP-1**: engineering docs were misfiled under `library/` (which should hold only the regulatory corpus) and duplicated inside the app at `flygaca/office/`. Documents are now consolidated into this bucket. Copy-only — originals were left in place because this folder blocks deletions for the agent (see root MOVED.md).

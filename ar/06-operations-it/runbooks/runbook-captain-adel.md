@@ -1,3 +1,13 @@
+---
+title: دليل تشغيل — نشر الكابتن عادل (دالة RAG السحابية)
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # دليل تشغيل — نشر الكابتن عادل (دالة RAG السحابية)
 
 تم بناء واجهة دردشة الكابتن عادل (`chat.html`) وهي حيّة. يربط دليل التشغيل هذا

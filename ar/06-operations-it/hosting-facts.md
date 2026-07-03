@@ -1,3 +1,13 @@
+---
+title: حقائق الاستضافة (حدود PDPL، الأقاليم، النطاقات)
+section: 06-operations-it
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # حقائق الاستضافة (حدود PDPL، الأقاليم، النطاقات)
 
 مرجع من صفحة واحدة لقرارات الاستضافة المؤكَّدة في PHASE0 / موجز الاستئناف

@@ -1,4 +1,14 @@
-# نجاح عملاء FlyGACA
+---
+title: نجاح عملاء Fly GACA
+section: 08-customer-success
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: ar
+---
+
+# نجاح عملاء Fly GACA
 
 تصف هذه الوثيقة برنامج نجاح العملاء (CS) لعملاء فلاي قاكا من قطاع الأعمال (B2B).
 فلاي قاكا منصة تعليمية ومكتبة تنظيمية للطيران المدني السعودي؛ تُرخّصها الجهات

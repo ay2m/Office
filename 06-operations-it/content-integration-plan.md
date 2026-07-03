@@ -1,3 +1,13 @@
+---
+title: Content Integration Plan — the 40-file upload
+section: 06-operations-it
+doc_type: plan
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Content Integration Plan — the 40-file upload
 
 **Created:** 2026-05-23 · **Status:** Plan — awaiting go-ahead

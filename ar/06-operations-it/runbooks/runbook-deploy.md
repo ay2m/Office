@@ -1,3 +1,13 @@
+---
+title: دليل تشغيل — نشر Fly GACA على Firebase Hosting
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # دليل تشغيل — نشر Fly GACA على Firebase Hosting
 
 أُنجز بناء موقع المرحلة 1 (الصفحة الرئيسية، والمكتبة، والقارئ، ولوحة معلومات المطارات + الخريطة، وعارض المخططات،

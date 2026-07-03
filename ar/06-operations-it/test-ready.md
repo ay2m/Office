@@ -1,3 +1,13 @@
+---
+title: حزمة الاختبارات الشاملة (E2E) جاهزة
+section: 06-operations-it
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # حزمة الاختبارات الشاملة (E2E) جاهزة
 
 ## مشغّل الاختبارات

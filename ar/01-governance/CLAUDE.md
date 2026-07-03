@@ -1,4 +1,18 @@
+---
+title: CLAUDE.md
+section: 01-governance
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: ar
+---
+
 # CLAUDE.md
+
+> **نسخة منقولة** — هذا الملف هو إرشادات Claude الخاصة بمستودع التطبيق (`FlyGACA/flygaca`)،
+> محفوظ هنا للمرجعية. المسارات مثل `functions/` و`docs/` و`office/` تشير إلى بنية ذلك
+> المستودع، لا إلى مستودع الوثائق هذا.
 
 يقدّم هذا الملف إرشادات إلى Claude Code (claude.ai/code) عند العمل على الكود في هذا المستودع.
 

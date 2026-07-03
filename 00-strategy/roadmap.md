@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Project Roadmap
+section: 00-strategy
+doc_type: plan
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Fly GACA — Project Roadmap
 
 The master plan from the end of Phase 0 to a shipped product, across all eleven phases.

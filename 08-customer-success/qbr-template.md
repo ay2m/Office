@@ -1,3 +1,13 @@
+---
+title: Quarterly Business Review (QBR) Template
+section: 08-customer-success
+doc_type: template
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # Quarterly Business Review (QBR) Template
 
 ## Purpose
@@ -64,7 +74,7 @@ meeting.
 ## Roadmap Alignment
 
 - Customer priorities for next quarter:
-- Relevant FlyGACA roadmap items:
+- Relevant Fly GACA roadmap items:
 - Feature requests / gaps (route to product):
 
 ## Goals & Action Plan

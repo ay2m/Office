@@ -1,3 +1,13 @@
+---
+title: "دليل تشغيل — ترقية الكابتن عادل إلى مستودعه الخاص (`FlyGACA/captadel`)"
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # دليل تشغيل — ترقية الكابتن عادل إلى مستودعه الخاص (`FlyGACA/captadel`)
 
 > **الحالة — مُنجَز (2026-06-13).** فُصل الكابتن عادل إلى

@@ -1,3 +1,13 @@
+---
+title: مواصفة — بروتوكول الرفض للكابتن عادل
+section: 06-operations-it
+doc_type: spec
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # مواصفة — بروتوكول الرفض للكابتن عادل
 
 **الوثيقة:** `06-product-eng/spec-captain-adel-refusal-protocol.md`

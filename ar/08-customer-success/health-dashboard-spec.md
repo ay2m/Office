@@ -1,3 +1,13 @@
+---
+title: مواصفات لوحة معلومات صحة العميل
+section: 08-customer-success
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # مواصفات لوحة معلومات صحة العميل
 
 ## الغرض

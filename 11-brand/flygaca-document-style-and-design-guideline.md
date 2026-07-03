@@ -1,3 +1,13 @@
+---
+title: Flygaca Document Style and Design Guideline
+section: 11-brand
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Flygaca Document Style and Design Guideline
 **Version 1.0** – *Last Updated: 2026-06-16*  
 *Maintainer: Flygaca Design Systems Team*  

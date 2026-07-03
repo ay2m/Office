@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Terms of Use
+section: 02-legal
+doc_type: legal
+status: draft
+owner: Founder
+last_updated: 2026-06-14
+lang: en
+---
+
 # Fly GACA — Terms of Use
 **Document:** terms-of-use-draft-2026-06-14.md
 **Version:** Draft 1.0 — 2026-06-14

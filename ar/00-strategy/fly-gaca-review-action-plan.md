@@ -1,3 +1,13 @@
+---
+title: Fly GACA — خطة العمل (الإصدار 2)
+section: 00-strategy
+doc_type: plan
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # Fly GACA — خطة العمل (الإصدار 2)
 
 **تاريخ التحديث:** 2026-05-24 · **يدمج:** المراجعة الخارجية لتجربة المستخدم/الجوانب التقنية **و**

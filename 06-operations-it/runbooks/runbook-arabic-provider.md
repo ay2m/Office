@@ -1,3 +1,13 @@
+---
+title: Runbook — Bring a new Arabic model live behind Captain Adel
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Runbook — Bring a new Arabic model live behind Captain Adel
 
 Captain Adel's brain (`captadel/`) ships with several Arabic / in-Kingdom model

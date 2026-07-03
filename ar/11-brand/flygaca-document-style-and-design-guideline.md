@@ -1,3 +1,13 @@
+---
+title: فلاي قاكا (Fly GACA) — دليل أسلوب وتصميم المستندات
+section: 11-brand
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # فلاي قاكا (Fly GACA) — دليل أسلوب وتصميم المستندات
 **الإصدار 1.0** – *آخر تحديث: 2026-06-16*  
 *الجهة المسؤولة: فريق نظم التصميم في فلاي قاكا*  

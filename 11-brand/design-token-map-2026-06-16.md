@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Design Token Map (Design Mirror)
+section: 11-brand
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Fly GACA — Design Token Map (Design Mirror)
 **2026-06-16 · Source: flygaca.com (live) · Target: flygaca/ (local)**
 

@@ -1,3 +1,13 @@
+---
+title: Tidal Reckoning
+section: 11-brand
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # Tidal Reckoning
 
 ### فلسفة خوارزمية

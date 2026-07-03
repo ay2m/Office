@@ -1,3 +1,13 @@
+---
+title: كتاب Fly GACA — مراجعة
+section: 00-strategy
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: ar
+---
+
 # كتاب Fly GACA — مراجعة
 **تاريخ المراجعة:** 2026-06-14  
 **المستند:** `the-book-of-fly-gaca.html` (44,723 بايت) + ملف PDF مرافق (1.1 ميجابايت)

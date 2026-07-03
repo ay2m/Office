@@ -1,3 +1,13 @@
+---
+title: Runbook — enabling the dormant security scaffolds
+section: 06-operations-it
+doc_type: runbook
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Runbook — enabling the dormant security scaffolds
 
 The May-2026 red-team landed three hardenings as **dormant, flag-gated**

@@ -1,3 +1,13 @@
+---
+title: Fly GACA — B2C Self-Study Learner Path
+section: 10-academy-curriculum
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Fly GACA — B2C Self-Study Learner Path
 ## Your Personal Guide to Studying for the Saudi PPL (and Beyond)
 

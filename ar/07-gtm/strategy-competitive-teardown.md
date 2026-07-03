@@ -1,3 +1,13 @@
+---
+title: فلاي قاكا (Fly GACA) — تفكيك المنافسة (فريق أحمر)
+section: 07-gtm
+doc_type: strategy
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # فلاي قاكا (Fly GACA) — تفكيك المنافسة (فريق أحمر)
 
 **الحالة:** استراتيجية، وليست مهمة بناء · **أُعِدّت:** 2026-05-30

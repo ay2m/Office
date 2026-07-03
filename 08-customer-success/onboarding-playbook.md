@@ -1,8 +1,18 @@
+---
+title: Onboarding Playbook
+section: 08-customer-success
+doc_type: playbook
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # Onboarding Playbook
 
 ## Purpose
 
-This playbook defines how FlyGACA onboards a new B2B customer (flight school /
+This playbook defines how Fly GACA onboards a new B2B customer (flight school /
 ATO, charter operator, MRO, or commercial operator) from signed contract to
 first realized value. The goal is fast time-to-value, strong early adoption
 (> 80% of licensed seats active), and a healthy first health score within 90

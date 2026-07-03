@@ -1,3 +1,13 @@
+---
+title: Fly GACA — B2B Data Processing Agreement (DPA)
+section: 02-legal
+doc_type: legal
+status: draft
+owner: Founder
+last_updated: 2026-06-14
+lang: en
+---
+
 # Fly GACA — B2B Data Processing Agreement (DPA)
 **Document:** b2b-data-processing-agreement-draft-2026-06-14.md
 **Version:** Draft 1.0 — 2026-06-14

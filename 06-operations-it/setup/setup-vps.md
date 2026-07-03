@@ -1,3 +1,13 @@
+---
+title: P0-6 Walkthrough — Set up the VPS as the pipeline box
+section: 06-operations-it
+doc_type: setup-guide
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # P0-6 Walkthrough — Set up the VPS as the pipeline box
 
 **Goal:** set up a Hostinger KVM VPS (Europe — Germany or France) as the

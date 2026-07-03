@@ -1,3 +1,13 @@
+---
+title: Content QA — processed GACAR corpus vs. official source
+section: 06-operations-it
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Content QA — processed GACAR corpus vs. official source
 
 The regulation corpus in `assets/data/parts/` is machine-extracted from GACA's published

@@ -1,12 +1,27 @@
+---
+title: المكتب — الفهرس الرئيسي
+section: root
+doc_type: index
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: ar
+---
+
 # المكتب — الفهرس الرئيسي
 
-_وثائق تشغيل فلاي قاكا (Fly GACA). آخر إعادة تنظيم: 2026-06-16._
+_وثائق تشغيل فلاي قاكا (Fly GACA). آخر إعادة تنظيم: 2026-07-03._
 
 يحتوي هذا المجلد على كل وثيقة داخلية لإدارة فلاي قاكا، منظَّمة في 12 قسمًا مرقّمًا
 (00–11). تحافظ البادئات المرقّمة على ترتيب الأقسام؛ افتح أيّ مجلد قسم لتطّلع على
 ملفاته. المخرجات النهائية المصقولة معظمها بصيغة `.docx` / `.xlsx`؛ أما الملاحظات العملية والمواصفات
 والمسودّات فبصيغة `.md`. أسماء الملفات بالأحرف الصغيرة بنمط kebab-case (ASCII) — راجع اصطلاح التسمية في
 `06-operations-it/repo-health-report-2026-06-16.md` §6.
+
+تحمل كل وثيقة `.md` بيانات وصفية (front-matter) بصيغة YAML (`title / section / doc_type /
+status / owner / last_updated / lang`)، ولها **نسخة PDF جاهزة للطباعة بهوية العلامة** تحت
+`_print/` تحاكي هذه الشجرة. لإعادة توليد ملفات PDF بعد التعديل:
+`cd tools/print && npm ci && npm run build` — راجع `tools/print/README.md`.
 
 > يُحفظ الفهرس الرئيسي المعتمد أيضًا في صورة جدول بيانات Google Sheet:
 > `00-strategy/00-master-office-paperwork-index.gsheet`. وهذا الملف `_INDEX.md` هو الخريطة السريعة
@@ -23,6 +38,7 @@ _وثائق تشغيل فلاي قاكا (Fly GACA). آخر إعادة تنظي�
 - book-of-fly-gaca-review-2026-06-14.md · fly-gaca-review-action-plan.md
 - master-paperwork-template-index-2026-06-14.md
 - roadmap.md · project.md · phase0.md · original-request.md
+- ceo-execution-roadmap-2026-07.md — المسار الحرج للتحوّل إلى شركة قائمة (السباقات 0–3، الربع الثالث 2026)
 - 00-master-office-paperwork-index.gsheet
 - **brainstorms/** — استكشافات مرقّمة 00–10 (الفهرس ولوحة المعلومات، الأكاديمية الأولى، سردية
   المستثمر، دولاب موازنة الكابتن عادل، الميزة الفارقة، الشريك المؤسّس مقابل التوظيف، التوسّع المجاور وفي دول
@@ -34,6 +50,7 @@ _وثائق تشغيل فلاي قاكا (Fly GACA). آخر إعادة تنظي�
 - founders-agreement.docx · shareholders-agreement-sha.docx · esop-plan-stock-option-plan.docx
 - code-of-conduct.docx · anti-bribery-aml-and-whistleblower-policy.docx
 - board-pack-template.docx · decision-log-template.docx
+- مُحدَّثة: decision-log.md (DEC-006…009) · board-pack-2026-07.md — قرارات التحوّل إلى شركة قائمة
 - حوكمة المستودع: CLAUDE.md · CODE_OF_CONDUCT.md · CONTRIBUTING.md · SECURITY.md · LICENSE
 
 ## 02 — الشؤون القانونية
@@ -41,9 +58,11 @@ _وثائق تشغيل فلاي قاكا (Fly GACA). آخر إعادة تنظي�
 
 - الاتفاقيات: mutual-nda · one-way-nda · ip-assignment-agreement · confidentiality-and-non-compete-agreement ·
   customer-agreement-eula · service-level-agreement-sla · 60-day-pilot-agreement · influencer-creator-partnership-agreement (.docx)
-- السياسات العامة (مسودّة، 2026-06-14، .md): terms-of-use · privacy-notice-full-stage ·
+- السياسات العامة (مسودّة، .md): terms-of-use · privacy-notice-full-stage ·
   acceptable-use-policy · cookie-and-tracking-notice · disclaimer-and-educational-use-notice ·
-  b2b-data-processing-agreement · pdpl-breach-notification-procedure · ip-and-takedown-procedure
+  b2b-data-processing-agreement · pdpl-breach-notification-procedure · ip-and-takedown-procedure ·
+  refund-and-cancellation-policy-draft-2026-07-03
+- وثائق B2B: order-form-template-2026-07-03.md (تقترن باتفاقية التجربة واتفاقية معالجة البيانات)
 - المستشار القانوني: lawyer-brief (.docx/.md) · lawyer-shortlist.md · lawyer-brief-corpus-rights-2026-06-14.md ·
   lawyer-brief-name-opinion-2026-06-14.md · brief-defensible-naming.md
 - التدقيقات/المذكرات: legal-gap-audit-2026-06-14.md · launch-gate-legal-checklist-2026-06-14.md ·
@@ -56,7 +75,7 @@ _وثائق تشغيل فلاي قاكا (Fly GACA). آخر إعادة تنظي�
   petty-cash-policy · capital-expenditure-capex-policy · chart-of-accounts-saudi-specific (.docx)
 - monthly-close-checklist.docx
 - المتعقّبات: budget-vs-actual-tracker.xlsx · financial-dashboard-kpis.xlsx
-- monetization.md · finance-strategy.md _(هيكل أولي)_
+- monetization.md · finance-strategy.md _(مسودّة)_
 
 ## 04 — الامتثال (المملكة العربية السعودية)
 التسجيلات التنظيمية السعودية وبرامج الامتثال.
@@ -69,7 +88,7 @@ _وثائق تشغيل فلاي قاكا (Fly GACA). آخر إعادة تنظي�
 - البيانات/الأمن: pdpl-compliance-program-and-dpia · information-security-policy ·
   sub-processor-list-and-dpa-register · vendor-management-policy ·
   business-continuity-and-disaster-recovery-plan-bcp-dr (.docx)
-- compliance-roadmap.md _(هيكل أولي)_
+- compliance-roadmap.md _(مسودّة — خارطة طريق تسلسلية للتسجيلات، الربع الثالث 2026 →)_
 
 ## 05 — الموارد البشرية
 قوالب الموارد البشرية والسياسات وإيقاع التشغيل.
@@ -78,6 +97,8 @@ _وثائق تشغيل فلاي قاكا (Fly GACA). آخر إعادة تنظي�
 - السياسات: compensation-philosophy · social-media-policy (.docx) · leave-pto-policy-2026-06-14.md
 - القوالب: offer-letter-template-2026-06-14.md · performance-review-template · 1-on-1-meeting-template ·
   30-60-90-day-new-hire-plan-template · daily-standup-template · monthly-all-hands-template · founder-calendar-and-time-audit-template (.docx)
+- حزمة ما قبل أول توظيف (مسودّة، 2026-07-03، .md): onboarding-checklist · offboarding-checklist ·
+  grievance-and-disciplinary-procedure · anti-harassment-policy
 - hr-pack-gap-audit-2026-06-14.md
 
 ## 06 — العمليات / تقنية المعلومات  _(أُعيدت تسميته من 06-product-eng)_
@@ -125,7 +146,7 @@ _وثائق تشغيل فلاي قاكا (Fly GACA). آخر إعادة تنظي�
 - fly-gaca-pitch-deck-2026-06-16.pptx (+ slide-01…15.jpg exports)
 - investor-faq.docx · due-diligence-questionnaire.docx · monthly-investor-update-template.docx
 - saudi-investor-target-list.xlsx · risk-register.xlsx
-- investor-thesis.md _(هيكل أولي)_
+- investor-thesis.md _(مسودّة)_
 
 ## 10 — الأكاديمية والمنهج
 محتوى الدورات، ومواد المدرّبين/طلاب الطيران، ومسارات التعلّم.
@@ -151,3 +172,8 @@ _وثائق تشغيل فلاي قاكا (Fly GACA). آخر إعادة تنظي�
 
 ## templates/
 بدايات مستندات قابلة لإعادة الاستخدام: tpl-fin-report · tpl-hr-policy · tpl-legal-memo · tpl-ops-runbook · tpl-strat-proposal (.md)
+
+## tools/print/ و _print/
+`tools/print/` هو خطّ إنتاج التحويل من markdown إلى PDF (بهوية «سمة الصقر» للوثائق،
+إنجليزي + عربي RTL)؛ و`_print/` يحوي ملفات PDF المولّدة الجاهزة للطباعة، واحدًا لكل `.md`،
+محاكيًا الشجرة. أعد البناء بعد التعديل: `cd tools/print && npm ci && npm run build`.

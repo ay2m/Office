@@ -1,3 +1,13 @@
+---
+title: Fly GACA — تدقيق التحسين المستمر
+section: 06-operations-it
+doc_type: audit
+status: active
+owner: Founder
+last_updated: 2026-06-21
+lang: ar
+---
+
 # Fly GACA — تدقيق التحسين المستمر
 
 _التاريخ: 2026-06-09 · النطاق: الشيفرة والمعمارية التقنية، واجهة/تجربة المستخدم وتصميم الويب،
