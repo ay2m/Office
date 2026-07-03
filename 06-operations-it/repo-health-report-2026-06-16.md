@@ -181,3 +181,37 @@ graph TD
   P --> F4["04-compliance-ksa (md 0, KSA-regulated) → FLY-5"]
   P --> F9["09-investor-relations (md 0) → FLY-7"]
 ```
+
+---
+
+## Addendum — 2026-07-03 refactor pass
+
+A full repo refactor was executed on 2026-07-03 (branch `claude/docs-refactor-organize-xyrkga`).
+
+### Incident resolved: accidental A/B tree duplication
+A prior commit had duplicated the entire repo into near-identical `A/` and `B/` trees.
+Consolidated back to a single root tree keeping the newest version of every file
+(B's July docs + A's `.gitattributes`/`.gitignore`); `ar/.DS_Store` removed and
+`.DS_Store` ignored. Verified by manifest diff — zero content lost.
+
+### Closed this pass
+| Item | Resolution |
+|---|---|
+| Scaffolds FLY-5 / FLY-6 / FLY-7 | `compliance-roadmap.md`, `finance-strategy.md`, `investor-thesis.md` rewritten as full drafts (status: draft, owner review pending) |
+| Legal P1: refund policy + order form | New drafts `02-legal/refund-and-cancellation-policy-draft-2026-07-03.md`, `02-legal/order-form-template-2026-07-03.md` |
+| HR P1 pre-first-hire pack | New drafts: onboarding-checklist · offboarding-checklist · grievance-and-disciplinary-procedure · anti-harassment-policy (05-people, 2026-07-03) |
+| Metadata inconsistency (§4 of the style guide) | All ~200 md docs now carry uniform YAML front-matter (`title/section/doc_type/status/owner/last_updated/lang`) |
+| `tpl-legal-memo.md` "ANSWOER" typo | Fixed |
+| "FlyGACA" brand drift in prose | Normalized to "Fly GACA" (08-customer-success set + doc titles); GitHub identifiers untouched |
+| Broken `office/monetization.md` link in b2b-pipeline | Repointed to `03-finance/monetization.md` (EN + AR) |
+| Vendored `CLAUDE.md`/`CONTRIBUTING.md` navigation trap | Provenance banner added (EN + AR) |
+| X2 / X3 (region refs, stale counts) | Verified already corrected in tree — no edit needed |
+| Print-readiness | New `tools/print/` pipeline (markdown → branded A4 PDF, Falcon document theme, RTL Arabic) + committed PDFs under `_print/` mirroring the tree |
+| Arabic parity | All new/rewritten docs translated into `ar/` (Saudi MSA, per `ar/_GLOSSARY.md`) |
+
+### Still open (tracked, out of docs-repo scope)
+- App-repo items from `improvement-audit.md`: quiz.json `correct: null` fix (single highest
+  curriculum priority), analytics wiring, Stripe-vs-Moyasar decision (DEC-open), CI parity guards.
+- Owner actions X1 (Google-Sheet master index reconciliation — FLY-9 CSV) and the
+  library/office duplicate deletion from `consolidation-manifest-2026-06-16.md`.
+- Lawyer engagement gates (DEC-007/008) — see `00-strategy/ceo-execution-roadmap-2026-07.md`.
