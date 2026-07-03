@@ -1,0 +1,197 @@
+<svg viewBox="0 0 960 720" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="960" height="720" fill="#F7F8FA"/>
+  <!-- Title -->
+  <rect x="0" y="0" width="960" height="56" fill="#1A2235"/>
+  <text x="480" y="20" text-anchor="middle" font-size="11" fill="#8FA8C8" font-weight="600" letter-spacing="2">FLY GACA — EDITORIAL PROCESS (SS 2.1 / SPEC-freshness-pipeline)</text>
+  <text x="480" y="44" text-anchor="middle" font-size="17" fill="#FFFFFF" font-weight="700">AIRAC-Cycle Editorial Sync — Keeping Regulation Stamps Current</text>
+  <!-- 28-day cadence badge -->
+  <rect x="792" y="60" width="148" height="40" rx="6" fill="#E8EDF4" stroke="#4A6FA5" stroke-width="1.5"/>
+  <text x="866" y="77" text-anchor="middle" font-size="10" fill="#4A6FA5" font-weight="700">28-DAY AIRAC CYCLE</text>
+  <text x="866" y="92" text-anchor="middle" font-size="9" fill="#555F6D">Effective each Thursday</text>
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="m1" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L0,7 L9,3.5 z" fill="#4A6FA5"/></marker>
+    <marker id="m2" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L0,7 L9,3.5 z" fill="#2E7D52"/></marker>
+    <marker id="m3" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L0,7 L9,3.5 z" fill="#B8800A"/></marker>
+    <marker id="m4" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L0,7 L9,3.5 z" fill="#6B6B6B"/></marker>
+  </defs>
+
+  <!-- ─── SWIMLANE HEADERS ─── -->
+  <!-- Lane 1: Automated Pipeline -->
+  <rect x="0" y="108" width="960" height="32" fill="#E8EDF4"/>
+  <rect x="0" y="108" width="4" height="32" fill="#4A6FA5"/>
+  <text x="16" y="129" font-size="11" fill="#1A2235" font-weight="700">AUTOMATED PIPELINE</text>
+  <text x="200" y="129" font-size="10" fill="#555F6D">VPS cron — weekly (Mon) + Thursday (AIRAC effective dates) | scripts/update-sources.js</text>
+
+  <!-- Lane 2: Editorial Owner -->
+  <rect x="0" y="390" width="960" height="32" fill="#FEF6E6"/>
+  <rect x="0" y="390" width="4" height="32" fill="#E8920A"/>
+  <text x="16" y="411" font-size="11" fill="#1A2235" font-weight="700">EDITORIAL OWNER</text>
+  <text x="200" y="411" font-size="10" fill="#555F6D">Named human | per-AIRAC checklist | Must act within 72 hrs of new cycle (AIP-class) or 7 days (GACAR)</text>
+
+  <!-- Lane 3: User-Visible -->
+  <rect x="0" y="588" width="960" height="32" fill="#E8F5EE"/>
+  <rect x="0" y="588" width="4" height="32" fill="#2E7D52"/>
+  <text x="16" y="609" font-size="11" fill="#1A2235" font-weight="700">USER-VISIBLE OUTPUT</text>
+  <text x="200" y="609" font-size="10" fill="#555F6D">Reader page stamps | Staleness banner | Library status line | Captain Adel citation datestamp</text>
+
+  <!-- ─── STEP BOXES (automated lane y=148 to 380) ─── -->
+
+  <!-- Step A: Detect -->
+  <rect x="16" y="148" width="148" height="100" rx="8" fill="#FFFFFF" stroke="#4A6FA5" stroke-width="1.5"/>
+  <rect x="16" y="148" width="148" height="10" rx="8" fill="#4A6FA5"/>
+  <text x="90" y="175" text-anchor="middle" font-size="10" fill="#4A6FA5" font-weight="700">A. DETECT</text>
+  <text x="90" y="193" text-anchor="middle" font-size="9" fill="#1A2235">Fetch GACA pages</text>
+  <text x="90" y="207" text-anchor="middle" font-size="9" fill="#1A2235">Discover doc links</text>
+  <text x="90" y="221" text-anchor="middle" font-size="9" fill="#1A2235">Fingerprint PDF set</text>
+  <text x="90" y="237" text-anchor="middle" font-size="8" fill="#8FA8C8">sources.json anchor</text>
+
+  <!-- Step B: Hash+Diff -->
+  <rect x="196" y="148" width="148" height="100" rx="8" fill="#FFFFFF" stroke="#4A6FA5" stroke-width="1.5"/>
+  <rect x="196" y="148" width="148" height="10" rx="8" fill="#4A6FA5"/>
+  <text x="270" y="175" text-anchor="middle" font-size="10" fill="#4A6FA5" font-weight="700">B. HASH + DIFF</text>
+  <text x="270" y="193" text-anchor="middle" font-size="9" fill="#1A2235">SHA-256 each Part/doc</text>
+  <text x="270" y="207" text-anchor="middle" font-size="9" fill="#1A2235">Compare vs manifest</text>
+  <text x="270" y="221" text-anchor="middle" font-size="9" fill="#1A2235">corpus-manifest.json</text>
+  <text x="270" y="237" text-anchor="middle" font-size="8" fill="#8FA8C8">check-data.js / build-manifest.js</text>
+
+  <!-- Decision diamond -->
+  <polygon points="400,198 436,248 400,298 364,248" fill="#FFFFFF" stroke="#4A6FA5" stroke-width="1.5"/>
+  <text x="400" y="244" text-anchor="middle" font-size="9" fill="#1A2235" font-weight="700">Changed?</text>
+
+  <!-- NO branch down-right -->
+  <line x1="436" y1="248" x2="500" y2="248" stroke="#4A6FA5" stroke-width="1.5" marker-end="url(#m1)"/>
+  <rect x="500" y="220" width="108" height="56" rx="6" fill="#F7F8FA" stroke="#C0CEDF" stroke-width="1"/>
+  <text x="554" y="244" text-anchor="middle" font-size="10" fill="#555F6D" font-weight="600">No change</text>
+  <text x="554" y="260" text-anchor="middle" font-size="9" fill="#8FA8C8">Log "current"</text>
+  <text x="554" y="272" text-anchor="middle" font-size="8" fill="#8FA8C8">skip re-ingest</text>
+  <text x="466" y="238" text-anchor="middle" font-size="8" fill="#555F6D">NO</text>
+
+  <!-- YES branch down -->
+  <line x1="400" y1="298" x2="400" y2="330" stroke="#4A6FA5" stroke-width="1.5" marker-end="url(#m1)"/>
+  <text x="412" y="318" font-size="8" fill="#555F6D">YES</text>
+
+  <!-- Step C: Re-ingest -->
+  <rect x="330" y="330" width="140" height="90" rx="8" fill="#FFFFFF" stroke="#4A6FA5" stroke-width="1.5"/>
+  <rect x="330" y="330" width="140" height="10" rx="8" fill="#4A6FA5"/>
+  <text x="400" y="357" text-anchor="middle" font-size="10" fill="#4A6FA5" font-weight="700">C. RE-INGEST</text>
+  <text x="400" y="373" text-anchor="middle" font-size="9" fill="#1A2235">Download new files</text>
+  <text x="400" y="387" text-anchor="middle" font-size="9" fill="#1A2235">pdftotext extraction</text>
+  <text x="400" y="401" text-anchor="middle" font-size="9" fill="#1A2235">Chunk + re-embed</text>
+  <text x="400" y="413" text-anchor="middle" font-size="8" fill="#8FA8C8">incremental, not full rebuild</text>
+
+  <!-- Arrows right from C to D and E -->
+  <line x1="470" y1="375" x2="500" y2="375" stroke="#4A6FA5" stroke-width="1.5" marker-end="url(#m1)"/>
+
+  <!-- Step D: Stamp -->
+  <rect x="500" y="330" width="138" height="90" rx="8" fill="#FFFFFF" stroke="#4A6FA5" stroke-width="1.5"/>
+  <rect x="500" y="330" width="138" height="10" rx="8" fill="#4A6FA5"/>
+  <text x="569" y="357" text-anchor="middle" font-size="10" fill="#4A6FA5" font-weight="700">D. STAMP</text>
+  <text x="569" y="373" text-anchor="middle" font-size="9" fill="#1A2235">Write provenance block</text>
+  <text x="569" y="387" text-anchor="middle" font-size="9" fill="#1A2235">Bump verified_cycle</text>
+  <text x="569" y="401" text-anchor="middle" font-size="9" fill="#1A2235">AIRAC effective date</text>
+  <text x="569" y="413" text-anchor="middle" font-size="8" fill="#8FA8C8">source-status.json</text>
+
+  <line x1="638" y1="375" x2="668" y2="375" stroke="#4A6FA5" stroke-width="1.5" marker-end="url(#m1)"/>
+
+  <!-- Step E: Eval Gate -->
+  <rect x="668" y="330" width="138" height="90" rx="8" fill="#FFFFFF" stroke="#1E6B9E" stroke-width="1.5"/>
+  <rect x="668" y="330" width="138" height="10" rx="8" fill="#1E6B9E"/>
+  <text x="737" y="357" text-anchor="middle" font-size="10" fill="#1E6B9E" font-weight="700">E. EVAL GATE</text>
+  <text x="737" y="373" text-anchor="middle" font-size="9" fill="#1A2235">Run eval harness</text>
+  <text x="737" y="387" text-anchor="middle" font-size="9" fill="#1A2235">Check citations resolve</text>
+  <text x="737" y="401" text-anchor="middle" font-size="9" fill="#1A2235">Staleness case class</text>
+  <text x="737" y="413" text-anchor="middle" font-size="8" fill="#8FA8C8">Fail = block publish</text>
+
+  <!-- Eval fail (back loop) -->
+  <line x1="737" y1="420" x2="737" y2="446" stroke="#D64045" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <rect x="676" y="446" width="122" height="28" rx="5" fill="#FFF0F0" stroke="#D64045" stroke-width="1"/>
+  <text x="737" y="464" text-anchor="middle" font-size="9" fill="#D64045" font-weight="600">Eval fail - alert owner</text>
+
+  <!-- Eval pass arrow to publish -->
+  <line x1="806" y1="375" x2="836" y2="375" stroke="#2E7D52" stroke-width="1.5" marker-end="url(#m2)"/>
+
+  <!-- Step F: Publish -->
+  <rect x="836" y="330" width="108" height="90" rx="8" fill="#E8F5EE" stroke="#2E7D52" stroke-width="2"/>
+  <text x="890" y="357" text-anchor="middle" font-size="10" fill="#2E7D52" font-weight="700">F. PUBLISH</text>
+  <text x="890" y="373" text-anchor="middle" font-size="9" fill="#1A2235">Deploy assets/data/</text>
+  <text x="890" y="387" text-anchor="middle" font-size="9" fill="#1A2235">Rebuild RAG index</text>
+  <text x="890" y="401" text-anchor="middle" font-size="9" fill="#1A2235">Tag with AIRAC cycle</text>
+  <text x="890" y="413" text-anchor="middle" font-size="8" fill="#8FA8C8">firebase deploy</text>
+
+  <!-- ─── EDITORIAL LANE (y=430 to 580) ─── -->
+
+  <!-- Human checklist box -->
+  <rect x="16" y="432" width="220" height="140" rx="8" fill="#FFFFFF" stroke="#E8920A" stroke-width="1.5"/>
+  <rect x="16" y="432" width="220" height="10" rx="8" fill="#E8920A"/>
+  <text x="126" y="459" text-anchor="middle" font-size="10" fill="#E8920A" font-weight="700">AIRAC SYNC CHECKLIST (per cycle)</text>
+  <text x="28" y="477" font-size="9" fill="#444C58">1. Review auto-detected changes log</text>
+  <text x="28" y="493" font-size="9" fill="#444C58">2. Confirm changed Parts against GACA</text>
+  <text x="28" y="509" font-size="9" fill="#444C58">3. Review diff for material amendments</text>
+  <text x="28" y="525" font-size="9" fill="#444C58">4. Update reader-page content if needed</text>
+  <text x="28" y="541" font-size="9" fill="#444C58">5. Sign off freshness stamp (approve)</text>
+  <text x="28" y="557" text-anchor="start" font-size="8" fill="#8FA8C8">SLA: AIP 72 h | GACAR 7 days | Ref best-effort</text>
+
+  <!-- SLA reminder boxes -->
+  <rect x="256" y="432" width="134" height="60" rx="6" fill="#FFF8E8" stroke="#E8920A" stroke-width="1"/>
+  <text x="323" y="452" text-anchor="middle" font-size="9" fill="#8A5000" font-weight="700">AIP / Aerodrome</text>
+  <text x="323" y="468" text-anchor="middle" font-size="9" fill="#B8800A">Re-verify within 72 h</text>
+  <text x="323" y="482" text-anchor="middle" font-size="8" fill="#B8800A">of new AIRAC cycle</text>
+
+  <rect x="256" y="502" width="134" height="60" rx="6" fill="#FFF8E8" stroke="#E8920A" stroke-width="1"/>
+  <text x="323" y="522" text-anchor="middle" font-size="9" fill="#8A5000" font-weight="700">GACAR Parts</text>
+  <text x="323" y="538" text-anchor="middle" font-size="9" fill="#B8800A">Re-ingest within 7 days</text>
+  <text x="323" y="552" text-anchor="middle" font-size="8" fill="#B8800A">of detected amendment</text>
+
+  <!-- Editorial escalation box -->
+  <rect x="410" y="432" width="200" height="140" rx="8" fill="#FFFFFF" stroke="#E8920A" stroke-width="1.5"/>
+  <rect x="410" y="432" width="200" height="10" rx="8" fill="#E8920A"/>
+  <text x="510" y="459" text-anchor="middle" font-size="10" fill="#E8920A" font-weight="700">FAILURE MODES</text>
+  <text x="422" y="477" font-size="9" fill="#D64045">- GACA site returns 0 docs (403/block)</text>
+  <text x="422" y="493" font-size="9" fill="#D64045">  Safe: no content wiped, alert owner</text>
+  <text x="422" y="509" font-size="9" fill="#D64045">- Eval gate fails after re-ingest</text>
+  <text x="422" y="525" font-size="9" fill="#D64045">  Block publish, manual review required</text>
+  <text x="422" y="541" font-size="9" fill="#D64045">- Stamp says current when stale</text>
+  <text x="422" y="557" font-size="9" fill="#D64045">  Worst failure - breaks trust contract</text>
+
+  <!-- Arrow from eval-fail box to editorial -->
+  <line x1="737" y1="474" x2="737" y2="490" stroke="#D64045" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="737" y1="490" x2="530" y2="490" stroke="#D64045" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#m3)"/>
+
+  <!-- ─── USER-VISIBLE LANE (y=628 to 710) ─── -->
+
+  <!-- Stamp box -->
+  <rect x="16" y="628" width="210" height="72" rx="8" fill="#FFFFFF" stroke="#2E7D52" stroke-width="1.5"/>
+  <text x="121" y="648" text-anchor="middle" font-size="10" fill="#2E7D52" font-weight="700">Freshness Stamp (every page)</text>
+  <text x="121" y="664" text-anchor="middle" font-size="9" fill="#444C58">GACAR Part 61 - Amdt 3</text>
+  <text x="121" y="678" text-anchor="middle" font-size="9" fill="#444C58">verified AIRAC 2026-05</text>
+  <text x="121" y="692" text-anchor="middle" font-size="8" fill="#8FA8C8">green check = current</text>
+
+  <!-- Staleness banner box -->
+  <rect x="244" y="628" width="210" height="72" rx="8" fill="#FFFFFF" stroke="#E8920A" stroke-width="1.5"/>
+  <text x="349" y="648" text-anchor="middle" font-size="10" fill="#E8920A" font-weight="700">Staleness Banner</text>
+  <text x="349" y="664" text-anchor="middle" font-size="9" fill="#444C58">Auto-shown when verified_cycle</text>
+  <text x="349" y="678" text-anchor="middle" font-size="9" fill="#444C58">is older than current AIRAC</text>
+  <text x="349" y="692" text-anchor="middle" font-size="8" fill="#8FA8C8">amber flag - "pending verification"</text>
+
+  <!-- Library status box -->
+  <rect x="472" y="628" width="210" height="72" rx="8" fill="#FFFFFF" stroke="#2E7D52" stroke-width="1.5"/>
+  <text x="577" y="648" text-anchor="middle" font-size="10" fill="#2E7D52" font-weight="700">Library Status Line</text>
+  <text x="577" y="664" text-anchor="middle" font-size="9" fill="#444C58">Corpus current as of</text>
+  <text x="577" y="678" text-anchor="middle" font-size="9" fill="#444C58">AIRAC YYYY-CC</text>
+  <text x="577" y="692" text-anchor="middle" font-size="8" fill="#8FA8C8">public status on library hub</text>
+
+  <!-- Captain Adel box -->
+  <rect x="700" y="628" width="244" height="72" rx="8" fill="#FFFFFF" stroke="#1E6B9E" stroke-width="1.5"/>
+  <text x="822" y="648" text-anchor="middle" font-size="10" fill="#1E6B9E" font-weight="700">Captain Adel Citations</text>
+  <text x="822" y="664" text-anchor="middle" font-size="9" fill="#444C58">Answers include amendment/AIRAC stamp</text>
+  <text x="822" y="678" text-anchor="middle" font-size="9" fill="#444C58">Superseded chunks excluded from index</text>
+  <text x="822" y="692" text-anchor="middle" font-size="8" fill="#8FA8C8">Staleness = hard eval failure</text>
+
+  <!-- Vertical connect: Publish to user outputs -->
+  <line x1="890" y1="420" x2="890" y2="610" stroke="#2E7D52" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="890" y1="610" x2="822" y2="628" stroke="#2E7D52" stroke-width="1.5" marker-end="url(#m2)" stroke-dasharray="4,3"/>
+  <line x1="890" y1="610" x2="121" y2="628" stroke="#2E7D52" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="890" y1="610" x2="349" y2="628" stroke="#E8920A" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="890" y1="610" x2="577" y2="628" stroke="#2E7D52" stroke-width="1" stroke-dasharray="4,3"/>
+</svg>

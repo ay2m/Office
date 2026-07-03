@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fly GACA — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+  :root {
+    --falcon-night: #0A0E12;
+    --falcon-deep: #0F1A24;
+    --falcon-mist: #1A2A38;
+    --falcon-mist-2: #243749;
+    --falcon-teal: #2D6E8A;
+    --falcon-teal-bright: #4A9CB8;
+    --falcon-sage: #8FC9A8;
+    --falcon-sage-bright: #B5DDC2;
+    --falcon-gold: #C8A04A;
+    --falcon-gold-soft: #E0C588;
+    --ivory: #F5F2ED;
+    --ivory-warm: #FBF8F2;
+    --ivory-edge: #E5DFD3;
+    --ink: #0A0E12;
+    --ink-soft: #3F4A55;
+    --ink-mute: #7A8590;
+    --moon: #F5F2ED;
+    --moon-soft: #A8B5C0;
+    --moon-mute: #5E6C7A;
+    --falcon-stroke: linear-gradient(135deg, #0A0E12 0%, #1A3548 35%, #2D6E8A 70%, #4A9CB8 100%);
+    --shadow-1: 0 1px 2px rgba(15,26,36,.04), 0 1px 3px rgba(15,26,36,.06);
+    --shadow-2: 0 4px 8px -2px rgba(15,26,36,.08), 0 2px 4px -2px rgba(15,26,36,.04);
+    --shadow-3: 0 12px 24px -8px rgba(15,26,36,.14), 0 4px 8px -4px rgba(15,26,36,.06);
+    --ease-glide: cubic-bezier(0.2, 0.7, 0.2, 1);
+    --ease-lift: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--ivory);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--falcon-stroke);
+    background-color: var(--falcon-night);
+    color: var(--moon);
+    padding: 56px 40px 52px;
+    border-bottom: 4px solid var(--falcon-gold);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    right: -15%; top: -50%;
+    width: 60%; height: 200%;
+    background: radial-gradient(ellipse at center, rgba(143,201,168,0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1200px; margin: 0 auto;
+    position: relative;
+    display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+  }
+  .hero-logo {
+    width: 88px; height: 88px;
+    background: var(--falcon-night);
+    border: 1.5px solid rgba(143,201,168,0.25);
+    border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 32px rgba(74,156,184,0.3);
+  }
+  .hero-logo svg { width: 60px; height: 60px; }
+  .hero h1 {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 44px; font-weight: 700; margin: 0;
+    letter-spacing: -0.025em;
+  }
+  .hero p {
+    margin: 6px 0 0; font-size: 15px; color: var(--moon-soft);
+    max-width: 680px;
+  }
+  .hero .pill {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 5px 12px;
+    background: rgba(143,201,168,0.14);
+    color: var(--falcon-sage-bright);
+    border: 1px solid rgba(143,201,168,0.22);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* Container */
+  main { max-width: 1200px; margin: 0 auto; padding: 48px 40px 80px; }
+
+  /* Section */
+  section.dsg { margin-bottom: 64px; }
+  .dsg-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 20px;
+    border-bottom: 1.5px solid var(--ivory-edge);
+    padding-bottom: 14px;
+  }
+  .dsg-num {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 14px; font-weight: 700;
+    color: var(--falcon-teal);
+    letter-spacing: 0.04em;
+    background: rgba(45,110,138,0.10);
+    padding: 3px 10px;
+    border-radius: 6px;
+  }
+  .dsg-head h2 {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 28px; font-weight: 700; margin: 0;
+    letter-spacing: -0.015em;
+  }
+  .dsg-head .desc { color: var(--ink-mute); font-size: 13.5px; margin-inline-start: auto; }
+
+  /* Color swatches */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .swatch {
+    background: var(--ivory-warm);
+    border: 1px solid var(--ivory-edge);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .swatch-color {
+    height: 84px;
+    position: relative;
+  }
+  .swatch-color::after {
+    content: attr(data-hex);
+    position: absolute; left: 12px; bottom: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    background: rgba(255,255,255,0.85);
+    color: var(--ink);
+    padding: 2px 6px;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+  }
+  .swatch-color.dark::after {
+    background: rgba(15,26,36,0.7);
+    color: var(--moon);
+  }
+  .swatch-meta {
+    padding: 10px 12px 12px;
+  }
+  .swatch-name {
+    font-size: 12px; font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--ink-soft);
+  }
+  .swatch-use {
+    font-size: 11.5px;
+    color: var(--ink-mute);
+    margin-top: 3px;
+  }
+
+  /* Type scale */
+  .type-rows { display: flex; flex-direction: column; gap: 14px; }
+  .type-row {
+    display: grid;
+    grid-template-columns: 80px 80px 1fr;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--ivory-edge);
+    gap: 16px;
+  }
+  .type-row .lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .type-row .specs {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-mute);
+  }
+  .type-row .sample { color: var(--ink); }
+  .t-display { font-family: 'Inter Tight', sans-serif; font-size: 48px; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; }
+  .t-h1 { font-family: 'Inter Tight', sans-serif; font-size: 32px; font-weight: 700; line-height: 1.15; letter-spacing: -0.015em; }
+  .t-h2 { font-family: 'Inter Tight', sans-serif; font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
+  .t-h3 { font-size: 18px; font-weight: 600; line-height: 1.3; letter-spacing: -0.005em; }
+  .t-bodyL { font-size: 16px; line-height: 1.55; }
+  .t-body { font-size: 14px; line-height: 1.55; }
+  .t-bodyS { font-size: 12.5px; line-height: 1.5; color: var(--ink-soft); }
+  .t-eyebrow { font-size: 11px; font-weight: 600; line-height: 1.3; letter-spacing: 0.08em; text-transform: uppercase; color: var(--falcon-teal); }
+  .t-mono { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; font-weight: 500; }
+
+  /* Component canvas (light) */
+  .canvas {
+    background: var(--ivory-warm);
+    border: 1px solid var(--ivory-edge);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 16px;
+  }
+  .canvas.dark {
+    background: var(--falcon-deep);
+    color: var(--moon);
+    border-color: var(--falcon-mist);
+  }
+  .canvas-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 16px;
+  }
+  .canvas.dark .canvas-label { color: var(--moon-mute); }
+  .row {
+    display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+  }
+
+  /* Buttons */
+  .btn {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: all 220ms var(--ease-glide);
+    display: inline-flex; align-items: center; gap: 8px;
+    text-decoration: none;
+    line-height: 1.2;
+  }
+  .btn-primary {
+    background: var(--falcon-teal);
+    color: var(--moon);
+  }
+  .btn-primary:hover { background: var(--falcon-teal-bright); transform: translateY(-1px); box-shadow: var(--shadow-2); }
+  .btn-secondary {
+    background: var(--ivory-warm);
+    color: var(--falcon-teal);
+    border-color: var(--falcon-teal);
+  }
+  .btn-secondary:hover { background: var(--falcon-teal); color: var(--moon); }
+  .canvas.dark .btn-secondary {
+    background: var(--falcon-mist);
+    color: var(--moon);
+    border-color: var(--falcon-mist-2);
+  }
+  .canvas.dark .btn-secondary:hover { background: var(--falcon-mist-2); border-color: var(--falcon-sage); }
+  .btn-ghost { background: transparent; color: var(--falcon-teal); }
+  .btn-ghost:hover { background: rgba(45,110,138,0.08); }
+  .canvas.dark .btn-ghost { color: var(--falcon-sage-bright); }
+  .canvas.dark .btn-ghost:hover { background: rgba(143,201,168,0.10); }
+  .btn-gold {
+    background: var(--falcon-gold);
+    color: var(--ink);
+  }
+  .btn-gold:hover { background: var(--falcon-gold-soft); }
+  .btn[disabled] { opacity: 0.4; cursor: not-allowed; }
+  .btn:focus-visible {
+    outline: 2px solid var(--falcon-sage-bright);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(143,201,168,0.35);
+  }
+
+  /* Card examples */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .card-example {
+    background: var(--ivory-warm);
+    border: 1px solid var(--ivory-edge);
+    border-radius: 12px;
+    padding: 18px 18px 14px;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex; flex-direction: column; gap: 10px;
+    transition: all 220ms var(--ease-lift);
+  }
+  .card-example::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--cat-color, var(--falcon-teal));
+    transition: width 220ms var(--ease-glide);
+  }
+  .card-example:hover {
+    transform: translateY(-3px);
+    border-color: var(--cat-color, var(--falcon-teal));
+    box-shadow: var(--shadow-3);
+  }
+  .card-example:hover::before { width: 6px; }
+  .card-head { display: flex; justify-content: space-between; align-items: flex-start; }
+  .badge {
+    background: var(--cat-color, var(--falcon-teal));
+    color: var(--moon);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px; font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.06em;
+  }
+  .badge.gold { background: var(--falcon-gold); color: var(--ink); }
+  .badge.mute { background: var(--ink-mute); }
+  .card-version { font-size: 11px; color: var(--ink-mute); padding-top: 6px; font-variant-numeric: tabular-nums; }
+  .card-title { font-size: 14.5px; font-weight: 600; margin: 0; line-height: 1.4; }
+  .card-scope { font-size: 12.5px; color: var(--ink-soft); line-height: 1.55; margin: 0; }
+  .card-foot {
+    margin-top: auto; padding-top: 10px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--ivory-edge);
+    font-size: 11px;
+  }
+  .subcategory {
+    background: rgba(45,110,138,0.10);
+    color: var(--falcon-teal);
+    padding: 3px 9px;
+    border-radius: 4px;
+    font-size: 10.5px;
+    font-weight: 600;
+  }
+  .open-link { color: var(--falcon-teal); font-weight: 600; font-size: 12px; }
+
+  /* Chips */
+  .chip {
+    background: var(--ivory-warm);
+    border: 1.5px solid var(--ivory-edge);
+    color: var(--ink-soft);
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+  }
+  .chip:hover { border-color: var(--falcon-teal); color: var(--falcon-teal); }
+  .chip.active { background: var(--falcon-teal); color: var(--moon); border-color: var(--falcon-teal); }
+  .chip .count {
+    margin-inline-start: 6px;
+    background: rgba(15,26,36,0.06);
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 11px; font-weight: 600;
+    color: var(--ink-mute);
+  }
+  .chip.active .count { background: rgba(255,255,255,0.22); color: var(--moon); }
+
+  /* Search input demo */
+  .search-demo {
+    position: relative;
+    max-width: 460px;
+  }
+  .search-demo input {
+    width: 100%;
+    padding: 12px 14px 12px 44px;
+    border: 1.5px solid var(--ivory-edge);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    background: #fff;
+    color: var(--ink);
+    outline: none;
+  }
+  .search-demo input:focus {
+    border-color: var(--falcon-teal);
+    box-shadow: 0 0 0 3px rgba(45,110,138,0.18);
+  }
+  .search-demo::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 16px; top: 50%; transform: translateY(-50%);
+    width: 16px; height: 16px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237A8590' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'/><path d='m21 21-4.3-4.3'/></svg>") no-repeat center / contain;
+    pointer-events: none;
+  }
+
+  /* Spacing demo */
+  .space-row { display: flex; align-items: center; gap: 14px; padding: 8px 0; border-bottom: 1px solid var(--ivory-edge); }
+  .space-bar { background: var(--falcon-teal); height: 16px; border-radius: 4px; }
+  .space-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-soft); min-width: 110px; }
+
+  /* Radius demo */
+  .radius-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .radius-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .radius-block { width: 72px; height: 72px; background: var(--falcon-teal); }
+  .radius-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-mute); }
+
+  /* Elevation demo */
+  .elev-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); gap: 16px; }
+  .elev-card {
+    background: var(--ivory-warm);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-mute);
+  }
+  .elev-1 { box-shadow: var(--shadow-1); }
+  .elev-2 { box-shadow: var(--shadow-2); }
+  .elev-3 { box-shadow: var(--shadow-3); }
+  .elev-glow {
+    background: var(--falcon-deep);
+    color: var(--moon-soft);
+    box-shadow: 0 0 24px rgba(74,156,184,0.25);
+  }
+
+  /* Section header demo */
+  .section-header-demo {
+    display: flex; align-items: center; gap: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1.5px solid var(--ivory-edge);
+  }
+  .section-header-demo .bar {
+    width: 5px; height: 28px; border-radius: 3px;
+    background: var(--falcon-teal);
+    box-shadow: 0 0 12px var(--falcon-teal);
+  }
+  .section-header-demo h3 {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 19px; font-weight: 700; margin: 0;
+  }
+  .section-header-demo .count {
+    color: var(--ink-mute); font-size: 12.5px; font-weight: 500;
+  }
+
+  /* Toggle demo */
+  .toggle-demo {
+    display: inline-flex;
+    background: rgba(15,26,36,0.06);
+    border: 1.5px solid var(--ivory-edge);
+    border-radius: 12px;
+    padding: 3px;
+    gap: 2px;
+  }
+  .toggle-demo button {
+    background: transparent; border: none; cursor: pointer; font-family: inherit;
+    padding: 8px 16px; font-size: 13px; color: var(--ink-soft);
+    border-radius: 9px; font-weight: 500;
+  }
+  .toggle-demo button.active {
+    background: var(--moon); color: var(--falcon-teal);
+    box-shadow: var(--shadow-1); font-weight: 600;
+  }
+
+  /* Code block */
+  pre {
+    background: var(--falcon-night);
+    color: var(--moon);
+    padding: 16px 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  pre .tk { color: var(--falcon-sage-bright); }
+  pre .vl { color: var(--falcon-gold-soft); }
+
+  /* Principles list */
+  .principles { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 16px; }
+  .principle {
+    background: var(--ivory-warm);
+    border: 1px solid var(--ivory-edge);
+    border-radius: 12px;
+    padding: 20px;
+    border-inline-start: 4px solid var(--falcon-teal);
+  }
+  .principle-num {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 28px; font-weight: 700;
+    color: var(--falcon-teal);
+    line-height: 1; margin-bottom: 8px;
+  }
+  .principle h4 { margin: 0 0 6px; font-size: 15px; font-weight: 600; }
+  .principle p { margin: 0; font-size: 13px; color: var(--ink-soft); }
+
+  footer {
+    margin-top: 48px; padding: 24px 40px;
+    text-align: center;
+    color: var(--ink-mute); font-size: 12px;
+    border-top: 1px solid var(--ivory-edge);
+    background: var(--ivory-warm);
+  }
+  footer a { color: var(--falcon-teal); text-decoration: none; }
+</style>
+  <script src="assets/js/consent.js" defer></script>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-logo">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="logoBlue" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#4A9CB8"/>
+            <stop offset="100%" stop-color="#2D6E8A"/>
+          </linearGradient>
+          <linearGradient id="logoGreen" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0%" stop-color="#B5DDC2"/>
+            <stop offset="100%" stop-color="#8FC9A8"/>
+          </linearGradient>
+        </defs>
+        <path d="M14,28 C20,16 32,11 44,16 C50,18 52,22 50,28 C46,30 40,29 35,32 C30,34 24,33 14,28 Z" fill="url(#logoBlue)"/>
+        <path d="M16,38 C26,34 36,36 46,32 C50,38 50,46 44,50 C36,52 26,50 18,46 C14,43 13,40 16,38 Z" fill="url(#logoGreen)"/>
+      </svg>
+    </div>
+    <div>
+      <h1>Fly GACA · Design System</h1>
+      <p>The visual language behind the Saudi Aviation Library — derived from the falcon mark, applied across tokens, components, and patterns.</p>
+      <span class="pill">Foundation · v1.0</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- 1. PRINCIPLES -->
+  <section class="dsg">
+    <div class="dsg-head">
+      <span class="dsg-num">01</span>
+      <h2>Principles</h2>
+      <span class="desc">Five rules that turn the logo into a system</span>
+    </div>
+    <div class="principles">
+      <div class="principle"><div class="principle-num">01</div><h4>Night sky as canvas</h4><p>Dark surfaces are primary, not "dark mode." Light surfaces are for reading dense regulatory text.</p></div>
+      <div class="principle" style="border-color: var(--falcon-sage)"><div class="principle-num" style="color: var(--falcon-sage)">02</div><h4>Two confident strokes</h4><p>Hierarchy comes from a few strong elements, not many small ones. Avoid clutter.</p></div>
+      <div class="principle" style="border-color: var(--falcon-gold)"><div class="principle-num" style="color: var(--falcon-gold)">03</div><h4>Lift, not lecture</h4><p>Tone is precise but never stuffy. The surface should feel modern and inviting.</p></div>
+      <div class="principle" style="border-color: var(--falcon-teal-bright)"><div class="principle-num" style="color: var(--falcon-teal-bright)">04</div><h4>Heritage without pastiche</h4><p>Reference Saudi visual heritage sparingly — through color and proportion, not ornament.</p></div>
+      <div class="principle" style="border-color: var(--ink-soft)"><div class="principle-num" style="color: var(--ink-soft)">05</div><h4>Bilingual by default</h4><p>Latin and Arabic must coexist. Type, spacing, and direction support both equally.</p></div>
+    </div>
+  </section>
+
+  <!-- 2. COLOR -->
+  <section class="dsg">
+    <div class="dsg-head">
+      <span class="dsg-num">02</span>
+      <h2>Color</h2>
+      <span class="desc">Sampled from the falcon, extended into a working palette</span>
+    </div>
+
+    <h3 style="font-family:'Inter Tight'; font-size:14px; font-weight:600; color:var(--ink-soft); margin:8px 0 14px; text-transform:uppercase; letter-spacing:0.08em">Falcon · Brand</h3>
+    <div class="swatches" style="margin-bottom:24px">
+      <div class="swatch"><div class="swatch-color dark" data-hex="#0A0E12" style="background:#0A0E12"></div><div class="swatch-meta"><div class="swatch-name">--falcon-night</div><div class="swatch-use">Primary canvas (dark)</div></div></div>
+      <div class="swatch"><div class="swatch-color dark" data-hex="#0F1A24" style="background:#0F1A24"></div><div class="swatch-meta"><div class="swatch-name">--falcon-deep</div><div class="swatch-use">Elevated dark surface</div></div></div>
+      <div class="swatch"><div class="swatch-color dark" data-hex="#1A2A38" style="background:#1A2A38"></div><div class="swatch-meta"><div class="swatch-name">--falcon-mist</div><div class="swatch-use">Border on dark</div></div></div>
+      <div class="swatch"><div class="swatch-color dark" data-hex="#2D6E8A" style="background:#2D6E8A"></div><div class="swatch-meta"><div class="swatch-name">--falcon-teal</div><div class="swatch-use">Brand · primary action</div></div></div>
+      <div class="swatch"><div class="swatch-color" data-hex="#4A9CB8" style="background:#4A9CB8"></div><div class="swatch-meta"><div class="swatch-name">--falcon-teal-bright</div><div class="swatch-use">Hover · links on dark</div></div></div>
+      <div class="swatch"><div class="swatch-color" data-hex="#8FC9A8" style="background:#8FC9A8"></div><div class="swatch-meta"><div class="swatch-name">--falcon-sage</div><div class="swatch-use">Success · highlights</div></div></div>
+      <div class="swatch"><div class="swatch-color" data-hex="#B5DDC2" style="background:#B5DDC2"></div><div class="swatch-meta"><div class="swatch-name">--falcon-sage-bright</div><div class="swatch-use">Focus rings</div></div></div>
+      <div class="swatch"><div class="swatch-color" data-hex="#C8A04A" style="background:#C8A04A"></div><div class="swatch-meta"><div class="swatch-name">--falcon-gold</div><div class="swatch-use">Heritage accent</div></div></div>
+    </div>
+
+    <h3 style="font-family:'Inter Tight'; font-size:14px; font-weight:600; color:var(--ink-soft); margin:24px 0 14px; text-transform:uppercase; letter-spacing:0.08em">Surface · Light</h3>
+    <div class="swatches" style="margin-bottom:24px">
+      <div class="swatch"><div class="swatch-color" data-hex="#F5F2ED" style="background:#F5F2ED"></div><div class="swatch-meta"><div class="swatch-name">--ivory</div><div class="swatch-use">Primary canvas (light)</div></div></div>
+      <div class="swatch"><div class="swatch-color" data-hex="#FBF8F2" style="background:#FBF8F2"></div><div class="swatch-meta"><div class="swatch-name">--ivory-warm</div><div class="swatch-use">Elevated light surface</div></div></div>
+      <div class="swatch"><div class="swatch-color" data-hex="#E5DFD3" style="background:#E5DFD3"></div><div class="swatch-meta"><div class="swatch-name">--ivory-edge</div><div class="swatch-use">Border on light</div></div></div>
+      <div class="swatch"><div class="swatch-color dark" data-hex="#3F4A55" style="background:#3F4A55"></div><div class="swatch-meta"><div class="swatch-name">--ink-soft</div><div class="swatch-use">Secondary text</div></div></div>
+      <div class="swatch"><div class="swatch-color" data-hex="#7A8590" style="background:#7A8590"></div><div class="swatch-meta"><div class="swatch-name">--ink-mute</div><div class="swatch-use">Tertiary / metadata</div></div></div>
+    </div>
+
+    <h3 style="font-family:'Inter Tight'; font-size:14px; font-weight:600; color:var(--ink-soft); margin:24px 0 14px; text-transform:uppercase; letter-spacing:0.08em">Gradient · Falcon Stroke</h3>
+    <div class="canvas dark" style="padding:0; height:120px; border-radius:12px; background:var(--falcon-stroke); position:relative">
+      <span style="position:absolute; left:24px; bottom:18px; font-family:'JetBrains Mono', monospace; font-size:12px; color:rgba(255,255,255,0.85)">linear-gradient(135deg, #0A0E12 → #2D6E8A → #4A9CB8)</span>
+    </div>
+  </section>
+
+  <!-- 3. TYPOGRAPHY -->
+  <section class="dsg">
+    <div class="dsg-head">
+      <span class="dsg-num">03</span>
+      <h2>Typography</h2>
+      <span class="desc">Inter Tight (display) · Inter (body) · JetBrains Mono (code)</span>
+    </div>
+    <div class="canvas">
+      <div class="type-rows">
+        <div class="type-row"><div class="lbl">Display</div><div class="specs">48 / 56 · 700</div><div class="sample t-display">A falcon takes flight</div></div>
+        <div class="type-row"><div class="lbl">H1</div><div class="specs">32 / 37 · 700</div><div class="sample t-h1">Saudi Aviation Library</div></div>
+        <div class="type-row"><div class="lbl">H2</div><div class="specs">24 / 29 · 700</div><div class="sample t-h2">Flight Operations</div></div>
+        <div class="type-row"><div class="lbl">H3</div><div class="specs">18 / 23 · 600</div><div class="sample t-h3">General Operating Rules</div></div>
+        <div class="type-row"><div class="lbl">Body L</div><div class="specs">16 / 25 · 400</div><div class="sample t-bodyL">This part prescribes rules governing the operation of aircraft within the sovereign area and territorial waters of the Kingdom of Saudi Arabia.</div></div>
+        <div class="type-row"><div class="lbl">Body</div><div class="specs">14 / 22 · 400</div><div class="sample t-body">Each certificate holder shall ensure that all flight crew members are trained and qualified.</div></div>
+        <div class="type-row"><div class="lbl">Body S</div><div class="specs">12.5 / 19 · 400</div><div class="sample t-bodyS">Last updated 6 November 2024 · Version 25.0</div></div>
+        <div class="type-row"><div class="lbl">Eyebrow</div><div class="specs">11 · 600 · 0.08em</div><div class="sample t-eyebrow">Subpart A — General</div></div>
+        <div class="type-row"><div class="lbl">Mono</div><div class="specs">12.5 · 500</div><div class="sample t-mono">--falcon-teal: #2D6E8A;</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SPACING -->
+  <section class="dsg">
+    <div class="dsg-head">
+      <span class="dsg-num">04</span>
+      <h2>Spacing</h2>
+      <span class="desc">4px base, geometric scale</span>
+    </div>
+    <div class="canvas">
+      <div class="space-row"><div class="space-meta">--space-1 · 4px</div><div class="space-bar" style="width:4px"></div></div>
+      <div class="space-row"><div class="space-meta">--space-2 · 8px</div><div class="space-bar" style="width:8px"></div></div>
+      <div class="space-row"><div class="space-meta">--space-3 · 12px</div><div class="space-bar" style="width:12px"></div></div>
+      <div class="space-row"><div class="space-meta">--space-4 · 16px</div><div class="space-bar" style="width:16px"></div></div>
+      <div class="space-row"><div class="space-meta">--space-5 · 24px</div><div class="space-bar" style="width:24px"></div></div>
+      <div class="space-row"><div class="space-meta">--space-6 · 32px</div><div class="space-bar" style="width:32px"></div></div>
+      <div class="space-row"><div class="space-meta">--space-7 · 48px</div><div class="space-bar" style="width:48px"></div></div>
+      <div class="space-row" style="border:none"><div class="space-meta">--space-8 · 64px</div><div class="space-bar" style="width:64px"></div></div>
+    </div>
+  </section>
+
+  <!-- 5. RADIUS -->
+  <section class="dsg">
+    <div class="dsg-head">
+      <span class="dsg-num">05</span>
+      <h2>Radius</h2>
+      <span class="desc">Soft corners, never sharp</span>
+    </div>
+    <div class="canvas">
+      <div class="radius-row">
+        <div class="radius-item"><div class="radius-block" style="border-radius:4px"></div><div class="radius-label">--radius-1 · 4</div></div>
+        <div class="radius-item"><div class="radius-block" style="border-radius:8px"></div><div class="radius-label">--radius-2 · 8</div></div>
+        <div class="radius-item"><div class="radius-block" style="border-radius:12px"></div><div class="radius-label">--radius-3 · 12</div></div>
+        <div class="radius-item"><div class="radius-block" style="border-radius:16px"></div><div class="radius-label">--radius-4 · 16</div></div>
+        <div class="radius-item"><div class="radius-block" style="border-radius:999px"></div><div class="radius-label">--radius-pill</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ELEVATION -->
+  <section class="dsg">
+    <div class="dsg-head">
+      <span class="dsg-num">06</span>
+      <h2>Elevation</h2>
+      <span class="desc">Cool shadows on light · luminous glows on dark</span>
+    </div>
+    <div class="elev-row">
+      <div class="elev-card elev-1">--shadow-1<br>resting</div>
+      <div class="elev-card elev-2">--shadow-2<br>hover</div>
+      <div class="elev-card elev-3">--shadow-3<br>elevated</div>
+      <div class="elev-card elev-glow">--shadow-glow<br>luminous</div>
+    </div>
+  </section>
+
+  <!-- 7. BUTTONS -->
+  <section class="dsg">
+    <div class="dsg-head">
+      <span class="dsg-num">07</span>
+      <h2>Buttons</h2>
+      <span class="desc">One primary action per screen</span>
+    </div>
+    <div class="canvas">
+      <div class="canvas-label">On light surface</div>
+      <div class="row">
+        <button class="btn btn-primary">Open Document</button>
+        <button class="btn btn-secondary">Download</button>
+        <button class="btn btn-ghost">Cancel</button>
+        <button class="btn btn-gold">Heritage Accent</button>
+        <button class="btn btn-primary" disabled>Disabled</button>
+      </div>
+    </div>
+    <div class="canvas dark">
+      <div class="canvas-label">On dark surface</div>
+      <div class="row">
+        <button class="btn btn-primary">Open Document</button>
+        <button class="btn btn-secondary">Download</button>
+        <button class="btn btn-ghost">Cancel</button>
+        <button class="btn btn-gold">Heritage Accent</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. INPUTS & TOGGLES -->
+  <section class="dsg">
+    <div class="dsg-head">
+      <span class="dsg-num">08</span>
+      <h2>Inputs · Chips · Toggles</h2>
+      <span class="desc">Filter & search controls</span>
+    </div>
+    <div class="canvas">
+      <div class="canvas-label">Search</div>
+      <div class="search-demo"><input placeholder="Search by part number, title, or topic"></div>
+
+      <div class="canvas-label" style="margin-top:24px">Filter chips</div>
+      <div class="row">
+        <span class="chip active">All <span class="count">95</span></span>
+        <span class="chip">Administrative & General <span class="count">14</span></span>
+        <span class="chip">Airworthiness <span class="count">17</span></span>
+        <span class="chip">Flight Operations <span class="count">18</span></span>
+        <span class="chip">Air Navigation Services <span class="count">10</span></span>
+      </div>
+
+      <div class="canvas-label" style="margin-top:24px">Toggle / segmented</div>
+      <div class="toggle-demo">
+        <button class="active">By Part Number</button>
+        <button>By Category</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CARDS -->
+  <section class="dsg">
+    <div class="dsg-head">
+      <span class="dsg-num">09</span>
+      <h2>Cards</h2>
+      <span class="desc">The primary surface for documents and list items</span>
+    </div>
+    <div class="canvas">
+      <div class="grid-3">
+        <a class="card-example" href="#" style="--cat-color:#4A9CB8">
+          <div class="card-head">
+            <span class="badge">PART 91</span>
+            <span class="card-version">v25.0</span>
+          </div>
+          <h4 class="card-title">General Operating and Flight Rules</h4>
+          <p class="card-scope">This part prescribes rules governing the operation of aircraft within the sovereign area and territorial waters of the Kingdom of Saudi Arabia.</p>
+          <div class="card-foot">
+            <span class="subcategory" style="background:rgba(74,156,184,0.12);color:#2D6E8A">Flight Operations</span>
+            <span class="open-link" style="color:#2D6E8A">Open PDF →</span>
+          </div>
+        </a>
+        <a class="card-example" href="#" style="--cat-color:#C8A04A">
+          <div class="card-head">
+            <span class="badge gold">eBOOK</span>
+            <span class="card-version">v8.0</span>
+          </div>
+          <h4 class="card-title">Air Operator & Air Agency — Certification</h4>
+          <p class="card-scope">Five-phase certification process for new air operators and air agencies, covering pre-application through certification.</p>
+          <div class="card-foot">
+            <span class="subcategory" style="background:rgba(200,160,74,0.14);color:#8C6F2F">Administration eBooks</span>
+            <span class="open-link" style="color:#8C6F2F">Open PDF →</span>
+          </div>
+        </a>
+        <a class="card-example" href="#" style="--cat-color:#8FC9A8">
+          <div class="card-head">
+            <span class="badge" style="background:#8FC9A8;color:#0A0E12">PART 67</span>
+            <span class="card-version">v5.0</span>
+          </div>
+          <h4 class="card-title">Medical Standards and Certification</h4>
+          <p class="card-scope">Establishes medical standards and certification procedures for airmen exercising privileges of pilot, flight engineer, and ATC certificates.</p>
+          <div class="card-foot">
+            <span class="subcategory" style="background:rgba(143,201,168,0.20);color:#3D7A57">Medical</span>
+            <span class="open-link" style="color:#3D7A57">Open PDF →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. SECTION HEADER -->
+  <section class="dsg">
+    <div class="dsg-head">
+      <span class="dsg-num">10</span>
+      <h2>Section Header</h2>
+      <span class="desc">Used to group cards by category</span>
+    </div>
+    <div class="canvas">
+      <div class="section-header-demo">
+        <div class="bar" style="background:#4A9CB8; box-shadow:0 0 12px #4A9CB8"></div>
+        <h3>Flight Operations</h3>
+        <span class="count" style="margin-inline-start:auto">18 documents</span>
+      </div>
+      <div class="section-header-demo" style="margin-top:24px">
+        <div class="bar" style="background:#C8A04A; box-shadow:0 0 12px #C8A04A"></div>
+        <h3>Airworthiness</h3>
+        <span class="count" style="margin-inline-start:auto">17 documents</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. APPLIED -->
+  <section class="dsg">
+    <div class="dsg-head">
+      <span class="dsg-num">11</span>
+      <h2>Applied</h2>
+      <span class="desc">The system as it lands in the library</span>
+    </div>
+    <div class="canvas" style="padding:0; overflow:hidden">
+      <a href="./Fly%20GACA%20Library.html" target="_blank" style="display:block; text-decoration:none; color:inherit">
+        <div style="background:var(--falcon-stroke); padding:32px 28px; color:var(--moon); position:relative; overflow:hidden">
+          <div style="position:absolute; right:-15%; top:-50%; width:60%; height:200%; background:radial-gradient(ellipse, rgba(143,201,168,0.18), transparent 60%); pointer-events:none"></div>
+          <div style="position:relative; display:flex; align-items:center; gap:16px">
+            <div style="width:48px; height:48px; background:var(--falcon-night); border:1.5px solid rgba(143,201,168,0.25); border-radius:12px; display:flex; align-items:center; justify-content:center; box-shadow:0 0 20px rgba(74,156,184,0.3)">
+              <svg width="32" height="32" viewBox="0 0 64 64"><defs><linearGradient id="lg2b" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4A9CB8"/><stop offset="100%" stop-color="#2D6E8A"/></linearGradient><linearGradient id="lg2g" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#B5DDC2"/><stop offset="100%" stop-color="#8FC9A8"/></linearGradient></defs><path d="M14,28 C20,16 32,11 44,16 C50,18 52,22 50,28 C46,30 40,29 35,32 C30,34 24,33 14,28 Z" fill="url(#lg2b)"/><path d="M16,38 C26,34 36,36 46,32 C50,38 50,46 44,50 C36,52 26,50 18,46 C14,43 13,40 16,38 Z" fill="url(#lg2g)"/></svg>
+            </div>
+            <div>
+              <div style="font-family:'Inter Tight'; font-weight:700; font-size:22px; letter-spacing:-0.015em">Fly GACA</div>
+              <div style="font-size:12px; color:var(--moon-soft); margin-top:2px">Saudi Aviation Regulatory Library · Open the live preview →</div>
+            </div>
+          </div>
+        </div>
+        <div style="padding:20px 28px; background:var(--ivory-warm); display:flex; gap:14px; align-items:center; flex-wrap:wrap">
+          <span class="chip active">All <span class="count">95</span></span>
+          <span class="chip">Airworthiness <span class="count">17</span></span>
+          <span class="chip">Flight Operations <span class="count">18</span></span>
+          <span style="margin-inline-start:auto; font-size:12px; color:var(--ink-mute)">→ Open the live library</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <strong>Fly GACA Design System</strong> · v1.0 · Derived from the falcon mark<br>
+  <a href="./Fly%20GACA%20Library.html">Open the Library</a> · <a href="./Design%20System.md">Read the spec</a>
+</footer>
+
+</body>
+</html>

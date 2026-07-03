@@ -1,0 +1,142 @@
+<svg viewBox="0 0 800 1120" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="800" height="1120" fill="#F7F8FA"/>
+  <rect x="0" y="0" width="800" height="60" fill="#1A2235"/>
+  <text x="400" y="22" text-anchor="middle" font-size="11" fill="#8FA8C8" font-weight="600" letter-spacing="2">FLY GACA — EDUCATIONAL REFERENCE</text>
+  <text x="400" y="46" text-anchor="middle" font-size="18" fill="#FFFFFF" font-weight="700">Saudi Pilot Licensing Journey</text>
+  <defs>
+    <marker id="ab" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L0,7 L9,3.5 z" fill="#4A6FA5"/></marker>
+    <marker id="ag" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L0,7 L9,3.5 z" fill="#2E7D52"/></marker>
+    <marker id="aa" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L0,7 L9,3.5 z" fill="#B8800A"/></marker>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L0,7 L9,3.5 z" fill="#D64045"/></marker>
+  </defs>
+  <!-- Phase sidebar -->
+  <rect x="12" y="76" width="86" height="82" rx="6" fill="#E8EDF4" stroke="#C0CEDF" stroke-width="1"/>
+  <text x="55" y="100" text-anchor="middle" font-size="8" fill="#4A6FA5" font-weight="700">PHASE 1</text>
+  <text x="55" y="116" text-anchor="middle" font-size="10" fill="#1A2235" font-weight="600">Entry</text>
+  <text x="55" y="131" text-anchor="middle" font-size="9" fill="#555F6D">Prerequisites</text>
+  <text x="55" y="148" text-anchor="middle" font-size="9" fill="#8FA8C8">GACAR Pt 61</text>
+  <line x1="98" y1="117" x2="118" y2="117" stroke="#C0CEDF" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="12" y="236" width="86" height="96" rx="6" fill="#FDECEA" stroke="#D64045" stroke-width="1"/>
+  <text x="55" y="260" text-anchor="middle" font-size="8" fill="#D64045" font-weight="700">PHASE 2</text>
+  <text x="55" y="276" text-anchor="middle" font-size="10" fill="#1A2235" font-weight="600">Medical</text>
+  <text x="55" y="291" text-anchor="middle" font-size="9" fill="#555F6D">Class 2 AME</text>
+  <text x="55" y="306" text-anchor="middle" font-size="9" fill="#8FA8C8">GACAR Pt 67</text>
+  <line x1="98" y1="284" x2="118" y2="284" stroke="#D64045" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="12" y="412" width="86" height="96" rx="6" fill="#F0EBF8" stroke="#7B5EA7" stroke-width="1"/>
+  <text x="55" y="436" text-anchor="middle" font-size="8" fill="#7B5EA7" font-weight="700">PHASE 3</text>
+  <text x="55" y="452" text-anchor="middle" font-size="10" fill="#1A2235" font-weight="600">Student</text>
+  <text x="55" y="467" text-anchor="middle" font-size="9" fill="#555F6D">Pilot Cert.</text>
+  <text x="55" y="482" text-anchor="middle" font-size="9" fill="#8FA8C8">GACAR 61.87</text>
+  <line x1="98" y1="460" x2="118" y2="460" stroke="#7B5EA7" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="12" y="588" width="86" height="96" rx="6" fill="#E6F0F8" stroke="#1E6B9E" stroke-width="1"/>
+  <text x="55" y="612" text-anchor="middle" font-size="8" fill="#1E6B9E" font-weight="700">PHASE 4</text>
+  <text x="55" y="628" text-anchor="middle" font-size="10" fill="#1A2235" font-weight="600">Training</text>
+  <text x="55" y="643" text-anchor="middle" font-size="9" fill="#555F6D">Ground+Flight</text>
+  <text x="55" y="658" text-anchor="middle" font-size="9" fill="#8FA8C8">Written+EP Test</text>
+  <line x1="98" y1="636" x2="118" y2="636" stroke="#1E6B9E" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="12" y="764" width="86" height="96" rx="6" fill="#FEF6E6" stroke="#E8920A" stroke-width="1"/>
+  <text x="55" y="788" text-anchor="middle" font-size="8" fill="#E8920A" font-weight="700">PHASE 5</text>
+  <text x="55" y="804" text-anchor="middle" font-size="10" fill="#1A2235" font-weight="600">Checkride</text>
+  <text x="55" y="819" text-anchor="middle" font-size="9" fill="#555F6D">Practical Test</text>
+  <text x="55" y="834" text-anchor="middle" font-size="9" fill="#8FA8C8">GACA Examiner</text>
+  <line x1="98" y1="812" x2="118" y2="812" stroke="#E8920A" stroke-width="1" stroke-dasharray="3,3"/>
+  <rect x="12" y="940" width="86" height="96" rx="6" fill="#E8F5EE" stroke="#2E7D52" stroke-width="1.5"/>
+  <text x="55" y="964" text-anchor="middle" font-size="8" fill="#2E7D52" font-weight="700">PHASE 6</text>
+  <text x="55" y="980" text-anchor="middle" font-size="10" fill="#1A2235" font-weight="600">PPL Issued</text>
+  <text x="55" y="995" text-anchor="middle" font-size="9" fill="#555F6D">+Conversion</text>
+  <text x="55" y="1010" text-anchor="middle" font-size="9" fill="#8FA8C8">GACAR 61.77</text>
+  <line x1="98" y1="988" x2="118" y2="988" stroke="#2E7D52" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <!-- Box 1: Entry -->
+  <rect x="118" y="76" width="568" height="82" rx="8" fill="#FFFFFF" stroke="#C0CEDF" stroke-width="1.5"/>
+  <rect x="118" y="76" width="7" height="82" rx="8" fill="#4A6FA5"/>
+  <text x="406" y="107" text-anchor="middle" font-size="14" fill="#1A2235" font-weight="700">Entry Requirements</text>
+  <text x="406" y="127" text-anchor="middle" font-size="11" fill="#444C58">Age 17+ (PPL) | Saudi nationality or valid residency | Basic education</text>
+  <text x="406" y="146" text-anchor="middle" font-size="10" fill="#8FA8C8">Fly GACA Guide: Starting Your Pilot Journey | GACAR Part 61 Subpart B</text>
+  <line x1="400" y1="158" x2="400" y2="228" stroke="#4A6FA5" stroke-width="2" marker-end="url(#ab)"/>
+  <!-- Box 2: Medical -->
+  <rect x="118" y="228" width="568" height="110" rx="8" fill="#FFFFFF" stroke="#D64045" stroke-width="1.5"/>
+  <rect x="118" y="228" width="7" height="110" rx="8" fill="#D64045"/>
+  <text x="406" y="258" text-anchor="middle" font-size="14" fill="#1A2235" font-weight="700">Class 2 Medical Certificate (GACAR Part 67)</text>
+  <text x="406" y="278" text-anchor="middle" font-size="11" fill="#444C58">Examination by GACA-approved Aviation Medical Examiner (AME)</text>
+  <rect x="134" y="290" width="166" height="26" rx="5" fill="#FFF5F5" stroke="#D64045" stroke-width="1"/>
+  <text x="217" y="307" text-anchor="middle" font-size="9" fill="#8A0000">Vision and colour standards</text>
+  <rect x="316" y="290" width="170" height="26" rx="5" fill="#FFF5F5" stroke="#D64045" stroke-width="1"/>
+  <text x="401" y="307" text-anchor="middle" font-size="9" fill="#8A0000">Cardiovascular assessment</text>
+  <rect x="502" y="290" width="170" height="26" rx="5" fill="#FFF5F5" stroke="#D64045" stroke-width="1"/>
+  <text x="587" y="307" text-anchor="middle" font-size="9" fill="#8A0000">Hearing / ENT / mental fitness</text>
+  <text x="406" y="330" text-anchor="middle" font-size="10" fill="#8FA8C8">Fly GACA Guide: Medical Requirements | Validity: 24 months (under 40)</text>
+  <line x1="400" y1="338" x2="400" y2="404" stroke="#4A6FA5" stroke-width="2" marker-end="url(#ab)"/>
+  <!-- Box 3: Student Pilot -->
+  <rect x="118" y="404" width="568" height="110" rx="8" fill="#FFFFFF" stroke="#7B5EA7" stroke-width="1.5"/>
+  <rect x="118" y="404" width="7" height="110" rx="8" fill="#7B5EA7"/>
+  <text x="406" y="434" text-anchor="middle" font-size="14" fill="#1A2235" font-weight="700">Student Pilot Certificate (GACAR 61.87)</text>
+  <text x="406" y="454" text-anchor="middle" font-size="11" fill="#444C58">Application to GACA | Must hold valid Class 2 Medical</text>
+  <rect x="134" y="464" width="252" height="26" rx="5" fill="#F5F0FF" stroke="#7B5EA7" stroke-width="1"/>
+  <text x="260" y="481" text-anchor="middle" font-size="9" fill="#4A1A8A">Dual instruction begins with a CFI</text>
+  <rect x="400" y="464" width="272" height="26" rx="5" fill="#F5F0FF" stroke="#7B5EA7" stroke-width="1"/>
+  <text x="536" y="481" text-anchor="middle" font-size="9" fill="#4A1A8A">Solo flight endorsement required from instructor</text>
+  <text x="406" y="506" text-anchor="middle" font-size="10" fill="#8FA8C8">Fly GACA Guide: Enrolling at a Flight School | GACAR Part 61 Subpart C</text>
+  <line x1="400" y1="514" x2="400" y2="580" stroke="#4A6FA5" stroke-width="2" marker-end="url(#ab)"/>
+  <!-- Box 4: Training -->
+  <rect x="118" y="580" width="568" height="142" rx="8" fill="#FFFFFF" stroke="#1E6B9E" stroke-width="1.5"/>
+  <rect x="118" y="580" width="7" height="142" rx="8" fill="#1E6B9E"/>
+  <text x="406" y="610" text-anchor="middle" font-size="13" fill="#1A2235" font-weight="700">Ground School | Written Exam | English Proficiency | Flight Hours</text>
+  <rect x="134" y="618" width="170" height="72" rx="6" fill="#EEF4FB" stroke="#1E6B9E" stroke-width="1"/>
+  <text x="219" y="639" text-anchor="middle" font-size="10" fill="#1E6B9E" font-weight="700">Written Knowledge Test</text>
+  <text x="219" y="655" text-anchor="middle" font-size="9" fill="#444C58">Aeronautical knowledge</text>
+  <text x="219" y="670" text-anchor="middle" font-size="9" fill="#444C58">Min. passing score: 70%</text>
+  <text x="219" y="684" text-anchor="middle" font-size="8" fill="#8FA8C8">GACAR Part 61</text>
+  <rect x="317" y="618" width="170" height="72" rx="6" fill="#EEF4FB" stroke="#1E6B9E" stroke-width="1"/>
+  <text x="402" y="639" text-anchor="middle" font-size="10" fill="#1E6B9E" font-weight="700">English Proficiency Test</text>
+  <text x="402" y="655" text-anchor="middle" font-size="9" fill="#444C58">ICAO Language Proficiency</text>
+  <text x="402" y="670" text-anchor="middle" font-size="9" fill="#444C58">Level 4 minimum required</text>
+  <text x="402" y="684" text-anchor="middle" font-size="8" fill="#8FA8C8">ICAO Annex 1 / GACAR</text>
+  <rect x="500" y="618" width="172" height="72" rx="6" fill="#EEF4FB" stroke="#1E6B9E" stroke-width="1"/>
+  <text x="586" y="639" text-anchor="middle" font-size="10" fill="#1E6B9E" font-weight="700">Flight Hours (PPL)</text>
+  <text x="586" y="655" text-anchor="middle" font-size="9" fill="#444C58">45 hours total (dual+solo)</text>
+  <text x="586" y="670" text-anchor="middle" font-size="9" fill="#444C58">incl. 10 hrs solo PIC</text>
+  <text x="586" y="684" text-anchor="middle" font-size="8" fill="#8FA8C8">GACAR 61 Subpart E</text>
+  <text x="406" y="714" text-anchor="middle" font-size="10" fill="#8FA8C8">Fly GACA Guides: Exam Prep | English Proficiency | Flight Training Requirements</text>
+  <line x1="400" y1="722" x2="400" y2="756" stroke="#4A6FA5" stroke-width="2" marker-end="url(#ab)"/>
+  <!-- Box 5: Checkride -->
+  <rect x="118" y="756" width="568" height="106" rx="8" fill="#FFFFFF" stroke="#E8920A" stroke-width="1.5"/>
+  <rect x="118" y="756" width="7" height="106" rx="8" fill="#E8920A"/>
+  <text x="406" y="786" text-anchor="middle" font-size="14" fill="#1A2235" font-weight="700">Practical Test (Checkride) - GACA Examiner</text>
+  <text x="406" y="806" text-anchor="middle" font-size="11" fill="#444C58">Oral exam + flight test with GACA-designated examiner</text>
+  <rect x="134" y="816" width="252" height="26" rx="5" fill="#FEF6E6" stroke="#E8920A" stroke-width="1"/>
+  <text x="260" y="833" text-anchor="middle" font-size="9" fill="#8A5000">Pre-flight planning and oral questioning</text>
+  <rect x="400" y="816" width="272" height="26" rx="5" fill="#FEF6E6" stroke="#E8920A" stroke-width="1"/>
+  <text x="536" y="833" text-anchor="middle" font-size="9" fill="#8A5000">Airwork | Navigation | Emergency procedures</text>
+  <text x="406" y="854" text-anchor="middle" font-size="10" fill="#8FA8C8">GACAR Part 61 Subpart E | ACS standards | Fly GACA Guide: The Checkride</text>
+  <!-- Fail loop -->
+  <line x1="118" y1="836" x2="100" y2="836" stroke="#D64045" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="100" y1="836" x2="100" y2="636" stroke="#D64045" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="100" y1="636" x2="118" y2="636" stroke="#D64045" stroke-width="1.5" marker-end="url(#ar)" stroke-dasharray="4,3"/>
+  <rect x="56" y="716" width="42" height="44" rx="4" fill="#FFF0F0" stroke="#D64045" stroke-width="1"/>
+  <text x="77" y="732" text-anchor="middle" font-size="8" fill="#D64045" font-weight="700">Fail</text>
+  <text x="77" y="746" text-anchor="middle" font-size="7" fill="#D64045">further</text>
+  <text x="77" y="759" text-anchor="middle" font-size="7" fill="#D64045">training</text>
+  <!-- Success arrow -->
+  <line x1="400" y1="862" x2="400" y2="932" stroke="#2E7D52" stroke-width="2.5" marker-end="url(#ag)"/>
+  <!-- Box 6a: PPL -->
+  <rect x="118" y="932" width="264" height="110" rx="8" fill="#E8F5EE" stroke="#2E7D52" stroke-width="2"/>
+  <text x="250" y="960" text-anchor="middle" font-size="14" fill="#1A5C3A" font-weight="700">PPL Issued</text>
+  <text x="250" y="980" text-anchor="middle" font-size="10" fill="#2E7D52">GACAR Part 61 licence</text>
+  <text x="250" y="998" text-anchor="middle" font-size="10" fill="#2E7D52">Privileges: VFR day and night</text>
+  <text x="250" y="1016" text-anchor="middle" font-size="10" fill="#2E7D52">Class 2 Medical - renew 24 mo.</text>
+  <text x="250" y="1034" text-anchor="middle" font-size="9" fill="#2E7D52">Next: hour-building toward CPL/IR</text>
+  <text x="402" y="993" text-anchor="middle" font-size="12" fill="#B8800A" font-weight="700">OR</text>
+  <!-- Box 6b: Conversion -->
+  <rect x="422" y="932" width="264" height="110" rx="8" fill="#FFF8E8" stroke="#E8920A" stroke-width="2"/>
+  <text x="554" y="957" text-anchor="middle" font-size="12" fill="#8A5000" font-weight="700">Foreign Licence Conversion</text>
+  <text x="554" y="975" text-anchor="middle" font-size="10" fill="#B8800A">Holder of FAA / EASA / ICAO licence</text>
+  <text x="554" y="993" text-anchor="middle" font-size="10" fill="#B8800A">GACAR 61.77 - Conversion rules</text>
+  <text x="554" y="1011" text-anchor="middle" font-size="10" fill="#B8800A">English proficiency + knowledge test</text>
+  <text x="554" y="1029" text-anchor="middle" font-size="10" fill="#B8800A">Differences training if required</text>
+  <line x1="554" y1="868" x2="554" y2="924" stroke="#B8800A" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#aa)"/>
+  <text x="640" y="896" text-anchor="middle" font-size="9" fill="#B8800A">Foreign licence</text>
+  <text x="640" y="910" text-anchor="middle" font-size="9" fill="#B8800A">holder entry point</text>
+  <!-- Footer -->
+  <rect x="118" y="1058" width="568" height="28" rx="6" fill="#F0F5FF" stroke="#C0CEDF" stroke-width="1"/>
+  <text x="402" y="1076" text-anchor="middle" font-size="10" fill="#4A6FA5">Fly GACA is an independent educational reference. Always verify requirements against the current official GACA publication.</text>
+</svg>
