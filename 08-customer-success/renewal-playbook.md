@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This playbook standardizes how FlyGACA forecasts, prepares for, and executes
+This playbook standardizes how Fly GACA forecasts, prepares for, and executes
 contract renewals so the team sustains a **renewal rate > 95%**. Renewals are
 treated as the natural outcome of demonstrated compliance value, not a
 last-minute negotiation.

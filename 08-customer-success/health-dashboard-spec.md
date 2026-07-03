@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document specifies how the FlyGACA health-scoring model is operationalized
+This document specifies how the Fly GACA health-scoring model is operationalized
 into a working dashboard and a runnable calculation tool. It implements the
 methodology defined in
 [`docs/customer-health-scoring.md`](customer-health-scoring.md) and powers the

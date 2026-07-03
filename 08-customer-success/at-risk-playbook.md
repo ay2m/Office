@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This playbook defines how the FlyGACA Customer Success team detects, triages,
+This playbook defines how the Fly GACA Customer Success team detects, triages,
 and recovers accounts showing churn risk. The goal is to keep churn **< 5%**
 and convert at-risk accounts back to a Healthy health band.
 

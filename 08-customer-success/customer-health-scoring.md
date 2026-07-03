@@ -2,9 +2,9 @@
 
 ## Purpose
 
-This document defines how FlyGACA measures the health of its B2B customers —
+This document defines how Fly GACA measures the health of its B2B customers —
 flight schools / Approved Training Organizations (ATOs), charter operators,
-MROs, and commercial operators that license FlyGACA for their cadets and staff.
+MROs, and commercial operators that license Fly GACA for their cadets and staff.
 The health score is a single 0–100 number that drives proactive Customer
 Success motions (onboarding, at-risk intervention, renewal, expansion).
 

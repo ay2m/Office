@@ -1,5 +1,9 @@
 # Contributing to Fly GACA
 
+> **Vendored copy** — this is the application repo's (`FlyGACA/flygaca`) contributing guide,
+> kept here for reference. Setup steps and paths refer to that repo's layout, not to this
+> documents repo.
+
 Thanks for your interest in improving Fly GACA — an independent, educational platform and open
 regulatory library for Saudi civil aviation. This guide covers how to get set up, the
 conventions that are load-bearing here, and the checks every change must pass.

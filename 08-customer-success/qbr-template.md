@@ -64,7 +64,7 @@ meeting.
 ## Roadmap Alignment
 
 - Customer priorities for next quarter:
-- Relevant FlyGACA roadmap items:
+- Relevant Fly GACA roadmap items:
 - Feature requests / gaps (route to product):
 
 ## Goals & Action Plan

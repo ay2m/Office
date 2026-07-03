@@ -1,6 +1,6 @@
 # Fly GACA — Source-update runbook
 
-How FlyGACA keeps the **GACAR**, the **AIP** and the rest of the GACA corpus in
+How Fly GACA keeps the **GACAR**, the **AIP** and the rest of the GACA corpus in
 sync with GACA's own publications — automatically, on the AIRAC cadence.
 
 ## TL;DR

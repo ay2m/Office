@@ -1,4 +1,4 @@
-# RUNBOOK — FlyGACA iOS app (Capacitor + Pro subscription)
+# RUNBOOK — Fly GACA iOS app (Capacitor + Pro subscription)
 
 The iOS app wraps the existing web PWA in a Capacitor shell and sells **Fly GACA
 Pro** via Apple In-App Purchase. It reuses the entire backend: a purchase grants

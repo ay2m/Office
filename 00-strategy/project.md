@@ -1,4 +1,4 @@
-# Project: FlyGACA Sales Enablement Multi-Agent System
+# Project: Fly GACA Sales Enablement Multi-Agent System
 
 ## Architecture
 The system is implemented as a modular Python package `sales_agents/` utilizing the `google-genai` SDK for LLM interactions. It contains:

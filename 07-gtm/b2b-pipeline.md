@@ -1,7 +1,7 @@
 # B2B Pipeline Playbook — Fly GACA for Schools
 
 > The operational counterpart to the strategy in
-> [`office/monetization.md`](../office/monetization.md). Schools are the only
+> [`03-finance/monetization.md`](../03-finance/monetization.md). Schools are the only
 > revenue line that can be invoiced **today** (manual ZATCA e-invoice + admin
 > licence grant) — this playbook is how that motion runs until online checkout
 > opens, and after.

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This playbook describes how FlyGACA identifies and executes expansion — seat
+This playbook describes how Fly GACA identifies and executes expansion — seat
 growth, tier upgrades, and cross-sell of additional modules — to drive net
 revenue retention above 100% while deepening each customer's compliance
 coverage. Expansion is pursued primarily with **Healthy-band** accounts that
