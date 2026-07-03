@@ -1,3 +1,13 @@
+---
+title: Book of Fly GACA — Review
+section: 00-strategy
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: en
+---
+
 # Book of Fly GACA — Review
 **Reviewed:** 2026-06-14  
 **Document:** `the-book-of-fly-gaca.html` (44,723 bytes) + companion PDF (1.1 MB)

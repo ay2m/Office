@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Ground School Curriculum Gap Audit
+section: 10-academy-curriculum
+doc_type: audit
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: en
+---
+
 # Fly GACA — Ground School Curriculum Gap Audit
 **Date:** 2026-06-14  
 **Scope:** PPL theoretical-knowledge syllabus (Saudi GACAR / ICAO Annex 1 alignment)  

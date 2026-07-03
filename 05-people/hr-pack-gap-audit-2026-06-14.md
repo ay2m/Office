@@ -1,3 +1,13 @@
+---
+title: Fly GACA HR Pack — Gap Audit
+section: 05-people
+doc_type: audit
+status: draft
+owner: Founder
+last_updated: 2026-06-14
+lang: en
+---
+
 # Fly GACA HR Pack — Gap Audit
 **Date:** 2026-06-14  
 **Prepared by:** Claude (AI research assistant) — internal working document  

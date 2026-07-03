@@ -1,3 +1,13 @@
+---
+title: "Fly GACA — Master Paperwork & Template Index"
+section: 00-strategy
+doc_type: template
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: en
+---
+
 # Fly GACA — Master Paperwork & Template Index
 **Generated:** 2026-06-14  
 **Scope:** All back-office documents across buckets 00–11 (plus `library/06-product-eng/`). Excludes the regulatory corpus in `library/` (GACAR, FAA, ICAO, GACA PDFs) — that is a separate catalogue.

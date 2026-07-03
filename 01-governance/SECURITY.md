@@ -1,3 +1,13 @@
+---
+title: Security Policy
+section: 01-governance
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Security Policy
 
 ## Supported Versions

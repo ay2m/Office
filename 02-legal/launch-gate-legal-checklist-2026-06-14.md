@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Launch-Gate Legal Checklist
+section: 02-legal
+doc_type: checklist
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: en
+---
+
 # Fly GACA — Launch-Gate Legal Checklist
 **Document:** launch-gate-legal-checklist-2026-06-14.md
 **Version:** 1.0 — 2026-06-14

@@ -1,3 +1,13 @@
+---
+title: "Fly GACA — Investor Risk Memo & Diligence Checklist"
+section: 02-legal
+doc_type: memo
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Fly GACA — Investor Risk Memo & Diligence Checklist
 
 > A skeptical outside-investor view of Fly GACA, written to be argued with. **Not legal,

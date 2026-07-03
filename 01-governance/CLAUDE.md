@@ -1,4 +1,18 @@
+---
+title: CLAUDE.md
+section: 01-governance
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # CLAUDE.md
+
+> **Vendored copy** — this is the application repo's (`FlyGACA/flygaca`) Claude guidance, kept
+> here for reference. Paths like `functions/`, `docs/`, and `office/` refer to that repo's
+> layout, not to this documents repo.
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 

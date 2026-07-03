@@ -1,0 +1,16 @@
+{
+  "name": "flygaca-office-print",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fly GACA office docs — markdown to branded A4 PDF pipeline",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "build:force": "node build.mjs --force"
+  },
+  "dependencies": {
+    "gray-matter": "4.0.3",
+    "markdown-it": "14.3.0",
+    "playwright-core": "1.61.1"
+  }
+}

@@ -1,3 +1,13 @@
+---
+title: "Lawyer Brief — \"Fly GACA\" Name and Trade Mark Opinion"
+section: 02-legal
+doc_type: brief
+status: active
+owner: Founder
+last_updated: 2026-06-14
+lang: en
+---
+
 # Lawyer Brief — "Fly GACA" Name and Trade Mark Opinion
 **Document:** lawyer-brief-name-opinion-2026-06-14.md
 **Version:** 1.0 — 2026-06-14

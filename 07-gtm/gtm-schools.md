@@ -1,3 +1,13 @@
+---
+title: "Fly GACA — Go-to-Market: Flight Schools (B2B-First)"
+section: 07-gtm
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Fly GACA — Go-to-Market: Flight Schools (B2B-First)
 
 **Status:** plan, not built · **Maps to:** `roadmap.md` Phase 5, `office/spec-instructor-dashboard.md`

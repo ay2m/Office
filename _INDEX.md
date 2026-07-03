@@ -1,12 +1,27 @@
+---
+title: The Office — Master Index
+section: root
+doc_type: index
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # The Office — Master Index
 
-_Fly GACA operating documents. Last reorganized: 2026-06-16._
+_Fly GACA operating documents. Last reorganized: 2026-07-03._
 
 This folder holds every internal document for running Fly GACA, organized into 12 numbered
 sections (00–11). Numbered prefixes keep sections in order; open any section folder to see
 its files. Polished deliverables are mostly `.docx` / `.xlsx`; working notes, specs, and
 drafts are `.md`. Filenames are lowercase kebab-case (ASCII) — see the naming convention in
 `06-operations-it/repo-health-report-2026-06-16.md` §6.
+
+Every `.md` doc carries YAML front-matter (`title / section / doc_type / status / owner /
+last_updated / lang`) and has a **print-ready branded PDF** under `_print/` mirroring this
+tree (e.g. `_print/02-legal/terms-of-use-draft-2026-06-14.pdf`). To rebuild PDFs after
+editing: `cd tools/print && npm ci && npm run build` — see `tools/print/README.md`.
 
 > The authoritative master index is also kept as a Google Sheet:
 > `00-strategy/00-master-office-paperwork-index.gsheet`. This `_INDEX.md` is the quick,
@@ -23,6 +38,7 @@ Vision, plan, OKRs, and the strategic brainstorm set.
 - book-of-fly-gaca-review-2026-06-14.md · fly-gaca-review-action-plan.md
 - master-paperwork-template-index-2026-06-14.md
 - roadmap.md · project.md · phase0.md · original-request.md
+- ceo-execution-roadmap-2026-07.md — the go-to-company critical path (Sprints 0–3, Q3 FY2026)
 - 00-master-office-paperwork-index.gsheet
 - **brainstorms/** — numbered explorations 00–10 (index + dashboard, First Academy, Investor
   Narrative, Captain Adel Flywheel, Killer Feature, Co-founder vs Hires, Adjacent & GCC
@@ -34,6 +50,7 @@ Founding, board, and conduct documents.
 - founders-agreement.docx · shareholders-agreement-sha.docx · esop-plan-stock-option-plan.docx
 - code-of-conduct.docx · anti-bribery-aml-and-whistleblower-policy.docx
 - board-pack-template.docx · decision-log-template.docx
+- Live: decision-log.md (DEC-006…009) · board-pack-2026-07.md — the go-to-company decisions
 - Repo governance: CLAUDE.md · CODE_OF_CONDUCT.md · CONTRIBUTING.md · SECURITY.md · LICENSE
 
 ## 02 — Legal
@@ -41,9 +58,11 @@ Contracts, policies, and lawyer-facing briefs.
 
 - Agreements: mutual-nda · one-way-nda · ip-assignment-agreement · confidentiality-and-non-compete-agreement ·
   customer-agreement-eula · service-level-agreement-sla · 60-day-pilot-agreement · influencer-creator-partnership-agreement (.docx)
-- Public policies (DRAFT, 2026-06-14, .md): terms-of-use · privacy-notice-full-stage ·
+- Public policies (DRAFT, .md): terms-of-use · privacy-notice-full-stage ·
   acceptable-use-policy · cookie-and-tracking-notice · disclaimer-and-educational-use-notice ·
-  b2b-data-processing-agreement · pdpl-breach-notification-procedure · ip-and-takedown-procedure
+  b2b-data-processing-agreement · pdpl-breach-notification-procedure · ip-and-takedown-procedure ·
+  refund-and-cancellation-policy-draft-2026-07-03
+- B2B paper: order-form-template-2026-07-03.md (pairs with the pilot agreement + DPA)
 - Counsel: lawyer-brief (.docx/.md) · lawyer-shortlist.md · lawyer-brief-corpus-rights-2026-06-14.md ·
   lawyer-brief-name-opinion-2026-06-14.md · brief-defensible-naming.md
 - Audits/memos: legal-gap-audit-2026-06-14.md · launch-gate-legal-checklist-2026-06-14.md ·
@@ -56,7 +75,7 @@ Policies, trackers, and dashboards.
   petty-cash-policy · capital-expenditure-capex-policy · chart-of-accounts-saudi-specific (.docx)
 - monthly-close-checklist.docx
 - Trackers: budget-vs-actual-tracker.xlsx · financial-dashboard-kpis.xlsx
-- monetization.md · finance-strategy.md _(scaffold)_
+- monetization.md · finance-strategy.md _(draft)_
 
 ## 04 — Compliance (KSA)
 Saudi regulatory registrations and compliance programs.
@@ -69,7 +88,7 @@ Saudi regulatory registrations and compliance programs.
 - Data/security: pdpl-compliance-program-and-dpia · information-security-policy ·
   sub-processor-list-and-dpa-register · vendor-management-policy ·
   business-continuity-and-disaster-recovery-plan-bcp-dr (.docx)
-- compliance-roadmap.md _(scaffold)_
+- compliance-roadmap.md _(draft — sequenced registration roadmap, Q3 2026 →)_
 
 ## 05 — People
 HR templates, policies, and operating rhythm.
@@ -78,10 +97,16 @@ HR templates, policies, and operating rhythm.
 - Policies: compensation-philosophy · social-media-policy (.docx) · leave-pto-policy-2026-06-14.md
 - Templates: offer-letter-template-2026-06-14.md · performance-review-template · 1-on-1-meeting-template ·
   30-60-90-day-new-hire-plan-template · daily-standup-template · monthly-all-hands-template · founder-calendar-and-time-audit-template (.docx)
+- Pre-first-hire pack (DRAFT, 2026-07-03, .md): onboarding-checklist · offboarding-checklist ·
+  grievance-and-disciplinary-procedure · anti-harassment-policy
 - hr-pack-gap-audit-2026-06-14.md
 
 ## 06 — Operations / IT  _(renamed from 06-product-eng)_
 Digital office setup **plus** product/engineering specs, runbooks, and infra notes.
+
+> The specs and runbooks here document the product/engineering work; the actual
+> **code** — the `cloudflare-agents/` Workers project (Captain Adel + sales agents)
+> — lives in the workspace sibling `../Product-Engineering/`, not in this repo.
 
 - Office setup (01–08, .docx/.xlsx): 01-digital-office-setup-master-checklist ·
   02-tooling-stack-selection-guide · 03-drive-folder-structure · 04-email-aliases-map ·
@@ -125,7 +150,7 @@ Fundraising materials and investor reporting.
 - fly-gaca-pitch-deck-2026-06-16.pptx (+ slide-01…15.jpg exports)
 - investor-faq.docx · due-diligence-questionnaire.docx · monthly-investor-update-template.docx
 - saudi-investor-target-list.xlsx · risk-register.xlsx
-- investor-thesis.md _(scaffold)_
+- investor-thesis.md _(draft)_
 
 ## 10 — Academy & Curriculum
 Course content, instructor/cadet materials, and learning paths.
@@ -151,3 +176,14 @@ Visual identity, design system, and print assets.
 
 ## templates/
 Reusable document starters: tpl-fin-report · tpl-hr-policy · tpl-legal-memo · tpl-ops-runbook · tpl-strat-proposal (.md)
+
+## ar/
+Parallel **Arabic (Saudi MSA)** localization of the office — mirrors the same 00–11
+sections plus `templates/`. Has its own `ar/_INDEX.md` (Arabic master map),
+`ar/_GLOSSARY.md` (EN↔AR term glossary), and `ar/README.md`. Keep the English
+tree here and the Arabic tree in `ar/` in sync when documents change.
+
+## tools/print/ & _print/
+`tools/print/` is the markdown→PDF pipeline (branded Falcon document theme, EN + RTL
+Arabic); `_print/` holds the generated print-ready PDFs, one per `.md`, mirroring the
+tree. Rebuild after edits: `cd tools/print && npm ci && npm run build`.

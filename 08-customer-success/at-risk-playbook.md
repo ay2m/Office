@@ -1,8 +1,18 @@
+---
+title: At-Risk / Churn Prevention Playbook
+section: 08-customer-success
+doc_type: playbook
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # At-Risk / Churn Prevention Playbook
 
 ## Purpose
 
-This playbook defines how the FlyGACA Customer Success team detects, triages,
+This playbook defines how the Fly GACA Customer Success team detects, triages,
 and recovers accounts showing churn risk. The goal is to keep churn **< 5%**
 and convert at-risk accounts back to a Healthy health band.
 

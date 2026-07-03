@@ -1,3 +1,13 @@
+---
+title: "Fly GACA — Defensible Naming & Authority Brief"
+section: 02-legal
+doc_type: brief
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Fly GACA — Defensible Naming & Authority Brief
 
 **Status:** decision input, not a decision · **Maps to:** `phase0.md` P0-2, `office/lawyer-brief.md`,

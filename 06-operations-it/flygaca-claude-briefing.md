@@ -1,3 +1,13 @@
+---
+title: "Fly GACA — Claude Project Briefing & Master Plan"
+section: 06-operations-it
+doc_type: brief
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Fly GACA — Claude Project Briefing & Master Plan
 
 **How to use this file.** Paste everything inside the code block below into a fresh Claude

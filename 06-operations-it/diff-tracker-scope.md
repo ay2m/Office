@@ -1,3 +1,13 @@
+---
+title: "Scope note — GACAR amendment / \"Latest Changes\" tracker"
+section: 06-operations-it
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Scope note — GACAR amendment / "Latest Changes" tracker
 
 **Status:** design only, no code. Scopes the "Regulatory Diff Checker" idea ("GACAR Part 61

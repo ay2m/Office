@@ -1,10 +1,20 @@
+---
+title: Customer Health Scoring Model
+section: 08-customer-success
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-07-03
+lang: en
+---
+
 # Customer Health Scoring Model
 
 ## Purpose
 
-This document defines how FlyGACA measures the health of its B2B customers —
+This document defines how Fly GACA measures the health of its B2B customers —
 flight schools / Approved Training Organizations (ATOs), charter operators,
-MROs, and commercial operators that license FlyGACA for their cadets and staff.
+MROs, and commercial operators that license Fly GACA for their cadets and staff.
 The health score is a single 0–100 number that drives proactive Customer
 Success motions (onboarding, at-risk intervention, renewal, expansion).
 

@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Corpus Freshness Pipeline — Design Spec
+section: 06-operations-it
+doc_type: spec
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Fly GACA — Corpus Freshness Pipeline — Design Spec
 
 **Status:** design, not built · **Maps to:** `roadmap.md` cross-cutting (AIP/AIRAC freshness),

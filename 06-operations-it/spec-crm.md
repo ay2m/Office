@@ -1,3 +1,13 @@
+---
+title: SPEC — CRM (Admin customer console)
+section: 06-operations-it
+doc_type: spec
+status: draft
+owner: Product
+last_updated: 2026-06-16
+lang: en
+---
+
 # SPEC — CRM (Admin customer console)
 
 **Status:** Draft · **Owner:** Product · **Last updated:** 2026-05

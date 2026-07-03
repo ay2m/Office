@@ -1,3 +1,13 @@
+---
+title: SPEC — Captain Adel Refusal Protocol
+section: 06-operations-it
+doc_type: spec
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # SPEC — Captain Adel Refusal Protocol
 
 **Document:** `06-product-eng/spec-captain-adel-refusal-protocol.md`

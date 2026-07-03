@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Resume Briefing (current as of 23 May 2026)
+section: 06-operations-it
+doc_type: brief
+status: active
+owner: Founder
+last_updated: 2026-05-23
+lang: en
+---
+
 # Fly GACA — Resume Briefing (current as of 23 May 2026)
 
 **How to use this file.** Paste everything inside the code block below into a fresh Claude

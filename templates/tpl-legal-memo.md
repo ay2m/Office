@@ -21,7 +21,7 @@ tags: [legal, memo, internal]
 ## QUESTION PRESENTED
 [State the specific legal question(s) being addressed in concise format.]
 
-## SHORT ANSWOER
+## SHORT ANSWER
 [Provide direct answer(s) to the question(s) presented, including key qualifications.]
 
 ## STATEMENT OF FACTS

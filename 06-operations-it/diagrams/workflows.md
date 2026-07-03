@@ -1,3 +1,13 @@
+---
+title: Fly GACA — Process Workflow Documentation
+section: 06-operations-it
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Fly GACA — Process Workflow Documentation
 
 **Location:** `06-product-eng/diagrams/`

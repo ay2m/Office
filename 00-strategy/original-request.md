@@ -1,3 +1,13 @@
+---
+title: Original User Request
+section: 00-strategy
+doc_type: document
+status: active
+owner: Founder
+last_updated: 2026-06-16
+lang: en
+---
+
 # Original User Request
 
 ## Initial Request — 2026-06-06T11:27:26Z
