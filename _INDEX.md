@@ -117,6 +117,7 @@ Digital office setup **plus** product/engineering specs, runbooks, and infra not
 - Eng/ops notes: hosting-facts · content-integration-plan · consolidation-manifest-2026-06-16 ·
   content-qa · diff-tracker-scope · improvement-audit · qa-consistency-sweep-2026-06-14 ·
   test-coverage-analysis-2026-06-16 · test-ready · repo-health-report-2026-06-16 ·
+  docs-followup-roadmap-2026-07 (draft→adopted tracker for the 2026-07-03 pass) ·
   flygaca-* briefings · robots.txt
 - **runbooks/** — runbook-deploy · runbook-launch · runbook-cloudflare · runbook-ios ·
   runbook-vps-hardening · runbook-security-rollout · runbook-captain-adel ·

@@ -55,7 +55,7 @@
  "06-operations-it/hosting-facts.md": "720d81436ecfe6ec1c7e366e6d3eeac851fa94016e9551244e6e59f0e930badf",
  "06-operations-it/improvement-audit.md": "fa384d6faa1ed300aafb35e7315be3452aa5aeb893134ef6f2813f68db61d74f",
  "06-operations-it/qa-consistency-sweep-2026-06-14.md": "f53618a110917b4387abbf83e15608b8b08767b594be7ec011511c9287b23475",
- "06-operations-it/repo-health-report-2026-06-16.md": "f80678faf7267dd1cd2f3a7b7ea104fdba58f76682de0e5a78fbb7909872939b",
+ "06-operations-it/repo-health-report-2026-06-16.md": "ba5febcca6794fa3149c8891bd5631f9252a89e5e5208a0a002f67d078b344f9",
  "06-operations-it/runbooks/runbook-arabic-provider.md": "de68134ce975992a99762f0ee030aed9a4e83fe6f5cc2a4a46c36cd6f6ed446f",
  "06-operations-it/runbooks/runbook-captadel-deploy.md": "aa213288f84101b4f6cdcc879d80cb9362db330b9341eb7d0b1454f9f7e0a91b",
  "06-operations-it/runbooks/runbook-captadel-extraction.md": "605591ceb9a8db7c2d881dd5a93c533f4eb245c9f9710ce79f45a4eff47af744",
@@ -101,7 +101,7 @@
  "11-brand/flygaca-design-tokens-readme.md": "ff9a67a599819dbbe9b13237162a98deff83c9885254c30a536129211166a1fe",
  "11-brand/flygaca-document-style-and-design-guideline.md": "2c180dbdeda6ad446ebfb10bad07876d403af3387f237d5014438663f4c37ad6",
  "11-brand/tidal-reckoning-philosophy.md": "f4f1bdc7c0f5c810a8b4d074546d535f8e3a02f38592b1af7e07c614f2a7684c",
- "_INDEX.md": "fcc4766f8dfed5abe1d832c0ded36616c5a1e8c9409f0daf50a628bf9f9d8cd6",
+ "_INDEX.md": "270abd318f6d4f6512b03d29cca5a3a88dd9ddea11d7dc87de2b507dcd7d1f6f",
  "ar/00-strategy/book-of-fly-gaca-review-2026-06-14.md": "624694ee5675323557b351bb701974c0d60e9a2b1aa566e311dcdfbfebac582d",
  "ar/00-strategy/fly-gaca-review-action-plan.md": "20fdec9dd2432f604d37ce234e6afd30f1b9b69ec1cb442f610462116d4342ed",
  "ar/00-strategy/master-paperwork-template-index-2026-06-14.md": "adc728f411e95bff46461142ea407cf27f903e97682f1f11164e092b3bc08d4e",
@@ -202,7 +202,7 @@
  "ar/11-brand/tidal-reckoning-philosophy.md": "a9f2b007588182299e890a86471e01189e9c4552c2daa2a597d515ed455075d5",
  "ar/README.md": "0bb5e33eb7012c3b179b9a4e249118daf40cf6e53c8cc67e5ed86015be4115b5",
  "ar/_GLOSSARY.md": "cbcb7204d52ebf9316d5d0d37367d8af86001055586b9e1ab41adcad862d3491",
- "ar/_INDEX.md": "ff7066f4d137130d61cb69fd10378ddca525c87adc3c60921551730e55dfb14e",
+ "ar/_INDEX.md": "69c9695b9174b509354919862a4bd9837799a92e0db91c4a677796791b622361",
  "ar/templates/tpl-fin-report.md": "c3a1397ccc896bfcb0b9d2de9eea158e9c69544bf91c5d7ba0ef97180eb0143e",
  "ar/templates/tpl-hr-policy.md": "c8129e2a2a9618e8df1f0800acd338cc812c03b7d185e8667d1a0df53d1181cd",
  "ar/templates/tpl-legal-memo.md": "c7aff4104e8b0b9fa8d93c8d653816fac6933727d5fadd40f4eea160272d8093",
@@ -215,5 +215,8 @@
  "templates/tpl-strat-proposal.md": "d999f971b2f01e42b3fcf27ee00cf9d0b089a7f6a9d84f19653dd27016acd99f",
  "ar/02-legal/order-form-template-2026-07-03.md": "7ca5f55417da2f2f99506423541e4def69aed929280d36c14a76cafc240a3556",
  "ar/02-legal/refund-and-cancellation-policy-draft-2026-07-03.md": "ef5d22ce20a30c7ed6452ebc44b7e06454075c7a4f4e33695578ab5b06715286",
- "ar/05-people/anti-harassment-policy-2026-07-03.md": "79c4642056e8fee7f73a56f20735596d30f7ab4a24d2d6583a765733391e2f3e"
+ "ar/05-people/anti-harassment-policy-2026-07-03.md": "79c4642056e8fee7f73a56f20735596d30f7ab4a24d2d6583a765733391e2f3e",
+ "06-operations-it/docs-followup-roadmap-2026-07.md": "b3dc9139d1af273fb1a5d2ed3916694c84d1b96e8fbf470586825734d841769a",
+ "README.md": "91b4cc2d3683c06372134339af60c6a274ab11254078635e5d77df829876cb88",
+ "ar/06-operations-it/docs-followup-roadmap-2026-07.md": "47e324a6f1e42676bfbce0f08613bb4a84b0f763c9c695dd91db762917737488"
 }
