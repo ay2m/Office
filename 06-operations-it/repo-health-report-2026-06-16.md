@@ -209,9 +209,17 @@ Consolidated back to a single root tree keeping the newest version of every file
 | Print-readiness | New `tools/print/` pipeline (markdown → branded A4 PDF, Falcon document theme, RTL Arabic) + committed PDFs under `_print/` mirroring the tree |
 | Arabic parity | All new/rewritten docs translated into `ar/` (Saudi MSA, per `ar/_GLOSSARY.md`) |
 
-### Still open (tracked, out of docs-repo scope)
-- App-repo items from `improvement-audit.md`: quiz.json `correct: null` fix (single highest
-  curriculum priority), analytics wiring, Stripe-vs-Moyasar decision (DEC-open), CI parity guards.
+### Still open (tracked)
+The follow-up work from this pass is sequenced in **`docs-followup-roadmap-2026-07.md`** (this
+folder) — the tracker for taking the 9 new drafts from `draft → active` plus the docs-infra
+cleanups. Headlines:
+- The 9 new/rewritten docs remain `status: draft` with 60 `[Owner to confirm]` markers
+  (roadmap Phases 0–3): owner desk review, then legal → counsel and HR pack → first hire.
+- Docs-infra (roadmap Phase 4): `_print/` → Git LFS, a build/front-matter CI guard, HTML brand
+  docs into the pipeline, plus the two owner actions below.
 - Owner actions X1 (Google-Sheet master index reconciliation — FLY-9 CSV) and the
   library/office duplicate deletion from `consolidation-manifest-2026-06-16.md`.
+- App-repo items from `improvement-audit.md` (roadmap Phase 5, executed elsewhere): quiz.json
+  `correct: null` fix (single highest curriculum priority), analytics wiring, Stripe-vs-Moyasar
+  decision (DEC-open), CI parity guards.
 - Lawyer engagement gates (DEC-007/008) — see `00-strategy/ceo-execution-roadmap-2026-07.md`.

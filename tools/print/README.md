@@ -23,10 +23,20 @@ Arabic docs render RTL in Cairo with Latin code/paths kept LTR.
 ```bash
 cd tools/print
 npm ci                 # 18 packages, no browser download (uses the local Chromium)
-npm run build          # incremental — only changed docs re-render
-npm run build:force    # rebuild everything
+npm run build          # markdown → PDF, incremental — only changed docs re-render
+npm run build:force    # rebuild every markdown doc
 node build.mjs 02-legal/terms-of-use-draft-2026-06-14.md   # one file
+node build-html.mjs    # render the self-contained brand HTML docs → PDF
+node check.mjs         # guard: front-matter + _print coverage + staleness (no browser)
 ```
+
+`build.mjs` handles markdown. `build-html.mjs` is a separate renderer for the
+few brand/showcase pages authored directly as self-contained HTML
+(`the-book-of-fly-gaca.html`, the brainstorms dashboard, `design-system.html`,
+`tidal-reckoning.html`) — it prints them with their own styles (the two dark
+showcase pages print dark by design). It is kept separate so HTML changes never
+invalidate the markdown build cache. `check.mjs` is what CI runs
+(`.github/workflows/docs-check.yml`) — dependency-free, no browser.
 
 Requirements: Node 18+, a Chromium ≥ 131 (for CSS `@page` margin boxes —
 page numbers). The script auto-detects the browser under
