@@ -45,7 +45,7 @@ xdg-open _INDEX.md      # Linux
 
 ```bash
 cd tools/print
-npm ci                    # Install 18 packages (no browser download needed)
+npm ci                    # Install 18 packages (npm does not download a browser)
 npm run build             # Incremental — only changed docs re-render
 npm run build:force       # Rebuild everything from scratch
 
@@ -54,7 +54,7 @@ node build.mjs 02-legal/terms-of-use-draft-2026-06-14.md
 ```
 
 > [!NOTE]
-> Requires **Node 18+** and **Chromium ≥ 131**. Fonts are vendored in `tools/print/fonts/` (OFL-licensed woff2: Inter, Cairo, JetBrains Mono) — builds run fully **offline**.
+> Requires **Node 18+** and a pre-installed **Chromium ≥ 131** (for CSS `@page` margin boxes). The script auto-detects Chromium via `$PLAYWRIGHT_BROWSERS_PATH` (default `/opt/pw-browsers`) or `$CHROMIUM_PATH`. Fonts are vendored in `tools/print/fonts/` (OFL-licensed woff2: Inter, Cairo, JetBrains Mono) — document rendering runs fully **offline**.
 
 ---
 
