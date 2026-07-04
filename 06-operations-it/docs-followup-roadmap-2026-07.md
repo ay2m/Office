@@ -100,11 +100,11 @@ Phase-0 answers. Once the numbers/decisions are in, flip `status → active` (EN
 
 ## Phase 4 — Docs-infrastructure follow-ons · *independent; can be done any time*
 
-| Item | Why | Owner | Effort |
+| Item | Why | Owner | Status |
 |---|---|---|---|
-| Move `_print/**/*.pdf` to **Git LFS** | repo is ~95 MB; PDFs are ~82 MB of it | Claude | ~30 min |
-| **CI/hook**: on a `.md` change, rebuild that PDF and assert front-matter is present | stops `_print/` and metadata drifting from source | Claude | ~1 hr |
-| Extend the pipeline to the **HTML brand docs** (`design-system.html`, `the-book-of-fly-gaca.html`, `tidal-reckoning.html`) | the only docs not yet in `_print/` | Claude | ~1 hr |
+| Extend the pipeline to the **HTML brand docs** (`the-book-of-fly-gaca.html`, brainstorms dashboard, `design-system.html`, `tidal-reckoning.html`) | the only docs not yet in `_print/` | Claude | ✅ done — `tools/print/build-html.mjs`; PDFs under `_print/` |
+| **CI guard**: assert every `.md` has standard front-matter + an up-to-date PDF, and every brand HTML has a PDF | stops `_print/` and metadata drifting from source | Claude | ✅ done — `tools/print/check.mjs` + `.github/workflows/docs-check.yml` |
+| Move `_print/**/*.pdf` to **Git LFS** | repo is ~95 MB; PDFs are ~82 MB of it | Founder | ⛔ blocked in the build environment (no `git-lfs`; needs a history rewrite + force-push) — run locally: `git lfs install && git lfs track "_print/**/*.pdf" && git lfs migrate import --include="_print/**/*.pdf"` |
 | Reconcile the **Google-Sheet master index** (health-report X1 / FLY-9) — 204 old→new filename pairs | the sheet is AI-locked; needs a manual paste from the CSV | Founder | manual |
 | Delete the duplicate originals in `library/06-product-eng/` + `flygaca/office/` (`consolidation-manifest-2026-06-16.md`) | dedup cleanup still open | Founder | manual |
 

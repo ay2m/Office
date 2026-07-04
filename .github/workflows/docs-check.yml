@@ -1,0 +1,28 @@
+name: docs-check
+
+# Guards the office docs: every content .md carries the standard YAML
+# front-matter, every doc has an up-to-date PDF under _print/, and every
+# brand HTML has a rendered PDF. Dependency-free and browser-free — just
+# runs tools/print/check.mjs on Node.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - '**/*.md'
+      - '**/*.html'
+      - '_print/**'
+      - 'tools/print/**'
+      - '.github/workflows/docs-check.yml'
+
+jobs:
+  docs-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate front-matter and _print PDF coverage
+        run: node tools/print/check.mjs
