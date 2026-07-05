@@ -39,6 +39,7 @@ status / owner / last_updated / lang`)، ولها **نسخة PDF جاهزة لل
 - master-paperwork-template-index-2026-06-14.md
 - roadmap.md · project.md · phase0.md · original-request.md
 - ceo-execution-roadmap-2026-07.md — المسار الحرج للتحوّل إلى شركة قائمة (السباقات 0–3، الربع الثالث 2026)
+- owner-decision-brief-2026-07.md — ورقة عمل المرحلة 0: علامات `[للتأكيد من المالك]` الستّون في مكان واحد
 - 00-master-office-paperwork-index.gsheet
 - **brainstorms/** — استكشافات مرقّمة 00–10 (الفهرس ولوحة المعلومات، الأكاديمية الأولى، سردية
   المستثمر، دولاب موازنة الكابتن عادل، الميزة الفارقة، الشريك المؤسّس مقابل التوظيف، التوسّع المجاور وفي دول

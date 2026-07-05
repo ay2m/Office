@@ -52,6 +52,9 @@ copies to `status: active` and rebuilding their PDFs (`cd tools/print && npm run
 Answer the markers only you can settle — before anything goes to a lawyer. This unblocks every
 later phase. Convert each marker to either a real value or an explicit stated assumption.
 
+> **Worksheet:** all 60 markers are consolidated into `../00-strategy/owner-decision-brief-2026-07.md`
+> (groups A–D for your desk, group E for counsel). Fill it and the strategy docs flip to `active`.
+
 | # | Decision to make | Docs it unblocks | Done when |
 |---|---|---|---|
 | 0.1 | **Stripe vs Moyasar** (the DEC-open item in `decision-log.md`) | refund policy §7, finance-strategy, order-form | Processor named; refund-routing + sub-processor register updated |

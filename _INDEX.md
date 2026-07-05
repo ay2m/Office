@@ -39,6 +39,7 @@ Vision, plan, OKRs, and the strategic brainstorm set.
 - master-paperwork-template-index-2026-06-14.md
 - roadmap.md · project.md · phase0.md · original-request.md
 - ceo-execution-roadmap-2026-07.md — the go-to-company critical path (Sprints 0–3, Q3 FY2026)
+- owner-decision-brief-2026-07.md — Phase-0 worksheet: the 60 `[Owner to confirm]` markers in one place
 - 00-master-office-paperwork-index.gsheet
 - **brainstorms/** — numbered explorations 00–10 (index + dashboard, First Academy, Investor
   Narrative, Captain Adel Flywheel, Killer Feature, Co-founder vs Hires, Adjacent & GCC
