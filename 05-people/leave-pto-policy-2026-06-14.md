@@ -4,7 +4,7 @@ section: 05-people
 doc_type: policy
 status: active
 owner: Founder / HR
-last_updated: 2026-06-14
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -32,7 +32,7 @@ This policy sets out the types of leave available to Fly GACA employees, the ent
 
 ## 2. Scope | النطاق
 
-This policy applies to all **full-time and part-time employees** of Fly GACA Saudi Arabia LLC employed under Saudi Labor Law. It does **not** apply to:
+This policy applies to all **full-time and part-time employees** of BDA Company International (شركة بدع الدولية) employed under Saudi Labor Law. It does **not** apply to:
 - Tamheer programme trainees (governed by separate Tamheer Trainee Policy — see 04-compliance-ksa/tamheer-and-doroob-program-application-pack.docx)
 - Independent contractors / freelancers
 - Employees on secondment from another entity
@@ -296,5 +296,5 @@ By signing your employment contract or the Employee Handbook Acknowledgment form
 
 ---
 
-*Fly GACA Saudi Arabia LLC | Confidential — Internal HR Policy*
+*BDA Company International (شركة بدع الدولية) | Confidential — Internal HR Policy*
 *Template version 1.0 — 2026-06-14 — Must be reviewed by qualified Saudi HR/legal professional before adoption.*

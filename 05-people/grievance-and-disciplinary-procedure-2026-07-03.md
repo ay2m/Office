@@ -4,7 +4,7 @@ section: 05-people
 doc_type: policy
 status: draft
 owner: Founder / HR
-last_updated: 2026-07-03
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -25,7 +25,7 @@ lang: en
 
 ## 2. Scope
 
-2.1 Applies to all employees of Fly GACA Saudi Arabia LLC under Saudi Labor Law, including those on probation.
+2.1 Applies to all employees of BDA Company International (شركة بدع الدولية) under Saudi Labor Law, including those on probation.
 2.2 Does not apply to Tamheer trainees (separate programme rules) or independent contractors (contract terms govern).
 2.3 Harassment and discrimination complaints follow the **Anti-Harassment & Anti-Discrimination Policy** (05-people/anti-harassment-policy-2026-07-03.md), which takes precedence for those matters; its reporting channels feed into the investigation standards below.
 
@@ -103,5 +103,5 @@ Reviewed annually (each January), on any Labor Law/HRSD change, and at 10+ emplo
 
 ---
 
-*Fly GACA Saudi Arabia LLC | Confidential — Internal HR Policy*
+*BDA Company International (شركة بدع الدولية) | Confidential — Internal HR Policy*
 *Draft 0.1 — 2026-07-03 — Pending review by qualified Saudi HR/legal professional. Not legal advice.*

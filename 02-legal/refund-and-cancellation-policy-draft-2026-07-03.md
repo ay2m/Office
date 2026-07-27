@@ -4,7 +4,7 @@ section: 02-legal
 doc_type: legal
 status: draft
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -22,7 +22,7 @@ lang: en
 >
 > This document is a working draft prepared by an AI assistant for founder review. It is NOT legal advice and has NOT been reviewed by a Saudi-licensed lawyer. It must be reviewed and approved by qualified Saudi legal counsel before it is published or relied upon.
 >
-> Fly GACA is currently operated by Adel Yahya A. Madkhali, trading as Fly GACA; the operator name will be updated to the registered legal entity on incorporation (entity formation pending — see launch-gate-legal-checklist P2-1). Instruments this draft is intended to align with: Saudi E-Commerce Law (Royal Decree M/126, 1440H / 2019) and its Implementing Regulations; Consumer Protection Law (Royal Decree M/36, 1446H / 2024); ZATCA VAT and e-invoicing requirements. This is the standalone public policy identified as a P1 gap in `legal-gap-audit-2026-06-14.md` §2.1 (required for payment-processor merchant compliance and app-store submission); it restates and expands Terms of Use §5.4 — the two must not conflict. Do not publish until lawyer review is complete and payments launch (gate L2) is reached.
+> Fly GACA is operated by BDA Company International (شركة بدع الدولية) — CR 7030976893, VAT 311415259500003, Riyadh (entity formation complete; see launch-gate-legal-checklist P2-1). Instruments this draft is intended to align with: Saudi E-Commerce Law (Royal Decree M/126, 1440H / 2019) and its Implementing Regulations; Consumer Protection Law (Royal Decree M/36, 1446H / 2024); ZATCA VAT and e-invoicing requirements. This is the standalone public policy identified as a P1 gap in `legal-gap-audit-2026-06-14.md` §2.1 (required for payment-processor merchant compliance and app-store submission); it restates and expands Terms of Use §5.4 — the two must not conflict. Do not publish until lawyer review is complete and payments launch (gate L2) is reached.
 
 ---
 
