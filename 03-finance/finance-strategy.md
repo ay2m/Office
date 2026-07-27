@@ -4,7 +4,7 @@ section: 03-finance
 doc_type: strategy
 status: draft
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -139,9 +139,11 @@ above. The runway question only becomes quantitative once the business bank acco
 Summarised from banking-and-treasury-policy.docx — see that document for signatories,
 limits and reserve rules; amounts are not restated here.
 
-- The **business bank account opens in Sprint 2**, immediately after the Commercial
-  Registration (ceo-roadmap 2.3); the IBAN is recorded in `phase0.md`. Until then there is
-  no company treasury — personal/company fund separation begins the day the account opens.
+- The **business bank account is open** — Arab National Bank via SiFi (ceo-roadmap 2.3
+  done); the IBAN is recorded in `../01-governance/company-facts.md` and `phase0.md`.
+  Personal/company fund separation is in effect from the account's opening. (Note: the
+  banking-and-treasury-policy.docx pre-specified Al Rajhi/SNB — corrected to the actual
+  bank in this pass.)
 - School payments are collected by **bank transfer against the ZATCA e-invoice**; no card
   acquiring is needed for the B2B line.
 - Signatory and cash-reserve policy: per banking-and-treasury-policy.docx —

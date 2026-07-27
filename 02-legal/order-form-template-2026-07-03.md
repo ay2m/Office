@@ -4,7 +4,7 @@ section: 02-legal
 doc_type: legal
 status: draft
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -19,7 +19,7 @@ lang: en
 
 > **DRAFT — requires review by a qualified Saudi-licensed lawyer before use.**
 >
-> This template is a working draft prepared by an AI assistant. It is NOT legal advice. It must be reviewed by a Saudi-licensed lawyer before execution or reliance. The Provider is currently Adel Yahya A. Madkhali, trading as Fly GACA; replace with the registered legal entity name, CR number, and VAT number on incorporation. Until VAT registration is complete, the VAT line and invoice references must match the manual ZATCA-compliant invoicing practice in `../07-gtm/b2b-pipeline.md` — counsel to confirm pre-VAT-registration invoicing treatment.
+> This template is a working draft prepared by an AI assistant. It is NOT legal advice. It must be reviewed by a Saudi-licensed lawyer before execution or reliance. The Provider is BDA Company International (شركة بدع الدولية), CR 7030976893, VAT 311415259500003, Riyadh. The VAT line and invoice references must match the manual ZATCA-compliant invoicing practice in `../07-gtm/b2b-pipeline.md` — counsel to confirm pre-VAT-registration invoicing treatment.
 
 ---
 
@@ -32,9 +32,9 @@ lang: en
 
 | | Provider | Customer |
 |---|---|---|
-| Legal name | **Adel Yahya A. Madkhali, trading as Fly GACA** *[replace with registered entity on incorporation]* | [Academy / school legal name] |
-| Registration | CR No.: [pending incorporation] | CR No.: [•] |
-| VAT No. | [pending VAT registration] | [•] |
+| Legal name | **BDA Company International (شركة بدع الدولية), operating as Fly GACA** | [Academy / school legal name] |
+| Registration | CR No.: 7030976893 | CR No.: [•] |
+| VAT No. | 311415259500003 | [•] |
 | Address | Kingdom of Saudi Arabia — [address] | [registered address] |
 | Contact | i@flygaca.com / legal@flygaca.com | [name, title, email, phone] |
 | Admin contact (roster) | — | [name, email — receives seat-grant confirmations] |
@@ -98,7 +98,7 @@ Name: ___________________________
 Title: ___________________________
 Date: ___________________________
 
-**Provider:** Adel Yahya A. Madkhali, trading as Fly GACA *[replace with registered entity on incorporation]*
+**Provider:** BDA Company International (شركة بدع الدولية), operating as Fly GACA
 
 Signed: ___________________________
 Name: Adel Yahya A. Madkhali

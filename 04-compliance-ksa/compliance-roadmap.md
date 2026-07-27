@@ -4,7 +4,7 @@ section: 04-compliance-ksa
 doc_type: plan
 status: draft
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -23,14 +23,18 @@ _Status: draft (sequenced) · Created: 2026-06-16 · Rewritten: 2026-07-03 · Ow
 
 A diffable index and status tracker over the KSA regulatory pack — what each filing is, who
 owns it, its current state, and what gates it blocks. The binding detail lives in the
-`.docx` deliverables listed below. Company context: solo founder, **pre-entity (no CR yet),
-pre-revenue**; the first revenue motion is B2B school pilots invoiced manually
-(ZATCA-compliant e-invoice) per DEC-009.
+`.docx` deliverables listed below. Company context: solo founder operating through
+**BDA Company International (شركة بدع الدولية)** — LLC, CR 7030976893 (active),
+VAT-registered (311415259500003, quarterly) with a business bank account open; see
+`../01-governance/company-facts.md`. Still pre-revenue; the first revenue motion is B2B
+school pilots invoiced manually (ZATCA-compliant e-invoice) per DEC-009.
 
 ## The dependency chain (from the CEO execution roadmap)
 
 ```
-Lawyer opinion ─► NAME LOCKED ─► CR ─► Bank account ─► ZATCA VAT + Fatoora ─► Payment gateway ─► Paywall flip (L2)
+Lawyer opinion ─► NAME LOCKED ─► CR ✓ ─► Bank account ✓ ─► ZATCA VAT ✓ + Fatoora ─► Payment gateway ─► Paywall flip (L2)
+(2026-07-27: CR, bank and VAT registration are DONE — the chain's remaining gates are
+the lawyer opinion, Fatoora onboarding, the payment gateway and the paywall flip.)
 Parallel: PDPL DPIA specialist review ─► public user accounts (L1)
 Parallel: B2B pilot ─► manual ZATCA e-invoice ─► first revenue (pre-Fatoora-onboarding)
 ```
@@ -42,8 +46,8 @@ regulations take effect; the lawyer opinion (Sprint 0/1) must account for it.
 
 | Item | Deliverable | Owner | Status | Blocks |
 |---|---|---|---|---|
-| Commercial Registration (CR) | Saudi Business Center filing — result logged in `../00-strategy/phase0.md` (P0-3) | Founder | **Blocked-by-name-lock** (lawyer opinion, Sprint 1) — target Sprint 2 (2026-07-30 → 08-27). Sole-prop vs LLC choice open **[Owner to confirm]** | Bank account → ZATCA VAT → payment gateway → paywall flip (L2); Monshaat; NTDP; entity-name contracts |
-| MISA investment license | misa-investment-license-application-bundle.docx | Founder | Not started — **[Owner to confirm]** whether MISA is required at all for a Saudi-national solo founder (the CEO roadmap routes entity formation via CR on the Saudi Business Center, not MISA) | Nothing on the Q3 critical path if not required |
+| Commercial Registration (CR) | Saudi Business Center filing — result logged in `../00-strategy/phase0.md` (P0-3) | Founder | **DONE** — شركة بدع الدولية / BDA Company International, LLC, unified number 7030976893, issued 23/09/2022, active. Structure question settled: **LLC** | Unblocked: bank ✓, ZATCA VAT ✓, Monshaat, NTDP, entity-name contracts |
+| MISA investment license | misa-investment-license-application-bundle.docx | Founder | **Not required** — the entity is a 100%-Saudi-owned LLC registered via the Saudi Business Center; MISA licenses foreign investment. Bundle kept for reference only (the SAR 60k/yr line in the tax calendar has been corrected accordingly) | Nothing |
 | Monshaat SME registration | monshaat-sme-registration-kit.docx | Founder | Not started — **Blocked-by-CR** (Sprint 2.2) | SME support programs only; nothing downstream |
 | NTDP application | ntdp-application.docx | Founder | Not started — **Blocked-by-CR**; eligibility check scheduled Sprint 2.2 | Grant/support funding only |
 | Tamheer & Doroob | tamheer-and-doroob-program-application-pack.docx | Founder | Not started — not applicable pre-entity and pre-hire; no hires planned this quarter | First-hire onboarding only |
@@ -125,9 +129,9 @@ and `../06-operations-it/runbooks/runbook-pdpl-me-central2.md`.
 
 ## Open questions
 
-- **[Owner to confirm]** Is a MISA license required at all for a Saudi-national solo
-  founder, or is CR-via-Saudi-Business-Center the complete entity path?
-- **[Owner to confirm]** Sole proprietorship vs LLC for the CR (Sprint 2.1 prerequisite).
+- ~~MISA~~ **Resolved 2026-07-27:** not required — CR via the Saudi Business Center is
+  the complete entity path for a 100%-Saudi LLC.
+- ~~Sole proprietorship vs LLC~~ **Resolved 2026-07-27:** LLC (CR 7030976893).
 - **[Owner to confirm]** Stripe vs Moyasar as the live processor (decision-log DEC-003 vs
   built Stripe checkout) — affects the sub-processor register and Fatoora integration.
 - **[Owner to confirm]** VAT registration threshold/timing: mandatory vs voluntary

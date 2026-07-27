@@ -4,7 +4,7 @@ section: 00-strategy
 doc_type: plan
 status: active
 owner: Founder
-last_updated: 2026-07-04
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -50,8 +50,8 @@ no safe default.
 | # | Decision | Unblocks | Rec. | Your answer |
 |---|---|---|---|---|
 | B1 | **MISA investment license — required?** (CEO roadmap routes via CR on Saudi Business Center, not MISA) | compliance-roadmap MISA row | Likely not, for a Saudi-national solo founder — confirm with counsel | |
-| B2 | **Entity form — sole proprietorship or LLC?** | compliance-roadmap CR row; contracts' operator name | *(decision — trade-offs: liability vs. setup cost)* | |
-| B3 | **VAT registration — mandatory or voluntary, and when?** (threshold vs. early registration) | compliance-roadmap; refund §8; order-form VAT line | *(decision — depends on projected first-year revenue)* | |
+| B2 | **Entity form — sole proprietorship or LLC?** | compliance-roadmap CR row; contracts' operator name | **ANSWERED by the registration (2026-07-27): LLC** — شركة بدع الدولية / BDA Company International, CR 7030976893 | ✓ |
+| B3 | **VAT registration — mandatory or voluntary, and when?** | compliance-roadmap; refund §8; order-form VAT line | **ANSWERED by the ZATCA certificate: registered**, effective 2025-11-01, quarterly (VAT 311415259500003) — first return overdue, see `03-finance/invoicing-and-vat-returns.md` | ✓ |
 | B4 | **me-central2 migration date** (Google in-Kingdom access grant) — PDPL residency | compliance-roadmap data-residency; PDPL | *(decision — set target date)* | |
 
 ## Group C — Finance & investor  ·  *unblocks: finance-strategy, investor-thesis*

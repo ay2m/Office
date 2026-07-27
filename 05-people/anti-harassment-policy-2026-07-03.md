@@ -4,7 +4,7 @@ section: 05-people
 doc_type: policy
 status: draft
 owner: Founder / HR
-last_updated: 2026-07-03
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -25,7 +25,7 @@ lang: en
 
 ## 2. Scope
 
-2.1 **Who:** all Fly GACA Saudi Arabia LLC employees (including probationers), Tamheer trainees, contractors, and anyone acting for the Company; protection extends to candidates, customers, and visitors interacting with us.
+2.1 **Who:** all BDA Company International (شركة بدع الدولية) employees (including probationers), Tamheer trainees, contractors, and anyone acting for the Company; protection extends to candidates, customers, and visitors interacting with us.
 2.2 **Where:** company premises, remote work settings, business travel, work events, and all company systems — Slack, email, GitHub, HubSpot, video calls, and social media when representing Fly GACA (see 05-people/social-media-policy.docx).
 2.3 **When:** effective on adoption; applies to conduct connected to work regardless of working hours.
 
@@ -107,5 +107,5 @@ There is no internal deadline to report. Earlier reporting helps evidence-gather
 
 ---
 
-*Fly GACA Saudi Arabia LLC | Confidential — Internal HR Policy*
+*BDA Company International (شركة بدع الدولية) | Confidential — Internal HR Policy*
 *Draft 0.1 — 2026-07-03 — Pending review by qualified Saudi HR/legal professional. Not legal advice.*

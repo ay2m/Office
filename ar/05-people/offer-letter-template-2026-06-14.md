@@ -4,7 +4,7 @@ section: 05-people
 doc_type: template
 status: active
 owner: Founder
-last_updated: 2026-06-14
+last_updated: 2026-07-27
 lang: ar
 ---
 
@@ -177,7 +177,7 @@ lang: ar
 
 **عادل يحيى عبدالله مدخلي**
 الرئيس التنفيذي | المدير التنفيذي
-Fly GACA Saudi Arabia LLC
+BDA Company International (شركة بدع الدولية)
 i@flygaca.com | +966 51 096 6969
 flygaca.com
 
@@ -199,6 +199,6 @@ flygaca.com
 
 ---
 
-*Fly GACA Saudi Arabia LLC | رقم السجل التجاري [CR_NUMBER] | الرياض، المملكة العربية السعودية*
+*BDA Company International (شركة بدع الدولية) | رقم السجل التجاري 7030976893 | الرياض، المملكة العربية السعودية*
 *هذه الوثيقة سرية — للاستخدام من قِبَل الموارد البشرية والمرشح فقط.*
 *إصدار النموذج 1.0 — 2026-06-14 — راجِعه قبل كل استخدام.*

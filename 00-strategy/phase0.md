@@ -4,7 +4,7 @@ section: 00-strategy
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-06-16
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -37,7 +37,7 @@ workspace · **Lawyer** = Saudi IP lawyer
 |----|------------|-------|--------|------------|
 | P0-1 | Resolve redistribution rights | You + Lawyer | In progress | — |
 | P0-2 | Domain canonicalization + name lock | You + Lawyer | In progress | — |
-| P0-3 | Register the legal entity | You | Not started | P0-2 |
+| P0-3 | Register the legal entity | You | Done | P0-2 |
 | P0-4 | Create the repository | Claude + You | Done | — |
 | P0-5 | Create the Firebase project | You | Done | — |
 | P0-6 | Set up the VPS as the pipeline box | You | Done | — |
@@ -155,21 +155,28 @@ is confirmed by the lawyer.
 
 ## P0-3 · Register the legal entity
 
-**Status:** Not started
+**Status:** Done — 2026-07-27 (documents recorded)
 **Owner:** You · **Depends on:** P0-2 (registration needs the locked name)
-**Walkthrough:** `office/setup-entity.md`
+**Walkthrough:** `office/setup-entity.md` · **Facts:** `01-governance/company-facts.md`
 
 **Steps**
 
-- [ ] Choose the legal structure (sole proprietorship vs LLC)
-- [ ] Register the Commercial Registration on the Saudi Business Center
-- [ ] Register with Monshaat (SME)
-- [ ] Check NTDP eligibility and apply
-- [ ] Open a business bank account
-- [ ] Record the CR number and entity details here
+- [x] Choose the legal structure — **LLC** (شركة ذات مسؤولية محدودة)
+- [x] Register the Commercial Registration — **شركة بدع الدولية / BDA Company
+      International**, unified national number **7030976893**, issued
+      23/09/2022, status Active
+- [ ] Register with Monshaat (SME) — still open
+- [ ] Check NTDP eligibility and apply — still open
+- [x] Open a business bank account — **Arab National Bank via SiFi**,
+      IBAN `SA4930100806623389733294`
+- [x] Record the CR number and entity details here — full record in
+      `01-governance/company-facts.md` (VAT 311415259500003, effective
+      2025-11-01, quarterly — first return overdue, see
+      `03-finance/invoicing-and-vat-returns.md`)
 
 **Done when:** the Commercial Registration is issued, the entity legally exists, and a
-business bank account is open.
+business bank account is open. **All three are met.** Follow-ons: Monshaat/NTDP
+above, and `flygaca.sa` is now unblocked (SaudiNIC needed the entity).
 
 ---
 

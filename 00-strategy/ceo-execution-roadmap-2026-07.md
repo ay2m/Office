@@ -4,7 +4,7 @@ section: 00-strategy
 doc_type: plan
 status: active
 owner: You (solo)
-last_updated: 2026-07-03
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -67,9 +67,9 @@ The entire quarter is gated on actions in this one week. Do these before touchin
 
 | # | Action | Done when | Depends on |
 |---|--------|-----------|------------|
-| 2.1 | **Register the Commercial Registration** on the Saudi Business Center (choose sole-prop vs LLC first). | CR number issued; logged in `phase0.md` P0-3. | 1.3 (locked name) |
+| 2.1 | ~~Register the Commercial Registration~~ **DONE** — LLC شركة بدع الدولية / BDA Company International, CR 7030976893 (active). | CR number issued; logged in `phase0.md` P0-3 ✓ and `01-governance/company-facts.md`. | — |
 | 2.2 | Register with **Monshaat (SME)**; check **NTDP** eligibility and apply. | Registrations submitted. | 2.1 |
-| 2.3 | **Open the business bank account.** | Account open; IBAN recorded. | 2.1 |
+| 2.3 | ~~Open the business bank account~~ **DONE** — Arab National Bank via SiFi. | Account open ✓; IBAN recorded in `company-facts.md` + `phase0.md`. | — |
 | 2.4 | Complete the **PDPL DPIA** (runs in parallel — the one gate before public accounts). | DPIA signed off; logged. | — (parallel) |
 | 2.5 | **Convert the pilot → paid seat contract** — quote per the seat card, signed order, **manual ZATCA e-invoice**, `grantSchoolLicence`. | First invoice issued; first riyal in the door. | 1.4, 2.3 |
 
@@ -81,7 +81,7 @@ The entire quarter is gated on actions in this one week. Do these before touchin
 
 | # | Action | Done when | Depends on |
 |---|--------|-----------|------------|
-| 3.1 | **ZATCA VAT registration + Fatoora e-invoicing** onboarding. | VAT registered; Fatoora integrated. | 2.1/2.3 |
+| 3.1 | **ZATCA**: VAT registration ~~+~~ **DONE** (311415259500003, quarterly — first return overdue, see `03-finance/invoicing-and-vat-returns.md`); Fatoora e-invoicing onboarding still open. | VAT registered ✓; Fatoora integrated. | — |
 | 3.2 | **Payment gateway live** — pick mada-capable (Moyasar/HyperPay/PayTabs/Tap) + Stripe products at the decided price card. | Test-mode checkout verified end to end. | 2.3 |
 | 3.3 | **Paywall flip**, in your Phase C order: gate Captain Adel first (marginal-cost item) → flip client launch mode → protected content → 30-day grandfather window. | Consumer checkout open; quotas live. | 3.2 |
 | 3.4 | **Sell 2–3 more school pilots** off the first one's proof. | ≥3 total school contracts in pipeline. | 2.5 |

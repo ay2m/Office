@@ -4,7 +4,7 @@ section: 05-people
 doc_type: checklist
 status: draft
 owner: Founder / HR
-last_updated: 2026-07-03
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -19,7 +19,7 @@ lang: en
 
 ## 1. Purpose and Scope
 
-Covers every exit from Fly GACA Saudi Arabia LLC: **resignation, non-renewal, probation termination, termination with cause (Labor Law Art. 80), redundancy, or mutual agreement**. Triggered the day notice is given or received. The Employee Handbook's informal exit steps are superseded by this checklist.
+Covers every exit from BDA Company International (شركة بدع الدولية): **resignation, non-renewal, probation termination, termination with cause (Labor Law Art. 80), redundancy, or mutual agreement**. Triggered the day notice is given or received. The Employee Handbook's informal exit steps are superseded by this checklist.
 
 Any termination **initiated by the Company outside probation** must first satisfy the documentation standards in 05-people/grievance-and-disciplinary-procedure-2026-07-03.md (HRSD can void terminations lacking documented warnings).
 
@@ -111,5 +111,5 @@ Retain: notice/termination letters, handover sign-off, equipment receipt, EOSB w
 
 ---
 
-*Fly GACA Saudi Arabia LLC | Confidential — Internal HR Document*
+*BDA Company International (شركة بدع الدولية) | Confidential — Internal HR Document*
 *Draft 0.1 — 2026-07-03 — Pending review by qualified Saudi HR/legal professional. Not legal advice.*

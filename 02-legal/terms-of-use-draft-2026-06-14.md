@@ -4,7 +4,7 @@ section: 02-legal
 doc_type: legal
 status: draft
 owner: Founder
-last_updated: 2026-06-14
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -36,7 +36,7 @@ lang: en
 
 ### 1.1 Who We Are
 
-Fly GACA ("we", "us", "our") is an **independent, private educational reference platform** for Saudi civil aviation regulations and study material. It is operated by Adel Yahya A. Madkhali, trading as Fly GACA, based in the Kingdom of Saudi Arabia.
+Fly GACA ("we", "us", "our") is an **independent, private educational reference platform** for Saudi civil aviation regulations and study material. It is operated by BDA Company International (شركة بدع الدولية), CR 7030976893, Riyadh, Kingdom of Saudi Arabia.
 
 **Fly GACA is not affiliated with, endorsed by, sponsored by, or connected to the General Authority of Civil Aviation (GACA) or any department, agency, or instrumentality of the Government of the Kingdom of Saudi Arabia.** The word "GACA" in our name and throughout this platform is used purely descriptively, to identify the subject matter of the regulations we help students study. See Section 3 and our [Disclaimer](https://flygaca.com/disclaimer) for the complete independence statement.
 

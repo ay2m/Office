@@ -4,7 +4,7 @@ section: 05-people
 doc_type: template
 status: active
 owner: Founder
-last_updated: 2026-06-14
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -45,7 +45,7 @@ lang: en
 
 Dear [Candidate First Name] | عزيزي/عزيزتي [الاسم],
 
-We are delighted to extend this offer of employment to you from **Fly GACA Saudi Arabia LLC** ("the Company / الشركة"). We believe your skills and experience are an excellent match for the role described below, and we look forward to welcoming you to our team.
+We are delighted to extend this offer of employment to you from **BDA Company International (شركة بدع الدولية)** ("the Company / الشركة"). We believe your skills and experience are an excellent match for the role described below, and we look forward to welcoming you to our team.
 
 يسعدنا تقديم هذا العرض الوظيفي لك من شركة **فلاي قاكا السعودية المحدودة** ("الشركة"). نحن على ثقة بأن مهاراتك وخبرتك تتوافق تمام التوافق مع الدور الموضح أدناه، ونتطلع إلى الترحيب بك في فريقنا.
 
@@ -177,7 +177,7 @@ Sincerely / مع خالص التحية،
 
 **Adel Yahya A. Madkhali**
 Chief Executive Officer | المدير التنفيذي
-Fly GACA Saudi Arabia LLC
+BDA Company International (شركة بدع الدولية)
 i@flygaca.com | +966 51 096 6969
 flygaca.com
 
@@ -199,6 +199,6 @@ I, **[CANDIDATE FULL NAME]**, accept the offer of employment described in this l
 
 ---
 
-*Fly GACA Saudi Arabia LLC | CR No. [CR_NUMBER] | Riyadh, Kingdom of Saudi Arabia*
+*BDA Company International (شركة بدع الدولية) | CR No. 7030976893 | Riyadh, Kingdom of Saudi Arabia*
 *This document is Confidential — For HR and candidate use only.*
 *Template version 1.0 — 2026-06-14 — Review before each use.*

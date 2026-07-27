@@ -4,7 +4,7 @@ section: 05-people
 doc_type: policy
 status: draft
 owner: المؤسِّس / الموارد البشرية
-last_updated: 2026-07-03
+last_updated: 2026-07-27
 lang: ar
 ---
 
@@ -107,5 +107,5 @@ lang: ar
 
 ---
 
-*Fly GACA Saudi Arabia LLC | سرّي — سياسة موارد بشرية داخلية*
+*BDA Company International (شركة بدع الدولية) | سرّي — سياسة موارد بشرية داخلية*
 *مسودّة 0.1 — 2026-07-03 — بانتظار مراجعة مختصّ موارد بشرية/قانوني سعودي مؤهَّل. ليست استشارة قانونية.*

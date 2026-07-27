@@ -4,7 +4,7 @@ section: 02-legal
 doc_type: checklist
 status: active
 owner: Founder
-last_updated: 2026-06-14
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -62,8 +62,8 @@ Three distinct launch events have different legal requirements:
 
 | # | Item | Document / Deliverable | Status | Owner | Blocks | What Unblocks It |
 |---|------|----------------------|--------|-------|--------|-----------------|
-| **P2-1** | **Entity formation (MISA / Monshaat)** | misa-investment-license-application-bundle.docx (04-compliance-ksa/) — in progress | IN PROGRESS — not yet incorporated | Founder | **L2 (required for bank account and ZATCA registration)** | Entity incorporated; CR issued; legal entity name confirmed (depends on P0-2 name opinion) |
-| **P2-2** | **ZATCA VAT registration** | saudi-tax-and-compliance-calendar.docx (04-compliance-ksa/) | NOT STARTED — depends on entity | Founder | **L2** | Entity formed; VAT registration submitted to ZATCA; VAT number obtained before first paid transaction |
+| **P2-1** | **Entity formation** | `01-governance/company-facts.md` — the registered record | **DONE (2026-07-27)** — BDA Company International (شركة بدع الدولية), LLC, CR 7030976893 issued 23/09/2022, active; bank account open (ANB via SiFi). MISA not required (100% Saudi LLC) | — | Done. (P0-2 name opinion still open for the *brand*, not the entity) |
+| **P2-2** | **ZATCA VAT registration** | ZATCA certificate + `03-finance/invoicing-and-vat-returns.md` | **DONE** — VAT 311415259500003, effective 2025-11-01, quarterly. ⚠️ First return (due 2026-01-31) overdue — see the invoicing doc's immediate action | — | Done; returns backlog is the open action |
 | **P2-3** | **ZATCA e-invoicing (Fatoora) compliance** | zatca-fatoora-e-invoicing-compliance-pack.docx (04-compliance-ksa/) | DRAFTED — not yet implemented | Founder | **L2** | Fatoora Phase 1 compliance enabled; QR-code invoices issued for each transaction |
 | **P2-4** | **Public Refund and Cancellation Policy** | Covered in Terms-of-Use §5.4 — but may also need a standalone page for Moyasar compliance and App Store requirements | PARTIALLY COVERED in Terms of Use | Founder | **L2** | Confirm with Moyasar what refund policy display is required; publish standalone page if needed |
 | **P2-5** | **Customer Agreement & EULA — lawyer reviewed** | customer-agreement-eula.docx (02-legal/) — comprehensive draft exists but not yet lawyer-reviewed | EXISTING DRAFT — awaiting lawyer review | Founder → lawyer | **L2 (Pro paid tier)** | Lawyer review; Arabic translation initiated; published as paid-tier agreement |

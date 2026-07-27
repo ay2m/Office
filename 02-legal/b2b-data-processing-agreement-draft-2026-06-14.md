@@ -4,7 +4,7 @@ section: 02-legal
 doc_type: legal
 status: draft
 owner: Founder
-last_updated: 2026-06-14
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -34,7 +34,7 @@ lang: en
 
 and
 
-**Adel Yahya A. Madkhali, trading as Fly GACA** (the "**Processor**")
+**BDA Company International (شركة بدع الدولية), operating as Fly GACA** (the "**Processor**")
 Operating at: flygaca.com | Kingdom of Saudi Arabia
 
 ---
@@ -300,7 +300,7 @@ Name: ___________________________
 Title: ___________________________
 Date: ___________________________
 
-**Adel Yahya A. Madkhali, trading as Fly GACA** (Processor)
+**BDA Company International (شركة بدع الدولية), operating as Fly GACA** (Processor)
 
 Signed: ___________________________
 Name: Adel Yahya A. Madkhali

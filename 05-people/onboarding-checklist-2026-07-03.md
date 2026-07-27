@@ -4,7 +4,7 @@ section: 05-people
 doc_type: checklist
 status: draft
 owner: Founder / HR
-last_updated: 2026-07-03
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -19,7 +19,7 @@ lang: en
 
 ## 1. Purpose and Scope
 
-Operational, compliance-first checklist covering **Day -7 (offer accepted) through Day 90 (probation decision)** for full-time and part-time employees of Fly GACA Saudi Arabia LLC. It complements — and does not replace — the content-focused **30-60-90 Day New Hire Plan Template** (05-people/30-60-90-day-new-hire-plan-template.docx), which the manager fills in per role.
+Operational, compliance-first checklist covering **Day -7 (offer accepted) through Day 90 (probation decision)** for full-time and part-time employees of BDA Company International (شركة بدع الدولية). It complements — and does not replace — the content-focused **30-60-90 Day New Hire Plan Template** (05-people/30-60-90-day-new-hire-plan-template.docx), which the manager fills in per role.
 
 **Out of scope:** Tamheer programme trainees follow a **separate track** (HRDF subsidy claim, no EOSB, different WPS treatment) — see 04-compliance-ksa/tamheer-and-doroob-program-application-pack.docx. Do not merge the two tracks.
 
@@ -116,5 +116,5 @@ All artefacts above are retained in the employee's HR folder in Google Drive (st
 
 ---
 
-*Fly GACA Saudi Arabia LLC | Confidential — Internal HR Document*
+*BDA Company International (شركة بدع الدولية) | Confidential — Internal HR Document*
 *Draft 0.1 — 2026-07-03 — Pending review by qualified Saudi HR/legal professional. Not legal advice.*
