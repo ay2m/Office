@@ -60,11 +60,14 @@ body {
 .en { direction: ltr; unicode-bidi: isolate; }
 [dir="rtl"] body, body[dir="rtl"] { font-family: 'Cairo', 'Inter', system-ui, sans-serif; }
 
-/* Falcon mark sizing helpers (the mark is inlined per template) */
-.mark { display: block; }
-.mark-sm { width: 34px; height: 34px; }
-.mark-md { width: 48px; height: 48px; }
-.mark-lg { width: 84px; height: 84px; }
+/* BDع company wordmark sizing (the mark is inlined per template).
+   Wide wordmark → size by height, width auto keeps the aspect ratio.
+   fill=currentColor, so `color` sets the ink; ivory knockout on dark grounds. */
+.mark { display: block; width: auto; color: var(--falcon-night); }
+.mark-sm { height: 22px; }
+.mark-md { height: 30px; }
+.mark-lg { height: 46px; }
+.cover .mark, .cardb .mark { color: var(--ivory); }
 
 /* Brand wordmark lockup */
 .lockup { display: flex; align-items: center; gap: 12px; }
