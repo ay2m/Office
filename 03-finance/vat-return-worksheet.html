@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAT Return Worksheet — ورقة عمل إقرار ضريبة القيمة المضافة · BDA Company International</title>
+<!--
+  Quarterly VAT-return WORKSHEET (computational aid), bilingual AR/EN.
+  Maps to the ZATCA VAT return boxes: enter the period amounts (excl. VAT) and
+  the output/input VAT and the net due compute automatically at 15%. Works
+  offline from file:// (fonts vendored, JS inline, no network, no dependencies).
+
+  This is a working aid ONLY — it is NOT the filing and NOT tax advice. The
+  official return is filed on the ZATCA portal (zatca.gov.sa); confirm every
+  figure and treatment with the accountant. No IBAN, no live figures committed.
+  Company identity: 01-governance/company-facts.md. Procedure + deadlines:
+  03-finance/invoicing-and-vat-returns.md. Print to PDF via build-html.mjs.
+-->
+<style>
+@font-face {
+  font-family: 'Inter';
+  src: url('../tools/print/fonts/Inter-latin.woff2') format('woff2');
+  font-weight: 400 700; font-display: block;
+}
+@font-face {
+  font-family: 'Cairo';
+  src: url('../tools/print/fonts/Cairo-latin.woff2') format('woff2');
+  font-weight: 400 800; font-display: block;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+20AC;
+}
+@font-face {
+  font-family: 'Cairo';
+  src: url('../tools/print/fonts/Cairo-arabic.woff2') format('woff2');
+  font-weight: 400 800; font-display: block;
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}
+:root {
+  --night: #0A0E12; --teal: #2D6E8A; --teal-bright: #4A9CB8;
+  --gold: #C8A04A; --ivory: #F5F2ED; --edge: #E5DFD3;
+  --ink: #1A2733; --mute: #5E6C7A; --pos: #B2453A; --neg: #2D6E8A;
+}
+@page { size: A4; margin: 14mm; }
+* { box-sizing: border-box; }
+body {
+  font-family: 'Cairo', 'Inter', system-ui, sans-serif;
+  color: var(--ink); margin: 0; font-size: 11pt; line-height: 1.6; background: #fff;
+}
+.doc { max-width: 182mm; margin: 0 auto; }
+.head {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 16px; padding-bottom: 14px; border-bottom: 3px solid var(--teal);
+}
+.brand { display: flex; gap: 12px; align-items: center; }
+.brand svg { height: 40px; width: auto; flex: none; color: var(--night); }
+.brand .names { line-height: 1.3; }
+.brand .ar-name { font-weight: 800; font-size: 15pt; color: var(--night); }
+.brand .en-name { font-weight: 700; font-size: 10pt; color: var(--teal); letter-spacing: .3px; }
+.brand .sub { font-size: 8.5pt; color: var(--mute); }
+.title { text-align: end; }
+.title .t-ar { font-weight: 800; font-size: 15pt; color: var(--night); }
+.title .t-en { font-weight: 700; font-size: 9.5pt; color: var(--teal); }
+.title .vat { font-size: 8.5pt; color: var(--mute); margin-top: 2px; }
+
+.meta { display: flex; gap: 10px; margin: 14px 0; flex-wrap: wrap; }
+.meta .box { flex: 1 1 40mm; border: 1px solid var(--edge); border-radius: 8px; padding: 8px 10px; background: var(--ivory); }
+.meta .box .k { color: var(--mute); font-size: 8.5pt; }
+.meta .box .v { font-weight: 700; font-family: 'Inter', 'Cairo', sans-serif; }
+
+.sec-title { margin: 16px 0 4px; font-size: 11pt; font-weight: 800; color: var(--night); display: flex; justify-content: space-between; align-items: baseline; }
+.sec-title .en { color: var(--teal); font-size: 9pt; font-weight: 700; }
+
+table { width: 100%; border-collapse: collapse; margin: 2px 0 4px; font-size: 9.5pt; }
+thead th {
+  background: var(--night); color: var(--ivory); padding: 7px 10px; text-align: start;
+  font-weight: 700; font-size: 8.5pt;
+}
+thead th.num, tbody td.num { text-align: end; font-family: 'Inter', monospace; }
+tbody td { padding: 6px 10px; border-bottom: 1px solid var(--edge); vertical-align: middle; }
+tbody tr:nth-child(even) { background: #FBF9F5; }
+tbody td .en { display: block; color: var(--mute); font-size: 8pt; }
+tbody td .box-ref { color: var(--gold); font-weight: 700; font-size: 8pt; }
+tfoot td { padding: 7px 10px; font-weight: 800; border-top: 2px solid var(--night); background: var(--ivory); }
+tfoot td.num { text-align: end; font-family: 'Inter', monospace; }
+
+input.amt {
+  width: 34mm; text-align: end; font-family: 'Inter', monospace; font-size: 9.5pt;
+  border: 1px solid var(--edge); border-radius: 5px; padding: 3px 6px; color: var(--ink);
+  background: #fff;
+}
+input.amt:focus { outline: 2px solid var(--teal-bright); border-color: var(--teal-bright); }
+.vat-cell { font-family: 'Inter', monospace; }
+.rate { color: var(--mute); font-size: 8pt; }
+
+.net {
+  margin-top: 14px; display: flex; justify-content: space-between; align-items: center;
+  background: var(--night); color: #fff; border-radius: 10px; padding: 12px 18px;
+}
+.net .lab { font-weight: 800; font-size: 12pt; }
+.net .lab .en { display: block; color: var(--teal-bright); font-size: 8.5pt; font-weight: 700; }
+.net .val { font-family: 'Inter', monospace; font-weight: 800; font-size: 16pt; }
+.net .val small { font-size: 9pt; color: var(--teal-bright); font-weight: 700; }
+
+.notice { margin-top: 14px; font-size: 8pt; color: var(--mute); line-height: 1.6; }
+.notice b { color: var(--ink); }
+.notice ul { margin: 4px 0; padding-inline-start: 18px; }
+.foot-id {
+  margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--edge);
+  font-size: 8pt; color: var(--mute); text-align: center; line-height: 1.6;
+}
+.en { direction: ltr; unicode-bidi: isolate; }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <div class="head">
+    <div class="brand">
+      <svg viewBox="0 0 199.81 100.0" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BDA Company International — بدع">
+        <path fill="currentColor" fill-rule="evenodd" d="M23.59,43.8 L1.79,43.8 L1.32,43.33 L1.41,1.32 L23.59,1.13 L29.04,2.07 L36.0,6.02 L40.04,10.43 L41.73,13.44 L43.42,18.7 L43.61,24.72 L42.48,29.61 L40.79,33.18 L38.35,36.56 L33.55,40.6 L29.79,42.48 L23.59,43.8 Z M73.97,98.87 L61.37,98.87 L60.71,98.4 L60.71,1.6 L61.18,1.13 L74.34,1.13 L80.73,1.88 L88.63,4.32 L95.39,7.89 L100.28,11.65 L107.89,20.39 L112.78,30.36 L114.47,37.88 L114.29,63.44 L111.84,72.09 L106.95,81.11 L101.03,87.78 L92.95,93.61 L82.8,97.74 L73.97,98.87 Z M151.22,98.68 L148.78,98.5 L143.14,96.05 L135.15,89.38 L130.26,81.86 L127.82,73.59 L127.63,64.38 L129.51,57.24 L133.65,50.28 L141.35,42.2 L138.53,36.18 L137.41,30.73 L137.78,23.4 L139.29,18.89 L142.48,13.44 L146.15,9.4 L150.47,6.39 L155.17,4.51 L160.81,3.57 L198.59,3.57 L198.59,19.55 L161.37,19.55 L157.24,21.05 L154.14,24.53 L153.2,28.29 L154.14,32.61 L156.67,35.71 L160.06,37.41 L198.4,37.59 L198.68,53.67 L156.11,53.95 L152.16,55.08 L148.59,57.33 L146.05,60.06 L144.36,63.25 L143.61,65.7 L143.42,70.58 L144.17,73.97 L146.24,77.73 L151.5,82.61 L151.22,98.68 Z M23.59,98.87 L1.32,98.59 L1.13,56.86 L1.6,56.39 L24.72,56.39 L29.23,57.33 L35.81,61.09 L40.98,67.2 L42.67,71.15 L43.61,75.47 L43.42,81.3 L40.98,88.06 L37.59,92.58 L33.18,96.05 L28.48,98.12 L23.59,98.87 Z"/>
+      </svg>
+      <div class="names">
+        <div class="ar-name">شركة بدع الدولية</div>
+        <div class="en-name en">BDA Company International</div>
+        <div class="sub">الطيران المدني السعودي · Fly GACA · Captain Adel</div>
+      </div>
+    </div>
+    <div class="title">
+      <div class="t-ar">ورقة عمل إقرار ضريبة القيمة المضافة</div>
+      <div class="t-en">VAT Return Worksheet</div>
+      <div class="vat">الرقم الضريبي / VAT: <b>311415259500003</b> · ربع سنوي / Quarterly</div>
+    </div>
+  </div>
+
+  <div class="meta">
+    <div class="box"><div class="k">الفترة الضريبية / Tax period</div><div class="v">[YYYY Q_ — ____ / ____]</div></div>
+    <div class="box"><div class="k">من / From</div><div class="v">[YYYY-MM-DD]</div></div>
+    <div class="box"><div class="k">إلى / To</div><div class="v">[YYYY-MM-DD]</div></div>
+    <div class="box"><div class="k">استحقاق التقديم / Filing due</div><div class="v">[نهاية الفترة + 30 يوم]</div></div>
+  </div>
+
+  <!-- ========================= OUTPUT (SALES) ========================= -->
+  <div class="sec-title">1) ضريبة المخرجات — المبيعات <span class="en">Output VAT — Sales</span></div>
+  <table>
+    <thead>
+      <tr>
+        <th>البند / Item</th>
+        <th class="num">المبلغ (غير شامل) / Amount excl. VAT</th>
+        <th class="num">الضريبة / VAT (SAR)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>المبيعات الخاضعة للنسبة الأساسية <span class="rate">15%</span><span class="en">Standard-rated sales</span> <span class="box-ref">ZATCA box 1</span></td>
+        <td class="num"><input class="amt" data-vat="15" inputmode="decimal" placeholder="0.00"></td>
+        <td class="num vat-cell" data-out>0.00</td>
+      </tr>
+      <tr>
+        <td>الصادرات — خدمات لغير المقيمين (نسبة صفرية)<span class="en">Exports — services to non-residents (zero-rated)</span> <span class="box-ref">ZATCA box 4</span></td>
+        <td class="num"><input class="amt" data-vat="0" inputmode="decimal" placeholder="0.00"></td>
+        <td class="num vat-cell" data-out>0.00</td>
+      </tr>
+      <tr>
+        <td>مبيعات محلية بنسبة صفرية / معفاة<span class="en">Zero-rated / exempt domestic sales</span> <span class="box-ref">ZATCA box 3/5</span></td>
+        <td class="num"><input class="amt" data-vat="0" inputmode="decimal" placeholder="0.00"></td>
+        <td class="num vat-cell" data-out>0.00</td>
+      </tr>
+      <tr>
+        <td>الاحتساب العكسي — الخدمات المستوردة (مخرجات)<span class="en">Reverse charge — imported services (output)</span> <span class="box-ref">ZATCA box 9</span></td>
+        <td class="num"><input class="amt" data-vat="15" data-rc="out" inputmode="decimal" placeholder="0.00"></td>
+        <td class="num vat-cell" data-out>0.00</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr><td>إجمالي ضريبة المخرجات / Total output VAT</td><td class="num"></td><td class="num" id="total-out">0.00</td></tr>
+    </tfoot>
+  </table>
+
+  <!-- ========================= INPUT (PURCHASES) ========================= -->
+  <div class="sec-title">2) ضريبة المدخلات — المشتريات <span class="en">Input VAT — Purchases</span></div>
+  <table>
+    <thead>
+      <tr>
+        <th>البند / Item</th>
+        <th class="num">المبلغ (غير شامل) / Amount excl. VAT</th>
+        <th class="num">الضريبة القابلة للخصم / Deductible VAT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>المشتريات المحلية الخاضعة <span class="rate">15%</span><span class="en">Standard-rated domestic purchases</span> <span class="box-ref">ZATCA box 7</span></td>
+        <td class="num"><input class="amt" data-vat="15" inputmode="decimal" placeholder="0.00"></td>
+        <td class="num vat-cell" data-in>0.00</td>
+      </tr>
+      <tr>
+        <td>ضريبة الاستيراد المدفوعة بالجمارك<span class="en">Import VAT paid at customs</span> <span class="box-ref">ZATCA box 8</span></td>
+        <td class="num"><input class="amt" data-direct="in" inputmode="decimal" placeholder="0.00"></td>
+        <td class="num vat-cell" data-in>0.00</td>
+      </tr>
+      <tr>
+        <td>الاحتساب العكسي — مدخلات قابلة للخصم<span class="en">Reverse charge — deductible input</span> <span class="box-ref">ZATCA box 9</span></td>
+        <td class="num"><input class="amt" data-vat="15" data-rc="in" inputmode="decimal" placeholder="0.00"></td>
+        <td class="num vat-cell" data-in>0.00</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr><td>إجمالي ضريبة المدخلات / Total input VAT</td><td class="num"></td><td class="num" id="total-in">0.00</td></tr>
+    </tfoot>
+  </table>
+
+  <!-- ========================= NET ========================= -->
+  <div class="net">
+    <div class="lab">صافي الضريبة المستحقة<span class="en">Net VAT due (output − input)</span></div>
+    <div class="val"><span id="net-val">0.00</span> <small>SAR · <span id="net-tag">مستحقة الدفع / payable</span></small></div>
+  </div>
+
+  <div class="notice">
+    <b>ملاحظات / Notes.</b>
+    <ul>
+      <li><b>الاحتساب العكسي (Reverse charge):</b> الخدمات الرقمية المستوردة (Google Cloud، Gemini، رسوم مزوّدي خارج المملكة) تُسجَّل مخرجاتٍ <em>ومدخلاتٍ</em> بنفس المبلغ؛ الأثر الصافي صفر إذا كانت قابلة للخصم بالكامل. <span class="en">Foreign digital services are self-assessed as both output and input VAT.</span></li>
+      <li><b>الصادرات:</b> توريد الخدمات لغير المقيمين قد يكون بنسبة صفرية بحسب قواعد مكان التوريد — <b>يؤكّدها المحاسب</b>. <span class="en">Zero-rating of exported services depends on place-of-supply rules; confirm with the accountant.</span></li>
+      <li><b>ميسر / Moyasar</b> مزوّد محلي — رسومه خاضعة محلياً (ليست احتساباً عكسياً). <span class="en">Moyasar is a domestic provider; its fees are domestic-rated, not reverse charge.</span></li>
+      <li>خانات «ZATCA box» أعلاه مرجعية لترتيب الإدخال في نموذج الإقرار على البوابة، لا أرقام رسمية.</li>
+    </ul>
+    <b>هذه ورقة عمل حسابية مساعدة فقط — وليست الإقرار ولا استشارة ضريبية.</b> الإقرار الرسمي يُقدَّم عبر بوابة زاتكا (zatca.gov.sa)؛ راجع خطوات التقديم والمواعيد في <span class="en">03-finance/invoicing-and-vat-returns.md</span> وأكّد كل رقم مع المحاسب.
+  </div>
+
+  <div class="foot-id">
+    شركة بدع الدولية · BDA Company International · س.ت / CR 7030976893 · الرقم الضريبي / VAT 311415259500003 · الرياض، حي البقال 12965
+  </div>
+</div>
+
+<script>
+(function () {
+  var fmt = function (n) { return (Math.round(n * 100) / 100).toFixed(2); };
+  var amounts = Array.prototype.slice.call(document.querySelectorAll('input.amt'));
+
+  function recompute() {
+    var totalOut = 0, totalIn = 0;
+    amounts.forEach(function (el) {
+      var amt = parseFloat(el.value) || 0;
+      var cell = el.closest('tr').querySelector('.vat-cell');
+      var vat;
+      if (el.dataset.direct === 'in') {
+        vat = amt;                     // customs import VAT is entered directly
+      } else {
+        vat = amt * (parseFloat(el.dataset.vat) || 0) / 100;
+      }
+      if (cell) cell.textContent = fmt(vat);
+      if (cell && cell.hasAttribute('data-out')) totalOut += vat;
+      if (cell && cell.hasAttribute('data-in')) totalIn += vat;
+    });
+    document.getElementById('total-out').textContent = fmt(totalOut);
+    document.getElementById('total-in').textContent = fmt(totalIn);
+    var net = totalOut - totalIn;
+    document.getElementById('net-val').textContent = fmt(Math.abs(net));
+    document.getElementById('net-tag').textContent = net >= 0
+      ? 'مستحقة الدفع / payable'
+      : 'قابلة للاسترداد / refundable';
+  }
+  amounts.forEach(function (el) { el.addEventListener('input', recompute); });
+  recompute();
+})();
+</script>
+</body>
+</html>
