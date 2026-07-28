@@ -119,6 +119,11 @@ version/EC/mask are guaranteed correct (a malformed QR is a 1,000–10,000 SAR
 per-invoice penalty). The bank line is a placeholder — **the IBAN is added on the
 issued invoice at billing time, never committed to the repo**.
 
+The template has a **Standard (B2B) / Simplified (B2C)** mode toggle (screen-only,
+hidden in print): *simplified* hides the buyer block and retitles to "Simplified
+Tax Invoice", matching ZATCA's two invoice types — a B2C receipt needs the QR but
+not the buyer's details, a B2B invoice needs the buyer's name + VAT number.
+
 ## Records
 
 Keep invoices, returns and supporting records **6 years**, with Arabic-language
