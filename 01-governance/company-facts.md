@@ -68,7 +68,7 @@ founder's records.
 | flygaca.com /terms, /privacy | Entity block, PDPL controller, Riyadh jurisdiction | `FlyGACA-app: src/i18n/*.json` (`legal.*`) |
 | flygaca.com structured data | `legalName`, address, SA-CR identifier, vatID | `FlyGACA-app: src/lib/seo/jsonld.ts` + `index.html` + `scripts/prerender-head.mjs` |
 | captadel.com footer (all pages) | Operator line AR/EN | `Captain-Adel: public/assets/js/footer.js` |
-| captadel.com /terms, /privacy | Entity block, PDPL controller, Stripe processor | `Captain-Adel: public/terms.html`, `public/privacy.html` |
+| captadel.com /terms, /privacy | Entity block, PDPL controller, Moyasar processor | `Captain-Adel: public/terms.html`, `public/privacy.html` |
 | Repo metadata | LICENSE holder, package.json author, SECURITY.md | both product repos |
 
 Never published: IBAN / bank account (see hard rule above), founder's national
@@ -94,11 +94,13 @@ Still open:
 
 - [ ] Saudi counsel review of the public policy drafts in `02-legal/` — the
   "do not publish" banners stay until cleared.
-- [ ] Stripe Dashboard: register entity + VAT, then enable `automatic_tax`,
-  `tax_id_collection`, `consent_collection` in captadel checkout code.
-- [ ] Moyasar merchant profile: confirm it carries the CR + IBAN (dashboard).
-- [ ] Brand print assets (letterhead, invoice PNGs in `11-brand/print/`) — no
-  editable sources exist (GAP-7); regenerate with the CR/VAT identity line.
+- [ ] Moyasar (both products): confirm each merchant profile carries the CR +
+  settlement IBAN, and validate the webhook HMAC recipe against a dashboard test
+  event before relying on it (see captadel RUNBOOK §3).
+- [x] Brand print assets — **done 2026-07-27**: rebuilt as editable HTML under
+  `11-brand/print/*.html` (Palette B), PNGs regenerated at 300 dpi with the
+  CR/VAT identity line (GAP-7 closed). The ZATCA tax-invoice template is at
+  `03-finance/tax-invoice-template.html`.
 - [ ] Google Sheet master index (`00-master-office-paperwork-index.gsheet`) —
   manual paste of the new/renamed docs.
 - [ ] Register `flygaca.sa` (now unblocked).

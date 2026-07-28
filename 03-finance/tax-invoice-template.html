@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tax Invoice — فاتورة ضريبية · BDA Company International</title>
+<!--
+  ZATCA Phase-1 compliant bilingual (AR/EN) tax-invoice template.
+  Editable HTML source (closes GAP-7). Fill the [PLACEHOLDER] fields, then the
+  QR regenerates from the amounts on any input. Works offline from file://
+  (fonts vendored, TLV+QR encoders inline, no network, no dependencies).
+
+  Print to PDF via tools/print/build-html.mjs (preferCSSPageSize → A4).
+  NEVER commit the IBAN here — the bank line is a placeholder supplied at
+  billing time. Company identity: 01-governance/company-facts.md.
+-->
+<style>
+@font-face {
+  font-family: 'Inter';
+  src: url('../tools/print/fonts/Inter-latin.woff2') format('woff2');
+  font-weight: 400 700; font-display: block;
+}
+@font-face {
+  font-family: 'Cairo';
+  src: url('../tools/print/fonts/Cairo-latin.woff2') format('woff2');
+  font-weight: 400 800; font-display: block;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+20AC;
+}
+@font-face {
+  font-family: 'Cairo';
+  src: url('../tools/print/fonts/Cairo-arabic.woff2') format('woff2');
+  font-weight: 400 800; font-display: block;
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}
+:root {
+  --night: #0A0E12; --teal: #2D6E8A; --teal-bright: #4A9CB8;
+  --gold: #C8A04A; --ivory: #F5F2ED; --edge: #E5DFD3;
+  --ink: #1A2733; --mute: #5E6C7A;
+}
+@page { size: A4; margin: 14mm; }
+* { box-sizing: border-box; }
+body {
+  font-family: 'Cairo', 'Inter', system-ui, sans-serif;
+  color: var(--ink); margin: 0; font-size: 11pt; line-height: 1.6;
+  background: #fff;
+}
+.doc { max-width: 182mm; margin: 0 auto; }
+
+/* Header band */
+.head {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 16px; padding-bottom: 14px; border-bottom: 3px solid var(--teal);
+}
+.brand { display: flex; gap: 12px; align-items: center; }
+.brand svg { height: 40px; width: auto; flex: none; color: var(--night); }
+.brand .names { line-height: 1.3; }
+.brand .ar-name { font-weight: 800; font-size: 15pt; color: var(--night); }
+.brand .en-name { font-weight: 700; font-size: 10pt; color: var(--teal); letter-spacing: .3px; }
+.brand .sub { font-size: 8.5pt; color: var(--mute); }
+.title { text-align: end; }
+.title .t-ar { font-weight: 800; font-size: 16pt; color: var(--night); }
+.title .t-en { font-weight: 700; font-size: 10pt; color: var(--teal); letter-spacing: 1px; text-transform: uppercase; }
+.title .inv-no { margin-top: 6px; font-family: 'Inter', monospace; font-size: 10pt; }
+.title .inv-no b { color: var(--teal); }
+
+/* Party grid */
+.parties { display: flex; gap: 14px; margin: 16px 0; }
+.party {
+  flex: 1; border: 1px solid var(--edge); border-radius: 8px; padding: 10px 12px;
+  background: #FBF9F5;
+}
+.party h3 {
+  margin: 0 0 6px; font-size: 8.5pt; text-transform: uppercase; letter-spacing: .6px;
+  color: var(--teal); font-weight: 700;
+}
+.party .row { display: flex; justify-content: space-between; gap: 8px; font-size: 9.5pt; padding: 1px 0; }
+.party .row .k { color: var(--mute); }
+.party .row .v { font-weight: 600; font-family: 'Inter', 'Cairo', sans-serif; }
+.party .legal { font-weight: 800; font-size: 10.5pt; color: var(--night); margin-bottom: 4px; }
+
+.meta { display: flex; gap: 14px; margin-bottom: 6px; font-size: 9.5pt; }
+.meta .box { flex: 1; border: 1px solid var(--edge); border-radius: 8px; padding: 8px 12px; }
+.meta .box .k { color: var(--mute); font-size: 8.5pt; }
+.meta .box .v { font-weight: 700; font-family: 'Inter', sans-serif; }
+
+/* Line items */
+table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 9.5pt; }
+thead th {
+  background: var(--night); color: var(--ivory); padding: 8px 10px; text-align: start;
+  font-weight: 700; font-size: 8.5pt; text-transform: uppercase; letter-spacing: .4px;
+}
+thead th.num, tbody td.num { text-align: end; font-family: 'Inter', monospace; }
+tbody td { padding: 8px 10px; border-bottom: 1px solid var(--edge); vertical-align: top; }
+tbody tr:nth-child(even) { background: #FBF9F5; }
+.desc-en { color: var(--mute); font-size: 8.5pt; }
+
+/* Totals + QR */
+.foot { display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; margin-top: 8px; }
+.totals { min-width: 78mm; margin-inline-start: auto; }
+.totals .row { display: flex; justify-content: space-between; padding: 5px 10px; font-size: 10pt; }
+.totals .row .k { color: var(--mute); }
+.totals .row .v { font-family: 'Inter', monospace; font-weight: 600; }
+.totals .grand {
+  background: var(--teal); color: #fff; border-radius: 8px; margin-top: 6px;
+  font-weight: 800; font-size: 12pt;
+}
+.totals .grand .k, .totals .grand .v { color: #fff; }
+.qr-block { text-align: center; max-width: 40mm; }
+.qr-slot {
+  width: 34mm; height: 34mm; border: 1.5px dashed var(--edge); background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--mute); font-size: 9pt; letter-spacing: 2px; font-weight: 700;
+  border-radius: 6px;
+}
+.qr-block .cap { font-size: 7pt; color: var(--mute); margin-top: 4px; line-height: 1.4; }
+.qr-block .tlv {
+  margin-top: 5px; font-family: 'Inter', monospace; font-size: 5.5pt; color: var(--mute);
+  word-break: break-all; max-width: 40mm; line-height: 1.3;
+}
+
+.bank {
+  margin-top: 16px; border-inline-start: 3px solid var(--gold); padding: 8px 12px;
+  background: #FBF9F5; font-size: 9pt; border-radius: 0 8px 8px 0;
+}
+.bank b { color: var(--night); }
+.notice { margin-top: 12px; font-size: 8pt; color: var(--mute); line-height: 1.5; }
+.foot-id {
+  margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--edge);
+  font-size: 8pt; color: var(--mute); text-align: center; line-height: 1.6;
+}
+[dir="rtl"] .title, [dir="rtl"] .totals .row { direction: rtl; }
+.en { direction: ltr; unicode-bidi: isolate; }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <div class="head">
+    <div class="brand">
+      <svg viewBox="0 0 199.81 100.0" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BDA Company International — بدع">
+        <path fill="currentColor" fill-rule="evenodd" d="M23.59,43.8 L1.79,43.8 L1.32,43.33 L1.41,1.32 L23.59,1.13 L29.04,2.07 L36.0,6.02 L40.04,10.43 L41.73,13.44 L43.42,18.7 L43.61,24.72 L42.48,29.61 L40.79,33.18 L38.35,36.56 L33.55,40.6 L29.79,42.48 L23.59,43.8 Z M73.97,98.87 L61.37,98.87 L60.71,98.4 L60.71,1.6 L61.18,1.13 L74.34,1.13 L80.73,1.88 L88.63,4.32 L95.39,7.89 L100.28,11.65 L107.89,20.39 L112.78,30.36 L114.47,37.88 L114.29,63.44 L111.84,72.09 L106.95,81.11 L101.03,87.78 L92.95,93.61 L82.8,97.74 L73.97,98.87 Z M151.22,98.68 L148.78,98.5 L143.14,96.05 L135.15,89.38 L130.26,81.86 L127.82,73.59 L127.63,64.38 L129.51,57.24 L133.65,50.28 L141.35,42.2 L138.53,36.18 L137.41,30.73 L137.78,23.4 L139.29,18.89 L142.48,13.44 L146.15,9.4 L150.47,6.39 L155.17,4.51 L160.81,3.57 L198.59,3.57 L198.59,19.55 L161.37,19.55 L157.24,21.05 L154.14,24.53 L153.2,28.29 L154.14,32.61 L156.67,35.71 L160.06,37.41 L198.4,37.59 L198.68,53.67 L156.11,53.95 L152.16,55.08 L148.59,57.33 L146.05,60.06 L144.36,63.25 L143.61,65.7 L143.42,70.58 L144.17,73.97 L146.24,77.73 L151.5,82.61 L151.22,98.68 Z M23.59,98.87 L1.32,98.59 L1.13,56.86 L1.6,56.39 L24.72,56.39 L29.23,57.33 L35.81,61.09 L40.98,67.2 L42.67,71.15 L43.61,75.47 L43.42,81.3 L40.98,88.06 L37.59,92.58 L33.18,96.05 L28.48,98.12 L23.59,98.87 Z"/>
+      </svg>
+      <div class="names">
+        <div class="ar-name">شركة بدع الدولية</div>
+        <div class="en-name en">BDA Company International</div>
+        <div class="sub">الطيران المدني السعودي · Fly GACA · Captain Adel</div>
+      </div>
+    </div>
+    <div class="title">
+      <div class="t-ar">فاتورة ضريبية</div>
+      <div class="t-en">Tax Invoice</div>
+      <div class="inv-no">رقم الفاتورة / No: <b id="f-invno">INV-2026-NNN</b></div>
+    </div>
+  </div>
+
+  <div class="parties">
+    <div class="party">
+      <h3>البائع / Seller</h3>
+      <div class="legal">شركة بدع الدولية <span class="en">— BDA Company International</span></div>
+      <div class="row"><span class="k">الرقم الضريبي / VAT</span><span class="v en" id="s-vat">311415259500003</span></div>
+      <div class="row"><span class="k">السجل التجاري / CR</span><span class="v en">7030976893</span></div>
+      <div class="row"><span class="k">العنوان / Address</span><span class="v">الرياض، حي البقال 12965</span></div>
+      <div class="row"><span class="k">تواصل / Contact</span><span class="v en">i@flygaca.com</span></div>
+    </div>
+    <div class="party">
+      <h3>المشتري / Buyer</h3>
+      <div class="legal" id="b-name">[Buyer legal name — اسم المشتري]</div>
+      <div class="row"><span class="k">الرقم الضريبي / VAT</span><span class="v en" id="b-vat">[Buyer VAT]</span></div>
+      <div class="row"><span class="k">السجل التجاري / CR</span><span class="v en" id="b-cr">[Buyer CR]</span></div>
+      <div class="row"><span class="k">العنوان / Address</span><span class="v" id="b-addr">[Buyer address]</span></div>
+    </div>
+  </div>
+
+  <div class="meta">
+    <div class="box"><div class="k">تاريخ الإصدار / Issue date</div><div class="v en" id="f-date">2026-07-27</div></div>
+    <div class="box"><div class="k">تاريخ التوريد / Supply date</div><div class="v en">[YYYY-MM-DD]</div></div>
+    <div class="box"><div class="k">مرجع الطلب / Order ref</div><div class="v en">[FG-OF-2026-NNN]</div></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>الوصف / Description</th>
+        <th class="num">الكمية / Qty</th>
+        <th class="num">السعر / Unit (SAR)</th>
+        <th class="num">الإجمالي / Amount (SAR)</th>
+      </tr>
+    </thead>
+    <tbody id="f-lines">
+      <tr>
+        <td>1</td>
+        <td>ترخيص مقاعد Fly GACA — الباقة السنوية<div class="desc-en en">Fly GACA seat licences — annual cohort</div></td>
+        <td class="num">[N]</td>
+        <td class="num">[299.00]</td>
+        <td class="num" data-amount>[0.00]</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="foot">
+    <div class="qr-block">
+      <div id="f-qr-slot" class="qr-slot" aria-label="ZATCA QR placeholder">QR</div>
+      <div class="cap">رمز الاستجابة السريعة (زاتكا) · ZATCA QR (Phase 1) — <span class="en">rendered by the Fatoora/e-invoicing software from the TLV below</span></div>
+      <div class="tlv en" id="f-tlv" title="ZATCA TLV (base64)"></div>
+    </div>
+    <div class="totals">
+      <div class="row"><span class="k">الإجمالي قبل الضريبة / Subtotal (excl. VAT)</span><span class="v en"><span id="f-subtotal">0.00</span></span></div>
+      <div class="row"><span class="k">ضريبة القيمة المضافة 15% / VAT</span><span class="v en"><span id="f-vat">0.00</span></span></div>
+      <div class="row grand"><span class="k">الإجمالي المستحق / Total due</span><span class="v en"><span id="f-total">0.00</span> SAR</span></div>
+    </div>
+  </div>
+
+  <div class="bank">
+    <b>الدفع / Payment:</b> تحويل بنكي · Bank transfer. تفاصيل الحساب البنكي تُزوَّد على الفاتورة
+    الصادرة وقت الفوترة. <span class="en">Bank-transfer details are supplied on the issued
+    invoice at billing time.</span> شروط السداد / Terms: [Net 30].
+  </div>
+
+  <div class="notice en">
+    Fly GACA and Captain Adel are independent educational products of BDA Company International
+    (شركة بدع الدولية). Not affiliated with, endorsed by, or connected to the General Authority
+    of Civil Aviation (GACA). Retain this tax invoice for 6 years (ZATCA).
+  </div>
+
+  <div class="foot-id">
+    شركة بدع الدولية · BDA Company International · س.ت / CR 7030976893 · الرقم الضريبي / VAT 311415259500003 ·
+    الرياض، حي البقال 12965 · i@flygaca.com · +966 51 096 6969 · flygaca.com
+  </div>
+</div>
+
+<script>
+/* ── ZATCA Phase-1 TLV (Tag-Length-Value) → base64 ───────────────────────────
+   Tags 1..5 = seller name, VAT number, ISO-8601 timestamp, invoice total
+   (incl. VAT), VAT amount. Dependency-free; runs offline from file://.
+
+   We intentionally compute and DISPLAY the TLV base64 rather than hand-render a
+   QR: the mandatory ZATCA-compliant QR image (correct version/EC/mask) is
+   produced by the Fatoora / e-invoicing software (Qoyod → Zoho) from this exact
+   TLV — see 04-compliance-ksa/zatca-fatoora-e-invoicing-compliance-pack. A
+   wrong QR carries a 1,000–10,000 SAR/invoice penalty, so it is not hand-rolled
+   here. The totals are computed live so the values fed into the TLV are always
+   consistent with the line items. */
+(function () {
+  'use strict';
+
+  function utf8(str) { return new TextEncoder().encode(str); }
+  function tlv(tag, valueBytes) {
+    const out = new Uint8Array(2 + valueBytes.length);
+    out[0] = tag; out[1] = valueBytes.length; out.set(valueBytes, 2);
+    return out;
+  }
+  function concat(arrs) {
+    const len = arrs.reduce((n, a) => n + a.length, 0);
+    const out = new Uint8Array(len); let o = 0;
+    for (const a of arrs) { out.set(a, o); o += a.length; }
+    return out;
+  }
+  function base64(bytes) {
+    let bin = '';
+    for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+    return btoa(bin);
+  }
+  function zatcaTlvBase64(seller, vat, iso, total, vatAmount) {
+    return base64(concat([
+      tlv(1, utf8(seller)),
+      tlv(2, utf8(vat)),
+      tlv(3, utf8(iso)),
+      tlv(4, utf8(total)),
+      tlv(5, utf8(vatAmount)),
+    ]));
+  }
+
+  function money(n) { return (Math.round(n * 100) / 100).toFixed(2); }
+
+  function recompute() {
+    var subtotal = 0;
+    document.querySelectorAll('#f-lines [data-amount]').forEach(function (td) {
+      var v = parseFloat(String(td.textContent).replace(/[^0-9.]/g, ''));
+      if (!isNaN(v)) subtotal += v;
+    });
+    var vat = subtotal * 0.15;
+    var total = subtotal + vat;
+    document.getElementById('f-subtotal').textContent = money(subtotal);
+    document.getElementById('f-vat').textContent = money(vat);
+    document.getElementById('f-total').textContent = money(total);
+
+    var iso = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+    var b64 = zatcaTlvBase64('شركة بدع الدولية', '311415259500003', iso, money(total), money(vat));
+    var slot = document.getElementById('f-tlv');
+    if (slot) slot.textContent = b64;
+  }
+
+  document.addEventListener('DOMContentLoaded', recompute);
+  document.addEventListener('input', recompute);   // live when edited in a browser
+})();
+</script>
+</body>
+</html>

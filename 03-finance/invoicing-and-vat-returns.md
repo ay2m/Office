@@ -79,6 +79,20 @@ the wave assignment now that the VAT registration is real**, and pick the
 invoicing software (the pack recommends Qoyod, then Zoho) before invoice
 volume starts.
 
+## The invoice template
+
+A bilingual (AR/EN), ZATCA-Phase-1 tax-invoice template lives at
+`03-finance/tax-invoice-template.html` (rendered to
+`_print/03-finance/tax-invoice-template.pdf`). It carries the mandatory fields —
+Arabic seller legal name, VAT, CR, address, sequential number, issue date,
+line items with the 15% VAT broken out — and computes the **ZATCA QR TLV**
+(the 5 mandatory tags: seller name, VAT number, timestamp, total, VAT amount)
+as base64, shown under the QR slot. The scannable QR image itself is generated
+by the e-invoicing software (Qoyod → Zoho) from that TLV, not hand-drawn, so the
+version/EC/mask are guaranteed correct (a malformed QR is a 1,000–10,000 SAR
+per-invoice penalty). The bank line is a placeholder — **the IBAN is added on the
+issued invoice at billing time, never committed to the repo**.
+
 ## Records
 
 Keep invoices, returns and supporting records **6 years**, with Arabic-language
