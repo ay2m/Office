@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business card — [Full Name]</title>
+<link rel="stylesheet" href="brand-print.css">
+<style>
+@page { size: 85mm 55mm; margin: 0; }
+
+.card { width:85mm; height:55mm; padding:7mm; background:#fff; display:flex; flex-direction:column; justify-content:space-between; }
+.card .top { display:flex; align-items:center; gap:8px; }
+.card .top .ar-name { font-size:12pt; font-weight:800; color:var(--falcon-night); }
+.card .top .en-name { font-size:7.5pt; font-weight:700; color:var(--falcon-teal); }
+.card .person .p-name { font-size:11pt; font-weight:800; color:var(--falcon-night); }
+.card .person .p-role { font-size:8pt; color:var(--falcon-teal); }
+.card .contact { font-family:'Inter',sans-serif; font-size:7pt; color:var(--ink-mute); line-height:1.7; }
+
+</style>
+</head>
+<body>
+<div class="card" dir="rtl">
+  <div class="top"><svg class="mark mark-sm" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Fly GACA falcon mark">
+  <defs>
+    <linearGradient id="bc3-b" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4A9CB8"/><stop offset="100%" stop-color="#2D6E8A"/></linearGradient>
+    <linearGradient id="bc3-g" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#B5DDC2"/><stop offset="100%" stop-color="#8FC9A8"/></linearGradient>
+  </defs>
+  <path d="M14,28 C20,16 32,11 44,16 C50,18 52,22 50,28 C46,30 40,29 35,32 C30,34 24,33 14,28 Z" fill="url(#bc3-b)"/>
+  <path d="M16,38 C26,34 36,36 46,32 C50,38 50,46 44,50 C36,52 26,50 18,46 C14,43 13,40 16,38 Z" fill="url(#bc3-g)"/>
+</svg>
+    <div><div class="ar-name">شركة بدع الدولية</div><div class="en-name en">BDA Company International</div></div>
+  </div>
+  <div class="person"><div class="p-name">[الاسم]</div><div class="p-role en">[Job Title]</div></div>
+  <div class="contact en">i@flygaca.com · +966 51 096 6969<br>flygaca.com · Riyadh, KSA · CR 7030976893</div>
+</div>
+</body>
+</html>

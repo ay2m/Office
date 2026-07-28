@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compliments slip — BDA Company International</title>
+<link rel="stylesheet" href="brand-print.css">
+<style>
+@page { size: 210mm 99mm; margin: 0; }
+
+.slip { width:210mm; height:99mm; padding:12mm 16mm; display:flex; flex-direction:column; justify-content:space-between; }
+.slip .top { display:flex; align-items:center; gap:10px; }
+.slip .top .ar-name { font-size:13pt; font-weight:800; color:var(--falcon-night); }
+.slip .top .en-name { font-size:8pt; font-weight:700; color:var(--falcon-teal); }
+.slip .msg { font-size:16pt; color:var(--falcon-teal); font-weight:700; }
+.slip .msg .en { color:var(--ink-mute); font-size:10pt; }
+
+</style>
+</head>
+<body>
+<div class="slip" dir="rtl">
+  <div class="top"><svg class="mark mark-md" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Fly GACA falcon mark">
+  <defs>
+    <linearGradient id="cs-b" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4A9CB8"/><stop offset="100%" stop-color="#2D6E8A"/></linearGradient>
+    <linearGradient id="cs-g" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#B5DDC2"/><stop offset="100%" stop-color="#8FC9A8"/></linearGradient>
+  </defs>
+  <path d="M14,28 C20,16 32,11 44,16 C50,18 52,22 50,28 C46,30 40,29 35,32 C30,34 24,33 14,28 Z" fill="url(#cs-b)"/>
+  <path d="M16,38 C26,34 36,36 46,32 C50,38 50,46 44,50 C36,52 26,50 18,46 C14,43 13,40 16,38 Z" fill="url(#cs-g)"/>
+</svg>
+    <div><div class="ar-name">شركة بدع الدولية</div><div class="en-name en">BDA Company International</div></div>
+  </div>
+  <div class="msg">مع أطيب التحيات <span class="en">— With compliments</span></div>
+  <div><div class="identity-foot"><hr class="rule">شركة بدع الدولية · BDA Company International · س.ت / CR 7030976893 · الرقم الضريبي / VAT 311415259500003 · الرياض، حي البقال 12965 · i@flygaca.com · +966 51 096 6969 · flygaca.com</div></div>
+</div>
+</body>
+</html>

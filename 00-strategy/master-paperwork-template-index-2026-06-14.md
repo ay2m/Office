@@ -4,7 +4,7 @@ section: 00-strategy
 doc_type: template
 status: active
 owner: Founder
-last_updated: 2026-06-14
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -398,10 +398,10 @@ The GTM bucket has `strategy-competitive-teardown.md` but the strategy bucket ha
 
 **Recommendation:** Add `Competitor Landscape.docx` to 00-strategy, or promote the teardown with a product lens.
 
-### GAP-7 — 11-brand: print assets are PNG renders only, no editable source files (LOW)
-The print collateral (letterheads, business cards, envelopes, etc.) exists only as PNG renders. The original editable files (Figma, Illustrator, or InDesign) are not present. If any print asset needs updating (e.g., phone number, address, email), the PNG must be recreated from scratch.
+### GAP-7 — 11-brand: print assets are PNG renders only, no editable source files (~~LOW~~ CLOSED 2026-07-27)
+~~The print collateral (letterheads, business cards, envelopes, etc.) exists only as PNG renders. The original editable files (Figma, Illustrator, or InDesign) are not present.~~
 
-**Recommendation:** Add editable source files (`.fig`, `.ai`, or `.indd`) for each print template. At minimum, add a note in `11-brand/flygaca-design-tokens-readme.md` pointing to the Figma source.
+**Resolved 2026-07-27.** The identity-bearing print assets were rebuilt as **editable HTML source** under `11-brand/print/*.html` (letterheads EN/AR, contract cover, business cards, envelope DL, compliments slip, internal memo, press release), sharing `11-brand/print/brand-print.css` (Palette B) and the extracted `11-brand/logos/falcon-mark.svg`. `tools/print/build-html.mjs` renders their PDFs and the new `tools/print/build-png.mjs` regenerates the legacy PNGs at 300 dpi with the current company identity (CR 7030976893 · VAT 311415259500003). Updating a phone/address/email is now a diffable HTML edit + rebuild, not a from-scratch redraw. Assets not yet rebuilt (folder-cover, notepad, sticker-pack, envelope-c5) keep their existing PNGs.
 
 ### GAP-8 — No data-room index (LOW)
 For investor due diligence there is a DDQ and FAQ, but no data-room index that organises which documents go where for investor review. As the document set grows, this becomes a friction point during due diligence.

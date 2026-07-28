@@ -4,7 +4,7 @@ section: 11-brand
 doc_type: readme
 status: active
 owner: Founder
-last_updated: 2026-06-16
+last_updated: 2026-07-27
 lang: en
 ---
 
@@ -44,6 +44,16 @@ After export you'll have native Figma variables (with Light/Dark modes on the co
 - **Primary CTA = amber `#FFB020`** (`color.primary`), brand fill = teal (`color.brand`). This matches the live `.btn-primary`, which is amber despite `--brand` being teal.
 - **Light mode is net-new.** Code is dark-only; the `color-light` set is an authored light theme using the same palette. Light `link`/`accent`/`danger-text` use darker primitives (`teal-deep`, `sage-deep`, `danger-deep`) added for WCAG contrast on white.
 - **Off-palette values folded in** as primitives: `palette.amber`, `palette.amber-bright`, `palette.amber-ink` (`#0A0E14`).
+
+## Print collateral source (Palette B)
+
+The print assets in `11-brand/print/*.html` are the **editable source** for the
+letterhead/cards/envelope/memo/press-release/contract-cover PNGs (closes GAP-7).
+They deliberately use **Palette B** — the real product palette (`--falcon-night`
+`#0A0E12`, `--falcon-teal` `#2D6E8A`, `--falcon-gold` `#C8A04A`, `--ivory`
+`#F5F2ED`) via `11-brand/print/brand-print.css` — NOT `tools/print/theme.css`'s
+`#0066FF` document theme, which is intentionally left untouched. Rebuild with
+`tools/print/build-html.mjs` (PDFs) + `tools/print/build-png.mjs` (PNGs).
 
 ## Resuming the native Figma build
 

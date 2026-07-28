@@ -1,0 +1,88 @@
+/* ============================================================================
+ * Fly GACA / BDA Company International — shared print-collateral styles.
+ *
+ * The editable source for the print assets that used to exist only as flat PNGs
+ * (closes GAP-7). Each asset is a small HTML file in this folder that links this
+ * CSS and declares its own @page size; tools/print/build-html.mjs renders them
+ * to PDF (preferCSSPageSize) and tools/print/build-png.mjs to PNG.
+ *
+ * Palette B — the real product/brand palette (falcon-night / teal / gold),
+ * which the logos and collateral were built on. NOT theme.css's #0066FF
+ * document theme (left untouched on purpose). Fonts are the vendored woff2 in
+ * ../../tools/print/fonts/ (relative → offline build), Cairo split by
+ * unicode-range so one family serves Arabic + Latin.
+ * ==========================================================================*/
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../../tools/print/fonts/Inter-latin.woff2') format('woff2');
+  font-weight: 400 700; font-display: block;
+}
+@font-face {
+  font-family: 'Cairo';
+  src: url('../../tools/print/fonts/Cairo-latin.woff2') format('woff2');
+  font-weight: 400 800; font-display: block;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+20AC;
+}
+@font-face {
+  font-family: 'Cairo';
+  src: url('../../tools/print/fonts/Cairo-arabic.woff2') format('woff2');
+  font-weight: 400 800; font-display: block;
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}
+
+:root {
+  --falcon-night: #0A0E12;
+  --falcon-deep: #0F1A24;
+  --falcon-mist: #1A2A38;
+  --border-bright: #26384A;
+  --falcon-teal: #2D6E8A;
+  --teal-bright: #4A9CB8;
+  --falcon-sage: #8FC9A8;
+  --sage-bright: #B5DDC2;
+  --falcon-gold: #C8A04A;
+  --gold-soft: #E0C588;
+  --ivory: #F5F2ED;
+  --ivory-warm: #FBF8F2;
+  --ivory-edge: #E5DFD3;
+  --ink: #1A2733;
+  --ink-mute: #5E6C7A;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: 'Cairo', 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.en { direction: ltr; unicode-bidi: isolate; }
+[dir="rtl"] body, body[dir="rtl"] { font-family: 'Cairo', 'Inter', system-ui, sans-serif; }
+
+/* Falcon mark sizing helpers (the mark is inlined per template) */
+.mark { display: block; }
+.mark-sm { width: 34px; height: 34px; }
+.mark-md { width: 48px; height: 48px; }
+.mark-lg { width: 84px; height: 84px; }
+
+/* Brand wordmark lockup */
+.lockup { display: flex; align-items: center; gap: 12px; }
+.lockup .names { line-height: 1.25; }
+.lockup .ar-name { font-weight: 800; color: var(--falcon-night); }
+.lockup .en-name { font-weight: 700; color: var(--falcon-teal); letter-spacing: .4px; }
+.lockup .tagline { color: var(--ink-mute); }
+
+/* The shared identity footer — one canonical block across every asset.
+   Kept byte-consistent with 04-compliance-ksa/ecommerce-law-website-disclosure. */
+.identity-foot {
+  font-family: 'Inter', 'Cairo', system-ui, sans-serif;
+  font-size: 7.5pt; color: var(--ink-mute); line-height: 1.6; text-align: center;
+}
+.identity-foot .rule { height: 2px; background: var(--falcon-teal); border: 0; margin-bottom: 6px; }
+
+/* GACA-independence notice for customer-facing pieces */
+.independence {
+  font-family: 'Inter', 'Cairo', system-ui, sans-serif;
+  font-size: 7pt; color: var(--ink-mute); line-height: 1.5;
+}
