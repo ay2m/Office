@@ -105,6 +105,10 @@ the wave assignment now that the VAT registration is real**, and pick the
 invoicing software (the pack recommends Qoyod, then Zoho) before invoice
 volume starts.
 
+The current post-registration **phase & software decision** — Phase 1 applies
+now, Phase 2 only on ZATCA wave notification, **Qoyod** adopted for launch — is
+in `04-compliance-ksa/fatoora-phase2-decision-2026-07.md`.
+
 ## The invoice template
 
 A bilingual (AR/EN), ZATCA-Phase-1 tax-invoice template lives at
