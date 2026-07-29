@@ -4,7 +4,7 @@ section: 06-operations-it
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-06-16
+last_updated: 2026-07-28
 lang: en
 ---
 
@@ -19,7 +19,7 @@ Single-page reference for hosting decisions confirmed in PHASE0 / resume-briefin
 |---|---|---|
 | `flygaca.com` | Owned, canonical | The main product. |
 | `captadel.com` | Owned (secured 2026-05-23) | Captain Adel's marketing / standalone front door. **Registrar not yet recorded** — write it in here when known. |
-| `flygaca.sa` | Deferred until P0-3 | Saudi-NIC review needs the legal entity to exist; the "gaca" substring may also trigger review. |
+| `flygaca.sa` | **Unblocked** (entity exists) — see `flygaca-sa-registration-readiness.md` | Register **after** the P0-2 name opinion; the "gaca" substring may trigger SaudiNIC name review. Redirect-only → `flygaca.com`. |
 
 ## PDPL data boundary — the load-bearing rule
 

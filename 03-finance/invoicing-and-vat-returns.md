@@ -4,7 +4,7 @@ section: 03-finance
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-07-27
+last_updated: 2026-07-28
 lang: en
 ---
 
@@ -43,6 +43,31 @@ overdue.**
 | Jul–Sep 2026 | 2026-10-30 |
 | Oct–Dec 2026 | 2027-01-30 |
 
+## Filing a return — step by step (ZATCA portal)
+
+Compute the period figures first with the worksheet
+`03-finance/vat-return-worksheet.html` (enter amounts excl. VAT; output/input VAT
+and the net due compute at 15%), then file:
+
+1. Sign in to the ZATCA portal (zatca.gov.sa) → **VAT** → **File return**, and
+   pick the tax period — **the overdue Nov–Dec 2025 first, oldest first**.
+2. Transfer the worksheet figures into the return boxes:
+   - Standard-rated sales → **box 1** (amount + 15% output VAT).
+   - Exports / zero-rated / exempt sales → **box 4 / 3 / 5** (amount, 0 VAT).
+   - Reverse charge on imported services → **box 9** (self-assessed 15% as
+     **both** output and deductible input — nets to zero if fully recoverable).
+   - Standard-rated domestic purchases → **box 7**; customs import VAT → **box 8**.
+3. Check the portal's computed **net VAT due** matches the worksheet's net.
+4. Submit, then pay any net payable via **SADAD** using the generated bill
+   number **before the due date** to limit penalties.
+5. Download the return acknowledgement + payment receipt and store them in the
+   founder's records (see Records).
+6. A nil period is **still filed** — submit a zero return.
+
+Late filing and late payment carry ZATCA penalties; check for any active
+penalty-amnesty/exemption initiative before paying. The worksheet is a
+computational aid only — confirm every figure and treatment with the accountant.
+
 ## Tax-invoice requirements (ZATCA)
 
 Every tax invoice must carry, at minimum:
@@ -55,8 +80,9 @@ Every tax invoice must carry, at minimum:
 - For **simplified** invoices (B2C receipts): a ZATCA-compliant QR code (TLV)
 - For B2B: the buyer's name and VAT number
 
-Buyer-side VAT on foreign services (Google Cloud, Gemini, Stripe fees, etc.) is
-accounted for under the **reverse-charge** mechanism — see the VAT memo.
+Buyer-side VAT on foreign services (Google Cloud, Gemini, foreign SaaS, etc.) is
+accounted for under the **reverse-charge** mechanism — see the VAT memo. (Moyasar
+is a domestic provider, so its fees are domestic-rated, not reverse charge.)
 
 ## How the products map to invoices
 
@@ -64,9 +90,9 @@ accounted for under the **reverse-charge** mechanism — see the VAT memo.
   page shows "incl. 15% VAT"). Moyasar receipts are payment receipts, not tax
   invoices — a simplified tax invoice (with QR) must be generated per sale, and
   B2B school invoices are full tax invoices (VAT-exclusive prices + 15%).
-- **captadel.com (Stripe):** same pattern; once the Stripe account carries the
-  entity's registration, enable Stripe Tax + tax-ID collection (see the
-  captadel SaaS runbook §3) so B2B invoices carry the buyer's VAT number.
+- **captadel.com (Moyasar):** same pattern; Moyasar receipts are payment
+  receipts, so a simplified tax invoice (with QR) is generated per sale and B2B
+  invoices carry the buyer's VAT number (see the captadel SaaS runbook §3).
 - Invoice numbering: single sequential series per year (e.g. `INV-2026-0001`),
   shared across both products; the accountant may split series later.
 
@@ -78,6 +104,10 @@ That pack assumed "Wave 8+ (revenue ≥ SAR 25M), estimated 2027" — **re-verif
 the wave assignment now that the VAT registration is real**, and pick the
 invoicing software (the pack recommends Qoyod, then Zoho) before invoice
 volume starts.
+
+The current post-registration **phase & software decision** — Phase 1 applies
+now, Phase 2 only on ZATCA wave notification, **Qoyod** adopted for launch — is
+in `04-compliance-ksa/fatoora-phase2-decision-2026-07.md`.
 
 ## The invoice template
 
@@ -92,6 +122,11 @@ by the e-invoicing software (Qoyod → Zoho) from that TLV, not hand-drawn, so t
 version/EC/mask are guaranteed correct (a malformed QR is a 1,000–10,000 SAR
 per-invoice penalty). The bank line is a placeholder — **the IBAN is added on the
 issued invoice at billing time, never committed to the repo**.
+
+The template has a **Standard (B2B) / Simplified (B2C)** mode toggle (screen-only,
+hidden in print): *simplified* hides the buyer block and retitles to "Simplified
+Tax Invoice", matching ZATCA's two invoice types — a B2C receipt needs the QR but
+not the buyer's details, a B2B invoice needs the buyer's name + VAT number.
 
 ## Records
 

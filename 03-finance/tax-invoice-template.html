@@ -65,6 +65,15 @@ body {
 
 /* Party grid */
 .parties { display: flex; gap: 14px; margin: 16px 0; }
+/* Standard (B2B) vs Simplified (B2C) mode — ZATCA distinguishes the two. */
+.mode-switch { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; padding: 8px 12px; background: var(--ivory); border: 1px dashed var(--edge); border-radius: 8px; font-size: 9pt; color: var(--mute); }
+.mode-switch .ms-label { font-weight: 700; color: var(--ink); }
+.mode-switch label { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
+.mode-switch .ms-hint { color: var(--mute); font-size: 8pt; }
+.simplified-note { display: none; margin: 6px 0 0; font-size: 8.5pt; color: var(--mute); background: #FBF9F5; border-inline-start: 3px solid var(--teal); padding: 6px 10px; border-radius: 4px; }
+.doc.mode-simplified .party.buyer { display: none; }
+.doc.mode-simplified .simplified-note { display: block; }
+@media print { .mode-switch { display: none !important; } }
 .party {
   flex: 1; border: 1px solid var(--edge); border-radius: 8px; padding: 10px 12px;
   background: #FBF9F5;
@@ -135,6 +144,13 @@ tbody tr:nth-child(even) { background: #FBF9F5; }
 <body>
 <div class="doc">
 
+  <div class="mode-switch" role="group" aria-label="Invoice type / نوع الفاتورة">
+    <span class="ms-label">نوع الفاتورة / Invoice type:</span>
+    <label><input type="radio" name="inv-mode" value="standard" checked> ضريبية قياسية · Standard (B2B)</label>
+    <label><input type="radio" name="inv-mode" value="simplified"> مبسّطة · Simplified (B2C)</label>
+    <span class="ms-hint">(يظهر على الشاشة فقط · screen only)</span>
+  </div>
+
   <div class="head">
     <div class="brand">
       <svg viewBox="0 0 199.81 100.0" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BDA Company International — بدع">
@@ -162,13 +178,18 @@ tbody tr:nth-child(even) { background: #FBF9F5; }
       <div class="row"><span class="k">العنوان / Address</span><span class="v">الرياض، حي البقال 12965</span></div>
       <div class="row"><span class="k">تواصل / Contact</span><span class="v en">i@flygaca.com</span></div>
     </div>
-    <div class="party">
+    <div class="party buyer">
       <h3>المشتري / Buyer</h3>
       <div class="legal" id="b-name">[Buyer legal name — اسم المشتري]</div>
       <div class="row"><span class="k">الرقم الضريبي / VAT</span><span class="v en" id="b-vat">[Buyer VAT]</span></div>
       <div class="row"><span class="k">السجل التجاري / CR</span><span class="v en" id="b-cr">[Buyer CR]</span></div>
       <div class="row"><span class="k">العنوان / Address</span><span class="v" id="b-addr">[Buyer address]</span></div>
     </div>
+  </div>
+
+  <div class="simplified-note">
+    فاتورة ضريبية <b>مبسّطة</b> — بيع للمستهلك (B2C): بيانات المشتري غير إلزامية، ورمز QR إلزامي.
+    <span class="en">Simplified tax invoice (B2C): buyer details are not mandatory; the ZATCA QR is.</span>
   </div>
 
   <div class="meta">
@@ -291,7 +312,21 @@ tbody tr:nth-child(even) { background: #FBF9F5; }
     if (slot) slot.textContent = b64;
   }
 
-  document.addEventListener('DOMContentLoaded', recompute);
+  // Standard (B2B) ↔ Simplified (B2C): toggle the buyer block + retitle.
+  function setMode(mode) {
+    var doc = document.querySelector('.doc');
+    var simplified = mode === 'simplified';
+    doc.classList.toggle('mode-simplified', simplified);
+    var tAr = document.querySelector('.title .t-ar');
+    var tEn = document.querySelector('.title .t-en');
+    if (tAr) tAr.textContent = simplified ? 'فاتورة ضريبية مبسّطة' : 'فاتورة ضريبية';
+    if (tEn) tEn.textContent = simplified ? 'Simplified Tax Invoice' : 'Tax Invoice';
+  }
+  document.addEventListener('change', function (e) {
+    if (e.target && e.target.name === 'inv-mode') setMode(e.target.value);
+  });
+
+  document.addEventListener('DOMContentLoaded', function () { setMode('standard'); recompute(); });
   document.addEventListener('input', recompute);   // live when edited in a browser
 })();
 </script>
