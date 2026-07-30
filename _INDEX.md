@@ -118,6 +118,7 @@ Digital office setup **plus** product/engineering specs, runbooks, and infra not
 - Eng/ops notes: hosting-facts · content-integration-plan · consolidation-manifest-2026-06-16 ·
   content-qa · diff-tracker-scope · improvement-audit · qa-consistency-sweep-2026-06-14 ·
   test-coverage-analysis-2026-06-16 · test-ready · repo-health-report-2026-06-16 ·
+  slack-best-practices (Slack norms/security/PDPL — companion to 05-slack-workspace-blueprint) ·
   docs-followup-roadmap-2026-07 (draft→adopted tracker for the 2026-07-03 pass) ·
   flygaca-* briefings · robots.txt
 - **runbooks/** — runbook-deploy · runbook-launch · runbook-cloudflare · runbook-ios ·

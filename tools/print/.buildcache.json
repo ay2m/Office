@@ -101,7 +101,7 @@
  "11-brand/flygaca-design-tokens-readme.md": "abe662a119af91a2f8352cb78e84c0836afd00e43e74a213d9bb2234697042d0",
  "11-brand/flygaca-document-style-and-design-guideline.md": "2c180dbdeda6ad446ebfb10bad07876d403af3387f237d5014438663f4c37ad6",
  "11-brand/tidal-reckoning-philosophy.md": "f4f1bdc7c0f5c810a8b4d074546d535f8e3a02f38592b1af7e07c614f2a7684c",
- "_INDEX.md": "bbebb663c65845b2f5878de6ccd320cfd44a0fd8020524f4e8aa91ea91004963",
+ "_INDEX.md": "710925b66e6b8800d49c2e2486e2caeb977eed0a1653859237ffe576d751dbc1",
  "ar/00-strategy/book-of-fly-gaca-review-2026-06-14.md": "624694ee5675323557b351bb701974c0d60e9a2b1aa566e311dcdfbfebac582d",
  "ar/00-strategy/fly-gaca-review-action-plan.md": "20fdec9dd2432f604d37ce234e6afd30f1b9b69ec1cb442f610462116d4342ed",
  "ar/00-strategy/master-paperwork-template-index-2026-06-14.md": "ae57ea7e43a20dc2eb7ed2ae3522682ace39c303bc2361aded794e8b5096cacc",
@@ -202,7 +202,7 @@
  "ar/11-brand/tidal-reckoning-philosophy.md": "a9f2b007588182299e890a86471e01189e9c4552c2daa2a597d515ed455075d5",
  "ar/README.md": "0bb5e33eb7012c3b179b9a4e249118daf40cf6e53c8cc67e5ed86015be4115b5",
  "ar/_GLOSSARY.md": "cbcb7204d52ebf9316d5d0d37367d8af86001055586b9e1ab41adcad862d3491",
- "ar/_INDEX.md": "5c25f9a6301266f735158c18d5322df339dd85caf1c5ae1723170a50a6fa52ea",
+ "ar/_INDEX.md": "fa88a669a59f1361025ab3f5a288a6dac11c41d03b5249dc0979107654f9fd83",
  "ar/templates/tpl-fin-report.md": "c3a1397ccc896bfcb0b9d2de9eea158e9c69544bf91c5d7ba0ef97180eb0143e",
  "ar/templates/tpl-hr-policy.md": "c8129e2a2a9618e8df1f0800acd338cc812c03b7d185e8667d1a0df53d1181cd",
  "ar/templates/tpl-legal-memo.md": "c7aff4104e8b0b9fa8d93c8d653816fac6933727d5fadd40f4eea160272d8093",
@@ -232,5 +232,7 @@
  "04-compliance-ksa/fatoora-phase2-decision-2026-07.md": "6e5e0f864480ec1ee12bc5756c86a58e60684cf3f92fa380309dc4106a0d7492",
  "ar/04-compliance-ksa/fatoora-phase2-decision-2026-07.md": "d97d32924869071383a2f32e3e25a0a8d515e6d666f179047992523c7c99db3b",
  "06-operations-it/secrets-and-keys-placement.md": "172037ef0ad7fca8cce6714a342d8f01cd5351714a4ce331dc2a7586ad55cc94",
- "ar/06-operations-it/secrets-and-keys-placement.md": "741be2491c4ef1199d7d387c3ed67b2a691178d54276735371acf67751bc6cbf"
+ "ar/06-operations-it/secrets-and-keys-placement.md": "741be2491c4ef1199d7d387c3ed67b2a691178d54276735371acf67751bc6cbf",
+ "06-operations-it/slack-best-practices.md": "dc5cbb354f07c01de1c87a68d79e4dc43247c10dbb569a061199e706f161b11a",
+ "ar/06-operations-it/slack-best-practices.md": "282a09605ccf6fcc3832fc5d01c991943647c38a9be168605039d8587b522f5a"
 }
