@@ -114,6 +114,7 @@ status / owner / last_updated / lang`)، ولها **نسخة PDF جاهزة لل
 - ملاحظات الهندسة/العمليات: hosting-facts · content-integration-plan · consolidation-manifest-2026-06-16 ·
   content-qa · diff-tracker-scope · improvement-audit · qa-consistency-sweep-2026-06-14 ·
   test-coverage-analysis-2026-06-16 · test-ready · repo-health-report-2026-06-16 ·
+  slack-best-practices (أعراف/أمن Slack وPDPL — مُكمِّلة لـ 05-slack-workspace-blueprint) ·
   docs-followup-roadmap-2026-07 (متتبِّع تحويل مسودّات جولة 2026-07-03 إلى معتمَدة) ·
   flygaca-* briefings · robots.txt
 - **runbooks/** — runbook-deploy · runbook-launch · runbook-cloudflare · runbook-ios ·
