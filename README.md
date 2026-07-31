@@ -86,6 +86,22 @@ node build.mjs 02-legal/terms-of-use-draft-2026-06-14.md
 
 ---
 
+## 🎨 Brand
+
+A preview of the assets in [`11-brand/`](11-brand/) — the Falcon design system, logo marks, and
+print collateral that give every Fly GACA document (and this repo's own generated PDFs) a
+consistent identity.
+
+<p align="center">
+  <img src="11-brand/logos/fly-gaca-logo.png" alt="Fly GACA logo" height="80" />
+  &nbsp;&nbsp;&nbsp;
+  <img src="11-brand/logos/mark-mono-ink.png" alt="Fly GACA mark (mono ink)" height="80" />
+  &nbsp;&nbsp;&nbsp;
+  <img src="11-brand/print/business-card-front-capt-adel.png" alt="Captain Adel business card, front" height="80" />
+</p>
+
+---
+
 ## ✨ Key Capabilities
 
 | Capability | Detail |
