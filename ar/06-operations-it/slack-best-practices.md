@@ -2,7 +2,7 @@
 title: أفضل ممارسات Slack
 section: 06-operations-it
 doc_type: document
-status: draft
+status: active
 owner: المؤسِّس / العمليات
 last_updated: 2026-07-30
 lang: ar
@@ -15,7 +15,7 @@ lang: ar
 الأعراف والأمن والتكاملات.
 
 > [!NOTE]
-> مسودّة للمراجعة من مالك «المؤسِّس / العمليات» قبل الاعتماد. عند التعارض بين هذا الدليل وسياسةٍ رسمية،
+> دليل معتمَد للمنظمة (المالك: المؤسِّس / العمليات). عند التعارض بين هذا الدليل وسياسةٍ رسمية،
 > تُقدَّم السياسة: إنشاء حسابات Slack يتبع `05-people/onboarding-checklist-2026-07-03.md`؛ والسلوك يتبع
 > `05-people/anti-harassment-policy-2026-07-03.md`؛ ومعالجة البيانات تتبع
 > `04-compliance-ksa/information-security-policy.docx` ونظام حماية البيانات الشخصية السعودي (PDPL).

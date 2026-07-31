@@ -2,7 +2,7 @@
 title: "Slack Best Practices"
 section: 06-operations-it
 doc_type: document
-status: draft
+status: active
 owner: Founder / Operations
 last_updated: 2026-07-30
 lang: en
@@ -15,7 +15,7 @@ workspace is *built* (channels, provisioning, admin settings); this guide define
 it day to day — norms, security, and integrations.
 
 > [!NOTE]
-> Draft for review by the Founder / Operations owner before adoption. Where this guide and a formal
+> Adopted org guide (owner: Founder / Operations). Where this guide and a formal
 > policy disagree, the policy wins: Slack account provisioning follows
 > `05-people/onboarding-checklist-2026-07-03.md`; conduct follows
 > `05-people/anti-harassment-policy-2026-07-03.md`; data handling follows
