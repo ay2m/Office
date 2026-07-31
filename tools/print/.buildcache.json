@@ -7,7 +7,7 @@
  "00-strategy/phase0.md": "2f26dc920208801ce07bbac696e7ef79a253a5de280be9ecff965f685acf6685",
  "00-strategy/project.md": "0761be6c7bfff06d59d35c8d805c0ed89a167b61e28727f503276338e6c5d92f",
  "00-strategy/roadmap.md": "231c845bdaa0592bdd072bbf25fa6155521fbe5b7a38f6edffed6ab53f2f3827",
- "01-governance/CLAUDE.md": "9fc9522f4df38e6db6431cb2ddd26b2025c4b1ea9d597add8e9a6feeff0c9d29",
+ "01-governance/CLAUDE.md": "ae54a7f66ab9fb4e4e9cc48ba40b15f61c3606b34ccab3417263d5b90376cf5c",
  "01-governance/CODE_OF_CONDUCT.md": "63b9a06f50acef0c2c41f819419244be2c087b207ea537d5d5d217ad075e753f",
  "01-governance/CONTRIBUTING.md": "03aa9470c5898aa85b0d6b404ef9c77f52484ceecc532bdc1085cd3e7b24ca16",
  "01-governance/SECURITY.md": "2a773bca7cf7ba5a6b6d4ad5d3d5f71718f6f48e30a138cb108432a403880c85",
@@ -109,7 +109,7 @@
  "ar/00-strategy/phase0.md": "759dc9c1556ba719d86e47ba41ccad0c79c866b3ca144152d0a1ec1df7757a18",
  "ar/00-strategy/project.md": "25af5a3c1a552fd7f52b2371effb5f7c7c644d28fd75a42df1a4e1917473979b",
  "ar/00-strategy/roadmap.md": "0b57df6f2e218a905555ebc6f659f58f5649ef166131a9e07b768b5594dbee0d",
- "ar/01-governance/CLAUDE.md": "52cccb2515512ca91110088174e60398c13fccbd2a38c4cef7c436081834d4ad",
+ "ar/01-governance/CLAUDE.md": "a17a148d44fab4a87aee50fed924f7f7e76697dfc6bcb493f3ca31bfd1cc8a0a",
  "ar/01-governance/CODE_OF_CONDUCT.md": "c9f473baa563bfa4e9f4b548120bfd9d63f2dcd488ef0d2f87e39745b5f79faa",
  "ar/01-governance/CONTRIBUTING.md": "5263ee37ad1bc2e354ed74836e87da6ecd6ea0d7844329b890d221e4e92afc25",
  "ar/01-governance/SECURITY.md": "33b6cbc6166bef47539398acd4d514747da8642cf8cdea2531cc466e75ce9a66",
@@ -234,5 +234,6 @@
  "06-operations-it/secrets-and-keys-placement.md": "172037ef0ad7fca8cce6714a342d8f01cd5351714a4ce331dc2a7586ad55cc94",
  "ar/06-operations-it/secrets-and-keys-placement.md": "741be2491c4ef1199d7d387c3ed67b2a691178d54276735371acf67751bc6cbf",
  "06-operations-it/slack-best-practices.md": "22ee1f5716dd3946015de1a6b19a92941f5333488c741bb485cbf0cf48295a00",
- "ar/06-operations-it/slack-best-practices.md": "8acb232fa5119abc427d8754927e630fde384f3f5f74059d9afd15e3a7e10828"
+ "ar/06-operations-it/slack-best-practices.md": "8acb232fa5119abc427d8754927e630fde384f3f5f74059d9afd15e3a7e10828",
+ "CLAUDE.md": "8b49fa276ac0c30224be91f3662a2fb752da208b16e938555ebf9fa06ca3797d"
 }
