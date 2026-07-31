@@ -18,7 +18,7 @@
 
 ## What is this?
 
-**FlyGACA/Offfice** is the internal documents repository ("The Office") for [Fly GACA](https://flygaca-firebase.web.app) — an independent educational platform and open regulatory library for Saudi civil aviation (GACAR, AIP, charts, ground school, and Captain Adel, the AI flight instructor).
+**FlyGACA/Office** is the internal documents repository ("The Office") for [Fly GACA](https://flygaca.com) — an independent educational platform and open regulatory library for Saudi civil aviation (GACAR, AIP, charts, ground school, and Captain Adel, the AI flight instructor).
 
 This repo stores every operating document that runs the company: legal contracts, compliance programs, HR policies, GTM playbooks, investor materials, brand assets, and engineering specs. Polished deliverables live as `.docx`/`.xlsx`; working notes, specs, and drafts are `.md`. Every `.md` file has a **print-ready branded PDF** under [`_print/`](_print/).
 
@@ -33,8 +33,8 @@ This repo stores every operating document that runs the company: legal contracts
 
 ```bash
 # Clone the repo
-git clone https://github.com/FlyGACA/Offfice.git
-cd Offfice
+git clone https://github.com/FlyGACA/Office.git
+cd Office
 
 # Open the master index
 open _INDEX.md          # macOS
@@ -104,7 +104,7 @@ node build.mjs 02-legal/terms-of-use-draft-2026-06-14.md
 
 The [`ar/`](ar/) directory is a complete, parallel Arabic translation of the entire document tree — same folder structure, same filenames, translated content in **Modern Standard Arabic (Saudi official register)**.
 
-- 99 `.md` files translated and maintained in sync
+- 118 `.md` files translated and maintained in sync
 - Unified terminology via [`ar/_GLOSSARY.md`](ar/_GLOSSARY.md) (EN↔AR term glossary)
 - Arabic PDFs render **right-to-left** (Cairo font, RTL layout) via the print pipeline
 - Latin code paths and file names remain LTR inside Arabic documents
