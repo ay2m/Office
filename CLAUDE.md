@@ -101,7 +101,8 @@ lang: <en|ar>
 ---
 ```
 
-Exemptions: the root `README.md` is skipped entirely; the checker never descends into `tools/**`
+Exemptions: the root `README.md` skips only the **front-matter** check — its PDF must still exist
+under `_print/` and stay fresh, like any other `.md`; the checker never descends into `tools/**`
 or `_print/**` at all; files under any `templates/` directory still need a front-matter block but
 only the `title` key inside it (they use their own authoring schema, not the full doc metadata).
 Every other `.md`, anywhere in the tree (including `ar/`), needs the full set.
