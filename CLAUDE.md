@@ -4,7 +4,7 @@ section: root
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-07-31
+last_updated: 2026-08-03
 lang: en
 ---
 
@@ -45,10 +45,10 @@ Twelve numbered sections, each independently browsable:
 | `00-strategy/` | Strategy | Annual plan & OKRs, master roadmap, CEO execution plan, Phase 0 tracker, numbered brainstorms |
 | `01-governance/` | Governance | Founders' agreement, SHA, ESOP, Code of Conduct, board pack, decision log, **`CLAUDE.md`** (see below), `CONTRIBUTING.md`, `SECURITY.md` |
 | `02-legal/` | Legal | NDA templates, EULA, SLA, pilot agreement, PDPL policies, DPA, IP/takedown procedure |
-| `03-finance/` | Finance | Banking policy, procurement, expense policy, budget-vs-actual tracker, KPI dashboard |
+| `03-finance/` | Finance | Banking policy, procurement, expense policy, budget-vs-actual tracker, KPI dashboard, ZATCA invoicing (HTML tax-invoice + VAT-return templates) |
 | `04-compliance-ksa/` | Compliance (KSA) | MISA license, ZATCA e-invoicing, PDPL DPIA, BCP/DR, Nitaqat plan |
 | `05-people/` | People | Employment contracts, employee handbook, offer letters, onboarding/offboarding, HR policies |
-| `06-operations-it/` | Operations/IT | Digital office setup, product specs (CRM, Captain Adel, Instructor Dashboard), `runbooks/`, `diagrams/`, `setup/` |
+| `06-operations-it/` | Operations/IT | Digital office setup, product specs (CRM, Captain Adel, Instructor Dashboard), hosting/secrets placement facts, `runbooks/`, `diagrams/`, `setup/` |
 | `07-gtm/` | Go-To-Market | Sales playbook, demo script, objection handling, cold outreach, B2B pipeline, `seo/` strategy |
 | `08-customer-success/` | Customer Success | Onboarding playbook, health scoring, NPS, QBR templates, at-risk/expansion playbooks |
 | `09-investor-relations/` | Investor Relations | Pitch deck, FAQ, due-diligence questionnaire, investor update template, risk register |
@@ -58,9 +58,12 @@ Twelve numbered sections, each independently browsable:
 Support directories:
 
 - **`templates/`** — reusable `.md` starters (`tpl-fin-report.md`, `tpl-hr-policy.md`,
-  `tpl-legal-memo.md`, `tpl-ops-runbook.md`, `tpl-strat-proposal.md`). Base new docs on these.
-- **`ar/`** — a full parallel Arabic (Saudi MSA) mirror of all 12 sections, same folder structure
-  and filenames, translated content. **English is authoritative** — on any conflict the English
+  `tpl-legal-memo.md`, `tpl-ops-runbook.md`, `tpl-strat-proposal.md`; mirrored under
+  `ar/templates/`). Base new docs on these.
+- **`ar/`** — a parallel Arabic (Saudi MSA) mirror of the **Markdown layer** across all 12
+  sections — same folder structure and filenames, translated content (118 `.md`, near-parity with
+  the English tree's 119). The `.docx`/`.xlsx`/`.html` deliverables are EN-only. **English is
+  authoritative** — on any conflict the English
   tree governs. Filenames stay ASCII kebab-case even under `ar/` for easy diffing.
 - **`tools/print/`** — the Markdown → branded A4 PDF pipeline (see below).
 - **`_print/`** — generated PDFs, mirroring the whole tree (including `ar/`). Generated output,
@@ -68,12 +71,19 @@ Support directories:
 - **`_INDEX.md`** / **`ar/_INDEX.md`** — master index of the whole tree.
 - **`ar/_GLOSSARY.md`** — the EN↔AR terminology glossary that keeps translations consistent.
 
-Two document formats coexist: polished deliverables (contracts, decks, spreadsheets) are committed
-as `.docx`/`.xlsx` binaries; working notes, specs, drafts, and playbooks are `.md` — which is what
-the print pipeline and the doc-check CI both operate on. A few brand/showcase pages
-(`00-strategy/brainstorms/00-strategic-brainstorms-dashboard.html`, `11-brand`'s
-`the-book-of-fly-gaca.html`, `design-system.html`, `tidal-reckoning.html`) are authored directly as
-self-contained HTML instead of Markdown and render through a separate path (below).
+Several document formats coexist: polished deliverables are committed binaries
+(`.docx`/`.xlsx`/`.pptx`, plus source PDFs, investor-deck JPGs, and brand SVG/PSD/PNG assets —
+`.gitattributes` declares the binary set); working notes, specs, drafts, and playbooks are `.md` —
+which is what the print pipeline and the doc-check CI both operate on. **16 pages are authored as
+HTML instead of Markdown** and render through `build-html.mjs` (below): the four showcase pages
+(`00-strategy/brainstorms/00-strategic-brainstorms-dashboard.html`,
+`00-strategy/the-book-of-fly-gaca.html`, `11-brand/design-system.html`,
+`11-brand/tidal-reckoning.html`), the two ZATCA finance templates in `03-finance/`
+(`tax-invoice-template.html`, `vat-return-worksheet.html`), and the ten print-collateral sources
+in `11-brand/print/` (letterheads EN/AR, memo, press release, business cards, envelope,
+compliments slip — these share `11-brand/print/brand-print.css`; the showcase/finance pages are
+self-contained). `tools/print/build-png.mjs` additionally re-screenshots the `11-brand/print/`
+sources into the 300 dpi PNGs the brand catalogue references.
 
 ## The doc convention (enforced by CI)
 
@@ -91,12 +101,13 @@ lang: <en|ar>
 ---
 ```
 
-Exemptions: the root `README.md` is skipped entirely; files under any `templates/` directory only
-need a `title` key (they use their own authoring schema, not the full doc metadata). Every other
-`.md`, anywhere in the tree (including `ar/`), needs the full set.
+Exemptions: the root `README.md` is skipped entirely; the checker never descends into `tools/**`
+or `_print/**` at all; files under any `templates/` directory still need a front-matter block but
+only the `title` key inside it (they use their own authoring schema, not the full doc metadata).
+Every other `.md`, anywhere in the tree (including `ar/`), needs the full set.
 
 `status: draft` or `status: scaffold` stamps an automatic DRAFT/SCAFFOLD watermark on the rendered
-PDF — set it deliberately.
+PDF — set it deliberately. (No doc currently uses `scaffold`; the tooling supports it.)
 
 **Every `.md` must have a matching, up-to-date PDF under `_print/`.** After creating or editing any
 `.md` file (English or Arabic), regenerate its PDF before committing:
@@ -108,23 +119,31 @@ npm ci                      # once, or after a dependency change (no browser dow
 npm run build                # incremental — only content-changed docs re-render
 npm run build:force          # rebuild every doc from scratch
 node build.mjs <path/to/doc.md>   # render one file
-node build-html.mjs           # separately renders the self-contained brand/showcase HTML pages
-node check.mjs                # the CI gate itself — front-matter + PDF coverage + staleness,
-                               # no browser needed, safe to run anytime
+node build-html.mjs           # separately renders ALL 16 HTML pages to their _print/ PDFs
+node build-png.mjs            # re-screenshots 11-brand/print/*.html to the 300dpi catalogue PNGs
+node check.mjs                # the CI gate itself — front-matter + Markdown-PDF coverage +
+                               # staleness + HTML-PDF coverage; no browser needed, safe anytime
 ```
+
+(`tools/print/package.json` also exposes `npm run build:html` and `npm run check` aliases.)
+Adding or renaming **any** `.html` in the tree without running `build-html.mjs` fails CI, same as
+an unrebuilt `.md`.
 
 `build.mjs` hashes each source file (folded with a hash of `theme.css` + `build.mjs` itself) into
 `tools/print/.buildcache.json`; `check.mjs` recomputes that hash and fails if it doesn't match the
 committed PDF, i.e. if you edited a doc but didn't rebuild its PDF. **Commit the regenerated PDF
 and the updated `.buildcache.json` together with the `.md` change** — a doc edit without a rebuilt
-PDF fails CI (`.github/workflows/docs-check.yml`, runs on push to `main` and on PRs touching
-`**/*.md`, `**/*.html`, `_print/**`, or `tools/print/**`).
+PDF fails CI (`.github/workflows/docs-check.yml` — the only workflow — runs on push to `main` and
+on PRs touching `**/*.md`, `**/*.html`, `_print/**`, `tools/print/**`, or the workflow file
+itself; CI runs Node 20).
 
 Styling is the "Falcon Theme" documented in `11-brand/fly-gaca-document-style-guide.md`: Inter body
-· Cairo headings (and all Arabic text) · JetBrains Mono code, A4 page, 0.75in margins, footer page
+· Cairo headings (and all Arabic text) · JetBrains Mono code, A4 page, 0.75in margins (0.9in
+bottom for the footer), footer page
 numbers, cover block generated from the front-matter. Fonts are vendored under `tools/print/fonts/`
 so the whole pipeline runs offline; it auto-detects Chromium via `$PLAYWRIGHT_BROWSERS_PATH`
-(default `/opt/pw-browsers`) or `$CHROMIUM_PATH`. Requires Node 18+.
+(default `/opt/pw-browsers`) or `$CHROMIUM_PATH`. Requires Node 18+ and **Chromium ≥ 131**
+(CSS `@page` margin boxes drive the footer page numbers).
 
 ## Conventions
 
@@ -135,20 +154,29 @@ so the whole pipeline runs offline; it auto-detects Chromium via `$PLAYWRIGHT_BR
   mirror in sync as a matter of practice; don't let it drift silently for long.
 - **Sensitive-content discipline.** Legal, financial, HR, and investor documents in this repo are
   real operating material, not samples — quote or restate the minimum necessary for the task.
-- **Governance is the source of policy**, not this file: `01-governance/CONTRIBUTING.md` (setup +
-  pre-PR checklist), `01-governance/CODE_OF_CONDUCT.md`, `01-governance/SECURITY.md` (responsible
-  disclosure — read before touching anything security- or data-isolation-adjacent).
+- **Governance is the source of policy**, not this file — with two caveats.
+  `01-governance/CONTRIBUTING.md` is a **vendored copy of the product repo's** guide (it says so
+  itself; its `npm run check:*` pre-PR checklist doesn't exist here — the real pre-PR gate for
+  this repo is `node tools/print/check.mjs`), and `01-governance/SECURITY.md` is still **unfilled
+  GitHub template boilerplate** with no contact in it — for security or data-isolation concerns
+  email the maintainer directly (address in `CONTRIBUTING.md`). `01-governance/CODE_OF_CONDUCT.md`
+  is real. `01-governance/company-facts.md` is the canonical entity-facts doc the *product* repos
+  consume — check it before restating company facts anywhere.
 - **`01-governance/CLAUDE.md`** used to be a stale vendored copy of a *different* repo's Claude
   guidance (the product monorepo's, describing `functions/`, routing, etc. — none of which exists
   here); it has been replaced with a short pointer back to this file. If you find it drifting
-  again, fix the pointer, don't restore old content.
+  again, fix the pointer, don't restore old content. (`CONTRIBUTING.md` above is the same failure
+  mode, still unfixed.)
 - License: Apache 2.0 (`01-governance/LICENSE`) for the repo's own material; regulatory content
   quoted anywhere belongs to GACA and is not covered by that license.
 
 ## Where to look
 
-- **`_INDEX.md`** — master index across all 12 sections (and `ar/_INDEX.md` for the mirror).
+- **`_INDEX.md`** — the readable master index across all 12 sections (and `ar/_INDEX.md` for the
+  mirror). Note it defers to `00-strategy/00-master-office-paperwork-index.gsheet` as the
+  authoritative master index.
 - **`00-strategy/roadmap.md`** — current phase status and what's next.
 - **`tools/print/README.md`** — full print-pipeline usage/config detail beyond the summary above.
-- **`01-governance/`** — `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, `decision-log.md`.
+- **`01-governance/`** — `company-facts.md`, `CODE_OF_CONDUCT.md`, `decision-log.md` (and see the
+  `CONTRIBUTING.md` / `SECURITY.md` caveats above).
 - **`ar/_GLOSSARY.md`** — EN↔AR terminology, use it before translating anything.
