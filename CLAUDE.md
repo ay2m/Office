@@ -4,7 +4,7 @@ section: root
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-08-03
+last_updated: 2026-08-04
 lang: en
 ---
 
@@ -72,8 +72,9 @@ Support directories:
 - **`ar/_GLOSSARY.md`** — the EN↔AR terminology glossary that keeps translations consistent.
 
 Several document formats coexist: polished deliverables are committed binaries
-(`.docx`/`.xlsx`/`.pptx`, plus source PDFs, investor-deck JPGs, and brand SVG/PSD/PNG assets —
-`.gitattributes` declares the binary set); working notes, specs, drafts, and playbooks are `.md` —
+(`.docx`/`.xlsx`/`.pptx`, plus source PDFs, investor-deck JPGs, and brand PSD/PNG assets — SVG
+logos/diagrams are committed as text — with `.gitattributes` declaring the binary set
+`.docx`/`.xlsx`/`.pptx`/`.pdf`/`.psd`/`.png`/`.jpg`/`.jpeg`/`.gsheet`); working notes, specs, drafts, and playbooks are `.md` —
 which is what the print pipeline and the doc-check CI both operate on. **16 pages are authored as
 HTML instead of Markdown** and render through `build-html.mjs` (below): the four showcase pages
 (`00-strategy/brainstorms/00-strategic-brainstorms-dashboard.html`,
@@ -81,8 +82,8 @@ HTML instead of Markdown** and render through `build-html.mjs` (below): the four
 `11-brand/tidal-reckoning.html`), the two ZATCA finance templates in `03-finance/`
 (`tax-invoice-template.html`, `vat-return-worksheet.html`), and the ten print-collateral sources
 in `11-brand/print/` (letterheads EN/AR, memo, press release, business cards, envelope,
-compliments slip — these share `11-brand/print/brand-print.css`; the showcase/finance pages are
-self-contained). `tools/print/build-png.mjs` additionally re-screenshots the `11-brand/print/`
+compliments slip, contract cover — these share `11-brand/print/brand-print.css`; the
+showcase/finance pages are self-contained). `tools/print/build-png.mjs` additionally re-screenshots the `11-brand/print/`
 sources into the 300 dpi PNGs the brand catalogue references.
 
 ## The doc convention (enforced by CI)
