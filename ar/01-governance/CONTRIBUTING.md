@@ -4,7 +4,7 @@ section: 01-governance
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-08-05
 lang: ar
 ---
 
@@ -52,6 +52,12 @@ python3 -m http.server 8000      # then open http://localhost:8000/flygaca.html
   صراحةً.
 
 ## قبل فتح طلب سحب (PR)
+
+> **في مستودع الوثائق هذا، البوّابة الفعلية قبل طلب السحب هي `node tools/print/check.mjs`.** فهي
+> تتحقّق من أن كل ملف محتوى `.md` يحمل البيانات الوصفية (front-matter) القياسية وله ملف PDF محدَّث
+> تحت `_print/` (أعِد توليده عبر `cd tools/print && npm run build`). أما أوامر `npm run check:*`
+> أدناه فهي خاصّة بمستودع **التطبيق** — ولا يمكن تشغيلها هنا، وهي محفوظة فقط كجزء من هذه النسخة
+> المنقولة للمرجعية. راجع [`CLAUDE.md`](../../CLAUDE.md) في الجذر لمعرفة الأعراف الفعلية لهذا المستودع.
 
 شغّل الفحوص التي سيشغّلها نظام التكامل المستمر (CI). يُنهي كلٌّ منها بحالة غير صفرية عند وقوع مخالفة:
 

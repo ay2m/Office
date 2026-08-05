@@ -4,7 +4,7 @@ section: 01-governance
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-08-05
 lang: en
 ---
 
@@ -52,6 +52,12 @@ These are not style preferences — breaking them breaks the product:
   explicitly.
 
 ## Before you open a PR
+
+> **In this documents repo, the real pre-PR gate is `node tools/print/check.mjs`.** It validates
+> that every content `.md` carries the standard front-matter and has an up-to-date PDF under
+> `_print/` (regenerate with `cd tools/print && npm run build`). The `npm run check:*` commands
+> below are the **application** repo's — they are not runnable here and are kept only as part of
+> this vendored reference. See the root [`CLAUDE.md`](../CLAUDE.md) for this repo's actual conventions.
 
 Run the checks CI will run. Each exits non-zero on a violation:
 
