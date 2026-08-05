@@ -174,6 +174,8 @@ so the whole pipeline runs offline; it auto-detects Chromium via `$PLAYWRIGHT_BR
 
 ## Where to look
 
+> 📖 **Family context:** [The Book of Fly GACA](https://github.com/ay2m/FlyGACA/blob/main/THE-BOOK-OF-FLY-GACA.md) is the whole-family reference — all ten repos, the shared tenets, and the glossary in one place.
+
 - **`_INDEX.md`** — the readable master index across all 12 sections (and `ar/_INDEX.md` for the
   mirror). Note it defers to `00-strategy/00-master-office-paperwork-index.gsheet` as the
   authoritative master index.
