@@ -1,14 +1,76 @@
 ---
-title: RUNBOOK — Fly GACA iOS app (Capacitor + Pro subscription)
+title: RUNBOOK — Fly GACA iOS apps (native family + store presence)
 section: 06-operations-it
 doc_type: runbook
 status: active
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-08-05
 lang: en
 ---
 
-# RUNBOOK — Fly GACA iOS app (Capacitor + Pro subscription)
+# RUNBOOK — Fly GACA iOS apps (native family + store presence)
+
+> **Current track (2026-08).** The shipping iOS strategy is the **native six-app
+> family** — one offline SwiftUI app per study module (PPL, ELPT, AIP, CPL, IR,
+> ATPL), paid up-front, built from the shared
+> [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA) repo (FlyGACAKit + per-app
+> content snapshots synced from the web monorepo). The single-app **Capacitor +
+> Pro subscription** wrapper this runbook originally documented is **superseded
+> for launch** and kept below as the reference for a future subscription phase.
+
+## 0. The native six-app family — release path
+
+What ships: six independent App Store apps (bundle ids `com.flygaca.<module>`),
+identical offline feature set (study mode, quizzing, flashcards with spaced
+repetition, mock tests, a timed scored exam simulation) — **no accounts, no IAP,
+no network in v1**; content is bundled at build time. Wave 1 = PPL · ELPT · AIP;
+Wave 2 = CPL · IR · ATPL (bank content in review). The operational detail lives
+with the code — this section only points:
+
+1. **Content sync** — `scripts/sync-content.sh` in `ay2m/FlyGACA`; the monorepo
+   stays the corpus source of truth (last full sync 2026-08-05).
+2. **Build / test / CI** — the family repo's `docs/RUNBOOK-ios-release.md` and
+   `.github/workflows/ios.yml`: Swift tests, XcodeGen validation, a six-app build
+   matrix, and a Wave 1 TestFlight lane that activates once signing secrets exist.
+3. **Apple portal (human, one-time)** — `docs/RUNBOOK-ios-signing.md` +
+   `docs/RUNBOOK-ios-signing-CHECKLIST.md`: App Group `group.com.flygaca.study`;
+   App IDs with **Sign in with Apple enabled and grouped under `com.flygaca.ppl`**
+   (the shared entitlements already declare it — the first signed build fails
+   provisioning until this is done); distribution certificate; `FlyGACA <APP>
+   AppStore` provisioning profiles; paid App Store Connect records; the ASC API
+   key; then the ten GitHub secrets (`scripts/native/set-signing-secrets.sh`).
+4. **Firebase (for the later online phase)** — `docs/RUNBOOK-ios-firebase.md`:
+   `npm run firebase:register` plus the manual Sign in with Apple provider and
+   APNs key. Harmless to do early; not required for the offline v1.
+5. **Store listings** — the six `FlyGACA/<MODULE>` metadata repos: EN + AR copy
+   and screenshots, each gated by a per-repo CI check (limits + locale parity).
+   Listing copy describes the offline, English-language app truthfully.
+
+### Apple review checklist — native offline v1
+
+- **No IAP and no external purchase links** — the apps are paid up-front, so
+  guideline 3.1.1 does not apply.
+- **No account system in v1** — Sign in with Apple (4.8) and in-app account/data
+  deletion (5.1.1) become requirements only when the online phase (PlatformLive)
+  ships sign-in. The *capability* on the App IDs is still required for signing,
+  because the shared entitlements declare it.
+- **Privacy nutrition labels:** "Data Not Collected" (offline; no analytics, no
+  tracking). Revisit the labels before any telemetry is ever added.
+- **The "not for operational use" disclaimer stays prominent** in every app and
+  listing — educational use only; GACA is always the authority.
+- **Guideline 4.3(b) (spam/app farms)** — six sibling apps from one shell: keep
+  the differentiation dossier per the family repo's `SEO-PLAN.md` §3.1 ready
+  before submission.
+
+---
+
+## Superseded track — single Capacitor app + Pro subscription (future option)
+
+> Everything below documents the **pre-2026-08 plan**: one `com.flygaca.app`
+> Capacitor shell around the web PWA, monetised with RevenueCat / Apple IAP. The
+> monorepo code it references still exists, and this remains the reference if a
+> subscription wrapper is revived — but it is **not** the path to the current
+> App Store launch.
 
 The iOS app wraps the existing web PWA in a Capacitor shell and sells **Fly GACA
 Pro** via Apple In-App Purchase. It reuses the entire backend: a purchase grants
@@ -99,7 +161,7 @@ firebase deploy --only functions:revenuecatWebhook,hosting
 6. Offline: open a GACAR Part and a chart with networking off (bundled → work);
    open an FAA handbook online once, then offline (streamed → cached).
 
-## Apple review checklist
+## Apple review checklist (Capacitor + IAP track)
 IAP-only for Pro (3.1.1) · native Sign in with Apple (4.8) · in-app account +
 data deletion (already in `settings.js`, 5.1.1) · Restore Purchases · privacy
 nutrition labels · keep the "not for operational use" disclaimer prominent.

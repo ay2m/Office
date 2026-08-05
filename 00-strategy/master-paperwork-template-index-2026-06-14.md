@@ -4,7 +4,7 @@ section: 00-strategy
 doc_type: template
 status: active
 owner: Founder
-last_updated: 2026-07-27
+last_updated: 2026-08-05
 lang: en
 ---
 
@@ -200,7 +200,7 @@ lang: en
 | 06-N | `runbook-captain-adel.md` | Captain Adel operational runbook | .md |
 | 06-O | `runbook-cloudflare.md` | Cloudflare DNS, CDN, and WAF configuration runbook | .md |
 | 06-P | `runbook-deploy.md` | Main deployment runbook for flygaca.com | .md |
-| 06-Q | `runbook-ios.md` | iOS / Capacitor build and App Store submission runbook | .md |
+| 06-Q | `runbook-ios.md` | iOS apps runbook — native six-app family release path (Capacitor track superseded) | .md |
 | 06-R | `runbook-launch.md` | Pre-launch and launch-day runbook | .md |
 | 06-S | `runbook-pdpl-me-central2.md` | PDPL data-residency verification runbook for me-central2 | .md |
 | 06-T | `runbook-security-rollout.md` | Security hardening rollout runbook | .md |

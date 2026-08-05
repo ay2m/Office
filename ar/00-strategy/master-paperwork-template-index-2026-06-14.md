@@ -4,7 +4,7 @@ section: 00-strategy
 doc_type: template
 status: active
 owner: Founder
-last_updated: 2026-07-27
+last_updated: 2026-08-05
 lang: ar
 ---
 
@@ -200,7 +200,7 @@ lang: ar
 | 06-N | `runbook-captain-adel.md` | دليل التشغيل التشغيلي للكابتن عادل | .md |
 | 06-O | `runbook-cloudflare.md` | دليل تشغيل إعداد DNS وشبكة توصيل المحتوى وجدار حماية تطبيقات الويب في Cloudflare | .md |
 | 06-P | `runbook-deploy.md` | دليل النشر الرئيسي لـ flygaca.com | .md |
-| 06-Q | `runbook-ios.md` | دليل تشغيل بناء iOS / Capacitor والتقديم إلى App Store | .md |
+| 06-Q | `runbook-ios.md` | دليل تشغيل تطبيقات iOS — مسار إصدار العائلة الأصلية الستة (استُبدل مسار Capacitor) | .md |
 | 06-R | `runbook-launch.md` | دليل تشغيل ما قبل الإطلاق ويوم الإطلاق | .md |
 | 06-S | `runbook-pdpl-me-central2.md` | دليل تشغيل التحقّق من إقامة البيانات وفق نظام حماية البيانات الشخصية (PDPL) في me-central2 | .md |
 | 06-T | `runbook-security-rollout.md` | دليل تشغيل طرح تعزيزات الأمن | .md |
