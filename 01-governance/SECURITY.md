@@ -4,28 +4,44 @@ section: 01-governance
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-06-16
+last_updated: 2026-08-05
 lang: en
 ---
 
 # Security Policy
 
-## Supported Versions
+This repository ("The Office") holds Fly GACA's internal operating documents —
+strategy, governance, legal, finance, HR, and investor material. It ships no
+software, so "security" here is about the **confidentiality and access control of
+sensitive material**, not software vulnerabilities.
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+## Scope
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+- **This repository:** report anything that exposes sensitive contents or weakens
+  access isolation — a file that leaks a secret, an over-broad share link, a
+  document that should not have been committed, or a misconfigured permission.
+- **Product code lives elsewhere.** Vulnerabilities in Fly GACA's software belong
+  in their own repositories — `FlyGACA/FlyGACA-app` (web app + backend),
+  `FlyGACA/Captain-Adel` (AI service), and `ay2m/FlyGACA` (iOS apps). Report those
+  through the security policy of the repository concerned.
 
-## Reporting a Vulnerability
+## Reporting a concern
 
-Use this section to tell people how to report a vulnerability.
+Do **not** open a public issue or pull request — that would disclose the problem
+before it can be addressed. Instead, email the maintainer privately:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+**ay2m@hotmail.com**
+
+Please include:
+
+- what the concern is and where it is (repository path, share link, or document),
+- why you believe it is sensitive or exposed, and
+- any steps to reproduce or confirm it.
+
+Do not paste the sensitive contents themselves into the email — a path or short
+description is enough to locate the material.
+
+You can expect an acknowledgement within a few business days. If the concern is
+confirmed, the exposed material is removed or its access corrected and — where a
+secret was involved — the credential is rotated. We will keep you informed of the
+outcome.
