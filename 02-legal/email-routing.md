@@ -4,7 +4,7 @@ section: 02-legal
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-06-16
+last_updated: 2026-08-09
 lang: en
 ---
 
@@ -45,7 +45,7 @@ Every role address below forwards to **both** of these inboxes:
 | Address | Status |
 | --- | --- |
 | `hello@flygaca.com` | **Retired** as the displayed contact (replaced by `i@flygaca.com`). Keep it alive as a forwarding alias so older links and printed material still reach us. |
-| `flygaca@gmail.com` | Founder/account address (used for Firebase project ownership — see `runbook-deploy.md`). Not a public contact. |
+| `flygaca@gmail.com` | Founder/account address (used for Firebase project ownership — see `06-operations-it/runbooks/runbook-deploy.md`). Not a public contact. |
 
 ## Notes
 
@@ -105,18 +105,3 @@ upgrade when you want the brand `From:`. Options, simplest first:
 If send-as matters from day one, pick **Zoho free** or **Workspace** and use
 *their* MX records instead of Cloudflare Email Routing — at that point the
 forwarding-only setup above is replaced, not added to.
-
-Cloudflare Email Routing has no outbound SMTP, so it can only receive/forward —
-replies go out from your personal inbox. Receive-only is fine to launch with;
-upgrade when you want the brand `From:`. Options, simplest first:
-
-| Route | Cost | Notes |
-| --- | --- | --- |
-| **Zoho Mail** free tier | Free | Real mailbox for one domain with send-as. Swap Cloudflare's MX for Zoho's MX. |
-| **Google Workspace** (1 seat) | ~$6/mo | Real `i@` mailbox; the role addresses become send-as aliases of that user. Cleanest given the existing Google footprint. |
-| Cloudflare forwarding **+ outbound SMTP relay** (Brevo/Mailgun) wired into Gmail "Send mail as" | Free–cheap | Most fiddly; only worth it to avoid running a real mailbox. |
-
-If send-as matters from day one, pick **Zoho free** or **Workspace** and use
-*their* MX records instead of Cloudflare Email Routing — at that point the
-forwarding-only setup above is replaced, not added to.
-
