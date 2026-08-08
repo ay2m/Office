@@ -4,7 +4,7 @@ section: root
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-08-04
+last_updated: 2026-08-09
 lang: en
 ---
 
@@ -156,19 +156,17 @@ so the whole pipeline runs offline; it auto-detects Chromium via `$PLAYWRIGHT_BR
   mirror in sync as a matter of practice; don't let it drift silently for long.
 - **Sensitive-content discipline.** Legal, financial, HR, and investor documents in this repo are
   real operating material, not samples — quote or restate the minimum necessary for the task.
-- **Governance is the source of policy**, not this file — with two caveats.
-  `01-governance/CONTRIBUTING.md` is a **vendored copy of the product repo's** guide (it says so
-  itself; its `npm run check:*` pre-PR checklist doesn't exist here — the real pre-PR gate for
-  this repo is `node tools/print/check.mjs`), and `01-governance/SECURITY.md` is still **unfilled
-  GitHub template boilerplate** with no contact in it — for security or data-isolation concerns
-  email the maintainer directly (address in `CONTRIBUTING.md`). `01-governance/CODE_OF_CONDUCT.md`
-  is real. `01-governance/company-facts.md` is the canonical entity-facts doc the *product* repos
+- **Governance is the source of policy**, not this file. `01-governance/CONTRIBUTING.md` is now a
+  repo-native guide (rewritten 2026-08-09 — it used to be a vendored copy of the application
+  repo's guide; its `npm run check:*` commands never applied here). `01-governance/SECURITY.md`
+  is filled in and current — for security or data-isolation concerns email the maintainer
+  directly (address in `SECURITY.md`). `01-governance/CODE_OF_CONDUCT.md` is real.
+  `01-governance/company-facts.md` is the canonical entity-facts doc the *product* repos
   consume — check it before restating company facts anywhere.
 - **`01-governance/CLAUDE.md`** used to be a stale vendored copy of a *different* repo's Claude
   guidance (the product monorepo's, describing `functions/`, routing, etc. — none of which exists
   here); it has been replaced with a short pointer back to this file. If you find it drifting
-  again, fix the pointer, don't restore old content. (`CONTRIBUTING.md` above is the same failure
-  mode, still unfixed.)
+  again, fix the pointer, don't restore old content.
 - License: Apache 2.0 (`01-governance/LICENSE`) for the repo's own material; regulatory content
   quoted anywhere belongs to GACA and is not covered by that license.
 
@@ -181,6 +179,6 @@ so the whole pipeline runs offline; it auto-detects Chromium via `$PLAYWRIGHT_BR
   authoritative master index.
 - **`00-strategy/roadmap.md`** — current phase status and what's next.
 - **`tools/print/README.md`** — full print-pipeline usage/config detail beyond the summary above.
-- **`01-governance/`** — `company-facts.md`, `CODE_OF_CONDUCT.md`, `decision-log.md` (and see the
-  `CONTRIBUTING.md` / `SECURITY.md` caveats above).
+- **`01-governance/`** — `company-facts.md`, `CODE_OF_CONDUCT.md`, `decision-log.md`,
+  `CONTRIBUTING.md`, `SECURITY.md`.
 - **`ar/_GLOSSARY.md`** — EN↔AR terminology, use it before translating anything.
