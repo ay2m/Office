@@ -4,7 +4,7 @@ section: 06-operations-it
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-07-28
+last_updated: 2026-08-09
 lang: en
 ---
 
@@ -46,7 +46,7 @@ That makes the choice unambiguous:
 | Item | Value |
 |---|---|
 | Firebase / GCP project ID | `flygaca-firebase` (replaced `flygaca-com`; an empty `fly-gaca-495116` project also exists — delete later) |
-| Web app config | `assets/js/firebase-config.js` |
+| Web app config | `assets/js/firebase-config.js` (product repo) |
 | Firestore | Native mode, **`me-central2`** (to be created) |
 | Billing | Spark today; Blaze required for Cloud Functions (Phase 2) |
 | Captain Adel service host | Cloud Run, **`me-central2`** (per PDPL above) |
@@ -68,9 +68,9 @@ That makes the choice unambiguous:
 |---|---|
 | Org | `github.com/FlyGACA` |
 | Monorepo | `github.com/FlyGACA/flygaca` |
-| Captain Adel (planned standalone) | `github.com/FlyGACA/captadel` — see `office/runbook-captadel-extraction.md` |
+| Captain Adel (planned standalone) | `github.com/FlyGACA/captadel` — see [`runbooks/runbook-captadel-extraction.md`](runbooks/runbook-captadel-extraction.md) |
 
 ## Sources
-- `phase0.md` (Drive) — P0-2 (domain decisions), P0-5 (Firebase + me-central2), P0-6 (VPS + PDPL boundary)
-- `flygaca-resume-briefing-2026-05-23.md` (Drive) — hosting + PDPL summary
-- `captadel/README.md` and `office/runbook-captadel-extraction.md` (this repo) — to be re-aligned to `me-central2`
+- `00-strategy/phase0.md` — P0-2 (domain decisions), P0-5 (Firebase + me-central2), P0-6 (VPS + PDPL boundary)
+- `flygaca-resume-briefing-2026-05-23.md` — hosting + PDPL summary
+- `captadel/README.md` (planned repo) and [`runbooks/runbook-captadel-extraction.md`](runbooks/runbook-captadel-extraction.md) (this repo) — to be re-aligned to `me-central2`
