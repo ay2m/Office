@@ -4,7 +4,7 @@ section: 05-people
 doc_type: audit
 status: draft
 owner: Founder
-last_updated: 2026-06-14
+last_updated: 2026-08-09
 lang: en
 ---
 
@@ -13,6 +13,14 @@ lang: en
 **Prepared by:** Claude (AI research assistant) — internal working document  
 **Status:** Draft for founder review
 
+> **UPDATE — 2026-08-09.** This audit is a point-in-time snapshot of 2026-06-14. Since
+> then the 2026-07-03 pre-first-hire pack closed the P1 gaps: `offer-letter-template-2026-06-14.md`,
+> `leave-pto-policy-2026-06-14.md`, `onboarding-checklist-2026-07-03.md`,
+> `offboarding-checklist-2026-07-03.md`, `grievance-and-disciplinary-procedure-2026-07-03.md`,
+> and `anti-harassment-policy-2026-07-03.md` now exist in this folder (DRAFT — their
+> `[Owner to confirm]` markers are collected in `00-strategy/owner-decision-brief-2026-07.md`,
+> Group D). The P2/P3 items below remain open. The body of the audit is preserved as written.
+
 ---
 
 > **PROFESSIONAL REVIEW NOTICE — إشعار المراجعة المهنية**
@@ -20,7 +28,7 @@ lang: en
 
 ---
 
-## 1. Documents Present in 05-people/ (11 files)
+## 1. Documents Present in 05-people/ (11 files, as of 2026-06-14)
 
 | # | File | What It Covers | Notes / Gaps Within Doc |
 |---|------|----------------|--------------------------|
@@ -53,21 +61,21 @@ Priority key: **P1** = critical / legally required or high legal risk | **P2** =
 
 | # | Missing Document | Priority | KSA-Specific Notes | Status |
 |---|-----------------|----------|--------------------|--------|
-| 1 | **Offer Letter Template** | P1 | Must state salary in SAR with basic/housing/transport split per Labor Law Art. 40; must reference WPS; bilingual (AR/EN) | **MISSING** |
-| 2 | **Leave & PTO Policy** | P1 | Saudi Labor Law Art. 109: 21 days/yr (< 5 yrs service), 30 days/yr (≥ 5 yrs); Art. 113: sick leave 30 days full pay + 60 days half pay + 30 days unpaid; maternity 10 weeks (Art. 151); Hajj leave once per service (Art. 114); Iddah/bereavement; carry-over/expiry rules | **MISSING** |
-| 3 | **Onboarding Checklist** (Day 0–30 operational) | P1 | Must include Iqama/ID verification, GOSI registration (Day 1), WPS bank setup, Mudad registration; separate track for Tamheer trainees | **MISSING** (30-60-90 plan is content-focused, not a compliance checklist) |
-| 4 | **Offboarding / Exit Checklist** | P1 | EOSB calculation sheet, WPS final-pay deadline (14 days, Art. 91), GOSI deregistration, Iqama cancellation for expats, Mudad exit reporting, certificate of service | **MISSING** (handbook mentions exit steps informally) |
-| 5 | **Grievance & Disciplinary Procedure** | P1 | Labor Law Art. 40 requires documented procedure before dismissal; HRSD can void termination without documented warnings; Arabic version required for Saudi employees | **MISSING** |
-| 6 | **Anti-Harassment & Anti-Discrimination Policy** | P1 | Saudi Vision 2030 workplace inclusion commitments; HRSD requires harassment policy; mixed-gender workplace rules evolving post-2017 reforms; references to Labor Law Art. 38 (non-discrimination) | **MISSING** |
-| 7 | **Probation Review Form** | P2 | Companion to existing contract template; confirms pass/extend/terminate decision at day 90; written record protects company if dispute arises | **MISSING** |
+| 1 | **Offer Letter Template** | P1 | Must state salary in SAR with basic/housing/transport split per Labor Law Art. 40; must reference WPS; bilingual (AR/EN) | **CLOSED 2026-07-03** — `offer-letter-template-2026-06-14.md` |
+| 2 | **Leave & PTO Policy** | P1 | Saudi Labor Law Art. 109: 21 days/yr (< 5 yrs service), 30 days/yr (≥ 5 yrs); Art. 113: sick leave 30 days full pay + 60 days half pay + 30 days unpaid; maternity 10 weeks (Art. 151); Hajj leave once per service (Art. 114); Iddah/bereavement; carry-over/expiry rules | **CLOSED 2026-07-03** — `leave-pto-policy-2026-06-14.md` |
+| 3 | **Onboarding Checklist** (Day 0–30 operational) | P1 | Must include Iqama/ID verification, GOSI registration (Day 1), WPS bank setup, Mudad registration; separate track for Tamheer trainees | **CLOSED 2026-07-03** — `onboarding-checklist-2026-07-03.md` |
+| 4 | **Offboarding / Exit Checklist** | P1 | EOSB calculation sheet, WPS final-pay deadline (14 days, Art. 91), GOSI deregistration, Iqama cancellation for expats, Mudad exit reporting, certificate of service | **CLOSED 2026-07-03** — `offboarding-checklist-2026-07-03.md` |
+| 5 | **Grievance & Disciplinary Procedure** | P1 | Labor Law Art. 40 requires documented procedure before dismissal; HRSD can void termination without documented warnings; Arabic version required for Saudi employees | **CLOSED 2026-07-03** — `grievance-and-disciplinary-procedure-2026-07-03.md` |
+| 6 | **Anti-Harassment & Anti-Discrimination Policy** | P1 | Saudi Vision 2030 workplace inclusion commitments; HRSD requires harassment policy; mixed-gender workplace rules evolving post-2017 reforms; references to Labor Law Art. 38 (non-discrimination) | **CLOSED 2026-07-03** — `anti-harassment-policy-2026-07-03.md` |
+| 7 | **Probation Review Form** | P2 | Companion to existing contract template; confirms pass/extend/terminate decision at day 90; written record protects company if dispute arises | **MISSING** (stub offered in owner decision brief D7) |
 | 8 | **Attendance & Punctuality Policy** | P2 | Labor Law Art. 80(7): 20 non-consecutive or 10 consecutive absent days = cause for termination without EOSB; policy must define "absent", "late", and flex/async hours for remote team | **MISSING** |
 | 9 | **Remote / Hybrid Work Agreement** | P2 | Handbook mentions remote-first; a signed annex per employee is best practice; PDPL data-at-home obligations; 30-day out-of-KSA rule needs signed acknowledgment | **MISSING** (handbook policy exists; signed per-employee agreement does not) |
 | 10 | **Training & Development Policy** | P2 | Doroob platform integration; Saudi Labor Law Art. 82 training obligations; Tamheer / HRDF funding eligibility; CPD hours for aviation-licensed staff | **MISSING** |
-| 11 | **Performance Improvement Plan (PIP) Template** | P2 | Companion to Performance Review; legally required documented steps before Art. 80 dismissal for performance; 30/60-day plan format | **MISSING** |
-| 12 | **Employee NDA / Confidentiality Agreement** | P2 | Handbook references NDA; 30-60-90 Day plan references NDA signing on Day 1; standalone executed document does not appear in 05-people/ | **NOT CONFIRMED IN FOLDER** (may be in 01-corporate/) |
-| 13 | **IP Assignment Agreement (standalone)** | P2 | Referenced in handbook and contract; should be separate executed doc in HR pack | **NOT CONFIRMED IN FOLDER** (may be in 01-corporate/) |
+| 11 | **Performance Improvement Plan (PIP) Template** | P2 | Companion to Performance Review; legally required documented steps before Art. 80 dismissal for performance; 30/60-day plan format | **MISSING** (stub offered in owner decision brief D7) |
+| 12 | **Employee NDA / Confidentiality Agreement** | P2 | Handbook references NDA; 30-60-90 Day plan references NDA signing on Day 1; standalone executed document does not appear in 05-people/ | **IN 02-legal/** — `mutual-nda.docx`, `one-way-nda.docx`, `confidentiality-and-non-compete-agreement.docx` |
+| 13 | **IP Assignment Agreement (standalone)** | P2 | Referenced in handbook and contract; should be separate executed doc in HR pack | **IN 02-legal/** — `ip-assignment-agreement.docx` |
 | 14 | **Benefits Summary Sheet** | P3 | GOSI rates (11.75% employer + 10% employee for Saudis); private health insurance (mandatory under Council of Ministers decree); annual flight ticket for expats if contractually promised | **MISSING** |
-| 15 | **Expense & Reimbursement Policy** | P3 | Handbook cross-references Finance/T&E Policy; confirm that doc exists in 04-finance/; if not, create | **VERIFY IN 04-finance/** |
+| 15 | **Expense & Reimbursement Policy** | P3 | Handbook cross-references Finance/T&E Policy | **IN 03-finance/** — `expense-and-travel-policy.docx` |
 | 16 | **Tamheer Trainee Onboarding Packet** | P3 | Separate from employee onboarding; HRDF subsidy claim process, 12-month max, no EOSB, different WPS treatment | **MISSING** |
 | 17 | **Salary Advance / Loan Policy** | P3 | Labor Law Art. 64 permits salary advances; policy prevents ad-hoc founder decisions | **MISSING** |
 
@@ -76,12 +84,16 @@ Priority key: **P1** = critical / legally required or high legal risk | **P2** =
 ## 4. Priority Action Plan
 
 ### Immediate (before first non-founder hire)
-1. Offer Letter Template — P1
-2. Leave & PTO Policy — P1
-3. Onboarding Checklist (operational) — P1
-4. Offboarding / Exit Checklist — P1
-5. Grievance & Disciplinary Procedure — P1
-6. Anti-Harassment Policy — P1
+1. ~~Offer Letter Template — P1~~ **done**
+2. ~~Leave & PTO Policy — P1~~ **done**
+3. ~~Onboarding Checklist (operational) — P1~~ **done**
+4. ~~Offboarding / Exit Checklist — P1~~ **done**
+5. ~~Grievance & Disciplinary Procedure — P1~~ **done**
+6. ~~Anti-Harassment Policy — P1~~ **done**
+
+*Remaining before first hire: resolve the Group-D owner markers in the six new drafts
+(via `00-strategy/owner-decision-brief-2026-07.md`), then route the counsel items (Group E)
+with the lawyer brief.*
 
 ### Before team reaches 5 employees
 7. Probation Review Form — P2
@@ -91,7 +103,7 @@ Priority key: **P1** = critical / legally required or high legal risk | **P2** =
 11. PIP Template — P2
 
 ### Before Series A / team > 15
-12–17: Benefits Summary, Expense Policy (if not in finance folder), Tamheer Packet, Salary Advance Policy
+12–17: Benefits Summary, Tamheer Packet, Salary Advance Policy
 
 ---
 
