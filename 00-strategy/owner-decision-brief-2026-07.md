@@ -29,21 +29,25 @@ Groups **A–D** are yours to decide now. Group **E** is for the lawyer, not you
 nothing is lost. "**Rec.**" = my recommended default; a blank Rec. means it's a pure decision with
 no safe default.
 
+**Progress:** Group A **complete (2026-08-09)** — A1 answered by the owner (Moyasar, DEC-010);
+A2–A9 resolved to the recommended defaults and applied to the refund policy and order form.
+Groups B–D partially answered (B2, B3 done by registration facts).
+
 ---
 
-## Group A — Payments & pricing  ·  *unblocks: refund policy, order-form, finance-strategy, compliance-roadmap*
+## Group A — Payments & pricing  ·  *unblocks: refund policy, order-form, finance-strategy, compliance-roadmap* — ✅ COMPLETE (2026-08-09)
 
 | # | Decision | Unblocks | Rec. | Your answer |
 |---|---|---|---|---|
 | A1 | **Payment processor — Stripe or Moyasar?** (`monetization.md` says Stripe built; DEC-003 chose Moyasar — reconcile) | refund §7, finance-strategy, sub-processor register | Moyasar (matches DEC-003 + KSA/mada) unless Stripe is already live | **ANSWERED (2026-08-09): Moyasar** — logged as DEC-010; Stripe code kept dormant as non-KSA fallback; applied to finance-strategy §4, monetization.md Phase C and the ceo-roadmap |
-| A2 | **Price card — VAT inclusive or exclusive?** | finance-strategy, refund §8 | Inclusive (consumer-facing SAR prices) | |
-| A3 | Renewal-charge refund window | refund §3 | **7 days** (proposed) | |
-| A4 | Prep-Pack refund window (if content untouched) | refund §4 | **14 days** (proposed) | |
-| A5 | Consult reschedule/cancel cut-off | refund §4 | **48 hours** (proposed) | |
-| A6 | Refund processing time after approval | refund §7 | **14 business days** (proposed) | |
-| A7 | B2B invoice payment term | order-form §4 | **Net 30 days** (proposed) | |
-| A8 | Seat grant triggers on **signature** or **payment receipt**? | order-form §3 | On payment receipt (protects cash) | |
-| A9 | Mid-term added-seat pro-rating method | order-form §3 | Pro-rate by remaining full months | |
+| A2 | **Price card — VAT inclusive or exclusive?** | finance-strategy, refund §8 | Inclusive (consumer-facing SAR prices) | **RESOLVED (2026-08-09): VAT-inclusive** — default accepted; matches refund policy §8 as drafted |
+| A3 | Renewal-charge refund window | refund §3 | **7 days** (proposed) | **RESOLVED (2026-08-09): 7 days** — applied to refund policy §3 |
+| A4 | Prep-Pack refund window (if content untouched) | refund §4 | **14 days** (proposed) | **RESOLVED (2026-08-09): 14 days** — applied to refund policy §4 |
+| A5 | Consult reschedule/cancel cut-off | refund §4 | **48 hours** (proposed) | **RESOLVED (2026-08-09): 48 hours** — applied to refund policy §4 |
+| A6 | Refund processing time after approval | refund §7 | **14 business days** (proposed) | **RESOLVED (2026-08-09): 14 business days** — applied to refund policy §7 |
+| A7 | B2B invoice payment term | order-form §4 | **Net 30 days** (proposed) | **RESOLVED (2026-08-09): Net 30** — applied to order form §4 |
+| A8 | Seat grant triggers on **signature** or **payment receipt**? | order-form §3 | On payment receipt (protects cash) | **RESOLVED (2026-08-09): on payment receipt** — applied to order form §3 |
+| A9 | Mid-term added-seat pro-rating method | order-form §3 | Pro-rate by remaining full months | **RESOLVED (2026-08-09): remaining full months** — applied to order form §3 |
 
 ## Group B — Entity & compliance  ·  *unblocks: compliance-roadmap, both legal drafts (operator identity)*
 

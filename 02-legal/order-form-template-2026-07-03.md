@@ -4,13 +4,13 @@ section: 02-legal
 doc_type: legal
 status: draft
 owner: Founder
-last_updated: 2026-07-27
+last_updated: 2026-08-09
 lang: en
 ---
 
 # Fly GACA — B2B Order Form (Template)
 **Document:** order-form-template-2026-07-03.md
-**Version:** Draft 1.0 — 2026-07-03
+**Version:** Draft 1.1 — 2026-08-09 (owner decisions A7–A9 applied)
 **Status:** DRAFT — requires review by a qualified Saudi-licensed lawyer before use.
 **Purpose:** Fill-in order form for Fly GACA for Schools seat licences. Pairs with the Customer Agreement & EULA, the SLA, the B2B DPA, and (for pilot conversions) the 60-Day Pilot Agreement. Identified as a P1 gap in `legal-gap-audit-2026-06-14.md` §2.4 / launch-gate checklist P3-2.
 **Contact:** legal@flygaca.com
@@ -51,7 +51,7 @@ lang: en
 | Pilot reference | [FG-Pilot ref / "none"] | If converting from a free cohort pilot or the 60-Day Pilot Agreement |
 | Price per seat | SAR [•] / seat / year | Per the seat card above |
 | **Subtotal** | **SAR [•]** | [N] × SAR [•] |
-| **VAT (15%)** | **SAR [•]** | At the prevailing KSA rate — [Owner to confirm treatment pre-VAT-registration] |
+| **VAT (15%)** | **SAR [•]** | At the prevailing KSA rate — [Counsel question E4: confirm treatment pre-VAT-registration] |
 | **Total** | **SAR [•]** | Payable per Section 4 |
 | ZATCA e-invoice ref. | [invoice number — completed on issue] | ZATCA-compliant (Fatoora) e-invoice; number kept in the deal record |
 
@@ -59,13 +59,13 @@ lang: en
 
 ### 3. Provisioning and Roster Management
 
-- Provider grants all seats within **1 business day** of [execution of this Order Form / receipt of payment — **[Owner to confirm which event triggers grant]**], against the cadet roster (emails) supplied by the Customer's admin contact.
+- Provider grants all seats within **1 business day** of **receipt of payment** (decided 2026-08-09 — grant on payment receipt, not signature; protects cash), against the cadet roster (emails) supplied by the Customer's admin contact.
 - Mid-term roster changes: the Customer may swap seats (revoke a departing cadet, grant a replacement) at no charge, provided active seats never exceed the seat count above.
-- Additional seats mid-term: added by a supplemental Order Form at the then-applicable tier, pro-rated to the remaining Term — [Owner to confirm pro-rating approach].
+- Additional seats mid-term: added by a supplemental Order Form at the then-applicable tier, **pro-rated by remaining full months** of the Term (decided 2026-08-09).
 
 ### 4. Payment Terms
 
-- Payment by **bank transfer** to the account stated on the e-invoice, within **[Owner to confirm: proposed 30] days** of invoice date.
+- Payment by **bank transfer** to the account stated on the e-invoice, within **30 days** of invoice date (Net 30 — decided 2026-08-09).
 - Fees are invoiced annually in advance in Saudi Riyals and, once seats are granted, are **non-refundable** except as stated in the Governing Documents or required by KSA law (see the Refund & Cancellation Policy §6).
 - Any agreed credit is documented by a ZATCA-compliant credit note referencing the e-invoice above.
 
@@ -107,4 +107,4 @@ Date: ___________________________
 
 ---
 
-*DRAFT 1.0 — 2026-07-03. Template — complete all bracketed fields per order. Pending Saudi legal counsel review. Cross-references: `../07-gtm/b2b-pipeline.md` (offer, invoice → grant flow), `../03-finance/monetization.md` (seat card), launch-gate-legal-checklist-2026-06-14.md P3-2.*
+*DRAFT 1.1 — 2026-08-09 (owner decisions applied: Net 30 payment term; seat grant on payment receipt; mid-term seats pro-rated by remaining full months). Template — complete all bracketed fields per order. Pending Saudi legal counsel review. Cross-references: `../07-gtm/b2b-pipeline.md` (offer, invoice → grant flow), `../03-finance/monetization.md` (seat card), launch-gate-legal-checklist-2026-06-14.md P3-2.*
