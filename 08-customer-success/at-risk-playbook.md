@@ -4,7 +4,7 @@ section: 08-customer-success
 doc_type: playbook
 status: active
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-08-09
 lang: en
 ---
 
@@ -18,7 +18,7 @@ and convert at-risk accounts back to a Healthy health band.
 
 It is triggered automatically whenever a customer's composite health score
 falls into the **At-Risk** band (0–59) per
-[`docs/customer-health-scoring.md`](customer-health-scoring.md), or when any
+[`customer-health-scoring.md`](customer-health-scoring.md), or when any
 early-warning signal below is observed.
 
 ## Early-Warning Signals

@@ -4,7 +4,7 @@ section: 08-customer-success
 doc_type: template
 status: active
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-08-09
 lang: en
 ---
 
@@ -30,7 +30,7 @@ meeting.
 - **CSM:**
 - **Contract term / renewal date:**
 - **Current health score & band:** (from
-  [`scripts/health_score.py`](../scripts/health_score.py))
+  [`customer-health-dashboard.xlsx`](customer-health-dashboard.xlsx))
 
 ## Agenda
 

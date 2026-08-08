@@ -4,7 +4,7 @@ section: 08-customer-success
 doc_type: playbook
 status: active
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-08-09
 lang: en
 ---
 
@@ -67,4 +67,4 @@ days.
 
 - [Customer Health Scoring](customer-health-scoring.md)
 - [QBR Template](qbr-template.md)
-- [Customer Success overview](../customer-success.md)
+- [Customer Success overview](customer-success.md)

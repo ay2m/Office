@@ -4,7 +4,7 @@ section: 08-customer-success
 doc_type: playbook
 status: active
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-08-09
 lang: en
 ---
 
@@ -40,7 +40,7 @@ Watch for expansion signals:
 | Add-on modules | Any tier | Cross-sell of document automation, analytics, training |
 
 Map upgrades to the customer segments in
-[`customer-success.md`](../customer-success.md) (flight schools, charter
+[`customer-success.md`](customer-success.md) (flight schools, charter
 operators, MROs, commercial operators).
 
 ## Cross-Sell Modules
