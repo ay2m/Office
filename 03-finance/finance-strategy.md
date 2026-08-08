@@ -147,8 +147,9 @@ limits and reserve rules; amounts are not restated here.
   bank in this pass.)
 - School payments are collected by **bank transfer against the ZATCA e-invoice**; no card
   acquiring is needed for the B2B line.
-- Signatory and cash-reserve policy: per banking-and-treasury-policy.docx —
-  **[Owner to confirm]** that the docx reflects the single-signatory solo-founder reality.
+- Signatory model — **decided 2026-08-09 (brief C3):** single signatory (the founder) now;
+  move to dual signatory when a second officer joins. **[Owner to confirm]** the
+  banking-and-treasury-policy.docx text is updated to match this model.
 - Petty cash: per petty-cash-policy.docx; expected to be negligible for a remote,
   static-site operation.
 
@@ -202,8 +203,9 @@ monetization KPIs; the dashboard workbook is financial-dashboard-kpis.xlsx.
 - **PDPL** — user questions are personal data; the in-Kingdom region plan (me-central2,
   Dammam target) holds regardless of monetization phase. The DPIA gates public consumer
   accounts, not the B2B motion.
-- **VAT on prices** — **[Owner to confirm]** whether the published SAR price card is
-  VAT-inclusive or exclusive before the first quote is signed.
+- **VAT on prices** — **decided 2026-08-09 (brief A2):** the published SAR price card is
+  **VAT-inclusive** for consumer-facing prices; B2B quotes show VAT as a separate line at
+  the prevailing rate (order form §2).
 
 ## Open questions
 
@@ -211,11 +213,12 @@ monetization KPIs; the dashboard workbook is financial-dashboard-kpis.xlsx.
    budget-vs-actual-tracker.xlsx and the board pack.
 2. One-time cost amounts: lawyer fixed fee, CR + bank fees, gateway/VAT onboarding —
    **[Owner to confirm]** as quotes arrive (lawyer quotes requested in Sprint 0).
-3. VAT treatment of the price card (inclusive vs exclusive) — **[Owner to confirm]**.
-4. Entity form (sole establishment vs LLC) affects tax/zakat treatment — decided at
-   ceo-roadmap 2.1; reflect the choice here and in the chart of accounts once made.
-5. Banking policy signatory model vs solo-founder reality — **[Owner to confirm]** the docx
-   matches.
+3. ~~VAT treatment of the price card~~ — resolved 2026-08-09 (A2): consumer prices
+   VAT-inclusive.
+4. Entity form — resolved by the registration: LLC, CR 7030976893; the chart of accounts
+   reflects this.
+5. ~~Banking signatory model~~ — resolved 2026-08-09 (C3): single signatory now, dual at a
+   second officer; docx text update **[Owner to confirm]**.
 
 ---
 
