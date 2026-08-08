@@ -4,7 +4,7 @@ section: 03-finance
 doc_type: strategy
 status: active
 owner: Founder
-last_updated: 2026-06-16
+last_updated: 2026-08-09
 lang: en
 ---
 
@@ -14,7 +14,7 @@ lang: en
 > pricing and the revenue plan. `pricing.html`, `schools.html`, `flygaca.html`,
 > `assets/js/pricing-toggle.js` and the ROADMAP Phase 5 price sheet must match the
 > price card below. The companion operational playbook for the B2B motion is
-> [`docs/b2b-pipeline.md`](../docs/b2b-pipeline.md).
+> [`07-gtm/b2b-pipeline.md`](../07-gtm/b2b-pipeline.md).
 
 ## Where we are
 
@@ -100,13 +100,13 @@ questions/month**, 3 tool runs/day, all guides free.
 Schools don't need Stripe. The flow exists end-to-end today:
 
 1. Outreach to GACAR Part 141 academies and operators (target list and sequence
-   in `docs/b2b-pipeline.md`).
+   in `07-gtm/b2b-pipeline.md`).
 2. Quote per the seat card above; founding-partner rate for the first 2–3.
 3. Signed order → manual ZATCA-compliant e-invoice → bank transfer.
 4. Grant access with the existing admin callable:
    `grantSchoolLicence(emails, schoolId, expiresAt)` (`functions/school.js`).
 5. Run the customer-success lifecycle (onboarding → health → renewal) using the
-   playbooks already in `docs/`.
+   playbooks already in `08-customer-success/`.
 
 Year-1 revenue logic: 10 schools × ~50 seats × ~SAR 249 ≈ **SAR 125k ARR** —
 this dominates everything else until consumer checkout opens, so it gets the
@@ -141,7 +141,7 @@ Activation checklist, in order:
    resume. Bump `sw.js` version.
 4. **Protected content:** move paid payloads (quiz banks, Ground School, pack
    content) into `functions/protected/`, set `ADEL_PROTECTED_CONTENT=1` per
-   `office/runbook-security-rollout.md`.
+   `06-operations-it/runbooks/runbook-security-rollout.md`.
 5. **Grandfather window:** 30 days — every existing account gets the
    founding-member annual (SAR 299) offer by email before quotas bite. Honour
    every waitlist lock.
@@ -165,7 +165,7 @@ Activation checklist, in order:
 
 - Waitlist size and weekly growth (pre-launch conversion pool)
 - School seats sold / active vs. licensed seats (>80% adoption target — see
-  `customer-success.md`)
+  `08-customer-success/customer-success.md`)
 - Captain Adel cost per free user per month (must stay below ~SAR 1)
 - Free→paid conversion at the Adel quota wall (the single best conversion point)
 - Annual share of new Pro subscriptions (target >60% — the toggle defaults to
