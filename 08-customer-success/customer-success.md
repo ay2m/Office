@@ -4,7 +4,7 @@ section: 08-customer-success
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-08-09
 lang: en
 ---
 
@@ -17,7 +17,7 @@ pilots, instructors, and staff. The CS program exists to drive adoption,
 retention, and growth across that customer base.
 
 > Fly GACA is independent and not affiliated with GACA. See the repository
-> [README](README.md) for product details.
+> [README](../../README.md) for product details.
 
 ## Mission
 
@@ -49,30 +49,30 @@ Plans are tiered **Starter / Professional / Enterprise**.
 
 ## Lifecycle & Playbooks
 
-- [B2B Pipeline (acquisition → invoice → seat grant)](docs/b2b-pipeline.md)
-- [Onboarding Playbook](docs/onboarding-playbook.md)
-- [At-Risk / Churn Prevention](docs/at-risk-playbook.md)
-- [Renewal Management](docs/renewal-playbook.md)
-- [Expansion / Upsell](docs/expansion-playbook.md)
+- [B2B Pipeline (acquisition → invoice → seat grant)](../07-gtm/b2b-pipeline.md)
+- [Onboarding Playbook](onboarding-playbook.md)
+- [At-Risk / Churn Prevention](at-risk-playbook.md)
+- [Renewal Management](renewal-playbook.md)
+- [Expansion / Upsell](expansion-playbook.md)
 
 ## Health Monitoring
 
 Customer health is tracked via a weighted scoring model. See
-`docs/customer-health-scoring.md` for the full methodology,
-`docs/health-dashboard-spec.md` for the dashboard spec, and
-`scripts/health_score.py` to compute scores from customer data.
+[customer-health-scoring.md](customer-health-scoring.md) for the full methodology and
+[health-dashboard-spec.md](health-dashboard-spec.md) for the dashboard spec (implemented
+in `customer-health-dashboard.xlsx`).
 
 ## Quarterly Business Reviews
 
 QBRs reinforce value and align on goals. Use the standardized
-[QBR template](docs/qbr-template.md).
+[QBR template](qbr-template.md).
 
 ## Voice of Customer
 
 We collect NPS and CSAT continuously. See the
-[Voice-of-Customer program](docs/voice-of-customer.md).
+[Voice-of-Customer program](voice-of-customer.md).
 
 ## Index
 
-A full index of CS documentation and tooling lives in
-[`README_customer-success.md`](README_customer-success.md).
+The full map of this section's playbooks, frameworks, and dashboards lives in
+[`_INDEX.md` §08 — Customer Success](../../_INDEX.md).
