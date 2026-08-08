@@ -4,7 +4,7 @@ section: 01-governance
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-08-09
 lang: en
 ---
 
@@ -158,13 +158,38 @@ feature. It gets the founder's selling time from Sprint 1.
 
 ---
 
-## Open item flagged for a future decision
+## DEC-010 — Moyasar confirmed as the KSA payment gateway; Stripe code kept dormant
 
-- **DEC-0xx (to resolve): Stripe vs Moyasar reconciliation.** `03-finance/monetization.md`
-  says Stripe checkout is *built* (`functions/stripe.js`); **DEC-003** logged **Moyasar** as
-  the chosen Saudi-licensed, Fatoora-compatible gateway. Reconcile before the paywall flip
-  (Sprint 3): confirm which processor goes live for KSA B2C/B2B and update whichever document
-  is stale. Governance flag raised 2026-07-02.
+| Field | Detail |
+|---|---|
+| **Date** | 2026-08-09 |
+| **Decision** | **Moyasar is the payment processor that goes live for KSA B2C checkout** (flygaca.com and captadel.com), reaffirming DEC-003 and matching the invoicing docs (Qoyod + Moyasar wiring). The built-but-dormant Stripe integration (`functions/stripe.js`) is **kept, not deleted**, as the fallback/expansion rail for non-KSA cards; it stays out of the launch path. |
+| **Reversibility** | Two-way door — Stripe code remains in the repo and can be activated later; the decision removes a documentation contradiction, not a capability. |
+| **Owner** | Founder |
+| **Stakeholders Consulted** | Founder (solo) |
+| **Review Date** | 2026-08-27 (Sprint 3 — gateway live in test mode) |
+
+**Context.** A contradiction was flagged 2026-07-02 (governance flag): DEC-003 logged
+**Moyasar** (Saudi-licensed, mada-capable, Fatoora-compatible), while
+`03-finance/monetization.md` described **Stripe** as the built checkout. The consumer price
+card, the Qoyod e-invoicing decision (`04-compliance-ksa/fatoora-phase2-decision-2026-07.md`)
+and the VAT procedure (`03-finance/invoicing-and-vat-returns.md`) all already assume
+Moyasar.
+
+**Options Considered.**
+- *Moyasar live, Stripe dormant* — Pro: the logged decision of record; mada/local rails for
+  KSA consumers; consistent with the Qoyod + VAT docs. Con: new integration work in the
+  highest-load sprint (Sprint 3).
+- *Stripe live, revisit Moyasar later* — Pro: `functions/stripe.js` is built and unit-tested.
+  Con: contradicts DEC-003; leaves mada coverage for KSA consumers open; every finance/
+  compliance doc would need rework. Rejected.
+- *Both live at launch* — Pro: coverage. Con: doubles integration and reconciliation load on
+  a solo founder in the paywall sprint. Rejected for launch.
+
+**Rationale.** One processor at launch, and it's the one the legal/financial stack is already
+built around. Moyasar's mada support is the deciding factor for KSA consumers; Stripe remains
+the pre-built fallback for international cards whenever it's worth the reconciliation
+overhead. iOS payments are unaffected in either case (RevenueCat IAP).
 
 ---
 
