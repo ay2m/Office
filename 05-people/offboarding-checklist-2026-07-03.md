@@ -4,14 +4,14 @@ section: 05-people
 doc_type: checklist
 status: draft
 owner: Founder / HR
-last_updated: 2026-07-27
+last_updated: 2026-08-09
 lang: en
 ---
 
 # Fly GACA — Offboarding / Exit Checklist
 **قائمة إنهاء الخدمة ومغادرة الموظف — فلاي قاكا**
 
-**Version:** 0.1 (draft) | **Date:** 2026-07-03 | **Folder:** 05-people/
+**Version:** 0.2 (draft) | **Date:** 2026-08-09 | **Folder:** 05-people/
 
 > **DRAFT — PENDING LEGAL REVIEW.** This checklist must be reviewed by a qualified Saudi HR professional and/or Saudi-licensed legal counsel before use. It is an operational aid, not legal advice. Saudi Labor Law (Royal Decree M/51 and its amendments) governs; where this checklist conflicts with the law, the law prevails.
 
@@ -31,7 +31,7 @@ Any termination **initiated by the Company outside probation** must first satisf
 
 | ☐ | Task | Owner | Done-when |
 |---|------|-------|-----------|
-| ☐ | Resignation received in writing / termination letter issued in writing (Arabic version for Saudi nationals — [Owner to confirm translation source]) | F | Signed/dated letter in HR file |
+| ☐ | Resignation received in writing / termination letter issued in writing (Arabic version for Saudi nationals — [Counsel question E10: translation source]) | F | Signed/dated letter in HR file |
 | ☐ | Confirm notice period per contract (Handbook: 60 days; verify against executed contract and Labor Law Art. 75) | F | Last working day agreed and confirmed in writing |
 | ☐ | Record exit reason and legal basis (resignation / Art. 74 / Art. 77 / Art. 80 / Art. 81) | F | Basis noted in HR file; counsel consulted for any contested exit |
 | ☐ | Decide leave treatment during notice (Leave & PTO Policy §3.4) | F | Decision communicated in writing |
@@ -58,7 +58,7 @@ Any termination **initiated by the Company outside probation** must first satisf
 |---|------|-------|-----------|
 | ☐ | Revoke Google Workspace / email account (suspend, then transfer data; update aliases per 02-legal/email-routing.md so mail to the leaver routes to `i@flygaca.com`) | F | Login disabled; routing rule updated |
 | ☐ | Revoke Slack, GitHub (org membership + PATs/deploy keys), HubSpot, Firebase console, Cloudflare dashboard | F | Each system's member list shows removal |
-| ☐ | Rotate shared secrets the leaver had: API keys, service passwords, password-manager shared vaults [Owner to confirm secrets inventory location] | F | Rotation log completed |
+| ☐ | Rotate shared secrets the leaver had: API keys, service passwords, password-manager shared vaults — **decided 2026-08-09 (brief D6):** secrets inventory kept in the ops Drive folder per 06-operations-it/03-drive-folder-structure.docx | F | Rotation log completed |
 | ☐ | Collect equipment against the signed equipment receipt: laptop, peripherals, access cards, SIM | E → F | Equipment register updated to "returned"; condition noted |
 | ☐ | Employee deletes company data from personal devices and confirms in writing (PDPL + confidentiality obligations survive exit) | E | Signed data-deletion confirmation filed |
 | ☐ | Exit interview (voluntary exits) — themes logged for retention learning | F | Notes filed (anonymised summary if shared) |
@@ -68,7 +68,7 @@ Any termination **initiated by the Company outside probation** must first satisf
 
 ## 5. Phase D — Final Settlement (within 14 calendar days of last working day)
 
-Saudi Labor Law Art. 88/91 timing as adopted in Leave & PTO Policy §16: final settlement due within **14 calendar days** of the last working day. [Owner to confirm exact statutory deadline with counsel — timing differs by who ended the contract.]
+Saudi Labor Law Art. 88/91 timing as adopted in Leave & PTO Policy §16: final settlement due within **14 calendar days** of the last working day. [Counsel question E5: confirm exact statutory deadline — timing differs by who ended the contract.]
 
 | ☐ | Task | Owner | Done-when |
 |---|------|-------|-----------|
@@ -87,9 +87,9 @@ Saudi Labor Law Art. 88/91 timing as adopted in Leave & PTO Policy §16: final s
 | ☐ | GOSI: deregister employee effective last working day | F | GOSI portal shows contributor removed |
 | ☐ | Qiwa: record contract termination / update employment status | F | Qiwa status = terminated |
 | ☐ | Mudad/WPS: remove from payroll file after final settlement run | F | Next WPS file excludes leaver without compliance flag |
-| ☐ | **Expats only:** process visa outcome — final exit visa or sponsorship transfer via Qiwa/Muqeem; Iqama cancellation as applicable [Owner to confirm process with PRO/counsel — first hire may be Saudi national] | F | Government portal confirmation filed |
+| ☐ | **Expats only:** process visa outcome — final exit visa or sponsorship transfer via Qiwa/Muqeem; Iqama cancellation as applicable [Counsel question E9: confirm process with PRO/counsel — first hire may be Saudi national] | F | Government portal confirmation filed |
 | ☐ | Check Nitaqat impact of the departure (04-compliance-ksa/saudization-nitaqat-compliance-plan.docx) | F | Nitaqat tracker updated |
-| ☐ | Update insurance: remove from medical policy [Owner to confirm provider] | F | Provider confirmation received |
+| ☐ | Update insurance: remove from medical policy [Owner to confirm provider — brief D2] | F | Provider confirmation received |
 
 ---
 
@@ -97,7 +97,7 @@ Saudi Labor Law Art. 88/91 timing as adopted in Leave & PTO Policy §16: final s
 
 | ☐ | Task | Owner | Done-when |
 |---|------|-------|-----------|
-| ☐ | Archive employee HR folder per retention policy [Owner to confirm retention period]; restrict access to Founder | F | Folder moved to archive area of Drive |
+| ☐ | Archive employee HR folder per retention policy [Owner to confirm retention period with counsel — brief D5]; restrict access to Founder | F | Folder moved to archive area of Drive |
 | ☐ | 30-day access re-check: search all systems (Google, Slack, GitHub, HubSpot, Firebase, Cloudflare, vendor accounts) for residual access | F | Zero residual accounts; check logged |
 | ☐ | Close the loop on exit-interview actions and update HR docs if the exit exposed gaps | F | Actions tracked or explicitly declined |
 
@@ -112,4 +112,4 @@ Retain: notice/termination letters, handover sign-off, equipment receipt, EOSB w
 ---
 
 *BDA Company International (شركة بدع الدولية) | Confidential — Internal HR Document*
-*Draft 0.1 — 2026-07-03 — Pending review by qualified Saudi HR/legal professional. Not legal advice.*
+*Draft 0.2 — 2026-08-09 (owner decision D6 applied; counsel markers relabelled to Group E refs). Pending review by qualified Saudi HR/legal professional. Not legal advice.*
