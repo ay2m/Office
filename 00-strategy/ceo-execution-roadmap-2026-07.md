@@ -4,7 +4,7 @@ section: 00-strategy
 doc_type: plan
 status: active
 owner: You (solo)
-last_updated: 2026-07-27
+last_updated: 2026-08-09
 lang: en
 ---
 
@@ -22,7 +22,7 @@ lang: en
 ## The critical-path chain (what gates what)
 
 ```
-Send lawyer brief ──► Written opinion ──► NAME LOCKED ──┬─► Entity (CR) ──► Bank acct ──► ZATCA/VAT ──► Payments (Stripe) ──► Paywall flip
+Send lawyer brief ──► Written opinion ──► NAME LOCKED ──┬─► Entity (CR) ──► Bank acct ──► ZATCA/VAT ──► Payments (Moyasar, DEC-010) ──► Paywall flip
    (1 email)          (corpus rights too)               │
                                                         └─► Final branding / .sa domain / Arabic legal pages
 Parallel (no gates): B2B school demos & free pilots ──► Signed pilot ──► Manual ZATCA invoice ──► First revenue
@@ -82,7 +82,7 @@ The entire quarter is gated on actions in this one week. Do these before touchin
 | # | Action | Done when | Depends on |
 |---|--------|-----------|------------|
 | 3.1 | **ZATCA**: VAT registration ~~+~~ **DONE** (311415259500003, quarterly — first return overdue, see `03-finance/invoicing-and-vat-returns.md`); Fatoora e-invoicing onboarding still open. | VAT registered ✓; Fatoora integrated. | — |
-| 3.2 | **Payment gateway live** — pick mada-capable (Moyasar/HyperPay/PayTabs/Tap) + Stripe products at the decided price card. | Test-mode checkout verified end to end. | 2.3 |
+| 3.2 | **Payment gateway live — Moyasar** (DEC-010: mada-capable, Saudi-licensed) at the decided price card; the dormant Stripe code stays untouched as fallback. | Test-mode checkout verified end to end. | 2.3 |
 | 3.3 | **Paywall flip**, in your Phase C order: gate Captain Adel first (marginal-cost item) → flip client launch mode → protected content → 30-day grandfather window. | Consumer checkout open; quotas live. | 3.2 |
 | 3.4 | **Sell 2–3 more school pilots** off the first one's proof. | ≥3 total school contracts in pipeline. | 2.5 |
 
@@ -92,7 +92,7 @@ The entire quarter is gated on actions in this one week. Do these before touchin
 
 ## Parallel tracks (run alongside — do not let them displace the critical path)
 
-- **B2B pipeline** is the only revenue you can invoice pre-Stripe → it gets your selling time from Sprint 1 on. Year-1 logic: ~10 schools × ~50 seats × ~SAR 249 ≈ **SAR 125k ARR**.
+- **B2B pipeline** is the only revenue you can invoice pre-gateway → it gets your selling time from Sprint 1 on. Year-1 logic: ~10 schools × ~50 seats × ~SAR 249 ≈ **SAR 125k ARR**.
 - **PDPL DPIA** (2.4) — parallel to legal/entity; gates public consumer accounts, not the B2B motion.
 - **Instrument free usage now** — Captain Adel volume, tool opens, study starts. These numbers set your day-one conversion targets.
 

@@ -4,7 +4,7 @@ section: 03-finance
 doc_type: strategy
 status: draft
 owner: Founder
-last_updated: 2026-07-27
+last_updated: 2026-08-09
 lang: en
 ---
 
@@ -40,11 +40,12 @@ quarter (Q3 FY2026), and what changes at each gate on the critical path
 ## 1. Financial model summary
 
 **As of 2026-07-03.** Revenue to date: **SAR 0**. Legal entity: not yet registered. The
-product is built and deployed; the billing machine (Stripe checkout, RevenueCat IAP, B2B
-seat licences, free-tier quotas, protected-content gate) is built and dormant behind launch
-mode. The finance model for the next two quarters is therefore about **sequencing**, not
-forecasting precision: earn the revenue that is invoiceable now, keep fixed costs near zero,
-and time the one-off legal/entity spend against the critical-path gates.
+product is built and deployed; the billing machine (Moyasar checkout to be integrated per
+DEC-010 — Stripe code built but dormant, RevenueCat IAP, B2B seat licences, free-tier
+quotas, protected-content gate) is dormant behind launch mode. The finance model for the
+next two quarters is therefore about **sequencing**, not forecasting precision: earn the
+revenue that is invoiceable now, keep fixed costs near zero, and time the one-off
+legal/entity spend against the critical-path gates.
 
 ### 1.1 Revenue lines & sequencing
 
@@ -151,21 +152,22 @@ limits and reserve rules; amounts are not restated here.
 - Petty cash: per petty-cash-policy.docx; expected to be negligible for a remote,
   static-site operation.
 
-## 4. Payments gateway — Stripe vs Moyasar (DEC-open)
+## 4. Payments gateway — Moyasar (RESOLVED, DEC-010)
 
-An unresolved reconciliation, flagged in the decision log (2026-07-02) and the board pack —
-**must be resolved before the Sprint 3 paywall flip**:
+Resolved 2026-08-09 as **DEC-010** (`01-governance/decision-log.md`): **Moyasar is the KSA
+payment gateway of record.** This confirms DEC-003 and clears the reconciliation flagged in
+the decision log (2026-07-02) and the board pack ahead of the Sprint 3 paywall flip.
 
-| Option | For | Against |
-|---|---|---|
-| **Moyasar** (DEC-003, decided) | Saudi-licensed, mada-capable, Fatoora-compatible — the logged decision of record for KSA payments | The built integration is Stripe; going live on Moyasar means new integration work in the highest-load sprint |
-| **Stripe** (built) | `functions/stripe.js` checkout + webhook already built and unit-tested; fastest path to a working paywall | Not the logged decision; mada/local-rails coverage for KSA consumers is the open question DEC-003 answered with Moyasar |
+| Aspect | Position |
+|---|---|
+| **Go-live gateway** | **Moyasar** — Saudi-licensed, mada-capable, Fatoora-compatible; the decision of record for KSA consumer payments |
+| **Stripe code** | `functions/stripe.js` checkout + webhook stays in the repo **dormant** — not removed; it remains the fallback if a non-KSA/international card-acquiring need appears later. No Stripe secrets are set and no Stripe products are created at go-live |
+| **Sprint 3 work** | Moyasar integration (products at the `monetization.md` price card, checkout + webhook) replaces the Stripe step in the Phase C checklist; this is new integration work in the highest-load sprint — plan paid help per §1.3 if needed |
+| **iOS** | Unchanged — RevenueCat IAP, independent of the web gateway choice |
 
-The ceo-roadmap (3.2) phrases the requirement as "mada-capable (Moyasar/HyperPay/PayTabs/Tap)
-**+ Stripe** products at the decided price card" — i.e. the two may coexist (local rails for
-KSA cards, Stripe where it fits). **Decision owner: Founder; due: before Sprint 3 (by
-2026-08-27); log as DEC-0xx and update whichever document is stale.** iOS payments are
-separate in either case (RevenueCat IAP).
+Review checkpoint: DEC-010 carries a review date of **2026-08-27 (Sprint 3)** — if Moyasar
+onboarding or integration slips the paywall flip, the fallback decision (activate the
+dormant Stripe code) is taken then and logged.
 
 ## 5. KPIs tracked
 
@@ -205,15 +207,14 @@ monetization KPIs; the dashboard workbook is financial-dashboard-kpis.xlsx.
 
 ## Open questions
 
-1. Stripe vs Moyasar go-live (DEC-open, §4) — resolve before Sprint 3.
-2. Current cash on hand, YTD actuals and runway months — **[Owner to confirm]** in
+1. Current cash on hand, YTD actuals and runway months — **[Owner to confirm]** in
    budget-vs-actual-tracker.xlsx and the board pack.
-3. One-time cost amounts: lawyer fixed fee, CR + bank fees, gateway/VAT onboarding —
+2. One-time cost amounts: lawyer fixed fee, CR + bank fees, gateway/VAT onboarding —
    **[Owner to confirm]** as quotes arrive (lawyer quotes requested in Sprint 0).
-4. VAT treatment of the price card (inclusive vs exclusive) — **[Owner to confirm]**.
-5. Entity form (sole establishment vs LLC) affects tax/zakat treatment — decided at
+3. VAT treatment of the price card (inclusive vs exclusive) — **[Owner to confirm]**.
+4. Entity form (sole establishment vs LLC) affects tax/zakat treatment — decided at
    ceo-roadmap 2.1; reflect the choice here and in the chart of accounts once made.
-6. Banking policy signatory model vs solo-founder reality — **[Owner to confirm]** the docx
+5. Banking policy signatory model vs solo-founder reality — **[Owner to confirm]** the docx
    matches.
 
 ---

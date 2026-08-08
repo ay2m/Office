@@ -4,7 +4,7 @@ section: 00-strategy
 doc_type: plan
 status: active
 owner: Founder
-last_updated: 2026-07-27
+last_updated: 2026-08-09
 lang: en
 ---
 
@@ -35,7 +35,7 @@ no safe default.
 
 | # | Decision | Unblocks | Rec. | Your answer |
 |---|---|---|---|---|
-| A1 | **Payment processor — Stripe or Moyasar?** (`monetization.md` says Stripe built; DEC-003 chose Moyasar — reconcile) | refund §7, finance-strategy, sub-processor register | Moyasar (matches DEC-003 + KSA/mada) unless Stripe is already live | |
+| A1 | **Payment processor — Stripe or Moyasar?** (`monetization.md` says Stripe built; DEC-003 chose Moyasar — reconcile) | refund §7, finance-strategy, sub-processor register | Moyasar (matches DEC-003 + KSA/mada) unless Stripe is already live | **ANSWERED (2026-08-09): Moyasar** — logged as DEC-010; Stripe code kept dormant as non-KSA fallback; applied to finance-strategy §4, monetization.md Phase C and the ceo-roadmap |
 | A2 | **Price card — VAT inclusive or exclusive?** | finance-strategy, refund §8 | Inclusive (consumer-facing SAR prices) | |
 | A3 | Renewal-charge refund window | refund §3 | **7 days** (proposed) | |
 | A4 | Prep-Pack refund window (if content untouched) | refund §4 | **14 days** (proposed) | |

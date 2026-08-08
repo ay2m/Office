@@ -21,7 +21,9 @@ lang: en
 The site is in **launch mode — everything is free for everyone**
 (`window.FG_LAUNCH_MODE = true` in `assets/js/entitlements.js`,
 `ADEL_LAUNCH_MODE=free` in `functions/.env.flygaca-app`). The entire billing
-machine is built and dormant: Stripe checkout (`functions/stripe.js`),
+machine is built or specified and dormant: Moyasar checkout to be integrated at
+the Sprint 3 paywall flip (**gateway of record, DEC-010** — the Stripe checkout
+code in `functions/stripe.js` stays built but dormant as a non-KSA fallback),
 RevenueCat iOS IAP (`functions/revenuecatWebhook.js`), B2B seat licences
 (`functions/school.js`), the Captain Adel free-tier quota
 (`functions/rag/dailyquota.js`), and the protected-content gate
@@ -97,7 +99,7 @@ questions/month**, 3 tool runs/day, all guides free.
 
 ### Phase A — B2B now (the only invoice-able revenue)
 
-Schools don't need Stripe. The flow exists end-to-end today:
+Schools don't need a payment gateway. The flow exists end-to-end today:
 
 1. Outreach to GACAR Part 141 academies and operators (target list and sequence
    in `07-gtm/b2b-pipeline.md`).
@@ -126,13 +128,14 @@ Keep launch mode ON, but stop giving it away silently — make the free period a
 - Lead magnets stay free by design: Conversion Eligibility Checker, ELP
   Readiness Self-Check, AIP Quiz — each one ends in the matching pack CTA.
 
-### Phase C — the paywall flip (entity + Stripe live)
+### Phase C — the paywall flip (entity + Moyasar live)
 
 Activation checklist, in order:
 
-1. **Stripe live:** create the products at the price card above; set
-   `STRIPE_PRICE_MONTHLY` / `STRIPE_PRICE_ANNUAL` secrets; verify
-   `createCheckoutSession` + `stripeWebhook` end-to-end in test mode.
+1. **Moyasar live (DEC-010):** create the products at the price card above in
+   the Moyasar dashboard; set the Moyasar API keys/secrets; verify checkout +
+   webhook end-to-end in test mode (mada + card). The dormant Stripe code stays
+   untouched — no Stripe secrets, no Stripe products.
 2. **Gate Captain Adel first** (it is the marginal-cost item): remove
    `ADEL_LAUNCH_MODE=free` from `functions/.env.flygaca-app` and redeploy
    functions — the server quota (5/month, KSA month boundary) takes over.
