@@ -4,13 +4,13 @@ section: 02-legal
 doc_type: legal
 status: draft
 owner: Founder
-last_updated: 2026-07-27
+last_updated: 2026-08-09
 lang: en
 ---
 
 # Fly GACA — Refund & Cancellation Policy
 **Document:** refund-and-cancellation-policy-draft-2026-07-03.md
-**Version:** Draft 1.0 — 2026-07-03
+**Version:** Draft 1.1 — 2026-08-09 (owner decisions A1–A9 applied)
 **Status:** DRAFT — requires review by a qualified Saudi-licensed lawyer before use.
 **Applies to:** All paid Fly GACA products — consumer subscriptions, Exam Term, Prep Packs, consults, and B2B Academy seat licences.
 **Language:** English (master). Arabic translation required before account launch.
@@ -30,7 +30,7 @@ lang: en
 
 This policy explains when and how you can cancel a Fly GACA purchase and receive a refund. It applies from the date online payments launch and forms part of the [Terms of Use](https://flygaca.com/terms) (§5). For B2B Academy customers, the Customer Agreement & EULA and the applicable Order Form prevail over this policy where they differ (see Section 6).
 
-Nothing in this policy limits any right you have under the Consumer Protection Law of the Kingdom of Saudi Arabia or the Saudi E-Commerce Law that cannot be excluded by contract. **[Owner to confirm with counsel: the statutory withdrawal / cooling-off period under the E-Commerce Law Implementing Regulations, and whether the digital-content exception applies once access begins.]**
+Nothing in this policy limits any right you have under the Consumer Protection Law of the Kingdom of Saudi Arabia or the Saudi E-Commerce Law that cannot be excluded by contract. **[Counsel question E1: the statutory withdrawal / cooling-off period under the E-Commerce Law Implementing Regulations, and whether the digital-content exception applies once access begins.]**
 
 ## 2. What Is Always Free
 
@@ -41,10 +41,10 @@ The GACAR library, guides, and safety lessons are free and require no payment �
 | Product | Price (SAR, incl. VAT) | Cancellation | Refund |
 |---|---|---|---|
 | Pro Monthly | 59/month | Any time from account settings; takes effect at the end of the current billing month | Full refund within **30 days** of the *initial* payment if you have not made substantial use of paid features; after that, no refund for the current month |
-| Pro Annual | 349/year (7-day free trial) | Any time; access continues to the end of the paid year | Cancel during the 7-day free trial: no charge. Full refund within **30 days** of the initial payment without substantial use of paid features; after 30 days, no refund for the current year **[Owner to confirm with counsel: whether a pro-rata refund is required for annual consumer plans under KSA consumer-protection rules]** |
+| Pro Annual | 349/year (7-day free trial) | Any time; access continues to the end of the paid year | Cancel during the 7-day free trial: no charge. Full refund within **30 days** of the initial payment without substantial use of paid features; after 30 days, no refund for the current year **[Counsel question E2: whether a pro-rata refund is required for annual consumer plans under KSA consumer-protection rules]** |
 
 - "Substantial use" means meaningful consumption of paid features — for example, Captain Adel questions beyond the free-tier allowance, mock exams, or protected study content. We assess this reasonably and in good faith.
-- Subscriptions renew automatically. Cancel **before the renewal date** to avoid the next charge; a renewal charge itself is refundable if you cancel within **[Owner to confirm: proposed 7] days** of renewal without having used paid features in the new period.
+- Subscriptions renew automatically. Cancel **before the renewal date** to avoid the next charge; a renewal charge itself is refundable if you cancel within **7 days** of renewal without having used paid features in the new period.
 - Cancelling never removes access you have paid for — access runs to the end of the paid period.
 
 ## 4. One-Time Products
@@ -52,8 +52,8 @@ The GACAR library, guides, and safety lessons are free and require no payment �
 | Product | Price (SAR) | Refund position |
 |---|---|---|
 | Exam Term (120-day access) | 199 | **Non-refundable once activated** and study material has been accessed, given its time-limited nature. Refundable in full if purchased but never activated, requested within 30 days |
-| Prep Packs (AIP 299 · ELPT/SAELPT 349 · License Conversion 899 · Conversion Bundle 1,299) | as listed | Full refund within **[Owner to confirm: proposed 14] days** of purchase if pack content has not been accessed and bundled Pro days have not been used; non-refundable after content access **[Owner to confirm with counsel against the E-Commerce Law digital-content rules]** |
-| Captain Adel 1:1 Consult (180 min) | 899 | Reschedulable up to **[Owner to confirm: proposed 48] hours** before the session; refundable in full if cancelled before that cut-off; non-refundable after the session has been delivered |
+| Prep Packs (AIP 299 · ELPT/SAELPT 349 · License Conversion 899 · Conversion Bundle 1,299) | as listed | Full refund within **14 days** of purchase if pack content has not been accessed and bundled Pro days have not been used; non-refundable after content access **[Counsel question E3: confirm against the E-Commerce Law digital-content rules]** |
+| Captain Adel 1:1 Consult (180 min) | 899 | Reschedulable up to **48 hours** before the session; refundable in full if cancelled before that cut-off; non-refundable after the session has been delivered |
 | Conversion Pack Premium | 1,699 | Component rules above apply to each component (pack / consult / Pro days) |
 
 Official GACA and testing fees are never included in any Fly GACA product and are never refundable by us.
@@ -80,7 +80,7 @@ Academy seat licences are sold under a signed **Order Form** together with the *
 
 1. Email **support@flygaca.com** from the email on your account, with your order number (or e-invoice number for B2B) and the reason for the request.
 2. We acknowledge within **2 business days** and decide within **5 business days** of receiving the information we need.
-3. Approved refunds are returned to the **original payment method** via our payment processor **[Owner to confirm: Moyasar per DEC-003, or Stripe — Stripe-vs-Moyasar reconciliation open in the decision log]** within **[Owner to confirm: proposed 14] business days** of approval. Bank and card processing times are outside our control.
+3. Approved refunds are returned to the **original payment method** via our payment processor (**Moyasar** — gateway of record, DEC-010) within **14 business days** of approval. Bank and card processing times are outside our control.
 4. B2B refunds/credits are settled by bank transfer against a credit note.
 
 ## 8. VAT
@@ -111,4 +111,4 @@ Fly GACA | flygaca.com | Kingdom of Saudi Arabia
 
 ---
 
-*DRAFT 1.0 — 2026-07-03. Not published. Pending Saudi legal counsel review. Cross-references: terms-of-use-draft-2026-06-14.md §5; legal-gap-audit-2026-06-14.md §2.1; launch-gate-legal-checklist-2026-06-14.md P2-4.*
+*DRAFT 1.1 — 2026-08-09 (owner decisions A1–A9 applied: Moyasar per DEC-010; VAT-inclusive prices; 7-day renewal window; 14-day pack window; 48-hour consult cut-off; 14-business-day processing). Not published. Pending Saudi legal counsel review. Cross-references: terms-of-use-draft-2026-06-14.md §5; legal-gap-audit-2026-06-14.md §2.1; launch-gate-legal-checklist-2026-06-14.md P2-4.*

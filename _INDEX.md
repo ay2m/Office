@@ -4,28 +4,29 @@ section: root
 doc_type: index
 status: active
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-08-09
 lang: en
 ---
 
 # The Office — Master Index
 
-_Fly GACA operating documents. Last reorganized: 2026-07-03._
+_Every internal document for running Fly GACA, organized into 12 numbered sections (00–11).
+Last reorganized: 2026-07-03. Index refreshed: 2026-08-09._
 
-This folder holds every internal document for running Fly GACA, organized into 12 numbered
-sections (00–11). Numbered prefixes keep sections in order; open any section folder to see
-its files. Polished deliverables are mostly `.docx` / `.xlsx`; working notes, specs, and
+**How to read this tree.** Numbered prefixes keep sections in order; open any section folder to
+see its files. Polished deliverables are mostly `.docx` / `.xlsx`; working notes, specs, and
 drafts are `.md`. Filenames are lowercase kebab-case (ASCII) — see the naming convention in
-`06-operations-it/repo-health-report-2026-06-16.md` §6.
+[`06-operations-it/repo-health-report-2026-06-16.md`](06-operations-it/repo-health-report-2026-06-16.md) §6.
 
 Every `.md` doc carries YAML front-matter (`title / section / doc_type / status / owner /
 last_updated / lang`) and has a **print-ready branded PDF** under `_print/` mirroring this
 tree (e.g. `_print/02-legal/terms-of-use-draft-2026-06-14.pdf`). To rebuild PDFs after
-editing: `cd tools/print && npm ci && npm run build` — see `tools/print/README.md`.
+editing: `cd tools/print && npm ci && npm run build` — see [`tools/print/README.md`](tools/print/README.md).
 
 > The authoritative master index is also kept as a Google Sheet:
 > `00-strategy/00-master-office-paperwork-index.gsheet`. This `_INDEX.md` is the quick,
-> readable map. A repo-health overview lives at `06-operations-it/repo-health-report-2026-06-16.md`.
+> readable map. A repo-health overview lives at
+> [`06-operations-it/repo-health-report-2026-06-16.md`](06-operations-it/repo-health-report-2026-06-16.md).
 
 ---
 
@@ -102,7 +103,7 @@ HR templates, policies, and operating rhythm.
   grievance-and-disciplinary-procedure · anti-harassment-policy
 - hr-pack-gap-audit-2026-06-14.md
 
-## 06 — Operations / IT  _(renamed from 06-product-eng)_
+## 06 — Operations / IT
 Digital office setup **plus** product/engineering specs, runbooks, and infra notes.
 
 > The specs and runbooks here document the product/engineering work; the actual

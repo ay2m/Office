@@ -2,8 +2,8 @@
 title: "قالب التقرير المالي"
 type: "finance"
 doctype: "report"
-version: "v01"
-last_updated: "2026-06-16"
+version: "v02"
+last_updated: "2026-08-09"
 author: "@username"
 tags: [finance, report, monthly]
 ---
@@ -19,91 +19,93 @@ tags: [finance, report, monthly]
 [نظرة عامة عالية المستوى على الأداء المالي، والفروقات الرئيسية، والأحداث البارزة خلال الفترة. صفحة واحدة كحد أقصى.]
 
 ### أبرز النقاط الرئيسية
-- **الإيرادات**: [Current period] مقابل [Prior period/prior year]: $[Amount] ([+/−]X%) [Falcon Green if positive, Falcon Red if negative]
-- **المصروفات**: [Current period] مقابل [Prior period/prior year]: $[Amount] ([+/−]X%) [Falcon Green if favorable variance, Falcon Red if unfavorable]
-- **صافي الدخل**: [Current period] مقابل [Prior period/prior year]: $[Amount] ([+/−]X%) [Falcon Green if positive, Falcon Red if negative]
-- **التدفق النقدي**: التدفق النقدي [Operating/Investing/Financing]: $[Amount]
+- **الإيرادات**: [Current period] مقابل [Prior period/prior year]: SAR [Amount] ([+/−]X%) [Falcon Green if positive, Falcon Red if negative]
+- **المصروفات**: [Current period] مقابل [Prior period/prior year]: SAR [Amount] ([+/−]X%) [Falcon Green if favorable variance, Falcon Red if unfavorable]
+- **صافي الدخل**: [Current period] مقابل [Prior period/prior year]: SAR [Amount] ([+/−]X%) [Falcon Green if positive, Falcon Red if negative]
+- **التدفق النقدي**: التدفق النقدي [Operating/Investing/Financing]: SAR [Amount]
+- **مركز ضريبة القيمة المضافة**: صافي الضريبة المستحقة/(القابلة للاسترداد) عن الفترة: SAR [Amount] — موعد الإقرار [YYYY-MM-DD] (ربع سنوي، وفق تسجيل هيئة الزكاة والضريبة والجمارك)
 
 ## القوائم المالية
 
 ### قائمة الدخل
-| البند | الفترة الحالية | الفترة السابقة | الفرق بالمبلغ | الفرق بالنسبة المئوية | الإجمالي حتى تاريخه الحالي | الإجمالي حتى تاريخه السابق | الفرق بالمبلغ حتى تاريخه | الفرق بالنسبة حتى تاريخه |
+| البند | الفترة الحالية | الفترة السابقة | الفرق (ر.س) | الفرق بالنسبة المئوية | الإجمالي حتى تاريخه الحالي | الإجمالي حتى تاريخه السابق | الفرق حتى تاريخه (ر.س) | الفرق بالنسبة حتى تاريخه |
 |-----------|----------------|--------------|------------|------------|-------------|-----------|----------------|----------------|
-| الإيرادات | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% |
-| تكلفة البضاعة المباعة | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% |
-| **مجمل الربح** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** |
-| المصروفات التشغيلية | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% |
-| - المبيعات والتسويق | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% |
-| - البحث والتطوير | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% |
-| - العمومية والإدارية | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% |
-| **الدخل التشغيلي (EBIT)** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** |
-| مصروف الفوائد | $XX,XXX | $XX,XXX | $X,XXX | X.X% | $XX,XXX | $XX,XXX | $X,XXX | X.X% |
-| **الدخل قبل الضرائب** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** |
-| مصروف ضريبة الدخل | $XX,XXX | $XX,XXX | $X,XXX | X.X% | $XX,XXX | $XX,XXX | $X,XXX | X.X% |
-| **صافي الدخل** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** |
+| الإيرادات | XXX,XXX | XXX,XXX | XXX,XXX | X.X% | XXX,XXX | XXX,XXX | XXX,XXX | X.X% |
+| تكلفة البضاعة المباعة | XXX,XXX | XXX,XXX | XXX,XXX | X.X% | XXX,XXX | XXX,XXX | XXX,XXX | X.X% |
+| **مجمل الربح** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** |
+| المصروفات التشغيلية | XXX,XXX | XXX,XXX | XXX,XXX | X.X% | XXX,XXX | XXX,XXX | XXX,XXX | X.X% |
+| - المبيعات والتسويق | XXX,XXX | XXX,XXX | XXX,XXX | X.X% | XXX,XXX | XXX,XXX | XXX,XXX | X.X% |
+| - البحث والتطوير | XXX,XXX | XXX,XXX | XXX,XXX | X.X% | XXX,XXX | XXX,XXX | XXX,XXX | X.X% |
+| - العمومية والإدارية | XXX,XXX | XXX,XXX | XXX,XXX | X.X% | XXX,XXX | XXX,XXX | XXX,XXX | X.X% |
+| **الدخل التشغيلي (EBIT)** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** |
+| تكاليف التمويل | XX,XXX | XX,XXX | X,XXX | X.X% | XX,XXX | XX,XXX | X,XXX | X.X% |
+| **الدخل قبل الزكاة/الضريبة** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** |
+| مصروف الزكاة / ضريبة الدخل | XX,XXX | XX,XXX | X,XXX | X.X% | XX,XXX | XX,XXX | X,XXX | X.X% |
+| **صافي الدخل** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** |
 
 ### قائمة المركز المالي
-| الأصول | الفترة الحالية | الفترة السابقة | الفرق بالمبلغ | الفرق بالنسبة المئوية |
+| الأصول | الفترة الحالية | الفترة السابقة | الفرق (ر.س) | الفرق بالنسبة المئوية |
 |--------|----------------|--------------|------------|------------|
 | **الأصول المتداولة** | | | | |
-| النقد وما في حكمه | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% |
-| الذمم المدينة | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% |
-| المخزون | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% |
-| المصروفات المدفوعة مقدماً | $XX,XXX | $XX,XXX | $X,XXX | X.X% |
-| **إجمالي الأصول المتداولة** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** |
+| النقد وما في حكمه | XXX,XXX | XXX,XXX | XXX,XXX | X.X% |
+| الذمم المدينة | XXX,XXX | XXX,XXX | XXX,XXX | X.X% |
+| المخزون | XXX,XXX | XXX,XXX | XXX,XXX | X.X% |
+| المصروفات المدفوعة مقدماً | XX,XXX | XX,XXX | X,XXX | X.X% |
+| **إجمالي الأصول المتداولة** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** |
 | **الأصول غير المتداولة** | | | | |
-| الممتلكات والمعدات (صافي) | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% |
-| الأصول غير الملموسة | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% |
-| أصول أخرى | $XX,XXX | $XX,XXX | $X,XXX | X.X% |
-| **إجمالي الأصول غير المتداولة** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** |
-| **إجمالي الأصول** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** |
+| الممتلكات والمعدات (صافي) | XXX,XXX | XXX,XXX | XXX,XXX | X.X% |
+| الأصول غير الملموسة | XXX,XXX | XXX,XXX | XXX,XXX | X.X% |
+| أصول أخرى | XX,XXX | XX,XXX | X,XXX | X.X% |
+| **إجمالي الأصول غير المتداولة** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** |
+| **إجمالي الأصول** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** |
 
-| الخصوم وحقوق الملكية | الفترة الحالية | الفترة السابقة | الفرق بالمبلغ | الفرق بالنسبة المئوية |
+| الخصوم وحقوق الملكية | الفترة الحالية | الفترة السابقة | الفرق (ر.س) | الفرق بالنسبة المئوية |
 |----------------------|----------------|--------------|------------|------------|
 | **الخصوم المتداولة** | | | | |
-| الذمم الدائنة | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% |
-| المصروفات المستحقة | $XX,XXX | $XX,XXX | $X,XXX | X.X% |
-| الديون قصيرة الأجل | $XX,XXX | $XX,XXX | $X,XXX | X.X% |
-| **إجمالي الخصوم المتداولة** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** |
+| الذمم الدائنة | XXX,XXX | XXX,XXX | XXX,XXX | X.X% |
+| المصروفات المستحقة | XX,XXX | XX,XXX | X,XXX | X.X% |
+| ضريبة القيمة المضافة المستحقة (هيئة الزكاة والضريبة والجمارك) | XX,XXX | XX,XXX | X,XXX | X.X% |
+| الديون قصيرة الأجل | XX,XXX | XX,XXX | X,XXX | X.X% |
+| **إجمالي الخصوم المتداولة** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** |
 | **الخصوم طويلة الأجل** | | | | |
-| الديون طويلة الأجل | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% |
-| التزامات الضرائب المؤجلة | $XX,XXX | $XX,XXX | $X,XXX | X.X% |
-| التزامات أخرى طويلة الأجل | $XX,XXX | $XX,XXX | $X,XXX | X.X% |
-| **إجمالي الخصوم طويلة الأجل** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** |
-| **إجمالي الخصوم** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** |
+| الديون طويلة الأجل | XXX,XXX | XXX,XXX | XXX,XXX | X.X% |
+| التزامات الضرائب المؤجلة | XX,XXX | XX,XXX | X,XXX | X.X% |
+| مخصص مكافأة نهاية الخدمة | XX,XXX | XX,XXX | X,XXX | X.X% |
+| **إجمالي الخصوم طويلة الأجل** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** |
+| **إجمالي الخصوم** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** |
 | **حقوق الملكية** | | | | |
-| الأسهم العادية | $XXX,XXX | $XXX,XXX | $- | 0.0% |
-| الأرباح المحتجزة | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% |
-| **إجمالي حقوق الملكية** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** |
-| **إجمالي الخصوم وحقوق الملكية** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** |
+| رأس المال | XXX,XXX | XXX,XXX | — | 0.0% |
+| الأرباح المحتجزة | XXX,XXX | XXX,XXX | XXX,XXX | X.X% |
+| **إجمالي حقوق الملكية** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** |
+| **إجمالي الخصوم وحقوق الملكية** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** |
 
 ### قائمة التدفقات النقدية
-| فئة التدفق النقدي | الفترة الحالية | الفترة السابقة | الفرق بالمبلغ | الفرق بالنسبة المئوية |
+| فئة التدفق النقدي | الفترة الحالية | الفترة السابقة | الفرق (ر.س) | الفرق بالنسبة المئوية |
 |--------------------|----------------|--------------|------------|------------|
 | **الأنشطة التشغيلية** | | | | |
-| صافي الدخل | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% |
-| التسويات لمطابقة صافي الدخل | $XX,XXX | $XX,XXX | $X,XXX | X.X% |
-| التغيرات في رأس المال العامل | $XX,XXX | $XX,XXX | $X,XXX | X.X% |
-| **صافي النقد من الأنشطة التشغيلية** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** |
+| صافي الدخل | XXX,XXX | XXX,XXX | XXX,XXX | X.X% |
+| التسويات لمطابقة صافي الدخل | XX,XXX | XX,XXX | X,XXX | X.X% |
+| التغيرات في رأس المال العامل | XX,XXX | XX,XXX | X,XXX | X.X% |
+| **صافي النقد من الأنشطة التشغيلية** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** |
 | **الأنشطة الاستثمارية** | | | | |
-| النفقات الرأسمالية | $(XX,XXX) | $(XX,XXX) | $(X,XXX) | X.X% |
-| عمليات الاستحواذ/التصفية | $(XX,XXX) | $(XX,XXX) | $(X,XXX) | X.X% |
-| **صافي النقد من الأنشطة الاستثمارية** | **$(XXX,XXX)** | **$(XXX,XXX)** | **$(X,XXX)** | **X.X%** |
+| النفقات الرأسمالية | (XX,XXX) | (XX,XXX) | (X,XXX) | X.X% |
+| عمليات الاستحواذ/التصفية | (XX,XXX) | (XX,XXX) | (X,XXX) | X.X% |
+| **صافي النقد من الأنشطة الاستثمارية** | **(XXX,XXX)** | **(XXX,XXX)** | **(X,XXX)** | **X.X%** |
 | **الأنشطة التمويلية** | | | | |
-| المتحصلات من إصدار الديون | $XX,XXX | $XX,XXX | $X,XXX | X.X% |
-| سداد الديون | $(XX,XXX) | $(XX,XXX) | $(X,XXX) | X.X% |
-| توزيعات الأرباح المدفوعة | $(XX,XXX) | $(XX,XXX) | $(X,XXX) | X.X% |
-| **صافي النقد من الأنشطة التمويلية** | **$X,XXX** | **$X,XXX** | **$X,XXX** | **X.X%** |
-| **صافي الزيادة/(النقص) في النقد** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** |
-| النقد في بداية الفترة | $XXX,XXX | $XXX,XXX | $XXX,XXX | X.X% |
-| **النقد في نهاية الفترة** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **X.X%** |
+| المتحصلات من إصدار الديون | XX,XXX | XX,XXX | X,XXX | X.X% |
+| سداد الديون | (XX,XXX) | (XX,XXX) | (X,XXX) | X.X% |
+| توزيعات الأرباح المدفوعة | (XX,XXX) | (XX,XXX) | (X,XXX) | X.X% |
+| **صافي النقد من الأنشطة التمويلية** | **X,XXX** | **X,XXX** | **X,XXX** | **X.X%** |
+| **صافي الزيادة/(النقص) في النقد** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** |
+| النقد في بداية الفترة | XXX,XXX | XXX,XXX | XXX,XXX | X.X% |
+| **النقد في نهاية الفترة** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X.X%** |
 
 ## تحليل الفروقات والتعليقات
 ### فروقات الإيرادات
-[اشرح الفروقات الجوهرية في الإيرادات (>5% أو >$XXK) بحسب خط المنتج، أو المنطقة الجغرافية، أو نوع العميل، إلخ.]
+[اشرح الفروقات الجوهرية في الإيرادات (>5% أو >10,000 ر.س) بحسب خط المنتج، أو المنطقة الجغرافية، أو نوع العميل، إلخ.]
 
-### فروقات المصروفات  
-[اشرح الفروقات الجوهرية في المصروفات (>5% أو >$XXK) بحسب القسم أو فئة المصروفات.]
+### فروقات المصروفات
+[اشرح الفروقات الجوهرية في المصروفات (>5% أو >10,000 ر.س) بحسب القسم أو فئة المصروفات.]
 
 ### التغيرات في قائمة المركز المالي
 [اشرح التغيرات الجوهرية في الأصول أو الخصوم أو حقوق الملكية.]
@@ -116,7 +118,7 @@ tags: [finance, report, monthly]
 | النسبة المتداولة | X.XX | X.XX | X.XX | [Falcon Green if >1.5, Falcon Red if <1.0] |
 | نسبة الدين إلى حقوق الملكية | X.XX | X.XX | X.XX | [Falcon Green if <0.5, Falcon Red if >1.0] |
 | متوسط فترة التحصيل (DSO) | XX يوماً | XX يوماً | XX يوماً | [Falcon Green if <target, Falcon Red if >target] |
-| معدل دوران المخزون | X.X مرة | X.X مرة | X.X | [Falcon Green if >target, Falcon Red if <target] |
+| كفاية النقد (بالأشهر) | XX | XX | XX | [Falcon Green if ≥12, Falcon Red if <6] |
 
 ## التوقعات والآفاق المستقبلية
 [توقعات محدّثة للفترات المتبقية بناءً على الأداء الحالي والأحداث المستقبلية المعروفة.]
@@ -126,10 +128,10 @@ tags: [finance, report, monthly]
 
 ### الإسقاطات المُنقَّحة
 | المقياس | الفعلي للربع [Current] | توقعات الربع [Next] | توقعات الربع [Following] | توقعات السنة الكاملة |
-|--------|-------------------|------------------|-----------------------|-------------------|
-| الإيرادات | $XXX,XXX | $XXX,XXX | $XXX,XXX | $X,XXX,XXX |
-| صافي الدخل | $XXX,XXX | $XXX,XXX | $XXX,XXX | $XXX,XXX |
-| الأرباح قبل الفوائد والضرائب والإهلاك والاستهلاك (EBITDA) | $XXX,XXX | $XXX,XXX | $XXX,XXX | $XXX,XXX |
+|--------|-------------------|------------------|-----------------------|--------------------|
+| الإيرادات | XXX,XXX | XXX,XXX | XXX,XXX | X,XXX,XXX |
+| صافي الدخل | XXX,XXX | XXX,XXX | XXX,XXX | XXX,XXX |
+| الأرباح قبل الفوائد والضرائب والإهلاك والاستهلاك (EBITDA) | XXX,XXX | XXX,XXX | XXX,XXX | XXX,XXX |
 
 ## الملاحق
 - الملحق أ: جدول الإيرادات التفصيلي بحسب المنتج/المنطقة
@@ -140,5 +142,5 @@ tags: [finance, report, monthly]
 
 ---
 *يلتزم بدليل أسلوب توثيق Fly GACA الإصدار v1.2*
-*Template: tpl-fin-report.md | Version: v01 | Last Updated: 2026-06-16*
-*جميع المبالغ بالدولار الأمريكي (USD) ما لم يُذكر خلاف ذلك. أُعِدّت القوائم المالية وفقاً لـ [GAAP/IFRS].*
+*Template: tpl-fin-report.md | Version: v02 | Last Updated: 2026-08-09*
+*جميع المبالغ بالريال السعودي (SAR) ما لم يُذكر خلاف ذلك. أُعِدّت القوائم المالية وفقاً للمعايير الدولية لإعداد التقارير المالية المعتمدة في المملكة العربية السعودية (SOCPA)، والزكاة وفق قواعد هيئة الزكاة والضريبة والجمارك.*

@@ -2,8 +2,8 @@
 title: "قالب المقترح الاستراتيجي"
 type: "strategy"
 doctype: "proposal"
-version: "v01"
-last_updated: "2026-06-16"
+version: "v02"
+last_updated: "2026-08-09"
 author: "@username"
 tags: [strategy, proposal]
 ---
@@ -19,7 +19,7 @@ tags: [strategy, proposal]
 ## الأهداف ومقاييس النجاح
 - **الهدف 1**: [هدف محدد قابل للقياس]
   - مقياس النجاح: [مستهدف قابل للتحديد الكمّي]
-- **الهدف 2**: [هدف محدد قابل للقياس]  
+- **الهدف 2**: [هدف محدد قابل للقياس]
   - مقياس النجاح: [مستهدف قابل للتحديد الكمّي]
 - **الهدف 3**: [هدف محدد قابل للقياس]
   - مقياس النجاح: [مستهدف قابل للتحديد الكمّي]
@@ -38,13 +38,15 @@ tags: [strategy, proposal]
    - الاعتماديات: [المبادرات الأخرى أو العوامل الخارجية]
 
 ## النظرة المالية العامة
+*جميع المبالغ بالريال السعودي (SAR).*
+
 | الفئة | الربع الأول | الربع الثاني | الربع الثالث | الربع الرابع | الإجمالي |
 |----------|----|----|----|----|-------|
-| الأفراد | $XXX,XXX | $XXX,XXX | $XXX,XXX | $XXX,XXX | $X,XXX,XXX |
-| الأدوات والتقنية | $XX,XXX | $XX,XXX | $XX,XXX | $XX,XXX | $XXX,XXX |
-| التسويق والتواصل | $XX,XXX | $XX,XXX | $XX,XXX | $XX,XXX | $XXX,XXX |
-| الاحتياطي الطارئ (10%) | $XX,XXX | $XX,XXX | $XX,XXX | $XX,XXX | $XXX,XXX |
-| **الإجمالي** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **$XXX,XXX** | **$X,XXX,XXX** |
+| الأفراد | XXX,XXX | XXX,XXX | XXX,XXX | XXX,XXX | X,XXX,XXX |
+| الأدوات والتقنية | XX,XXX | XX,XXX | XX,XXX | XX,XXX | XXX,XXX |
+| التسويق والتواصل | XX,XXX | XX,XXX | XX,XXX | XX,XXX | XXX,XXX |
+| الاحتياطي الطارئ (10%) | XX,XXX | XX,XXX | XX,XXX | XX,XXX | XXX,XXX |
+| **الإجمالي** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **XXX,XXX** | **X,XXX,XXX** |
 
 ## تقييم المخاطر والتخفيف من آثارها
 | مستوى المخاطرة | وصف المخاطرة | الاحتمالية | الأثر | استراتيجية التخفيف |
@@ -54,18 +56,16 @@ tags: [strategy, proposal]
 | منخفض | [Risk description] | [High/Med/Low] | [High/Med/Low] | [Mitigation approach] |
 
 ## الجدول الزمني للتنفيذ
-```markdown
-| Phase | Month 1 | Month 2 | Month 3 | Month 4 | Month 5 | Month 6 |
+| المرحلة | الشهر 1 | الشهر 2 | الشهر 3 | الشهر 4 | الشهر 5 | الشهر 6 |
 |-------|---------|---------|---------|---------|---------|---------|
-| Planning & Setup | ████ | | | | | |
-| Pilot Execution | | ████ | ████ | | | |
-| Full Rollout | | | | ████ | ████ | ████ |
-| Optimization | | | | | ████ | ████ |
-```
+| التخطيط والإعداد | ████ | | | | | |
+| التنفيذ التجريبي | | ████ | ████ | | | |
+| الإطلاق الكامل | | | | ████ | ████ | ████ |
+| التحسين المستمر | | | | | ████ | ████ |
 
 ## الموافقات وأصحاب المصلحة
 - **الراعي التنفيذي**: [Name, Title]
-- **مالك المنتج**: [Name, Title]  
+- **مالك المنتج**: [Name, Title]
 - **القائد التقني**: [Name, Title]
 - **مراجعة أصحاب المصلحة**: [قائمة الأقسام/الأفراد المطلوب مراجعتهم]
 
@@ -76,4 +76,4 @@ tags: [strategy, proposal]
 
 ---
 *يلتزم بدليل أسلوب توثيق Fly GACA الإصدار v1.2*
-*Template: tpl-strat-proposal.md | Version: v01 | Last Updated: 2026-06-16*
+*Template: tpl-strat-proposal.md | Version: v02 | Last Updated: 2026-08-09*

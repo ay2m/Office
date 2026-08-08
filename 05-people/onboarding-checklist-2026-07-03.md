@@ -4,14 +4,14 @@ section: 05-people
 doc_type: checklist
 status: draft
 owner: Founder / HR
-last_updated: 2026-07-27
+last_updated: 2026-08-09
 lang: en
 ---
 
 # Fly GACA — New Hire Onboarding Checklist
 **قائمة تهيئة الموظف الجديد — فلاي قاكا**
 
-**Version:** 0.1 (draft) | **Date:** 2026-07-03 | **Folder:** 05-people/
+**Version:** 0.2 (draft) | **Date:** 2026-08-09 | **Folder:** 05-people/
 
 > **DRAFT — PENDING LEGAL REVIEW.** This checklist must be reviewed by a qualified Saudi HR professional and/or Saudi-licensed legal counsel before the first non-founder hire starts. It is an operational aid, not legal advice. Saudi Labor Law (Royal Decree M/51 and its amendments) governs.
 
@@ -35,12 +35,12 @@ Operational, compliance-first checklist covering **Day -7 (offer accepted) throu
 | ☐ | Employment contract drafted from 05-people/saudi-compliant-employment-contract-template.docx and registered/authenticated in **Qiwa** | F | Qiwa shows contract pending employee authentication |
 | ☐ | Collect pre-start documents: National ID / Iqama copy, passport (expats), certificates, IBAN, photos (per Offer Letter §6) | NH → F | All documents received and filed in Drive HR folder |
 | ☐ | Verify right to work: Iqama validity + profession match (expats) or Saudi national ID; record in HR file | F | Verification note dated and filed |
-| ☐ | Medical insurance enrolment initiated with provider [Owner to confirm provider] | F | Policy active on or before Day 1 |
-| ☐ | Payroll setup: add employee to WPS payroll file / **Mudad** [Owner to confirm Mudad account status] | F | Employee row exists in payroll with correct basic/housing/transport split |
-| ☐ | Create Google Workspace account `firstname@flygaca.com` [Owner to confirm Workspace seat vs. current Cloudflare Email Routing — see 02-legal/email-routing.md] | F | New hire mailbox receives test email; routing doc updated |
+| ☐ | Medical insurance enrolment initiated with provider [Owner to confirm provider — brief D2] | F | Policy active on or before Day 1 |
+| ☐ | Payroll setup: add employee to WPS payroll file / **Mudad** [Owner to confirm Mudad account status — brief D3] | F | Employee row exists in payroll with correct basic/housing/transport split |
+| ☐ | Create Google Workspace account `firstname@flygaca.com` — **decided 2026-08-09 (brief D4):** a Workspace seat once a hire needs a mailbox; role/alias addresses stay on Cloudflare Email Routing (see 02-legal/email-routing.md) | F | New hire mailbox receives test email; routing doc updated |
 | ☐ | Provision accounts: Slack, GitHub org, Google Drive shared folders (least-privilege per role) | F | Invites sent; access limited to role-required folders/repos |
 | ☐ | Provision role-specific access only if needed: HubSpot, Firebase console, Cloudflare dashboard | F | Access granted per role or explicitly deferred in writing |
-| ☐ | Order/prepare laptop + peripherals; record serial numbers in equipment register [Owner to confirm register location] | F | Equipment register row created; device ready |
+| ☐ | Order/prepare laptop + peripherals; record serial numbers in the equipment register — **decided 2026-08-09 (brief D6):** register lives in the ops Drive folder per 06-operations-it/03-drive-folder-structure.docx | F | Equipment register row created; device ready |
 | ☐ | Prepare Day 1 signing pack: employment contract, IP assignment (02-legal/ip-assignment-agreement.docx), NDA (02-legal/), Employee Handbook Acknowledgment, Remote/Hybrid Work Acknowledgment | F | Pack printed or e-sign envelope staged |
 | ☐ | Draft role 30-60-90 plan from template; schedule Day 1 agenda and Week 1 check-ins | Mgr | Calendar invites sent to new hire's new address |
 
@@ -56,7 +56,7 @@ Operational, compliance-first checklist covering **Day -7 (offer accepted) throu
 | ☐ | **GOSI registration** (Saudi: full contributions; expat: occupational hazard branch) | F | GOSI portal shows employee active from start date |
 | ☐ | Confirm WPS bank details (IBAN) entered correctly in Mudad/payroll | F | Test record validated; first payroll run scheduled |
 | ☐ | Hand over equipment; employee signs equipment receipt | NH + F | Signed receipt filed; register updated to "issued" |
-| ☐ | Security baseline: 2FA on Google/Slack/GitHub, password manager seat [Owner to confirm password manager], disk encryption on | NH + F | Each control verified and ticked in IT note |
+| ☐ | Security baseline: 2FA on Google/Slack/GitHub, password-manager seat — **decided 2026-08-09 (brief D6):** 1Password or Bitwarden, founder's pick at first hire — disk encryption on | NH + F | Each control verified and ticked in IT note |
 | ☐ | Welcome session: mission, Employee Handbook walkthrough (esp. probation, working hours, InfoSec, IP, confidentiality) | F | Session held; questions logged |
 | ☐ | Walk through Leave & PTO Policy (05-people/leave-pto-policy-2026-06-14.md), Grievance & Disciplinary Procedure, Anti-Harassment Policy | F | Employee confirms receipt of all three in writing |
 
@@ -100,7 +100,7 @@ Operational, compliance-first checklist covering **Day -7 (offer accepted) throu
 
 | ☐ | Task | Owner | Done-when |
 |---|------|-------|-----------|
-| ☐ | Day 80–85: probation review meeting (pass / extend to max 180 days by mutual written agreement per Labor Law Art. 53 / terminate) [Owner to confirm — Probation Review Form is a P2 gap-audit item, not yet drafted] | F + Mgr | Decision documented and signed before Day 90 |
+| ☐ | Day 80–85: probation review meeting (pass / extend to max 180 days by mutual written agreement per Labor Law Art. 53 / terminate) [Owner to confirm — Probation Review Form is a P2 gap-audit item, not yet drafted — brief D7] | F + Mgr | Decision documented and signed before Day 90 |
 | ☐ | If extending: written mutual agreement signed before Day 90 | F + NH | Signed extension in HR file and reflected in Qiwa if required |
 | ☐ | If terminating: follow Grievance & Disciplinary Procedure documentation standards and Offboarding Checklist (05-people/offboarding-checklist-2026-07-03.md) | F | Offboarding checklist opened |
 | ☐ | If passing: confirm in writing; unlock post-probation items (e.g., taking accrued leave per Leave Policy §3.2) | F | Confirmation letter filed; employee notified |
@@ -110,11 +110,11 @@ Operational, compliance-first checklist covering **Day -7 (offer accepted) throu
 
 ## 8. Records
 
-All artefacts above are retained in the employee's HR folder in Google Drive (structure per 06-operations-it/03-drive-folder-structure.docx) for the duration of employment plus the statutory retention period [Owner to confirm retention period with counsel].
+All artefacts above are retained in the employee's HR folder in Google Drive (structure per 06-operations-it/03-drive-folder-structure.docx) for the duration of employment plus the statutory retention period [Owner to confirm retention period with counsel — brief D5].
 
 **Cross-references:** 05-people/offer-letter-template-2026-06-14.md · 05-people/saudi-compliant-employment-contract-template.docx · 05-people/employee-handbook.docx · 05-people/leave-pto-policy-2026-06-14.md · 05-people/30-60-90-day-new-hire-plan-template.docx · 05-people/offboarding-checklist-2026-07-03.md · 02-legal/email-routing.md · 04-compliance-ksa/ (Nitaqat, Tamheer)
 
 ---
 
 *BDA Company International (شركة بدع الدولية) | Confidential — Internal HR Document*
-*Draft 0.1 — 2026-07-03 — Pending review by qualified Saudi HR/legal professional. Not legal advice.*
+*Draft 0.2 — 2026-08-09 (owner decisions D4, D6 applied). Pending review by qualified Saudi HR/legal professional. Not legal advice.*

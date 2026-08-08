@@ -2,8 +2,8 @@
 title: "HR Policy Template"
 type: "hr"
 doctype: "policy"
-version: "v01"
-last_updated: "2026-06-16"
+version: "v02"
+last_updated: "2026-08-09"
 author: "@username"
 tags: [hr, policy, compliance]
 ---
@@ -14,10 +14,15 @@ tags: [hr, policy, compliance]
 **Effective Date**: [YYYY-MM-DD]  
 **Review Date**: [YYYY-MM-DD]  
 **Version**: [v01]  
-**Owner**: [Human Resources Department]  
-**Approved by**: [Name, Title - e.g., Chief People Officer]  
+**Owner**: [Human Resources / Founder]  
+**Approved by**: [Name, Title]  
 **Applies to**: [All Employees / Specific Departments / Contractors / etc.]  
 **Classification**: [Internal Use Only / Confidential]
+
+> [!NOTE]
+> Fly GACA operates under the **Saudi Labor Law** and its Implementing Regulations. Any conflict
+> between this policy and the Saudi Labor Law is resolved in favor of the law. Where the company
+> has 10+ employees, check HRSD internal-work-regulation (لائحة تنظيم العمل) filing requirements.
 
 ## Purpose & Scope
 [Clear statement of why this policy exists and what it aims to achieve. Include the specific business, legal, or regulatory objectives.]
@@ -26,7 +31,7 @@ tags: [hr, policy, compliance]
 [Concise, definitive statement of the organization's position on the subject matter.]
 
 ### Scope of Application
-- **Who**: [Employee classifications covered: full-time, part-time, temporary, contractors, interns, volunteers]
+- **Who**: [Employee classifications covered: full-time, part-time, temporary, contractors, interns (e.g. Tamheer), volunteers]
 - **Where**: [Geographic applicability: all offices, remote workers, specific locations]
 - **When**: [Time applicability: effective date, ongoing, specific events/triggers]
 - **What**: [Specific behaviors, actions, or situations covered]
@@ -38,7 +43,7 @@ tags: [hr, policy, compliance]
 |------|------------|
 | [TERM] | [Clear, unambiguous definition] |
 | [ACRONYM] | [Spelled out form and explanation] |
-| [LEGAL TERM] | [Definition aligned with applicable regulations] |
+| [LEGAL TERM] | [Definition aligned with the Saudi Labor Law or applicable regulation] |
 | [ORGANIZATIONAL TERM] | [Internal definition specific to Fly GACA] |
 
 ## Policy Details
@@ -49,7 +54,7 @@ tags: [hr, policy, compliance]
 
 #### 1.1 Requirements
 - [ ] Specific requirement or obligation #1
-- [ ] Specific requirement or obligation #2  
+- [ ] Specific requirement or obligation #2
 - [ ] Specific requirement or obligation #3
 
 #### 1.2 Procedures
@@ -103,13 +108,18 @@ tags: [hr, policy, compliance]
 |------|------------------|
 | **Employees** | [What individual staff members must do] |
 | **Managers/Supervisors** | [Additional duties for those with direct reports] |
-| **HR Department** | [Policy maintenance, training, enforcement, reporting] |
+| **HR** | [Policy maintenance, training, enforcement, reporting] |
 | **Legal/Compliance** | [Regulatory guidance, risk assessment, investigation support] |
 | **Executive Leadership** | [Resource allocation, culture setting, accountability] |
 | **IT/Security** | [Technical implementation, monitoring, enforcement] if applicable |
 
 ## Enforcement & Violations
 [Consequences for non-compliance and procedures for addressing violations.]
+
+> [!IMPORTANT]
+> Disciplinary action must follow the procedural and time-limit rules of the Saudi Labor Law
+> (incl. written notice, hearing, and proportionality). Confirm article references with counsel
+> before issuing any penalty.
 
 ### Violation Classification
 | Level | Characteristics | Typical Examples |
@@ -131,7 +141,7 @@ tags: [hr, policy, compliance]
 - **Level 1**: [Verbal warning, retraining, performance improvement plan]
 - **Level 2**: [Written warning, mandatory counseling, probation]
 - **Level 3**: [Suspension, demotion, transfer, termination]
-- **Level 4**: [Immediate termination, legal action, regulatory reporting]
+- **Level 4**: [Immediate termination for cause per Labor Law, legal action, regulatory reporting]
 
 ## Related Policies & References
 [Links to other relevant organizational policies.]
@@ -139,10 +149,10 @@ tags: [hr, policy, compliance]
 - [Related Policy: [Title] (Number: HR-POLICY-####)]
 - [Procedure: [Title] (Number: HR-PROC-####)]
 - [Guideline: [Title] (Number: HR-GUID-####)]
-- [Collective Bargaining Agreement: [Section] if applicable]
+- [Saudi Labor Law: [Article/Chapter]]
+- [HRSD Implementing Regulations: [Relevant section]]
 - [Employment Contract: [Relevant clauses]]
-- [Regulatory Reference: [Law/Regulation Title, Section]]
-- [Industry Standard: [Standard Name, Version]]
+- [GOSI / Mudad (WPS) / Qiwa obligations if applicable]
 
 ## Revision History
 | Version | Date | Author | Description of Changes | Approved By |
@@ -169,6 +179,6 @@ Date: _________________________________
 
 ---
 *Follows Fly GACA Document Style Guide v1.2*
-*Template: tpl-hr-policy.md | Version: v01 | Last Updated: 2026-06-16*
+*Template: tpl-hr-policy.md | Version: v02 | Last Updated: 2026-08-09*
 *Review Required: Annually or upon significant regulatory/business changes*
 *Legal Review: [Date] by [Legal Department/External Counsel]*

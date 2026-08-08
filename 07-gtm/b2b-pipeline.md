@@ -4,7 +4,7 @@ section: 07-gtm
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-08-09
 lang: en
 ---
 
@@ -79,18 +79,18 @@ and whether instructors currently track readiness manually.
 
 Run the standard CS playbooks against every school account:
 
-- Week 0–4: [Onboarding](onboarding-playbook.md) — roster loaded, instructors
+- Week 0–4: [Onboarding](../08-customer-success/onboarding-playbook.md) — roster loaded, instructors
   trained on the dashboard, >80% cadet activation.
-- Ongoing: [health scoring](customer-health-scoring.md) on adoption (active vs.
+- Ongoing: [health scoring](../08-customer-success/customer-health-scoring.md) on adoption (active vs.
   licensed seats), exam outcomes, instructor logins.
-- T-90 days: [Renewal](renewal-playbook.md) — lead with the readiness data the
+- T-90 days: [Renewal](../08-customer-success/renewal-playbook.md) — lead with the readiness data the
   dashboard collected all year.
-- Expansion: [Expansion playbook](expansion-playbook.md) — new cohorts, ELPT
+- Expansion: [Expansion playbook](../08-customer-success/expansion-playbook.md) — new cohorts, ELPT
   pack add-ons for the school, the Instructor Dashboard when it ships.
 
 ## KPIs
 
 - Pipeline: contacted → demo → pilot → signed (track conversion at each step)
 - Seats sold; active vs. licensed seats (>80%)
-- Renewal rate (>95% target per `customer-success.md`)
+- Renewal rate (>95% target per `08-customer-success/customer-success.md`)
 - Time from signed order to all-seats-granted (<2 business days)

@@ -4,7 +4,7 @@ section: 08-customer-success
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-08-09
 lang: en
 ---
 
@@ -18,9 +18,9 @@ MROs, and commercial operators that license Fly GACA for their cadets and staff.
 The health score is a single 0–100 number that drives proactive Customer
 Success motions (onboarding, at-risk intervention, renewal, expansion).
 
-It is operationalized by [`scripts/health_score.py`](../scripts/health_score.py)
+It is operationalized in [`customer-health-dashboard.xlsx`](customer-health-dashboard.xlsx)
 — see [`health-dashboard-spec.md`](health-dashboard-spec.md) for the dashboard
-and run instructions.
+spec and the scoring formula.
 
 ## Scoring Dimensions & Weights
 
@@ -54,4 +54,4 @@ notifies the assigned CSM and enters the relevant playbook.
 
 - [Health Dashboard Spec](health-dashboard-spec.md)
 - [At-Risk Playbook](at-risk-playbook.md)
-- [Customer Success overview](../customer-success.md)
+- [Customer Success overview](customer-success.md)

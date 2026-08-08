@@ -4,7 +4,7 @@ section: 08-customer-success
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-08-09
 lang: en
 ---
 
@@ -13,19 +13,18 @@ lang: en
 ## Purpose
 
 This document specifies how the Fly GACA health-scoring model is operationalized
-into a working dashboard and a runnable calculation tool. It implements the
-methodology defined in
-[`docs/customer-health-scoring.md`](customer-health-scoring.md) and powers the
+into a working dashboard. It implements the methodology defined in
+[`customer-health-scoring.md`](customer-health-scoring.md) and powers the
 proactive playbooks (at-risk, renewal, expansion).
 
-The reference implementation is
-[`scripts/health_score.py`](../scripts/health_score.py).
+The current implementation is the workbook
+[`customer-health-dashboard.xlsx`](customer-health-dashboard.xlsx) in this folder.
 
 ## Data Sources & Inputs
 
-The calculator reads a CSV where each row is one customer and each dimension is
-pre-scored 0–100. A sample file is provided at
-[`scripts/sample_customers.csv`](../scripts/sample_customers.csv).
+Each customer row carries the five pre-scored dimensions (0–100). In production
+these dimension scores are derived from product telemetry, the support system,
+the CRM, and survey data; this spec treats them as inputs.
 
 | Column | Type | Description |
 |--------|------|-------------|
@@ -37,9 +36,6 @@ pre-scored 0–100. A sample file is provided at
 | `support` | 0–100 | Support Health dimension |
 | `financial` | 0–100 | Financial / Contract dimension |
 | `sentiment` | 0–100 | Sentiment dimension |
-
-In production these dimension scores are derived from product telemetry, the
-support system, the CRM, and survey data; this spec treats them as inputs.
 
 ## Scoring Dimensions & Weights
 
@@ -66,29 +62,13 @@ The composite score is a weighted blend (weights sum to 1.0), matching
 
 ## Output & Reporting
 
-The tool produces, per customer: composite score, band, and the recommended
-playbook. It also prints a portfolio summary (account count, average score, and
-count per band). A `--csv` flag emits machine-readable output for ingestion into
-a BI dashboard.
+The dashboard shows, per customer: composite score, band, and the recommended
+playbook, plus a portfolio summary (account count, average score, and count per
+band).
 
 A production dashboard should additionally visualize: score distribution by
 band, trend over time, accounts by segment/plan, and a drill-down to the weakest
 dimension per account.
-
-## How to Run the Script
-
-```bash
-# Human-readable table
-python3 scripts/health_score.py scripts/sample_customers.csv
-
-# Riskiest accounts first
-python3 scripts/health_score.py scripts/sample_customers.csv --sort
-
-# CSV output for BI ingestion
-python3 scripts/health_score.py scripts/sample_customers.csv --csv
-```
-
-Requires Python 3 (standard library only — no installation needed).
 
 ## Refresh Cadence
 
