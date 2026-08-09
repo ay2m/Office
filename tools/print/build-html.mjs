@@ -60,6 +60,10 @@ async function main() {
 
   const browser = await chromium.launch({ executablePath: findChromium() });
   const page = await browser.newPage();
+  // Network lockdown: printing is offline — only local file:// URLs may load;
+  // abort anything else (no CDN/exfil requests from rendered docs).
+  await page.route('**/*', (route) =>
+    route.request().url().startsWith('file://') ? route.continue() : route.abort());
   for (const rel of files) {
     const out = path.join(OUT_ROOT, rel.replace(/\.html$/, '.pdf'));
     mkdirSync(path.dirname(out), { recursive: true });

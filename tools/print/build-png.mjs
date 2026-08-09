@@ -68,6 +68,10 @@ async function main() {
       viewport: { width: cssW, height: cssH },
       deviceScaleFactor: DPI / 96,
     });
+    // Network lockdown: screenshotting is offline — only local file:// URLs
+    // may load; abort anything else (no CDN/exfil requests from assets).
+    await page.route('**/*', (route) =>
+      route.request().url().startsWith('file://') ? route.continue() : route.abort());
     await page.goto(pathToFileURL(src).href, { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts && document.fonts.ready);
     await page.screenshot({

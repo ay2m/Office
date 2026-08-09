@@ -23,10 +23,11 @@ How the public-facing `@flygaca.com` addresses map to real inboxes.
 Every role address below forwards to **both** of these inboxes:
 
 - `i@flygaca.com` — the canonical, on-brand inbox (primary).
-- `ay2m@hotmail.com` — personal backup inbox.
+- `[personal backup inbox — recorded in the password manager, not in this repo]`.
 
-`i@flygaca.com` is itself the brand inbox; it forwards onward to
-`ay2m@hotmail.com` so nothing is missed.
+`i@flygaca.com` is itself the brand inbox; it forwards onward to the
+personal backup inbox (recorded in the password manager, not in this repo)
+so nothing is missed.
 
 ## Role addresses
 
@@ -45,14 +46,15 @@ Every role address below forwards to **both** of these inboxes:
 | Address | Status |
 | --- | --- |
 | `hello@flygaca.com` | **Retired** as the displayed contact (replaced by `i@flygaca.com`). Keep it alive as a forwarding alias so older links and printed material still reach us. |
-| `flygaca@gmail.com` | Founder/account address (used for Firebase project ownership — see `06-operations-it/runbooks/runbook-deploy.md`). Not a public contact. |
+| `[founder-controlled mailbox — recorded in the password manager]` | Founder/account address (used for Firebase project ownership — see `06-operations-it/runbooks/runbook-deploy.md`). Not a public contact. |
 
 ## Notes
 
-- `ay2m@hotmail.com` is also used in code as the **staff/admin allow-list
-  identity** (`assets/js/store.js`, `functions/staff.js`). That is an auth
-  mechanism, unrelated to contact routing — do not change it when updating
-  contact addresses.
+- The **staff/admin allow-list identity** used in code (`assets/js/store.js`,
+  `functions/staff.js`) is a founder-controlled mailbox recorded in the
+  secrets inventory (password manager) — intentionally NOT named in this
+  repo. That is an auth mechanism, unrelated to contact routing — do not
+  change it when updating contact addresses.
 - The official `@gaca.gov.sa` addresses that appear in `assets/data/` are real
   GACA regulatory contacts from the source corpus — never rewrite them.
 
@@ -68,7 +70,7 @@ Routing is independent of the Pages site and just adds MX/TXT records.
    the `SPF` (`TXT`) record. (If any stale `MX`/mail `TXT` records remain from a
    previous host, delete them so only Cloudflare's exist.)
 2. **Destination addresses** → add and verify (click the confirmation email):
-   - `ay2m@hotmail.com`
+   - the personal backup inbox (recorded in the password manager, not in this repo)
    - the real inbox behind `i@flygaca.com` (a Gmail/Hotmail you actually read)
 3. **Routing rules** — one per role address, each → `i@flygaca.com`:
    `support@`, `sales@`, `info@`, `hr@`, `captadel@`, `privacy@`, and the legacy
@@ -76,7 +78,7 @@ Routing is independent of the Pages site and just adds MX/TXT records.
    lands.
 4. **Fan-out to both inboxes:** a Cloudflare rule has one destination, so point
    everything at `i@flygaca.com` and have that inbox auto-forward a copy to
-   `ay2m@hotmail.com` (or use an Email Worker for a true two-destination split).
+   the personal backup inbox (or use an Email Worker for a true two-destination split).
 
 The MX/TXT records are not proxied (no orange/grey-cloud choice for mail), and
 they don't touch the Pages site's own records, so the website is unaffected.

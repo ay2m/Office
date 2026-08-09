@@ -38,7 +38,8 @@ const CACHE_FILE = path.join(TOOLS_DIR, '.buildcache.json');
 const SKIP_DIRS = new Set(['.git', 'node_modules', 'tools', '_print']);
 const MIN_CHROMIUM = 131; // @page margin boxes (footer page numbers) need M131+
 
-const md = new MarkdownIt({ html: true, linkify: true, typographer: false });
+// html: false — docs are untrusted markdown; raw HTML/JS must never reach Chromium.
+const md = new MarkdownIt({ html: false, linkify: true, typographer: false });
 // GitHub-style task-list checkboxes: - [ ] / - [x]
 md.core.ruler.after('inline', 'task-lists', (state) => {
   for (const token of state.tokens) {
@@ -47,8 +48,10 @@ md.core.ruler.after('inline', 'task-lists', (state) => {
     if (first.type === 'text' && /^\[( |x|X)\] /.test(first.content)) {
       const checked = /^\[(x|X)\]/.test(first.content);
       first.content = first.content.slice(4);
-      const box = new state.Token('html_inline', '', 0);
-      box.content = `<span class="checkbox">${checked ? '☑' : '☐'}</span> `;
+      // plain-text glyph (not html_inline) — with html:false an html_inline
+      // token would be escaped and show literal markup in the PDF
+      const box = new state.Token('text', '', 0);
+      box.content = `${checked ? '☑' : '☐'} `;
       token.children.unshift(box);
     }
   }
@@ -168,6 +171,10 @@ async function main() {
     throw new Error(`Chromium ${version} too old — need >=${MIN_CHROMIUM} for @page margin boxes`);
   }
   const page = await browser.newPage();
+  // Network lockdown: printing is offline — only local file:// URLs may load;
+  // abort anything else (no CDN/exfil requests from rendered docs).
+  await page.route('**/*', (route) =>
+    route.request().url().startsWith('file://') ? route.continue() : route.abort());
   const tmp = path.join(tmpdir(), `flygaca-print-${process.pid}.html`);
 
   let done = 0;
