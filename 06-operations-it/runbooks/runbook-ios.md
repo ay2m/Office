@@ -4,21 +4,22 @@ section: 06-operations-it
 doc_type: runbook
 status: active
 owner: Founder
-last_updated: 2026-08-05
+last_updated: 2026-08-10
 lang: en
 ---
 
 # RUNBOOK — Fly GACA iOS apps (native family + store presence)
 
-> **Current track (2026-08).** The shipping iOS strategy is the **native six-app
-> family** — one offline SwiftUI app per study module (PPL, ELPT, AIP, CPL, IR,
-> ATPL), paid up-front, built from the shared
+> **Current track (2026-08).** The shipping iOS strategy is the **native app
+> family** — one offline SwiftUI app per study module (**ELPT and AIP**; the
+> licence-exam modules PPL, CPL, IR and ATPL are paused as of 2026-08-10 and
+> their targets were removed), paid up-front, built from the shared
 > [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA) repo (FlyGACAKit + per-app
 > content snapshots synced from the web monorepo). The single-app **Capacitor +
 > Pro subscription** wrapper this runbook originally documented is **superseded
 > for launch** and kept below as the reference for a future subscription phase.
 
-## 0. The native six-app family — release path
+## 0. The native app family — release path
 
 What ships: six independent App Store apps (bundle ids `com.flygaca.<module>`),
 identical offline feature set (study mode, quizzing, flashcards with spaced
@@ -30,13 +31,13 @@ with the code — this section only points:
 1. **Content sync** — `scripts/sync-content.sh` in `ay2m/FlyGACA`; the monorepo
    stays the corpus source of truth (last full sync 2026-08-05).
 2. **Build / test / CI** — the family repo's `docs/RUNBOOK-ios-release.md` and
-   `.github/workflows/ios.yml`: Swift tests, XcodeGen validation, a six-app build
-   matrix, and a Wave 1 TestFlight lane that activates once signing secrets exist.
+   `.github/workflows/ios.yml`: Swift tests, XcodeGen validation, a per-app build
+   matrix, and a TestFlight lane that activates once signing secrets exist.
 3. **Apple portal (human, one-time)** — `docs/RUNBOOK-ios-signing.md` +
    `docs/RUNBOOK-ios-signing-CHECKLIST.md`: App Group `group.com.flygaca.study`;
-   App IDs with **Sign in with Apple enabled and grouped under `com.flygaca.ppl`**
-   (the shared entitlements already declare it — the first signed build fails
-   provisioning until this is done); distribution certificate; `FlyGACA <APP>
+   App IDs (Sign in with Apple was **removed** from the shared entitlements in
+   2026-08, so no capability grouping is needed; if it returns, the primary App ID
+   is `com.flygaca.elpt`); distribution certificate; `FlyGACA <APP>
    AppStore` provisioning profiles; paid App Store Connect records; the ASC API
    key; then the ten GitHub secrets (`scripts/native/set-signing-secrets.sh`).
 4. **Firebase (for the later online phase)** — `docs/RUNBOOK-ios-firebase.md`:

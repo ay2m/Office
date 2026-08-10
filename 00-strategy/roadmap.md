@@ -4,7 +4,7 @@ section: 00-strategy
 doc_type: plan
 status: active
 owner: Founder
-last_updated: 2026-08-05
+last_updated: 2026-08-10
 lang: en
 ---
 
@@ -39,7 +39,7 @@ out explicitly.
 | 3 | Pilot accounts & tools | In progress — accounts system built, verified & live (Auth provider on, rules deployed); PDPL DPIA is the one gate left before inviting users |
 | 4 | Arabic, offline & polish | In progress — bilingual engine + RTL live; homepage, About & all 4 section hubs translated; remaining inner pages + native review pending |
 | 5 | Money & flight schools | Not started |
-| 6 | Reach | In progress — iOS pivoted to the native six-app family; Wave 1 store-ready, Apple portal + submission pending (2026-08-05); Android not started |
+| 6 | Reach | In progress — iOS pivoted to the native family; licence-exam apps paused, ELPT + AIP store-ready with Apple portal + submission pending (2026-08-10); Android not started |
 | 7 | The training platform | In progress — explanations, Captain Adel in quizzes, 162-question bank, exam-readiness analytics shipped |
 | 8 | The library as a platform | **Done** — all 6 features shipped: study content, accident lessons, whole-library search, cross-links, reading paths, FAA comparison |
 | 9 | Launch & visibility | In progress — site deployed & live; SEO/structured-data/analytics done; custom domain + go-to-market pending |
@@ -546,26 +546,33 @@ cadet seats; the free library remains open to everyone.
 ## Phase 6 — Reach
 
 **Goal:** native apps in the app stores, and a documented public API.
-**Status:** In progress on iOS (updated 2026-08-05). The strategy changed from one
-Capacitor wrapper to a **native six-app iOS family** (PPL, ELPT, AIP, CPL, IR, ATPL) —
-fully offline, paid up-front, built from the shared `ay2m/FlyGACA` repo (SwiftUI +
-FlyGACAKit, content synced from the monorepo). Wave 1 (PPL, ELPT, AIP) is CI-green with
-store metadata and bilingual screenshots ready in the six `FlyGACA/<MODULE>` metadata
-repos; the remaining gate is the Apple-portal work (App IDs, Sign in with Apple
-grouping, signing, App Store Connect records — the family repo's
+**Status:** In progress on iOS (updated 2026-08-10). The strategy changed from one
+Capacitor wrapper to a **native iOS family** — fully offline, paid up-front, built from
+the shared `ay2m/FlyGACA` repo (SwiftUI + FlyGACAKit, content synced from the monorepo).
+As of 2026-08-10 the shipping family is **ELPT and AIP**: the four licence-exam modules
+(PPL, CPL, IR, ATPL) are **paused** pending a strategic decision and their app targets
+were removed from the family repo. Their web packs are unaffected and still selling, and
+their store metadata is retained CI-green in the `FlyGACA/<MODULE>` repos, so restoring a
+module is a revert plus its Apple-portal steps. The remaining gate for ELPT and AIP is the
+Apple-portal work (App IDs, signing, App Store Connect records — the family repo's
 `docs/RUNBOOK-ios-signing-CHECKLIST.md`) and submission. The Capacitor + subscription
 wrapper is superseded for launch and kept as a future option
 (`06-operations-it/runbooks/runbook-ios.md`). Android: not started.
 
 ### Native apps
 
-- [x] Strategy pivot: six native offline module apps instead of one Capacitor wrapper
-  (2026-08; `ay2m/FlyGACA` + the six metadata repos)
-- [ ] iOS — Apple portal: App IDs, Sign in with Apple grouped under `com.flygaca.ppl`,
-  signing profiles, paid App Store Connect records (Wave 1: PPL · ELPT · AIP)
+- [x] Strategy pivot: native offline module apps instead of one Capacitor wrapper
+  (2026-08; `ay2m/FlyGACA` + the per-module metadata repos)
+- [x] Scope decision: pause the licence-exam apps (PPL · CPL · IR · ATPL); ship ELPT · AIP
+  (2026-08-10 — native apps only; the web packs keep selling)
+- [ ] iOS — Apple portal: App IDs, signing profiles, paid App Store Connect records
+  (ELPT · AIP). Note Sign in with Apple was dropped from the app entitlements in 2026-08,
+  so no App-ID grouping is required until sign-in ships; if it does, the primary App ID
+  must be `com.flygaca.elpt` (the old primary, `com.flygaca.ppl`, is a paused module)
 - [ ] iOS — TestFlight via the family repo's CI lane, then submission and review
 - [x] Store assets — screenshots, descriptions, privacy disclosures, compliance
-  (EN + AR in the six metadata repos, CI-gated; refreshed 2026-08-05)
+  (EN + AR in the metadata repos, CI-gated; refreshed 2026-08-05. The four paused
+  modules' assets are retained and still CI-green.)
 - [ ] Android build — Google Play listing, submission and review
 
 ### Public API
