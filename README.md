@@ -22,9 +22,17 @@
 
 **FlyGACA/Office** is the internal documents repository ("The Office") for [Fly GACA](https://flygaca.com) — an independent educational platform and open regulatory library for Saudi civil aviation (GACAR, AIP, charts, ground school, and Captain Adel, the AI flight instructor).
 
-This repo stores every operating document that runs the company: legal contracts, compliance programs, HR policies, GTM playbooks, investor materials, brand assets, and engineering specs. Polished deliverables live as `.docx` / `.xlsx`; working notes, specs, and drafts are `.md`. Every `.md` file has a **print-ready branded PDF** under [`_print/`](_print/).
+This repo stores every operating document that runs the company: legal contracts, compliance programs, HR policies, GTM playbooks, investor materials, brand assets, and engineering specs. **It holds no application source code** — Fly GACA's product code lives in four separate repos (see the table below). Polished deliverables live as `.docx` / `.xlsx`; working notes, specs, and drafts are `.md`. Every `.md` file has a **print-ready branded PDF** under [`_print/`](_print/).
 
 Fly GACA is a family of ten repositories; this is the internal-docs one. [**The Book of Fly GACA**](https://github.com/ay2m/FlyGACA/blob/main/THE-BOOK-OF-FLY-GACA.md) maps them all — product surfaces, shared principles, and the glossary — in one place.
+
+| Repo | What it holds |
+| --- | --- |
+| **FlyGACA/Office** (this repo) | The business operating system — strategy, governance, legal, finance, GTM docs |
+| [FlyGACA/FlyGACA-app](https://github.com/FlyGACA/FlyGACA-app) | flygaca.com — the React/Vite web app, Firebase backend, regulatory corpus + content pipelines |
+| [FlyGACA/Captain-Adel](https://github.com/FlyGACA/Captain-Adel) | The AI flight-instructor service (captadel.com) + the shared brain behind chat |
+| [ay2m/FlyGACA](https://github.com/ay2m/FlyGACA) | The native iOS app family — FlyGACAKit + the ELPT and AIP App Store targets |
+| [FlyGACA/ELPT](https://github.com/FlyGACA/ELPT) · [AIP](https://github.com/FlyGACA/AIP) · [PPL](https://github.com/FlyGACA/PPL) · [CPL](https://github.com/FlyGACA/CPL) · [IR](https://github.com/FlyGACA/IR) · [ATPL](https://github.com/FlyGACA/ATPL) | Per-app App Store metadata repos — store listing copy, screenshots, per-app roadmap |
 
 > [!IMPORTANT]
 > Fly GACA is **not affiliated with GACA** (Saudi General Authority of Civil Aviation). Every user-facing surface reinforces one rule: verify against the latest official GACA publication. This platform helps you *find and study* regulation — it never replaces it.
