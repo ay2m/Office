@@ -4,7 +4,7 @@ section: root
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-08-09
+last_updated: 2026-08-12
 lang: en
 ---
 
@@ -66,6 +66,12 @@ Support directories:
   authoritative** — on any conflict the English
   tree governs. Filenames stay ASCII kebab-case even under `ar/` for easy diffing.
 - **`tools/print/`** — the Markdown → branded A4 PDF pipeline (see below).
+- **`.claude/`** — Claude Code tooling, **not company documentation**: the vendored MIT
+  `diagram-design` skill (skinned to the Falcon palette) plus its `/export-diagram`,
+  `/import-drawio`, `/import-mermaid` commands. Provenance in
+  `.claude/skills/THIRD_PARTY_NOTICES.md`. It is excluded from the doc gate — `.claude` sits in
+  `SKIP_DIRS` in `tools/print/{check,build,build-html}.mjs` next to `tools` and `_print`, so its
+  markdown needs no front-matter and none of it renders into `_print/`.
 - **`_print/`** — generated PDFs, mirroring the whole tree (including `ar/`). Generated output,
   but **is committed** (not gitignored) — the CI gate below checks it's present and fresh.
 - **`_INDEX.md`** / **`ar/_INDEX.md`** — master index of the whole tree.
@@ -138,6 +144,16 @@ and the updated `.buildcache.json` together with the `.md` change** — a doc ed
 PDF fails CI (`.github/workflows/docs-check.yml` — the only workflow — runs on push to `main` and
 on PRs touching `**/*.md`, `**/*.html`, `_print/**`, `tools/print/**`, or the workflow file
 itself; CI runs Node 20).
+
+> [!WARNING]
+> **Editing `build.mjs` marks every PDF in the repo stale**, because its own bytes are folded into
+> the shared `themeHash`. For a change that genuinely alters rendering, that's correct — rebuild.
+> But for a change that *cannot* alter output (adding a `SKIP_DIRS` entry, a comment, a log line),
+> re-rendering 238 PDFs is pure churn: Chromium restamps `CreationDate` on every one, so all 238
+> show up as modified binaries. In that case re-stamp `.buildcache.json` with the new `themeHash`
+> instead — recompute `sha256(themeHash + source)` per existing key and write it back with
+> `JSON.stringify(cache, null, 1) + '\n'`. Verify with `node check.mjs` **and** a clean
+> `git status _print/`.
 
 Styling is the "Falcon Theme" documented in `11-brand/fly-gaca-document-style-guide.md`: Inter body
 · Cairo headings (and all Arabic text) · JetBrains Mono code, A4 page, 0.75in margins (0.9in
