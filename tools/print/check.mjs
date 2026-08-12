@@ -28,7 +28,7 @@ import { fileURLToPath } from 'node:url';
 const TOOLS_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(TOOLS_DIR, '..', '..');
 const OUT_ROOT = path.join(REPO_ROOT, '_print');
-const SKIP_DIRS = new Set(['.git', '.claude', 'node_modules', 'tools', '_print']);
+const SKIP_DIRS = new Set(['.git', 'node_modules', 'tools', '_print']);
 const REQUIRED = ['title', 'section', 'doc_type', 'status', 'owner', 'last_updated', 'lang'];
 
 function walk(dir, ext, files = []) {

@@ -35,7 +35,7 @@ const TOOLS_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(TOOLS_DIR, '..', '..');
 const OUT_ROOT = path.join(REPO_ROOT, '_print');
 const CACHE_FILE = path.join(TOOLS_DIR, '.buildcache.json');
-const SKIP_DIRS = new Set(['.git', '.claude', 'node_modules', 'tools', '_print']);
+const SKIP_DIRS = new Set(['.git', 'node_modules', 'tools', '_print']);
 const MIN_CHROMIUM = 131; // @page margin boxes (footer page numbers) need M131+
 
 // html: false — docs are untrusted markdown; raw HTML/JS must never reach Chromium.
