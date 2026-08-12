@@ -66,12 +66,6 @@ Support directories:
   authoritative** — on any conflict the English
   tree governs. Filenames stay ASCII kebab-case even under `ar/` for easy diffing.
 - **`tools/print/`** — the Markdown → branded A4 PDF pipeline (see below).
-- **`.claude/`** — Claude Code tooling, **not company documentation**: the vendored MIT
-  `diagram-design` skill (skinned to the Falcon palette) plus its `/export-diagram`,
-  `/import-drawio`, `/import-mermaid` commands. Provenance in
-  `.claude/skills/THIRD_PARTY_NOTICES.md`. It is excluded from the doc gate — `.claude` sits in
-  `SKIP_DIRS` in `tools/print/{check,build,build-html}.mjs` next to `tools` and `_print`, so its
-  markdown needs no front-matter and none of it renders into `_print/`.
 - **`_print/`** — generated PDFs, mirroring the whole tree (including `ar/`). Generated output,
   but **is committed** (not gitignored) — the CI gate below checks it's present and fresh.
 - **`_INDEX.md`** / **`ar/_INDEX.md`** — master index of the whole tree.
