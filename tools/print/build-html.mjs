@@ -26,7 +26,7 @@ import { chromium } from 'playwright-core';
 const TOOLS_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(TOOLS_DIR, '..', '..');
 const OUT_ROOT = path.join(REPO_ROOT, '_print');
-const SKIP_DIRS = new Set(['.git', 'node_modules', 'tools', '_print']);
+const SKIP_DIRS = new Set(['.git', '.claude', 'node_modules', 'tools', '_print']);  // .claude = agent/tool config, not company documents
 
 function findChromium() {
   if (process.env.CHROMIUM_PATH) return process.env.CHROMIUM_PATH;
