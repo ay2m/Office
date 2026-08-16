@@ -20,75 +20,78 @@
 
 ## What is this?
 
-**FlyGACA/Office** is the internal documents repository ("The Office") for [Fly GACA](https://flygaca.com) — an independent educational platform and open regulatory library for Saudi civil aviation (GACAR, AIP, charts, ground school, and Captain Adel, the AI flight instructor).
+**FlyGACA/Office** ("The Office") is the internal document repository for [Fly GACA](https://flygaca.com) — an independent educational platform and open regulatory library for Saudi civil aviation (GACAR, AIP, charts, ground school, and Captain Adel, the AI flight instructor).
 
-This repo stores every operating document that runs the company: legal contracts, compliance programs, HR policies, GTM playbooks, investor materials, brand assets, and engineering specs. **It holds no application source code** — Fly GACA's product code lives in four separate repos (see the table below). Polished deliverables live as `.docx` / `.xlsx`; working notes, specs, and drafts are `.md`. Every `.md` file has a **print-ready branded PDF** under [`_print/`](_print/).
+This repository stores every operating document that runs the company: strategy and OKRs, governance rules, legal contracts, finance policies, Saudi compliance bundles (PDPL, ZATCA, MISA, Nitaqat), HR frameworks, GTM playbooks, investor materials, brand assets, and product/engineering specifications.
 
-Fly GACA is a family of ten repositories; this is the internal-docs one. [**The Book of Fly GACA**](https://github.com/ay2m/FlyGACA/blob/main/THE-BOOK-OF-FLY-GACA.md) maps them all — product surfaces, shared principles, and the glossary — in one place.
+**It contains no application source code** — Fly GACA's product software lives in separate dedicated repositories:
 
-| Repo | What it holds |
+| Repo | Role & Description |
 | --- | --- |
-| **FlyGACA/Office** (this repo) | The business operating system — strategy, governance, legal, finance, GTM docs |
-| [FlyGACA/FlyGACA-app](https://github.com/FlyGACA/FlyGACA-app) | flygaca.com — the React/Vite web app, Firebase backend, regulatory corpus + content pipelines |
-| [FlyGACA/Captain-Adel](https://github.com/FlyGACA/Captain-Adel) | The AI flight-instructor service (captadel.com) + the shared brain behind chat |
-| [ay2m/FlyGACA](https://github.com/ay2m/FlyGACA) | The native iOS app family — FlyGACAKit + the ELPT and AIP App Store targets |
-| [FlyGACA/ELPT](https://github.com/FlyGACA/ELPT) · [AIP](https://github.com/FlyGACA/AIP) · [PPL](https://github.com/FlyGACA/PPL) · [CPL](https://github.com/FlyGACA/CPL) · [IR](https://github.com/FlyGACA/IR) · [ATPL](https://github.com/FlyGACA/ATPL) | Per-app App Store metadata repos — store listing copy, screenshots, per-app roadmap |
+| **FlyGACA/Office** (this repo) | The business operating system — strategy, governance, legal, finance, KSA compliance, HR & GTM docs |
+| [FlyGACA/FlyGACA-app](https://github.com/FlyGACA/FlyGACA-app) | flygaca.com — React 19 + Vite 8 PWA web app, Firebase backend (`me-central1`), regulatory corpus + content pipelines |
+| [FlyGACA/Captain-Adel](https://github.com/FlyGACA/Captain-Adel) | The AI flight instructor service (captadel.com) + RAG engine behind chat, function calling & evals |
+| [ay2m/FlyGACA](https://github.com/ay2m/FlyGACA) | The native iOS app family — shared `FlyGACAKit` package + ELPT and AIP App Store targets |
+| [FlyGACA/ELPT](https://github.com/FlyGACA/ELPT) · [AIP](https://github.com/FlyGACA/AIP) · [PPL](https://github.com/FlyGACA/PPL) · [CPL](https://github.com/FlyGACA/CPL) · [IR](https://github.com/FlyGACA/IR) · [ATPL](https://github.com/FlyGACA/ATPL) | Per-app App Store metadata repos — store listing copy, localized screenshots, and per-app roadmaps |
+
+Fly GACA is a family of ten repositories; this is the internal-docs operating system. [**The Book of Fly GACA**](https://github.com/ay2m/FlyGACA/blob/main/THE-BOOK-OF-FLY-GACA.md) maps all surfaces, shared principles, and data contracts in one place.
 
 > [!IMPORTANT]
-> Fly GACA is **not affiliated with GACA** (Saudi General Authority of Civil Aviation). Every user-facing surface reinforces one rule: verify against the latest official GACA publication. This platform helps you *find and study* regulation — it never replaces it.
+> **Fly GACA is not affiliated with GACA** (Saudi General Authority of Civil Aviation). Every document and user-facing surface reinforces one rule: verify against the latest official GACA publication. This platform helps you *find and study* regulation — it never replaces it.
 
 ---
 
 ## 🚀 Quick Start
 
 ```bash
-# Clone the repo
+# Clone the repository
 git clone https://github.com/FlyGACA/Office.git
 cd Office
 
-# Start from the master index
+# Browse the Master Index
 open _INDEX.md          # macOS
 xdg-open _INDEX.md      # Linux
 
 # Rebuild print-ready PDFs after editing any .md
 cd tools/print
-npm ci                  # one-time install (no browser download)
-npm run build           # incremental — only changed docs re-render
+npm ci                  # one-time install (uses pre-installed Chromium)
+npm run build           # incremental build — re-renders only changed docs
+npm run check           # verify front-matter & PDF freshness (CI gate)
 ```
 
 > [!NOTE]
-> The print pipeline needs **Node 18+** and **Chromium ≥ 131**. Fonts are vendored in `tools/print/fonts/`, so rendering runs fully offline. Full usage: [`tools/print/README.md`](tools/print/README.md).
+> The print pipeline uses **Node 20+** and headless **Chromium ≥ 131**. Typography fonts are vendored in `tools/print/fonts/`, enabling 100% offline rendering. Full usage guide: [`tools/print/README.md`](tools/print/README.md).
 
 ---
 
 ## 📂 Repository Structure
 
-Twelve numbered sections (00–11), each independently browsable:
+The repository is organized into twelve numbered sections (`00–11`), each independently structured and browsable:
 
-| # | Section | What's Inside |
+| Section | Title | Contents & Scope |
 |---|---------|---------------|
-| [`00`](00-strategy/) | **Strategy** | Annual plan & OKRs, master roadmap, CEO execution plan (Sprints 0–3), Phase 0 tracker, 10 numbered brainstorms |
-| [`01`](01-governance/) | **Governance** | Founders' agreement, SHA, ESOP, Code of Conduct, board pack, live decision log |
-| [`02`](02-legal/) | **Legal** | NDA templates, EULA, SLA, pilot agreement, PDPL policies, DPA, IP & takedown procedure |
-| [`03`](03-finance/) | **Finance** | Banking policy, procurement, expense policy, budget-vs-actual tracker, KPI dashboard |
-| [`04`](04-compliance-ksa/) | **Compliance (KSA)** | MISA license, ZATCA e-invoicing, PDPL DPIA, BCP/DR, Nitaqat plan, compliance roadmap |
-| [`05`](05-people/) | **People** | Employment contracts, employee handbook, offer letters, onboarding/offboarding, HR policies |
-| [`06`](06-operations-it/) | **Operations / IT** | Digital office setup, product specs (CRM, Captain Adel, Instructor Dashboard), runbooks, architecture diagrams |
-| [`07`](07-gtm/) | **Go-To-Market** | Sales playbook, demo script, objection handling, cold outreach, B2B pipeline, SEO strategy |
-| [`08`](08-customer-success/) | **Customer Success** | Onboarding playbook, health scoring, NPS, QBR templates, at-risk & expansion playbooks |
-| [`09`](09-investor-relations/) | **Investor Relations** | Pitch deck, FAQ, due diligence questionnaire, investor update template, risk register |
-| [`10`](10-academy-curriculum/) | **Academy & Curriculum** | Curriculum map, coverage matrix, PPL mock exams, B2C learner paths, instructor onboarding |
-| [`11`](11-brand/) | **Brand** | Design system, design tokens, style guide, Falcon theme, logos, print assets (EN + RTL AR) |
+| [`00`](00-strategy/) | **Strategy** | Master roadmap, annual strategic plan & OKRs, CEO execution plan (Sprints 0–3), Phase 0 tracker, and strategic brainstorms (00–10) |
+| [`01`](01-governance/) | **Governance** | Founders' agreement, SHA, ESOP plan, Code of Conduct, decision log, board packs, repo governance (`CLAUDE.md`, `CONTRIBUTING.md`, `SECURITY.md`, `LICENSE`) |
+| [`02`](02-legal/) | **Legal** | NDAs, EULA, SLA, pilot agreement, PDPL privacy policy, DPA, IP & takedown procedure, refund policy, and Saudi lawyer briefs |
+| [`03`](03-finance/) | **Finance** | Banking & treasury policy, procurement, expense policy, budget-vs-actual trackers, financial dashboards, ZATCA e-invoicing templates |
+| [`04`](04-compliance-ksa/) | **Compliance (KSA)** | MISA investment license, ZATCA e-invoicing pack, PDPL DPIA & compliance program, Nitaqat plan, BCP/DR plans |
+| [`05`](05-people/) | **People** | Saudi-compliant employment contracts, employee handbook, job descriptions, onboarding/offboarding checklists, performance review templates |
+| [`06`](06-operations-it/) | **Operations / IT** | Digital office setup, product specs (CRM, Captain Adel, Instructor Dashboard), runbooks, infrastructure diagrams, setup kits |
+| [`07`](07-gtm/) | **Go-To-Market** | Sales playbooks, demo scripts, objection handling, cold outreach templates, B2B pipeline, SEO strategy & keyword prospecting |
+| [`08`](08-customer-success/) | **Customer Success** | Onboarding playbooks, customer health score framework, NPS survey packs, QBR templates, churn prevention playbooks |
+| [`09`](09-investor-relations/) | **Investor Relations** | Pitch deck, investor FAQ, due diligence questionnaire, monthly investor update templates, risk register, Saudi investor targets |
+| [`10`](10-academy-curriculum/) | **Academy & Curriculum** | Curriculum map, coverage matrix, PPL mock exams, B2C learner paths, instructor onboarding, cadet welcome packs |
+| [`11`](11-brand/) | **Brand** | Falcon design system, design tokens, style guide, logos, print collateral (EN + RTL AR letterheads, business cards, covers) |
 
 **Support directories:**
 
-| Path | Purpose |
-|------|---------|
-| [`_INDEX.md`](_INDEX.md) | The readable master index across all 12 sections |
-| [`templates/`](templates/) | Reusable `.md` starters: finance report, HR policy, legal memo, ops runbook, strategy proposal |
-| [`ar/`](ar/) | Full **Arabic (Saudi MSA)** mirror of all 12 sections — same structure, translated content |
-| [`tools/print/`](tools/print/) | Markdown → branded A4 PDF pipeline (Falcon document theme, EN + RTL Arabic) |
-| [`_print/`](_print/) | Generated print-ready PDFs, mirroring the full tree |
+| Directory | Purpose |
+|---|---|
+| [`_INDEX.md`](_INDEX.md) | Readable master index across all 12 sections |
+| [`templates/`](templates/) | Reusable Markdown starters (`tpl-fin-report`, `tpl-hr-policy`, `tpl-legal-memo`, `tpl-ops-runbook`, `tpl-strat-proposal`) |
+| [`ar/`](ar/) | Full **Arabic (Saudi MSA)** mirror of all 12 sections and templates — identical structure and ASCII filenames |
+| [`tools/print/`](tools/print/) | Markdown & HTML → branded A4 PDF render pipeline (Falcon document theme, offline fonts, EN + RTL AR) |
+| [`_print/`](_print/) | Generated print-ready PDFs mirroring the exact file tree (tracked in git) |
 
 ---
 
@@ -96,98 +99,94 @@ Twelve numbered sections (00–11), each independently browsable:
 
 | Capability | Detail |
 |-----------|--------|
-| 🗂 **Version-controlled operations** | Every policy, contract, and spec is a Git commit — full history, diffs, and blame |
-| 🖨 **Automated print pipeline** | Any `.md` edit → one command → branded, watermarked A4 PDF, no design tool needed |
-| 🌍 **Bilingual from day one** | Full Arabic (MSA) mirror under `ar/`; filenames stay ASCII kebab-case for easy diffing |
-| 📋 **YAML front-matter on every doc** | `title / section / doc_type / status / owner / last_updated / lang` — machine-readable metadata |
-| 🔒 **KSA-compliant legal stack** | PDPL, ZATCA e-invoicing, MISA, Nitaqat — purpose-built for Saudi regulatory requirements |
-| 🤖 **Captain Adel specs included** | Full AI flight instructor spec, refusal protocol, deployment runbooks, and eval harness |
-| 📐 **Design system baked in** | Falcon Theme: Inter body · Cairo headings · JetBrains Mono · Falcon Blue accents |
+| 🗂 **Version-Controlled Operations** | Every policy, contract, and technical spec is tracked in Git — full diff history and blame. |
+| 🖨 **Automated Print Pipeline** | Any `.md` edit re-renders to a branded, watermarked A4 PDF via standard headless Chromium. |
+| 🌍 **Bilingual Native (EN / AR)** | Parallel Arabic (Saudi MSA) mirror under `ar/`; ASCII kebab-case filenames remain identical for diffing. |
+| 📋 **YAML Front-Matter Metadata** | Standardized `title / section / doc_type / status / owner / last_updated / lang` on every document. |
+| 🔒 **KSA Regulatory Stack** | Purpose-built for Saudi legal frameworks: PDPL, ZATCA e-invoicing, MISA licensing, and Nitaqat. |
+| 🤖 **Captain Adel Technical Specs** | Full AI flight instructor specs, refusal protocol, deployment runbooks, and evaluation suite. |
+| 📐 **Falcon Design System** | Inter body font, Cairo headings & Arabic text, JetBrains Mono code, and Falcon Blue accent palette. |
 
 ---
 
-## 🌍 Arabic Localization
+## 🌍 Arabic Localization (`ar/`)
 
-The [`ar/`](ar/) directory is a complete, parallel Arabic translation of the entire document tree — same folder structure, same filenames, translated content in **Modern Standard Arabic (Saudi official register)**.
+The [`ar/`](ar/) directory is a complete, parallel Arabic translation of the document tree — same folder structure, same ASCII filenames, written in **Modern Standard Arabic (Saudi official register)**.
 
-- 118 `.md` files translated and maintained in sync
-- Unified terminology via [`ar/_GLOSSARY.md`](ar/_GLOSSARY.md) (EN↔AR term glossary)
-- Arabic PDFs render **right-to-left** (Cairo font, RTL layout) via the print pipeline
-- Latin code paths and file names remain LTR inside Arabic documents
+- 118 `.md` files maintained in sync with the English source
+- Unified terminology using [`ar/_GLOSSARY.md`](ar/_GLOSSARY.md) (EN↔AR term glossary)
+- Arabic PDFs automatically render **right-to-left** (Cairo typography, RTL margin boxes)
+- Latin code paths, identifiers, and file names remain LTR inside Arabic text
 
 > [!NOTE]
-> English is the authoritative source. On any conflict, the English tree governs.
+> English is the authoritative source. In case of any ambiguity, the English document governs.
 
 ---
 
-## 🖨 Print Pipeline
+## 🖨 Print Pipeline & CI Gate
 
-Every `.md` document generates a **branded, print-ready PDF** under `_print/`, mirroring the folder tree. The pipeline uses markdown-it + headless Chromium and the Falcon document theme:
+Every `.md` document generates a **branded, print-ready PDF** under `_print/`, mirroring the folder tree. The pipeline uses `markdown-it` + headless Chromium with the Falcon document theme:
 
-- **Fonts:** Inter (body) · Cairo (headings + Arabic) · JetBrains Mono (code) — all vendored offline
-- **Layout:** A4, 0.75 in margins, footer page numbers, branded cover block from YAML front-matter
-- **Watermarks:** `status: draft` or `scaffold` → automatic DRAFT/SCAFFOLD watermark on every page
+- **Fonts:** Inter (body) · Cairo (headings + Arabic) · JetBrains Mono (code) — vendored offline under `tools/print/fonts/`
+- **Layout:** A4, 0.75 in margins, footer page numbers, cover block generated from YAML front-matter
+- **Watermarks:** `status: draft` or `scaffold` automatically stamps a DRAFT/SCAFFOLD watermark
 - **Incremental:** `.buildcache.json` tracks content hashes — unchanged docs are skipped
 
 ```bash
 cd tools/print
 npm run build        # incremental rebuild
-npm run build:force  # rebuild everything from scratch
-node build.mjs 02-legal/terms-of-use-draft-2026-06-14.md   # render one document
+npm run build:force  # rebuild all PDFs from scratch
+node build.mjs 02-legal/terms-of-use-draft-2026-06-14.md   # render a single document
+node check.mjs       # run CI freshness & front-matter validation gate
 ```
-
-See [`tools/print/README.md`](tools/print/README.md) for full usage and configuration.
 
 ---
 
-## 🎨 Brand
+## 🎨 Brand Identity
 
-The Falcon design system, logo marks, and print collateral in [`11-brand/`](11-brand/) give every Fly GACA document — including this repo's generated PDFs — a consistent identity.
+The Falcon design system, logo assets, and print templates in [`11-brand/`](11-brand/) give every Fly GACA document a uniform identity.
 
 <p align="center">
-  <img src="11-brand/logos/fly-gaca-logo.png" alt="Fly GACA logo" height="80" />
-  &nbsp;&nbsp;&nbsp;
-  <img src="11-brand/logos/mark-mono-ink.png" alt="Fly GACA mark (mono ink)" height="80" />
-  &nbsp;&nbsp;&nbsp;
-  <img src="11-brand/print/business-card-front-capt-adel.png" alt="Captain Adel business card, front" height="80" />
+  <img src="11-brand/logos/fly-gaca-logo.png" alt="Fly GACA logo" height="70" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="11-brand/logos/mark-mono-ink.png" alt="Fly GACA mark" height="70" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="11-brand/print/business-card-front-capt-adel.png" alt="Captain Adel business card" height="70" />
 </p>
 
 ---
 
-## 🏗 Current Status
+## 🏗 Roadmap & Execution Status
 
-*Phases as numbered in [`00-strategy/roadmap.md`](00-strategy/roadmap.md).*
+*Phases tracked in [`00-strategy/roadmap.md`](00-strategy/roadmap.md).*
 
-| Phase | Title | Status |
-|-------|-------|--------|
-| 0 | Foundations | 🟡 Legal track in progress |
-| 1 | Library live | ✅ Live |
-| 2 | Captain Adel | ✅ Live (RAG on Gemini 2.5 Flash) |
-| 3 | Pilot accounts | 🟡 Built; PDPL DPIA pending |
-| 4 | Arabic & polish | 🟡 Bilingual engine live; inner pages in progress |
-| 5 | Money & flight schools | ⬜ Not started |
-| 7 | Training platform | 🟡 162-question bank, flashcards, analytics shipped |
-| 8 | Library as a platform | ✅ All 6 features shipped |
-| 9 | Launch & visibility | 🟡 Deployed; custom domain & GTM pending |
-| 10 | Captain Adel (prod-grade) | 🟡 Rate limits & evals shipped; App Check pending |
-| 11 | Depth — practical sections | ✅ 21 tools, 11 guides, study bank complete |
-
-The **legal track** (entity registration, lawyer engagement) is now the critical path to public launch.
+| Phase | Title | Status | Summary |
+|-------|-------|--------|---------|
+| **0** | Foundations | 🟡 In progress | Technical stack live; Saudi legal entity registration open |
+| **1** | Open Library | ✅ Shipped | GACAR regulations, aerodromes, and chart index live |
+| **2** | Captain Adel AI | ✅ Shipped | RAG flight instructor live on Gemini 2.5 Flash |
+| **3** | Pilot Accounts | 🟡 Built | Firebase Auth & Firestore live; PDPL DPIA pending |
+| **4** | Arabic & Polish | 🟡 In progress | Bilingual engine live; inner page translations underway |
+| **5** | Monetization & Schools | ⬜ Planned | Gated on legal entity registration |
+| **6** | Native Apps | 🟡 In progress | iOS ELPT & AIP targets built; store submission pending |
+| **7** | Training Platform | ✅ Shipped | 162-question bank, flashcards, and exam analytics live |
+| **8** | Library Platform | ✅ Shipped | Whole-library search, safety lessons, and reading paths live |
+| **9** | Launch & Visibility | 🟡 Deployed | Web app deployed; custom domain & GTM active |
+| **10** | Captain Adel Prod | 🟡 In progress | Input guards, rate limits & evals shipped |
+| **11** | Practical Depth | ✅ Shipped | 21 flight tools, 11 guides, full study bank complete |
 
 ---
 
-## 🤝 Contributing & Governance
+## 🤝 Governance & Contributing
 
-This repo follows the governance documents in [`01-governance/`](01-governance/):
+This repository strictly follows the governance guidelines in [`01-governance/`](01-governance/):
 
-- **[CONTRIBUTING.md](01-governance/CONTRIBUTING.md)** — setup, conventions, pre-PR checklist
+- **[CONTRIBUTING.md](01-governance/CONTRIBUTING.md)** — setup, doc conventions, pre-PR checklist
 - **[CODE_OF_CONDUCT.md](01-governance/CODE_OF_CONDUCT.md)** — community standards
-- **[SECURITY.md](01-governance/SECURITY.md)** — responsible disclosure
-- **[CLAUDE.md](CLAUDE.md)** — AI assistant context and architecture guide (root; `01-governance/CLAUDE.md` points here)
+- **[SECURITY.md](01-governance/SECURITY.md)** — security & responsible disclosure policy
+- **[CLAUDE.md](CLAUDE.md)** — AI assistant guidelines and architecture documentation
 
-All contributions are licensed under [Apache License 2.0](01-governance/LICENSE). Regulatory content belongs to GACA and is not covered by that license.
-
-> For security issues or data-isolation concerns, **do not open a public issue** — email the maintainer directly (see [SECURITY.md](01-governance/SECURITY.md)).
+All custom operational documents are licensed under [Apache License 2.0](01-governance/LICENSE). Regulatory texts quoted belong to GACA and are excluded from this license.
 
 ---
 

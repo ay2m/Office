@@ -1,57 +1,236 @@
 ---
-title: Customer Health Scoring Model
+title: Customer Health Scoring Model & Automation Spec
 section: 08-customer-success
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-08-09
+last_updated: 2026-08-16
 lang: en
 ---
 
-# Customer Health Scoring Model
+# Customer Health Scoring Model & Automation Spec
 
 ## Purpose
 
-This document defines how Fly GACA measures the health of its B2B customers —
-flight schools / Approved Training Organizations (ATOs), charter operators,
-MROs, and commercial operators that license Fly GACA for their cadets and staff.
-The health score is a single 0–100 number that drives proactive Customer
-Success motions (onboarding, at-risk intervention, renewal, expansion).
+This document defines the mathematical scoring engine and technical automation spec for Fly GACA Customer Health Scoring. It measures the health of B2B flight schools / Approved Training Organizations (ATOs), charter operators, MROs, and commercial operators licensing Fly GACA Pro for cadet cohorts.
 
-It is operationalized in [`customer-health-dashboard.xlsx`](customer-health-dashboard.xlsx)
-— see [`health-dashboard-spec.md`](health-dashboard-spec.md) for the dashboard
-spec and the scoring formula.
+The composite score is a single 0–100 metric calculated automatically every week, driving proactive Customer Success triggers (onboarding, at-risk intervention, renewal, expansion).
 
-## Scoring Dimensions & Weights
+It operationalizes [`health-dashboard-spec.md`](health-dashboard-spec.md) and [`customer-health-dashboard.xlsx`](customer-health-dashboard.xlsx).
 
-The composite score is a weighted blend of five dimensions, each scored 0–100.
-Weights sum to 1.0.
+---
 
-| Dimension | Weight | What it measures |
-|-----------|--------|------------------|
-| Product Usage | 30% | Active users vs. licensed seats; use of the library, tools, study/exam prep, and Captain Adel |
-| Engagement | 20% | Logins, session depth, response to outreach, QBR participation |
-| Support Health | 20% | Ticket volume/severity, time-to-resolution, escalations |
-| Financial / Contract | 15% | Payment timeliness, contract status, seat utilization |
-| Sentiment | 15% | NPS / CSAT, qualitative feedback, champion strength |
+## Composite Formula & Dimension Weights
 
-`composite = 0.30·usage + 0.20·engagement + 0.20·support + 0.15·financial + 0.15·sentiment`
+The composite customer health score \(H\) is a weighted linear combination of five normalized dimension scores \(S_i \in [0, 100]\):
 
-## Score Bands
+\[
+H = 0.30 \cdot S_{\text{usage}} + 0.20 \cdot S_{\text{engagement}} + 0.20 \cdot S_{\text{support}} + 0.15 \cdot S_{\text{financial}} + 0.15 \cdot S_{\text{sentiment}}
+\]
 
-| Band | Range | Meaning | Playbook |
-|------|-------|---------|----------|
-| Healthy | 80–100 | Realizing value; expansion/advocacy candidate | [Expansion](expansion-playbook.md) |
-| Neutral | 60–79 | Stable but watch for drift | [Renewal](renewal-playbook.md) |
-| At-Risk | 0–59 | Churn risk; needs intervention | [At-Risk](at-risk-playbook.md) |
+| Dimension | Weight (\(w_i\)) | Telemetry Source | Primary Indicator |
+|-----------|-----------------|------------------|-------------------|
+| **Product Usage** (\(S_{\text{usage}}\)) | **30%** | Firestore `progress/summary` & cohort telemetry | Seat activation, mock exam volume, Captain Adel AI queries |
+| **Engagement** (\(S_{\text{engagement}}\)) | **20%** | Web analytics & CS CRM logs | Instructor dashboard logins, session depth, QBR attendance |
+| **Support Health** (\(S_{\text{support}}\)) | **20%** | Support Ticketing API (Zendesk) | Ticket volume, resolution time, SLA breaches, escalation rate |
+| **Financial / Contract** (\(S_{\text{financial}}\)) | **15%** | Accounting DB / ZATCA Billing | Seat entitlement utilization, invoice payment timeliness |
+| **Sentiment** (\(S_{\text{sentiment}}\)) | **15%** | In-app NPS / CSAT & QBR surveys | Cadet NPS, instructor CSAT, executive champion strength |
 
-## Refresh Cadence
+---
 
-Scores are recalculated **weekly**. Any account scoring below 60 automatically
-notifies the assigned CSM and enters the relevant playbook.
+## 5-Factor Mathematical Calculations
 
-## Related
+### 1. Product Usage Score (\(S_{\text{usage}}\)) — Weight: 30%
+
+Evaluates active participation and learning velocity across the cadet roster over a rolling 7-day window.
+
+\[
+S_{\text{usage}} = 0.40 \cdot U_{\text{active}} + 0.30 \cdot U_{\text{exams}} + 0.30 \cdot U_{\text{ai}}
+\]
+
+Where:
+- **Active Seat Ratio (\(U_{\text{active}}\)):**
+  \[
+  U_{\text{active}} = \min\left(100, \, \frac{\text{Active Cadets (7d)}}{\text{Licensed Seats}} \times 100\right)
+  \]
+- **Mock Exam Completion Velocity (\(U_{\text{exams}}\)):**
+  \[
+  U_{\text{exams}} = \min\left(100, \, \frac{\text{Completed Mock Exams (7d)}}{\text{Licensed Seats} \times 1.5} \times 100\right)
+  \]
+- **AI Instructor Engagement (\(U_{\text{ai}}\)):**
+  \[
+  U_{\text{ai}} = \min\left(100, \, \frac{\text{Captain Adel Queries (7d)}}{\text{Licensed Seats} \times 4.0} \times 100\right)
+  \]
+
+### 2. Engagement Score (\(S_{\text{engagement}}\)) — Weight: 20%
+
+Measures organizational alignment, instructor governance, and executive touchpoints over a rolling 30-day window.
+
+\[
+S_{\text{engagement}} = 0.40 \cdot E_{\text{instructor}} + 0.30 \cdot E_{\text{depth}} + 0.30 \cdot E_{\text{qbr}}
+\]
+
+Where:
+- **Instructor Governance (\(E_{\text{instructor}}\)):**
+  \[
+  E_{\text{instructor}} = \min\left(100, \, \frac{\text{Instructor Dashboard Logins (30d)}}{\text{Provisioned Instructors} \times 4.0} \times 100\right)
+  \]
+- **Cadet Study Session Depth (\(E_{\text{depth}}\)):**
+  \[
+  E_{\text{depth}} = \min\left(100, \, \frac{\text{Average Session Duration (mins)}}{25.0} \times 100\right)
+  \]
+- **Executive QBR Participation (\(E_{\text{qbr}}\)):**
+  \[
+  E_{\text{qbr}} = \begin{cases} 
+  100 & \text{Head of Training / Sponsor attended scheduled QBR} \\
+  60 & \text{Designated CFi / Admin attended QBR} \\
+  0 & \text{QBR missed, rescheduled >2x, or declined}
+  \end{cases}
+  \]
+
+### 3. Support Health Score (\(S_{\text{support}}\)) — Weight: 20%
+
+Quantifies technical friction and customer support load over a rolling 30-day window.
+
+\[
+S_{\text{support}} = \max\left(0, \, 100 - \left(25 \cdot T_{\text{P1}} + 10 \cdot T_{\text{P2}} + 5 \cdot T_{\text{P3}} + 15 \cdot S_{\text{breach}}\right)\right)
+\]
+
+Where:
+- \(T_{\text{P1}}\): Unresolved P1 Critical tickets (system outage / auth blocking) in last 30d.
+- \(T_{\text{P2}}\): Unresolved P2 High tickets (roster sync / score saving error) in last 30d.
+- \(T_{\text{P3}}\): Open P3 Medium/Low tickets in last 30d.
+- \(S_{\text{breach}}\): First-response or resolution SLA breaches in last 30d.
+
+### 4. Financial / Contract Health Score (\(S_{\text{financial}}\)) — Weight: 15%
+
+Tracks contract entitlement adoption and invoice payment compliance.
+
+\[
+S_{\text{financial}} = 0.50 \cdot F_{\text{utilization}} + 0.50 \cdot F_{\text{payment}}
+\]
+
+Where:
+- **Contract Seat Utilization (\(F_{\text{utilization}}\)):**
+  \[
+  F_{\text{utilization}} = \min\left(100, \, \frac{\text{Assigned Roster Seats}}{\text{Contracted Seats}} \times 100\right)
+  \]
+- **Payment Compliance (\(F_{\text{payment}}\)):**
+  \[
+  F_{\text{payment}} = \max\left(0, \, 100 - \max\left(0, \, \text{Days Past Due} - 14\right) \times 5\right)
+  \]
+  *(100 pts for payment on time or within 14-day grace period; deducts 5 pts per day thereafter).*
+
+### 5. Sentiment Score (\(S_{\text{sentiment}}\)) — Weight: 15%
+
+Captures subjective customer satisfaction, NPS surveys, and executive relationship stability.
+
+\[
+S_{\text{sentiment}} = 0.50 \cdot N_{\text{nps}} + 0.30 \cdot C_{\text{csat}} + 0.20 \cdot K_{\text{champion}}
+\]
+
+Where:
+- **Net Promoter Score Normalization (\(N_{\text{nps}}\)):**
+  \[
+  N_{\text{nps}} = \begin{cases} 
+  100 & \text{Promoter (Rating 9–10)} \\
+  60 & \text{Passive (Rating 7–8)} \\
+  0 & \text{Detractor (Rating 0–6)}
+  \end{cases}
+  \]
+- **Customer Satisfaction Rating (\(C_{\text{csat}}\)):** Average CSAT rating (1–5 scale) normalized: \(C_{\text{csat}} = \text{CSAT Avg} \times 20\).
+- **Executive Champion Index (\(K_{\text{champion}}\)):**
+  \[
+  K_{\text{champion}} = \begin{cases} 
+  100 & \text{Active executive champion & public reference logo} \\
+  70 & \text{Stable sponsor contact} \\
+  30 & \text{Sponsor role changed / champion departed}
+  \end{cases}
+  \]
+
+---
+
+## Score Bands & Recommended CS Playbooks
+
+| Band | Composite Score (\(H\)) | Operational Meaning | Recommended Playbook | Automated System Trigger |
+|------|------------------------|---------------------|----------------------|--------------------------|
+| **Healthy** | **80–100** | High adoption, strong ROI proof, zero SLA breaches | [Expansion Playbook](expansion-playbook.md) | Solicit testimonial / case study; notify AE if seat utilization \(\ge 85\%\) |
+| **Neutral** | **60–79** | Stable account; minor usage drift or pending QBR | [Renewal Playbook](renewal-playbook.md) | Flag for CSM bi-weekly review; schedule mid-term review |
+| **At-Risk** | **0–59** | Churn threat; seat underutilization or support friction | [At-Risk Playbook](at-risk-playbook.md) | Immediate P1 CSM alert; initiate 14-day recovery plan |
+
+---
+
+## Technical Automation & Data Pipeline Spec
+
+### 1. Architectural Overview
+
+```
+[ Firestore Roster ] ──┐
+[ Telemetry Events ] ──┼──► Cloud Scheduler ──► Cloud Function ──► Compute Score ──► Save Firestore ──► Webhook Alerting
+[ Zendesk API ]     ──┤      (Weekly Sun 01:00)  (calculateHealth)    (H composite)   (schools/id/health)  (Slack/CRM/Email)
+[ ZATCA Invoicing ] ──┘
+```
+
+### 2. Cloud Function Implementation Spec
+
+- **Function Name:** `calculateSchoolHealthScores`
+- **Schedule:** Every Sunday at 01:00 UTC+3 (`cron: 0 1 * * 0`).
+- **Execution Logic:**
+  1. Fetch active school documents from `schools/{schoolId}`.
+  2. Aggregate telemetry from `schools/{schoolId}/roster/{cadetUid}` progress summaries over 7d/30d.
+  3. Query Support API for ticket counts & SLA breaches in past 30d.
+  4. Fetch invoice status from Billing DB (`daysPastDue`).
+  5. Compute the 5 dimension scores \(S_i\) and composite score \(H\).
+  6. Write document to `schools/{schoolId}/health/current` and append snapshot to `schools/{schoolId}/health/snapshots/{YYYY-MM-DD}`.
+
+### 3. Firestore Document Schema (`schools/{schoolId}/health/current`)
+
+```json
+{
+  "schoolId": "oxford-saudia-dammam",
+  "updatedAt": "2026-08-16T01:00:00Z",
+  "compositeScore": 84.5,
+  "band": "Healthy",
+  "dimensions": {
+    "usage": 88.0,
+    "engagement": 82.5,
+    "support": 100.0,
+    "financial": 75.0,
+    "sentiment": 76.0
+  },
+  "metrics": {
+    "activeSeatRatio": 0.88,
+    "weeklyMockExamsPerCadet": 1.8,
+    "monthlyInstructorLogins": 12,
+    "openTicketsCount": 0,
+    "daysPastDue": 0,
+    "latestNpsScore": 9
+  },
+  "previousCompositeScore": 79.0,
+  "delta7d": +5.5,
+  "triggeredPlaybook": "expansion"
+}
+```
+
+### 4. Automated Alert & Escalation Matrix
+
+- **Condition 1 — Score Drops to At-Risk (\(H < 60\)) or \(\Delta H \le -15\) pts:**
+  - System fires Slack alert to `#cs-at-risk-alerts` with detailed dimension breakdown.
+  - Automatically creates Urgent P1 Task in Hubspot/Salesforce CRM assigned to CSM.
+  - Triggers [At-Risk Playbook](at-risk-playbook.md) workflow.
+- **Condition 2 — Seat Utilization \(\ge 85\%\) & \(H \ge 80\):**
+  - System fires Slack alert to `#sales-expansion`.
+  - Sends email to Account Executive with upsell recommendation (e.g., +25 seat expansion proposal).
+- **Condition 3 — Support Health \(S_{\text{support}} < 50\):**
+  - Sends automated high-priority ticket escalation to Head of Product & CS Lead.
+
+---
+
+## Related Documents
 
 - [Health Dashboard Spec](health-dashboard-spec.md)
 - [At-Risk Playbook](at-risk-playbook.md)
-- [Customer Success overview](customer-success.md)
+- [Renewal Playbook](renewal-playbook.md)
+- [Expansion Playbook](expansion-playbook.md)
+- [Customer Success Overview](customer-success.md)
+

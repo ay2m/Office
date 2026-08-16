@@ -4,14 +4,14 @@ section: root
 doc_type: index
 status: active
 owner: Founder
-last_updated: 2026-08-09
+last_updated: 2026-08-16
 lang: en
 ---
 
 # The Office — Master Index
 
 _Every internal document for running Fly GACA, organized into 12 numbered sections (00–11).
-Last reorganized: 2026-07-03. Index refreshed: 2026-08-09._
+Last reorganized: 2026-07-03. Index refreshed: 2026-08-16._
 
 **How to read this tree.** Numbered prefixes keep sections in order; open any section folder to
 see its files. Polished deliverables are mostly `.docx` / `.xlsx`; working notes, specs, and
