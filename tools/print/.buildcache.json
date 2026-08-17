@@ -79,12 +79,12 @@
  "06-operations-it/spec-instructor-dashboard.md": "6c8f637cf71d7b235c1ea5181a9b03abdfb384d6aa719c9e98f2ca595cff51b5",
  "06-operations-it/test-coverage-analysis-2026-06-16.md": "9734c978ea83dfe80a29201e5f596f3c3450889ee04cbb795ee30d74f2ac4b62",
  "06-operations-it/test-ready.md": "f4b90449ee65dadbaf4c3558a61a7706d1772b3a82b1d5f95194d592ef23cfdb",
- "07-gtm/b2b-pipeline.md": "763171025ceb6e92b5cc964dd6fcc142f79cb5e6feb177205e6e5849d5aaea3b",
+ "07-gtm/b2b-pipeline.md": "01618273e30dfef1f2a40af6e96a1b9ffff4062f1a4158b4ae26838157ead7be",
  "07-gtm/gtm-schools.md": "932e58cfd6fb06a09d7b2e59996360657be1ed36d1c79fd948f3ae8f6071d982",
- "07-gtm/seo/seo-keyword-prospecting.md": "ed9b283dd1c06367a4fc8dd9084f569cf497c9a2ab5f37ab159af707ae601e6c",
+ "07-gtm/seo/seo-keyword-prospecting.md": "f0614fafa90ea0b9efcb5b06a789aa52a0ab34fc69d81149d5f147a9762aad04",
  "07-gtm/strategy-competitive-teardown.md": "950d194fda95b125bfd6b9b6887d41f6fe61b101ff8092edd793d848e2f659c9",
  "08-customer-success/at-risk-playbook.md": "340a2b02cd863d49cadd73b91c2728c44d714cee4b741466d433a1b022cbd557",
- "08-customer-success/customer-health-scoring.md": "53eef116bd124536829943e704068658a467ecdadff7b93b093f7cb54f981afb",
+ "08-customer-success/customer-health-scoring.md": "38454e084c20658205a1826c67ab1b7ca44d16941aa0144a7ce1de7008410802",
  "08-customer-success/customer-success.md": "491c357ec2d8b2de832ed177633f63d877447e8a96f78a5f96cb3d0cb724cd3f",
  "08-customer-success/expansion-playbook.md": "426fbdc71fb380298143464a19d83e48c375f0eada058048782c2dbf7b223447",
  "08-customer-success/health-dashboard-spec.md": "b681c93450d38cea4a5ec3d93a63582436a4760e9e3a962e476eb8377fe50e00",
@@ -236,5 +236,6 @@
  "06-operations-it/slack-best-practices.md": "7d2f1a2fb9025a1cfcc84b7767c37ef81009d60dd9ce948fb68195fe9eff051f",
  "ar/06-operations-it/slack-best-practices.md": "b6731601e3dd038aae6e5a7c63bcbee80484ae814d3bbbc874f2f1fa4a3a9469",
  "CLAUDE.md": "7448f10934f46865e6e220ce49f3af0332a446e1046452d59f6020728566009b",
- "06-operations-it/runbooks/runbook-decision-log.md": "c5750254184c4543f4c5c71411f09574e8573747629edca6623a069ac93bdd2e"
+ "06-operations-it/runbooks/runbook-decision-log.md": "c5750254184c4543f4c5c71411f09574e8573747629edca6623a069ac93bdd2e",
+ "06-operations-it/audit-flight-school-admin-dashboard.md": "9e6dc79683003735ffc97d3b1c18e10760388671884e0a3fc93c9019000fad2f"
 }
