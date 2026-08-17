@@ -72,29 +72,37 @@ ready to pay, and we have both a guide and a Prep Pack for them.
 - Mine the **"Get licensed"** and **"Exam prep"** groups for content — these are the
   emotionally charged, shareable topics (becoming a pilot, passing the ELPT). Top-of-
   funnel keywords = top-of-funnel content.
-- Arabic-forward for the domestic audience: `كيف تصبح طيار في السعودية` is a whole
-  content series (Snapchat/Instagram Stories), not one post.
+- Arabic-forward for the domestic audience: `كيف تصبح طيار في السعودية` and `أسئلة اختبار الهيئة العامة للطيران المدني` form a multi-part social video series across TikTok, X, and Instagram.
 - Turn each **guide** into a carousel/Short; turn each **flight tool** into a quick
   demo (Captain Adel answering a GACAR question is the hero clip).
 - Every post still routes through the compliance check (not-affiliated disclaimer,
   no fabricated citations) before it ships.
 
-### 3. Flight-school / B2B outreach
-- The intent here is **`flight school Saudi Arabia`**, **`Saudi aviation academy`**,
-  **`مدرسة طيران السعودية`** — but schools rarely *search* for us; you go to them.
-  Use these terms to (a) find and list the academies, and (b) frame the pitch.
-- Lead the pitch with the **seat-licence / admin-dashboard** angle on `schools.html`:
-  "see at a glance who is ready and who is falling behind." Cadets studying the GACAR
-  in one place, instructors tracking exam readiness.
-- Anchor outreach to the high-value journeys their cadets already struggle with:
-  **licence conversion**, **ELPT**, **class-1 medical** — the exact guides + Prep
-  Packs we sell.
+### 3. Flight-school / B2B outreach & Brand Search
+- The B2B intent terms (**`OxfordSaudia Dammam`**, **`Saudi Aviation Academy tuition`**, **`مدرسة طيران السعودية`**) serve dual roles:
+  (a) Content targeting for landing pages (`schools.html`) capturing inbound queries from academy prospects.
+  (b) Direct prospect intelligence for outbound GTM sales outreach.
+- High-intent brand terms (**`Fly GACA AI`**, **`Captain Adel aviation AI`**, **`تطبيق فلاي جاكا`**) capture pilots looking for interactive AI study assistance; ensure dedicated structured schema and meta descriptions are set.
+
+---
+
+## Arabic-Forward High-Intent Wedge Strategy
+
+In Saudi General Aviation, English is the regulatory language for flight operations, but **Arabic is the dominant search medium for career discovery, medical inquiries, and initial exam research.**
+
+1. **High-Intent Arabic License Conversion (`تحويل رخصة طيار للسعودية` / `معادلة رخصة الطيران`):**
+   - High conversion rate: Foreign-trained Saudi cadets returning from the US, UK, or South Africa searching for GACAR written exam conversion prep.
+   - Action: Optimize `guides/foreign-license-conversion-to-gaca.html` with explicit step-by-step FAQ schema covering GACAR Part 61 conversion.
+2. **Arabic Exam Prep & Question Banks (`نماذج اختبارات GACA` / `اختبار السايلبت للطيران`):**
+   - Direct purchase intent for SAELPT and Groundschool Prep Packs (`packs/elpt.html`, `study/groundschool.html`).
+   - Action: Add interactive quiz previews and bilingual term glossaries.
+3. **Medical Certification (`فحص طبي طيران الرياض` / `مراكز الفحص الطبي المعتمدة للطيران المدني`):**
+   - High monthly volume with zero dedicated competitors explaining GACAR Class 1/2 medical standards.
 
 ---
 
 ## Suggested next steps
-1. Pull volumes for the CSV seeds in the **`sa`** database, EN + AR.
-2. Sort by `(low difficulty, on-topic)` — start with the Regulation-lookup group.
-3. Confirm each suggested landing page's title/meta carries its head term bilingually.
-4. Hand the "Get licensed" + "Exam prep" rows to the social pipeline as a content
-   calendar; hand the "Schools / B2B" rows to outreach as a target list + pitch frame.
+1. Ingest expanded **`flygaca-keyword-seeds.csv`** (75+ seeds across 8 intent clusters) into Google Keyword Planner & Semrush set to **Saudi Arabia (`sa`)**.
+2. Prioritize landing page optimization for High Priority / Bottom-Funnel terms: Regulation lookup (`GACAR Part 141`, `GACAR Part 91`) and Conversion (`FAA to GACA`).
+3. Ensure all guide pages feature GFM metadata, JSON-LD FAQ schema, and canonical H1/title tags reflecting EN + AR primary search terms.
+4. Distribute the "Get licensed" + "Exam prep" rows to the content marketing team for weekly social calendar execution.
