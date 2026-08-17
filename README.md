@@ -22,7 +22,7 @@
 
 **FlyGACA/Office** is the internal documents repository ("The Office") for [Fly GACA](https://flygaca.com) — an independent educational platform and open regulatory library for Saudi civil aviation (GACAR, AIP, charts, ground school, and Captain Adel, the AI flight instructor).
 
-This repo stores every operating document that runs the company: legal contracts, compliance programs, HR policies, GTM playbooks, investor materials, brand assets, and engineering specs. **It holds no application source code** — Fly GACA's product code lives in four separate repos (see the table below). Polished deliverables live as `.docx` / `.xlsx`; working notes, specs, and drafts are `.md`. Every `.md` file has a **print-ready branded PDF** under [`_print/`](_print/).
+This repo stores every operating document that runs the company: legal contracts, compliance programs, HR policies, GTM playbooks, investor materials, brand assets, and engineering specs. **It holds no application source code** — Fly GACA's product code lives in three product repos plus six per-module App Store metadata repos (see the table below). Polished deliverables live as `.docx` / `.xlsx`; working notes, specs, and drafts are `.md`. Every `.md` file has a **print-ready branded PDF** under [`_print/`](_print/).
 
 Fly GACA is a family of ten repositories; this is the internal-docs one. [**The Book of Fly GACA**](https://github.com/ay2m/FlyGACA/blob/main/THE-BOOK-OF-FLY-GACA.md) maps them all — product surfaces, shared principles, and the glossary — in one place.
 
