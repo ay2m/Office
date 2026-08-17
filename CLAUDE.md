@@ -4,7 +4,7 @@ section: root
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-08-12
+last_updated: 2026-08-17
 lang: en
 ---
 
@@ -19,10 +19,12 @@ independent, educational platform and open regulatory library for Saudi civil av
 every operating document that runs the company: strategy/OKRs, governance, legal, finance,
 KSA compliance, HR/people, operations/IT specs, GTM, customer success, investor relations,
 academy curriculum, and brand — **not** product code. Fly GACA's product code lives in separate
-repos: the web monorepo `FlyGACA/FlyGACA-app`, the AI service `FlyGACA/Captain-Adel`, the iOS
-family `ay2m/FlyGACA`, and six per-module App Store metadata repos (`FlyGACA/PPL`, `CPL`, `IR`,
-`ATPL`, `ELPT`, `AIP`). A Claude Code session here is almost always **drafting, editing, or
-reorganizing organizational documents**, not writing or reviewing application code.
+repos: the web monorepo `ay2m/FlyGACA-app`, the AI service `ay2m/Captain-Adel`, the iOS
+family `ay2m/FlyGACA-ios`, and the per-module App Store metadata repos (`ELPT` and `AIP` are the
+shipping pair; `PPL`, `CPL`, `IR` and `ATPL` were paused 2026-08-10 and their repos are marked
+parked — note their **web** study packs are untouched and still selling). A Claude Code session
+here is almost always **drafting, editing, or reorganizing organizational documents**, not
+writing or reviewing application code.
 
 > [!IMPORTANT]
 > Fly GACA is **not affiliated with GACA** (Saudi General Authority of Civil Aviation). This
@@ -61,15 +63,29 @@ Support directories:
   `tpl-legal-memo.md`, `tpl-ops-runbook.md`, `tpl-strat-proposal.md`; mirrored under
   `ar/templates/`). Base new docs on these.
 - **`ar/`** — a parallel Arabic (Saudi MSA) mirror of the **Markdown layer** across all 12
-  sections — same folder structure and filenames, translated content (118 `.md`, near-parity with
-  the English tree's 119). The `.docx`/`.xlsx`/`.html` deliverables are EN-only. **English is
-  authoritative** — on any conflict the English
+  sections — same folder structure and filenames, translated content (118 `.md` against the
+  English tree's 124, so the mirror currently lags by six). The `.docx`/`.xlsx`/`.html`
+  deliverables are EN-only. **English is authoritative** — on any conflict the English
   tree governs. Filenames stay ASCII kebab-case even under `ar/` for easy diffing.
 - **`tools/print/`** — the Markdown → branded A4 PDF pipeline (see below).
 - **`_print/`** — generated PDFs, mirroring the whole tree (including `ar/`). Generated output,
   but **is committed** (not gitignored) — the CI gate below checks it's present and fresh.
 - **`_INDEX.md`** / **`ar/_INDEX.md`** — master index of the whole tree.
 - **`ar/_GLOSSARY.md`** — the EN↔AR terminology glossary that keeps translations consistent.
+- **`.claude/agents/`** — two checked-in project subagents. This is a documents repo, so they
+  are document agents, not code agents:
+
+  | Agent | Use it for |
+  | --- | --- |
+  | `doc-smith` | Any doc in the twelve sections — front-matter, templates, the print pipeline |
+  | `ar-mirror` | The `ar/` mirror — Saudi MSA against the glossary, paths, Arabic PDFs |
+
+  Prefer delegating to them over editing cold: they encode the front-matter schema and its three
+  exemptions, the "a doc edit without a rebuilt PDF fails CI" rule, the `build.mjs` re-stamp
+  trick, and the sensitivity constraint below. Policy still lives in `01-governance/` — if an
+  agent file and a governance document disagree, the governance document wins.
+  The print walkers skip `.claude/` (it is tooling, not company documents), so nothing here
+  needs front-matter or a PDF.
 
 Several document formats coexist: polished deliverables are committed binaries
 (`.docx`/`.xlsx`/`.pptx`, plus source PDFs, investor-deck JPGs, and brand PSD/PNG assets — SVG
@@ -111,8 +127,14 @@ Every other `.md`, anywhere in the tree (including `ar/`), needs the full set.
 `status: draft` or `status: scaffold` stamps an automatic DRAFT/SCAFFOLD watermark on the rendered
 PDF — set it deliberately. (No doc currently uses `scaffold`; the tooling supports it.)
 
+Note this file is **not** exempt: `CLAUDE.md` sits at the repo root, carries the full
+front-matter block, and needs its own rebuilt PDF whenever you edit it. Bump its
+`last_updated` at the same time.
+
 **Every `.md` must have a matching, up-to-date PDF under `_print/`.** After creating or editing any
-`.md` file (English or Arabic), regenerate its PDF before committing:
+`.md` file (English or Arabic), regenerate its PDF before committing. The gate covers **239
+Markdown + 16 brand-HTML docs** today, and it does fail in practice — four docs shipped to `main`
+without rebuilt PDFs in August 2026, so treat the rebuild as part of the edit, not a follow-up:
 
 ```bash
 cd tools/print
@@ -143,8 +165,9 @@ itself; CI runs Node 20).
 > **Editing `build.mjs` marks every PDF in the repo stale**, because its own bytes are folded into
 > the shared `themeHash`. For a change that genuinely alters rendering, that's correct — rebuild.
 > But for a change that *cannot* alter output (adding a `SKIP_DIRS` entry, a comment, a log line),
-> re-rendering 238 PDFs is pure churn: Chromium restamps `CreationDate` on every one, so all 238
-> show up as modified binaries. In that case re-stamp `.buildcache.json` with the new `themeHash`
+> re-rendering the entire `_print/` tree (250-plus PDFs) is pure churn: Chromium restamps
+> `CreationDate` on every one, so the whole set shows up as modified binaries. In that case
+> re-stamp `.buildcache.json` with the new `themeHash`
 > instead — recompute `sha256(themeHash + source)` per existing key and write it back with
 > `JSON.stringify(cache, null, 1) + '\n'`. Verify with `node check.mjs` **and** a clean
 > `git status _print/`.
@@ -156,6 +179,12 @@ numbers, cover block generated from the front-matter. Fonts are vendored under `
 so the whole pipeline runs offline; it auto-detects Chromium via `$PLAYWRIGHT_BROWSERS_PATH`
 (default `/opt/pw-browsers`) or `$CHROMIUM_PATH`. Requires Node 18+ and **Chromium ≥ 131**
 (CSS `@page` margin boxes drive the footer page numbers).
+
+The pipeline's own dependencies are pinned exactly (no `^`), so a Dependabot bump is a real
+code change, not a float: `markdown-it` 15.0.0, `playwright-core` 1.62.1, `gray-matter` 4.0.3.
+`markdown-it` is configured with `html: false` — docs are treated as untrusted Markdown and raw
+HTML/JS must never reach Chromium. A `markdown-it` major can shift rendering for every doc; after
+one, run `npm run build:force` and read the diff rather than trusting the incremental cache.
 
 ## Conventions
 
