@@ -4,7 +4,7 @@ section: root
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-08-12
+last_updated: 2026-08-17
 lang: en
 ---
 
@@ -19,9 +19,11 @@ independent, educational platform and open regulatory library for Saudi civil av
 every operating document that runs the company: strategy/OKRs, governance, legal, finance,
 KSA compliance, HR/people, operations/IT specs, GTM, customer success, investor relations,
 academy curriculum, and brand — **not** product code. Fly GACA's product code lives in separate
-repos: the web monorepo `FlyGACA/FlyGACA-app`, the AI service `FlyGACA/Captain-Adel`, the iOS
-family `ay2m/FlyGACA`, and six per-module App Store metadata repos (`FlyGACA/PPL`, `CPL`, `IR`,
-`ATPL`, `ELPT`, `AIP`). A Claude Code session here is almost always **drafting, editing, or
+repos, all under the `ay2m` GitHub account: the web monorepo `ay2m/FlyGACA-app`, the AI service
+`ay2m/Captain-Adel`, the native iOS family `ay2m/FlyGACA-ios`, plus the per-module App Store
+metadata repos (`ELPT` and `AIP` shipping; `PPL`, `CPL`, `IR`, `ATPL` **parked** since 2026-08 —
+their modules were removed from the iOS repo pending a strategic decision, while their **web**
+study packs keep selling). A Claude Code session here is almost always **drafting, editing, or
 reorganizing organizational documents**, not writing or reviewing application code.
 
 > [!IMPORTANT]
@@ -61,15 +63,25 @@ Support directories:
   `tpl-legal-memo.md`, `tpl-ops-runbook.md`, `tpl-strat-proposal.md`; mirrored under
   `ar/templates/`). Base new docs on these.
 - **`ar/`** — a parallel Arabic (Saudi MSA) mirror of the **Markdown layer** across all 12
-  sections — same folder structure and filenames, translated content (118 `.md`, near-parity with
-  the English tree's 119). The `.docx`/`.xlsx`/`.html` deliverables are EN-only. **English is
-  authoritative** — on any conflict the English
+  sections — same folder structure and filenames, translated content. It currently holds 118
+  `.md` against the English tree's 124, so **six English docs have no Arabic counterpart yet**
+  (the newest English additions run ahead of the mirror). The `.docx`/`.xlsx`/`.html` deliverables
+  are EN-only. **English is authoritative** — on any conflict the English
   tree governs. Filenames stay ASCII kebab-case even under `ar/` for easy diffing.
 - **`tools/print/`** — the Markdown → branded A4 PDF pipeline (see below).
-- **`_print/`** — generated PDFs, mirroring the whole tree (including `ar/`). Generated output,
-  but **is committed** (not gitignored) — the CI gate below checks it's present and fresh.
+- **`_print/`** — generated PDFs (254 today), mirroring the whole tree (including `ar/`).
+  Generated output, but **is committed** (not gitignored) — the CI gate below checks it's present
+  and fresh.
 - **`_INDEX.md`** / **`ar/_INDEX.md`** — master index of the whole tree.
 - **`ar/_GLOSSARY.md`** — the EN↔AR terminology glossary that keeps translations consistent.
+- **`drive-index-updates.csv`** — a root-level `old_path,new_path` map recording the Drive→repo
+  filename normalisation (Title Case + spaces → ASCII kebab-case). Reference it when an old
+  filename turns up in a link or an external index; it is data, not a doc, and the doc-check gate
+  ignores it.
+- **`.claude/agents/`** — two subagents scoped to this repo: **doc-smith** (any `.md`/`.html`
+  add/edit/rename, front-matter, and the print pipeline — use it when docs-check fails) and
+  **ar-mirror** (translating a new/changed English doc into `ar/` against the glossary and
+  rebuilding the Arabic PDFs). `agents/README.md` says when each applies.
 
 Several document formats coexist: polished deliverables are committed binaries
 (`.docx`/`.xlsx`/`.pptx`, plus source PDFs, investor-deck JPGs, and brand PSD/PNG assets — SVG
@@ -131,6 +143,12 @@ node check.mjs                # the CI gate itself — front-matter + Markdown-P
 Adding or renaming **any** `.html` in the tree without running `build-html.mjs` fails CI, same as
 an unrebuilt `.md`.
 
+`node check.mjs` is cheap, dependency-free and the single best thing to run before you commit —
+it reports exactly which docs are missing or stale (currently: 239 markdown + 16 brand-HTML docs
+in scope). Forgetting the rebuild is the most common way this repo goes red; it has already
+happened once (four PDFs, fixed in `016f1b2`), so make the build part of the same commit as the
+doc edit rather than a follow-up.
+
 `build.mjs` hashes each source file (folded with a hash of `theme.css` + `build.mjs` itself) into
 `tools/print/.buildcache.json`; `check.mjs` recomputes that hash and fails if it doesn't match the
 committed PDF, i.e. if you edited a doc but didn't rebuild its PDF. **Commit the regenerated PDF
@@ -143,8 +161,8 @@ itself; CI runs Node 20).
 > **Editing `build.mjs` marks every PDF in the repo stale**, because its own bytes are folded into
 > the shared `themeHash`. For a change that genuinely alters rendering, that's correct — rebuild.
 > But for a change that *cannot* alter output (adding a `SKIP_DIRS` entry, a comment, a log line),
-> re-rendering 238 PDFs is pure churn: Chromium restamps `CreationDate` on every one, so all 238
-> show up as modified binaries. In that case re-stamp `.buildcache.json` with the new `themeHash`
+> re-rendering all 254 PDFs is pure churn: Chromium restamps `CreationDate` on every one, so all
+> 254 show up as modified binaries. In that case re-stamp `.buildcache.json` with the new `themeHash`
 > instead — recompute `sha256(themeHash + source)` per existing key and write it back with
 > `JSON.stringify(cache, null, 1) + '\n'`. Verify with `node check.mjs` **and** a clean
 > `git status _print/`.
