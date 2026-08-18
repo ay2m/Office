@@ -34,7 +34,7 @@
  "02-legal/terms-of-use-draft-2026-06-14.md": "7333c2a218ed96362f5d4621db073d90af3694893ebf9f31f45924061081ef1b",
  "03-finance/finance-strategy.md": "ed2313d9df0908c69c0c07ae143d54dbe073d715034d249c82336e972998bf81",
  "03-finance/monetization.md": "2a8b7c718165bef5738c7ef26ba83f97140d5bc3ca4e9170a89f140a1e50d267",
- "04-compliance-ksa/compliance-roadmap.md": "d2f16ef37235f1680806eb7168c23cf15ce9a8c02d94d8db48c32af1dda04d42",
+ "04-compliance-ksa/compliance-roadmap.md": "4af64cdafbea8c8d16a0a77b415f4cc9127b8e0e4c26afc14d6a1e74408168d7",
  "05-people/anti-harassment-policy-2026-07-03.md": "0af25ee6f29e3433e9d8a931eb212da48e864c957d15a2360cf46e050c971bc6",
  "05-people/grievance-and-disciplinary-procedure-2026-07-03.md": "dd78fb76e294fbcd5f9c3ed46641b6363314e5f57a006cb9aaaf1e16c0533c84",
  "05-people/hr-pack-gap-audit-2026-06-14.md": "6b8a6b0ff06ab284d6bdcb71d9b7f16c51a8793dd4f4a057d53035ab84c9a312",
@@ -101,7 +101,7 @@
  "11-brand/flygaca-design-tokens-readme.md": "1dbbf6a52463b76ee9b7562195b1ededfc943b64114ccdcb1f4fccf322875924",
  "11-brand/flygaca-document-style-and-design-guideline.md": "acbd50e827cda174fab7aa6f172f7ae57b77affd9080b809d5dad18fc816b687",
  "11-brand/tidal-reckoning-philosophy.md": "8043f38ae5de0e93503972e9185509dd90be5ea122109052e681b696d386999e",
- "_INDEX.md": "6044a637d5ee672aa3c091ab1ef72dc2333bc3af265c29394919f93b8f889e7f",
+ "_INDEX.md": "8e0f1c90ae13ca1e625dac12918acbc328919751dcdfc824545ce4aee2d7d295",
  "ar/00-strategy/book-of-fly-gaca-review-2026-06-14.md": "a4092afc977d5937e895bb1ca0445305d20e8e847a60c1b09e06722f90c4aad7",
  "ar/00-strategy/fly-gaca-review-action-plan.md": "c34eda5c4a2affd5c0a96ff403a60ed0da52dcf1ddd701dd0040dd879cb09b1d",
  "ar/00-strategy/master-paperwork-template-index-2026-06-14.md": "ce04fe89671f1c8e10ed3ea70faa0d2a157d6f55ae21b1bb3f64c7d60b5e48a5",
@@ -237,5 +237,9 @@
  "ar/06-operations-it/slack-best-practices.md": "b6731601e3dd038aae6e5a7c63bcbee80484ae814d3bbbc874f2f1fa4a3a9469",
  "CLAUDE.md": "d5ecb5ff1b056bcd3089bbcbd895dba8efbfee295c2a17c445fc52186f143003",
  "06-operations-it/runbooks/runbook-decision-log.md": "c5750254184c4543f4c5c71411f09574e8573747629edca6623a069ac93bdd2e",
- "06-operations-it/audit-flight-school-admin-dashboard.md": "9e6dc79683003735ffc97d3b1c18e10760388671884e0a3fc93c9019000fad2f"
+ "06-operations-it/audit-flight-school-admin-dashboard.md": "9e6dc79683003735ffc97d3b1c18e10760388671884e0a3fc93c9019000fad2f",
+ "04-compliance-ksa/cyber-risk-assessment-2026-08.md": "67c0ca663f43d7995d8cb38b622dc0ca824160df3dca1aee2ddd312ea124f73a",
+ "04-compliance-ksa/isms-scope-and-statement-of-applicability.md": "0ecab681096fb100c5498390200fedcbc6e362976704b690745c7084c19f14d2",
+ "04-compliance-ksa/pci-dss-scope-and-saq-determination.md": "2b78fba0dcbba2abcacf753fb5cfad09916b1e13e401af5b5a0aa0f949f7b9ba",
+ "04-compliance-ksa/pdpl-pia-instructor-dashboard.md": "9f1ffeea90bb35a3ce922ff47d9180805b7b98388f49f0c786794823b2013de7"
 }
