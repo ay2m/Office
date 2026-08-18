@@ -82,6 +82,14 @@ Support directories:
   add/edit/rename, front-matter, and the print pipeline — use it when docs-check fails) and
   **ar-mirror** (translating a new/changed English doc into `ar/` against the glossary and
   rebuilding the Arabic PDFs). `agents/README.md` says when each applies.
+- **`.claude/skills/`** — six vendored Apache-2.0 governance/privacy/risk skills (GDPR controls,
+  privacy impact assessment, ISO 27001, NIST 800-30 risk assessment, third-party vendor risk,
+  PCI DSS) chosen because their output is written policy rather than shell commands. They are
+  foreign-law scaffolding — **PDPL and ZATCA remain the governing regimes**, and `01-governance/`
+  remains the source of policy. Provenance, the pinned upstream commit and the full guardrails:
+  `.claude/skills/THIRD_PARTY_NOTICES.md`. Note the whole `.claude/` tree is in `SKIP_DIRS` for
+  `check.mjs`/`build.mjs`/`build-html.mjs`, so nothing under it needs front-matter or a `_print/`
+  PDF — but that skip is root-anchored, so vendored skills must stay at `.claude/skills/`.
 
 Several document formats coexist: polished deliverables are committed binaries
 (`.docx`/`.xlsx`/`.pptx`, plus source PDFs, investor-deck JPGs, and brand PSD/PNG assets — SVG
