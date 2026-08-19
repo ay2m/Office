@@ -4,7 +4,7 @@ section: 03-finance
 doc_type: strategy
 status: active
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-20
 lang: en
 ---
 
@@ -26,6 +26,11 @@ the paywall flip (**gateway of record: Moyasar**), B2B seat grants
 (`server/src/chat-quota-core.ts`), and entitlement gating
 (`src/lib/services/features.ts`). Stripe was never shipped and the code no
 longer exists; RevenueCat iOS IAP remains unimplemented.
+
+**[Owner to confirm]** — the production stack (the Functions-era services, not the Express
+service) carries live `MOYASAR_PRICE_*_SAR` values including a Student tier. Whether the
+paywall is genuinely dormant in that deployment, or only in the current source tree, has not
+been verified; confirm before restating "everything is free for everyone" externally.
 
 **Online checkout cannot open until the legal entity exists (ROADMAP P0-3).**
 Schools, however, can be quoted and invoiced manually today — so the revenue
@@ -63,9 +68,31 @@ Willingness to pay is anchored by the global study-subscription band
 
 _Effective 2026-08-19. Every figure below is **VAT-inclusive**, as ZATCA requires of a
 published consumer price. This card is the commercial statement of what
-[`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA) actually charges — the technical source of
-truth is `PRICE_*` on the Cloud Run revision, held to the displayed price by
+[`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA) is **intended** to charge — the technical
+source of truth is `PRICE_*` on the Express Cloud Run revision, held to the displayed price by
 `tests/pricing-server-parity.test.ts`. **Change one, change both.**_
+
+> [!CAUTION]
+> **Target card, not the live card.** The Express service that reads `PRICE_*` has **never
+> been deployed** (verified against `gcloud`, 2026-08-19 — see
+> [`../06-operations-it/hosting-facts.md`](../06-operations-it/hosting-facts.md)). Production
+> is still the previous Firebase Functions stack, which prices from the **old**
+> `MOYASAR_PRICE_*_SAR` env names and is therefore **still charging the old card**:
+>
+> | Item | **Live today** (old card) | **Target** (card below) |
+> |---|---|---|
+> | Pro monthly / annual | 59 / 349 | 79 / 649 |
+> | **Student tier** | **39 / 299 — still live in production** | **Retired — no Student tier** |
+> | Exam Season Pass | 149 | 299 |
+> | Exam-prep packs | 49 / 79 | 249 / 399 / 499 (three bands) |
+> | All-Access Bundle | 199 | 1,499 |
+> | Captain Adel credits | 19 | 39 |
+>
+> The re-cut card takes effect only when the Express service ships. Until then: **do not
+> quote the card below to a customer, a school or an investor as the current price**, and
+> treat any revenue model built on it as a post-migration projection. The Student tier in
+> particular is a live SKU that the target card does not contain — retiring it is a
+> customer-facing change that needs its own decision and comms, not a silent cutover.
 
 **Subscriptions**
 

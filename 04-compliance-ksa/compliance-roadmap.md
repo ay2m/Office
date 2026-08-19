@@ -4,7 +4,7 @@ section: 04-compliance-ksa
 doc_type: plan
 status: draft
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-20
 lang: en
 ---
 
@@ -73,6 +73,7 @@ regulations take effect; the lawyer opinion (Sprint 0/1) must account for it.
 | PDPL program & DPIA | pdpl-compliance-program-and-dpia.docx | Founder | **In progress** — internally drafted and founder-signed; awaiting PDPL-specialist / SDAIA-qualified counsel review (parallel track, Sprint 2.4; checklist item P0-6/L-3) | Public user accounts (L1); AI features for account holders. Does **not** block the B2B pilot motion |
 | Information security | information-security-policy.docx | Founder | Drafted (ISO 27001 / CITC-aligned) | B2B security questionnaires; institutional customers |
 | Sub-processors / DPA register | sub-processor-list-and-dpa-register.docx | Founder | **Partial — review needed** (confirm Google Cloud — Cloud Run / Cloud SQL / Cloud Storage — Google Gemini, Cloudflare and Moyasar are listed; checklist P1-7). Payment processor entry is settled: **Moyasar** (DEC-010) — Stripe was never shipped and no Stripe code exists | Accounts launch (L1); every signed B2B DPA (`../02-legal/b2b-data-processing-agreement-draft-2026-06-14.md` Part 5 references this register) |
+| **Data residency (in-Kingdom)** | `../06-operations-it/hosting-facts.md` + the me-central2 migration | Founder | **OPEN — regressed.** Not in-Kingdom: application in `me-central1` (Doha, Qatar), Cloud SQL in `us-east4` (N. Virginia), verified 2026-08-19. **Blocked** on a Google grant for `me-central2` — the region is not available to the account. See the data-residency note below | Any in-Kingdom residency representation: privacy notice publication, L1 accounts launch, every signed B2B DPA, investor/GTM residency claims |
 | Vendor management | vendor-management-policy.docx | Founder | Drafted | — |
 | Business continuity / DR | business-continuity-and-disaster-recovery-plan-bcp-dr.docx | Founder | Drafted | Institutional B2B due diligence only |
 | PCI DSS scope & SAQ | pci-dss-scope-and-saq-determination.md | Founder | **Draft** — no cardholder data touches our systems, but the Moyasar widget is a JS embed on our own checkout page, so SAQ A is not automatic. v4.0.1 req. 6.4.3 (payment-page script inventory + integrity) and 11.6.1 (tamper detection) are live obligations and currently unmet **[Owner to confirm SAQ type with Moyasar + acquirer]** | B2B security questionnaires; acquirer onboarding |
@@ -124,23 +125,45 @@ the legal entity exists; B2B schools can be quoted and manually invoiced first.
   data); NCA Essential Cybersecurity Controls alignment; penetration test before
   institutional/government academy customers. (Checklist Table 7.)
 
-## Data-residency note
+## Data-residency note — **NOT in-Kingdom today**
 
-The platform runs in **me-central2 (Dammam, Saudi Arabia)** — the Cloud Run service and its
-Cloud SQL (PostgreSQL) instance are both regional resources in that region, which is what the
-PDPL in-Kingdom residency posture rests on. Earlier drafts described interim compute in
-**me-central1**; that region is **Doha, Qatar** — outside the Kingdom — and is not in use.
-Google Gemini AI inference is a separate question: it runs against the Gemini API rather than
-on the in-Kingdom infrastructure, and its processing region is **[Owner to confirm]** before
-any in-Kingdom claim is made for AI processing. See
+> [!CAUTION]
+> **Target, not deployed.** The **me-central2 (Dammam, Saudi Arabia)** placement — a single
+> Express service on Cloud Run with a co-regional Cloud SQL instance — is the **intended**
+> architecture, and it is what the PDPL in-Kingdom residency posture is *designed* to rest on.
+> It has **never been deployed.** Verified against `gcloud` on **2026-08-19**:
+>
+> - No `flygaca-api` Cloud Run service exists in any project. Production is still the
+>   **previous Firebase Functions stack** — 14 individual Cloud Run services in project
+>   `flygaca-sa`, **all in `me-central1`, which is Doha, Qatar** (outside the Kingdom).
+> - Persistence is Cloud SQL **`flygaca-sa-instance` (PostgreSQL 18) in `us-east4` —
+>   Northern Virginia, USA.** A second instance, `flygaca-fdc`, is in `me-west1` (Tel Aviv).
+> - **`me-central2` is not available to this Google account.** `gcloud` returns *"Permission
+>   denied on 'locations/me-central2' … Access to the region is unavailable. Please contact
+>   our sales team."* The migration is blocked on a Google region grant.
+>
+> **Consequence: customer personal data is not in the Kingdom today.** The application runs
+> in Qatar and the database in the United States. Every document in this tree that asserts
+> in-Kingdom residency as current fact is wrong until the migration lands — including the
+> privacy notice and the B2B DPA schedule, both of which have been corrected
+> (`../02-legal/privacy-notice-full-stage-draft-2026-06-14.md` §5.1,
+> `../02-legal/b2b-data-processing-agreement-draft-2026-06-14.md` §5.1).
+
+Google Gemini AI inference is a **further, separate** gap: it runs against the Gemini API
+rather than on infrastructure we operate, and its processing region is **[Owner to confirm]**
+before any in-Kingdom claim is made for AI processing. Canonical as-built inventory:
+`../06-operations-it/hosting-facts.md`. See also
 `../06-operations-it/repo-health-report-2026-06-16.md` §2.1 and
-`../06-operations-it/runbooks/runbook-pdpl-me-central2.md`.
+`../06-operations-it/runbooks/runbook-pdpl-me-central2.md` (the runbook describes the target
+migration, not a completed one).
 
-> **[Owner to confirm] — internal documents disagree on this fact.**
-> `../06-operations-it/hosting-facts.md` asserts Cloud Functions run in **me-central2**, while the
-> runbook above and `../06-operations-it/secrets-and-keys-placement.md` say compute is still in
-> **me-central1**. Since this is the load-bearing PDPL residency fact, one of the two must be
-> corrected. Carried as risk **CR-09** in `cyber-risk-assessment-2026-08.md`.
+> **Prior internal disagreement — now settled against the live project.**
+> `hosting-facts.md` asserted **me-central2**; the runbook and
+> `../06-operations-it/secrets-and-keys-placement.md` said compute was still in
+> **me-central1**. The `gcloud` inventory of 2026-08-19 settles it: **me-central1 is correct
+> for compute**, and the database is further out still, in `us-east4`. Carried as risk
+> **CR-09** in `cyber-risk-assessment-2026-08.md` — which should be re-scored upward, since
+> the exposure is confirmed rather than merely suspected.
 
 ## Open questions
 
@@ -156,10 +179,19 @@ any in-Kingdom claim is made for AI processing. See
 - **[Owner to confirm]** VAT registration threshold/timing: mandatory vs voluntary
   registration point for the expected first-year revenue (~SAR 120k B2B ARR logic —
   10 Cohort packages at SAR 12,000; see `../03-finance/monetization.md`).
-- ~~me-central2 migration date (Google access grant)~~ **Resolved 2026-08-19:** the service
-  and its database are deployed in me-central2 (Dammam). What remains open is the processing
-  region for **Google Gemini** inference — **[Owner to confirm]**, since the account-stage
-  PDPL posture for AI queries depends on it.
+- **me-central2 migration date (Google access grant) — RE-OPENED 2026-08-20.** The
+  2026-08-19 entry that marked this resolved was wrong: nothing is deployed in me-central2.
+  A `gcloud` inventory the same day found production still on the previous Firebase Functions
+  stack — 14 Cloud Run services in `flygaca-sa`, all in **me-central1 (Doha, Qatar)** — with
+  Cloud SQL in **us-east4 (Northern Virginia)**. **Blocker: `me-central2` is not granted to
+  this Google account** ("Access to the region is unavailable. Please contact our sales
+  team."), so the migration cannot even be attempted. **Next action: open a Google Cloud
+  sales/support request for `me-central2` access and record the ticket here.** This is the
+  single hardest gate on the in-Kingdom residency claim, and it blocks L1 (accounts launch)
+  representations, the privacy notice's publication, and every signed B2B DPA.
+- **[Owner to confirm]** the processing region for **Google Gemini** inference, since the
+  account-stage PDPL posture for AI queries depends on it. Separate from, and additional to,
+  the me-central2 gate above.
 
 ---
 

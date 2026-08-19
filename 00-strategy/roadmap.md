@@ -4,7 +4,7 @@ section: 00-strategy
 doc_type: plan
 status: active
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-20
 lang: en
 ---
 
@@ -20,17 +20,27 @@ edit the **Status** fields and tick the checkboxes as you go.
 > **Staleness check (2026-06-16):** phase statuses below have not been re-verified since the
 > date above. Treat as point-in-time. **TODO(owner):** re-confirm and bump "Last updated".
 
-> **Stack note (2026-08-19).** Phases 0–4 and 9–10 record the **legacy build**: a no-build
-> vanilla PWA on Firebase (Hosting, Firestore, Cloud Functions, App Check) with a separate
-> VPS. That history is left as written. It is **not** the current architecture: the product
-> was rebuilt as a React 19 + Vite SPA served from a Cloud Storage bucket behind an HTTPS
-> load balancer, with a single Express service on **Cloud Run in me-central2 (Dammam)**
-> backed by **Cloud SQL Postgres**, Captain Adel on **Genkit + Gemini**, and **Moyasar**
-> (mada / Apple Pay) as the payment gateway. There is no Firebase, no Firestore, no App
-> Check and no Stripe anywhere in the product. Phases 5, 6, 10 and 12 and the cross-cutting
-> list have been re-cut against the current stack. The Phase 1–4 and Phase 9 checklists are
-> left as the legacy build log: read every item there — ticked or not — as a record of that
-> era, not as work still queued on the platform that runs today.
+> **Stack note (2026-08-19, corrected 2026-08-20).** Phases 0–4 and 9–10 record the **legacy
+> build**: a no-build vanilla PWA on Firebase (Hosting, Firestore, Cloud Functions, App Check)
+> with a separate VPS. That history is left as written. It is **not** the current *codebase*:
+> the product was rebuilt as a React 19 + Vite SPA served from a Cloud Storage bucket behind
+> an HTTPS load balancer, with a single Express service targeting **Cloud Run in me-central2
+> (Dammam)** backed by **Cloud SQL Postgres**, Captain Adel on **Genkit + Gemini**, and
+> **Moyasar** (mada / Apple Pay) as the payment gateway. The source tree has no Firebase, no
+> Firestore, no App Check and no Stripe. Phases 5, 6, 10 and 12 and the cross-cutting list
+> have been re-cut against that rebuilt stack.
+>
+> **Deployment caveat — the rebuilt stack is not live.** Verified against `gcloud` on
+> **2026-08-19**: the Express service (`flygaca-api`) has never been deployed, and
+> **`me-central2` is not available to this Google account** (permission denied; region grant
+> pending with Google sales). Production is **still the Firebase Functions stack** — 14
+> individual Cloud Run services in project `flygaca-sa`, all in **`me-central1` (Doha,
+> Qatar)** — with Cloud SQL in **`us-east4` (Northern Virginia)**. **Customer data is not
+> in-Kingdom today.** So the Phase 1–4 / Phase 9 checklists are a record of the era that
+> *still serves production*, not a closed chapter; and the me-central2/Express items are
+> **blocked**, not done. Canonical as-built inventory:
+> `../06-operations-it/hosting-facts.md`; residency gate tracked in
+> `../04-compliance-ksa/compliance-roadmap.md`.
 
 **Sequenced by dependency, not by date.** Solo build, no fixed deadline. The order below
 is the order things *can* be done in; where two tracks can run in parallel, that is called
@@ -136,8 +146,14 @@ at the same time. Do not wait idle for the lawyer.
 
 ### Housekeeping
 
-- [x] Retire the Firebase projects — the platform no longer runs on Firebase at all
-  (Cloud Run + Cloud SQL in me-central2)
+- [ ] Retire the Firebase projects — **re-opened 2026-08-20.** This was ticked on the strength
+  of the *codebase* no longer using Firebase. Production still runs the Firebase Functions
+  build as 14 Cloud Run services in `flygaca-sa` (`me-central1`, Doha) with Cloud SQL in
+  `us-east4`; nothing can be retired until the Express service deploys, which is blocked on a
+  Google grant for `me-central2`
+- [ ] **Obtain `me-central2` access from Google** — the account is denied the region
+  ("contact our sales team"). Hard blocker on the Express/Cloud SQL migration and on every
+  in-Kingdom residency claim
 - [ ] Reconcile the old `ay2m/Library` repo — archive it, or fold it into the corpus under
   `ay2m/FlyGACA`
 - [ ] Verify the data-residency of Gemini / Vertex AI inference (needed before Phase 2)

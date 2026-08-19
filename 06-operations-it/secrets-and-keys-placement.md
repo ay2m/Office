@@ -4,7 +4,7 @@ section: 06-operations-it
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-20
 lang: en
 ---
 
@@ -15,6 +15,21 @@ backends. **No secret values live here** — only names and locations. The
 step-by-step is in the authoritative runbooks (linked at the end); this page is
 the map on top of them.
 
+> [!CAUTION]
+> **Target, not deployed.** Section A below describes where secrets go on the **Express
+> Cloud Run service in `me-central2`** — the intended architecture. Verified against
+> `gcloud` on **2026-08-19**, that service (`flygaca-api`) has **never been deployed** and
+> `me-central2` is **not granted to this Google account**. The secrets and prices that are
+> actually live sit on the **previous Firebase Functions stack** — 14 individual Cloud Run
+> services in project `flygaca-sa`, all in **`me-central1` (Doha, Qatar)** — with Cloud SQL
+> in **`us-east4` (Northern Virginia)**. Data is **not** in-Kingdom today. See
+> [`hosting-facts.md`](hosting-facts.md) for the full as-built inventory.
+>
+> **Live price env names are the OLD ones — `MOYASAR_PRICE_*_SAR`** — carrying the old price
+> card (Pro 59/349, **Student 39/299, a tier that is still live in production**, Pass 149,
+> packs 49/79, bundle 199, credits 19). The bare `PRICE_*` names and the re-cut card in
+> `../03-finance/monetization.md` take effect only when the Express service ships.
+
 ## Golden rules
 
 - **Never** put a secret value in git, in chat, or in code. Secrets live only in
@@ -22,11 +37,16 @@ the map on top of them.
 - `VITE_*` variables are **public build-time** values shipped to the browser —
   **not secrets** (publishable keys, site URLs, analytics ids). Safe to expose.
 - The IBAN never leaves this repo (see `01-governance/company-facts.md`).
-- Neither product uses Firebase. There is no `firebase functions:secrets:set`
-  step any more, and no `functions/.env.*` file — everything is a Cloud Run
-  revision setting. See [`hosting-facts.md`](hosting-facts.md).
+- Neither product's **current codebase** uses Firebase — the `ay2m/FlyGACA` source tree has
+  no `firebase functions:secrets:set` step and no `functions/.env.*` file. **But production
+  is still the Functions-era deployment**, so the live secrets are attached to those 14
+  services, not to an Express revision. See [`hosting-facts.md`](hosting-facts.md).
 
-## A) flygaca.com — `ay2m/FlyGACA` · Cloud Run service `flygaca-api` · region `me-central2` (Dammam)
+## A) [TARGET] flygaca.com — `ay2m/FlyGACA` · Cloud Run service `flygaca-api` · region `me-central2` (Dammam)
+
+> **Not deployed.** `flygaca-api` does not exist in any project and `me-central2` is not
+> available to the account. This is the layout to apply on the migration deploy; it is not
+> where today's live secrets are.
 
 **Secrets** → Google Secret Manager, one secret per value:
 
@@ -80,10 +100,13 @@ origin), `VITE_MOYASAR_PUBLISHABLE_KEY` (`pk_live_…`), plus the optional
 
 **Deploy / CI credentials** (repo settings → Secrets): a GCP service-account credential for
 `gcloud run deploy` + the bucket sync (`GCP_SA_KEY` / Workload Identity), and
-`CLOUDFLARE_API_TOKEN` · `CLOUDFLARE_ACCOUNT_ID` for the Worker mirror. *(There is no
-`FIREBASE_SERVICE_ACCOUNT` — that credential belonged to the archived predecessor repo.)*
+`CLOUDFLARE_API_TOKEN` · `CLOUDFLARE_ACCOUNT_ID` for the Worker mirror. *(No
+`FIREBASE_SERVICE_ACCOUNT` is needed by the `ay2m/FlyGACA` repo. **[Owner to confirm]**
+whether a Firebase/GCP deploy credential is still active for the Functions-era services
+running in `flygaca-sa` — that stack is what serves production, so something is still
+deploying it.)*
 
-## B) captadel.com — `ay2m/Captain-Adel` · Cloud Run · region `me-central2` (Dammam)
+## B) captadel.com — `ay2m/Captain-Adel` · Cloud Run · region `me-central2` (Dammam) — **[Owner to confirm]**
 
 **Secrets** → Google Secret Manager, via `printf '%s' "VALUE" | gcloud secrets create NAME --data-file=-`, or the batch shortcut `export NAME=… … && ./deploy/deploy.sh secrets`:
 
@@ -103,6 +126,12 @@ origin), `VITE_MOYASAR_PUBLISHABLE_KEY` (`pk_live_…`), plus the optional
 > **Do not take it for production.** `me-central1` is Doha, Qatar — outside the Kingdom — and
 > captadel handles real user queries, which are personal data under PDPL. If `me-central2`
 > is unavailable, escalate rather than deploy west.
+>
+> **This is no longer hypothetical.** `me-central2` is *not* available to this Google account
+> at all (permission denied; region grant pending with Google sales), and on the flygaca side
+> the me-central1 fallback is exactly what is running in production. **[Owner to confirm]**
+> which region captadel's live service is actually in — it was not covered by the 2026-08-19
+> `gcloud` inventory, and given the flygaca result, assume me-central1 until verified.
 
 **GitHub Actions**: `GCP_SA_KEY`.
 
@@ -110,10 +139,13 @@ origin), `VITE_MOYASAR_PUBLISHABLE_KEY` (`pk_live_…`), plus the optional
 
 1. **One Gemini key, two names** — `GOOGLE_GENAI_API_KEY` (flygaca) vs `GEMINI_API_KEY`
    (captadel). Same value from Google AI Studio, set in each product's own store.
-2. **Prices are named differently in each product.** flygaca uses bare `PRICE_*` env vars
-   (plain SAR integers) on the Cloud Run revision; captadel still uses `MOYASAR_PRICE_*_SAR`.
-   The old flygaca `MOYASAR_PRICE_*_SAR` names — and every `*_STUDENT_*` price key — no longer
-   exist; if you find them in a doc or a script, they are stale.
+2. **Prices are named differently in each product — and flygaca's live names are still the
+   old ones.** The *target* is bare `PRICE_*` env vars (plain SAR integers) on the Express
+   Cloud Run revision. **In production today flygaca still uses `MOYASAR_PRICE_*_SAR` on the
+   Functions-era services, including a `*_STUDENT_*` key — the Student tier is still live and
+   still sells at 39/299.** captadel also uses `MOYASAR_PRICE_*_SAR`. An earlier revision of
+   this page said the old flygaca names "no longer exist"; that was true of the source tree
+   and false of production. Treat `PRICE_*` and the re-cut card as pending the Express deploy.
 3. **One Moyasar account, two secret stores + two webhooks** — set the Moyasar keys in
    both stores, and register **two** webhook endpoints in the Moyasar dashboard:
    `https://api.flygaca.com/api/billing/webhook/moyasar` and
@@ -122,10 +154,13 @@ origin), `VITE_MOYASAR_PUBLISHABLE_KEY` (`pk_live_…`), plus the optional
    server-to-server; both funnel into the same idempotent `fulfil()`.
 4. **Publishable key** — public build var on flygaca (`VITE_MOYASAR_PUBLISHABLE_KEY`),
    but a stored secret on captadel (`MOYASAR_PUBLISHABLE_KEY`, served via `/v1/config`).
-5. **No Stripe, no Firebase, no App Check.** Any "Stripe", `firebase functions:secrets:set`,
-   `functions/.env.*`, `ENFORCE_APP_CHECK` or `ADEL_APPCHECK_MODE` mention in an older doc is
-   stale — both products use Moyasar, and flygaca's secrets are plain Secret Manager entries
-   mounted onto a Cloud Run revision.
+5. **No Stripe — that one is unconditional.** Both products use Moyasar; any "Stripe" mention
+   in an older doc is stale. **Firebase and App Check are conditional:** the *codebase* has
+   neither, and after the Express deploy flygaca's secrets become plain Secret Manager entries
+   mounted onto one Cloud Run revision. Until then, production is the Functions-era
+   deployment, so a `firebase functions:secrets:set` / `functions/.env.*` / `ENFORCE_APP_CHECK`
+   / `ADEL_APPCHECK_MODE` reference in an older doc may still describe **what is live**. Check
+   [`hosting-facts.md`](hosting-facts.md) before calling one of those stale.
 
 ## Authoritative step-by-step
 

@@ -4,7 +4,7 @@ section: 02-legal
 doc_type: legal
 status: draft
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-20
 lang: en
 ---
 
@@ -184,12 +184,16 @@ It will issue lawful processing instructions only. It will not instruct the Proc
 
 ### 5.1 Current Sub-Processors
 
+> ⚠️ **EXECUTION BLOCKER — the Data Location column must state the deployed reality.**
+>
+> An earlier draft of this schedule listed `me-central2` (Dammam, Kingdom of Saudi Arabia) as the Google Cloud data location. **That is the target architecture, not what is deployed.** Verified against the live Google Cloud project on **2026-08-19**: the application and API run as Cloud Run services in **`me-central1` (Doha, Qatar)** and the Cloud SQL (PostgreSQL) database is in **`us-east4` (Northern Virginia, United States)**; a second Cloud SQL instance sits in **`me-west1` (Tel Aviv)**. The `me-central2` region has **not been granted** to our Google Cloud account, so the migration is blocked pending that grant. **Personal Data is not resident in the Kingdom today.** The table below states the as-built locations; do not execute a DPA carrying the in-Kingdom claim.
+
 The Controller provides general written authorisation for the Processor to engage the following Sub-Processors, who process Personal Data under the Processor's responsibility:
 
-| Sub-Processor | Registered Entity | Processing Activity | Data Location |
+| Sub-Processor | Registered Entity | Processing Activity | Data Location (as built, verified 2026-08-19) |
 |--------------|-------------------|---------------------|---------------|
-| Google LLC (Google Cloud Platform) | Google LLC, USA | Application hosting (Cloud Run), database (Cloud SQL — PostgreSQL), static asset storage (Cloud Storage) | `me-central2` (Dammam, Kingdom of Saudi Arabia) |
-| Google LLC (Google Gemini, via Genkit) | Google LLC, USA | AI inference for the Captain Adel study assistant | [Note for lawyer: inference runs against the Google Gemini API and **not** on the `me-central2` infrastructure above. The processing region must be confirmed before this DPA is executed, because PDPL Art. 29 cross-border transfer rules turn on it] |
+| Google LLC (Google Cloud Platform) | Google LLC, USA | Application hosting (Cloud Run), database (Cloud SQL — PostgreSQL), static asset storage (Cloud Storage) | **`me-central1` (Doha, Qatar)** — application and API; **`us-east4` (Northern Virginia, USA)** — primary database; **`me-west1` (Tel Aviv)** — secondary database instance. *Target on completion of the planned migration: `me-central2` (Dammam, Kingdom of Saudi Arabia) — not deployed, blocked on a Google region grant.* |
+| Google LLC (Google Gemini, via Genkit) | Google LLC, USA | AI inference for the Captain Adel study assistant | [Note for lawyer: inference runs against the Google Gemini API and **not** on the Google Cloud infrastructure listed in the row above. The processing region must be confirmed before this DPA is executed, because PDPL Art. 29 cross-border transfer rules turn on it — as they now also do for the application and database rows above] |
 | Cloudflare, Inc. | Cloudflare, Inc., USA | CDN, security, DDoS protection, cookieless analytics | Distributed — processed at edge closest to user |
 | Moyasar Financial Company | Saudi Arabia | Payment processing (subscription billing) | Kingdom of Saudi Arabia |
 
@@ -255,11 +259,13 @@ Personal Data subject to this DPA may be processed by Sub-Processors outside the
 - To countries or entities recognised by SDAIA as providing an adequate level of data protection; or
 - Subject to appropriate safeguards required by the PDPL cross-border transfer rules and SDAIA Implementing Regulations
 
-[Note for lawyer: SDAIA's cross-border transfer implementing regulations and any approved adequacy decisions should be checked and the mechanism specified precisely. Counsel should advise on the applicable transfer mechanism for the processing that occurs outside the Kingdom — Google Gemini AI inference and Cloudflare edge processing. The Cloud Run application, the Cloud SQL database and the Cloud Storage bucket are all in `me-central2` (Dammam, KSA).]
+[Note for lawyer: SDAIA's cross-border transfer implementing regulations and any approved adequacy decisions should be checked and the mechanism specified precisely. **The set of processing that occurs outside the Kingdom is materially larger than an earlier draft of this note assumed.** As built and verified 2026-08-19, it includes the core platform itself: the Cloud Run application and API in `me-central1` (Doha, Qatar) and the Cloud SQL database in `us-east4` (Northern Virginia, USA), alongside Google Gemini AI inference and Cloudflare edge processing. The `me-central2` (Dammam, KSA) placement described elsewhere in our documentation is the target architecture and is not deployed. Counsel should advise on the transfer mechanism for **all** of it, on the same footing.]
 
 ### 8.2 Data Residency
 
 The Processor will implement KSA-based data residency for Personal Data where required by applicable PDPL Implementing Regulations, and will notify the Controller of the data storage region upon request.
+
+[Note for lawyer / owner — flagged, clause left unchanged: this clause is drafted as a forward obligation, and the Processor does **not** meet KSA data residency today (see §5.1 — application in Qatar, database in the United States). Whether this DPA can be executed as drafted, and what the Processor must disclose to a Controller at signature about the current storage region, is a legal question that has not been answered. Correcting the factual schedule in §5.1 does not by itself resolve it; do not execute a DPA against this clause without counsel's view.]
 
 ---
 

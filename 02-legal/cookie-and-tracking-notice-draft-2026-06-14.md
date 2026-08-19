@@ -4,7 +4,7 @@ section: 02-legal
 doc_type: legal
 status: draft
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-20
 lang: en
 ---
 
@@ -125,7 +125,7 @@ Cloudflare Web Analytics does not use cookies or persistent identifiers, so ther
 
 | Provider | Role | Privacy Information |
 |----------|------|---------------------|
-| Google Cloud (Google LLC) | Application hosting (Cloud Run), database (Cloud SQL — PostgreSQL) and static asset storage (Cloud Storage), in the `me-central2` (Dammam, KSA) region — see Privacy Notice | [Google Cloud Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice) |
+| Google Cloud (Google LLC) | Application hosting (Cloud Run) in the `me-central1` (Doha, Qatar) region, database (Cloud SQL — PostgreSQL) in the `us-east4` (Northern Virginia, USA) region, and static asset storage (Cloud Storage). Regions verified 2026-08-19; `me-central2` (Dammam, KSA) is the target and is not deployed — see Privacy Notice §5.1 | [Google Cloud Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice) |
 | Cloudflare, Inc. | CDN, DDoS protection, Web Analytics | [Cloudflare Privacy Policy](https://www.cloudflare.com/privacypolicy/) |
 
 All third-party providers are listed as sub-processors in our Sub-Processor Register, maintained in accordance with PDPL requirements.

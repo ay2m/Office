@@ -4,7 +4,7 @@ section: 02-legal
 doc_type: legal
 status: draft
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-20
 lang: en
 ---
 
@@ -148,17 +148,28 @@ You may withdraw consent at any time without affecting the lawfulness of process
 
 ## 5. How We Store and Protect Your Data
 
-### 5.1 Location — KSA-First Infrastructure
+### 5.1 Location — Where Your Data Is Stored
 
-Personal data is stored **within the Kingdom of Saudi Arabia**:
+> ⚠️ **PUBLICATION BLOCKER — this section must not be published as it previously read.**
+>
+> An earlier draft of this section stated that personal data is stored inside the Kingdom, in the `me-central2` (Dammam) region. **That is a target, not the deployed reality.** Verified against the live Google Cloud project on **2026-08-19**: the platform still runs the previous Firebase Functions build as individual Cloud Run services in **`me-central1` (Doha, Qatar)**, with its Cloud SQL (PostgreSQL) database in **`us-east4` (Northern Virginia, United States)**. The `me-central2` region has **not been granted** to our Google Cloud account, so the migration cannot proceed until Google grants access.
+>
+> **Personal data is therefore NOT stored inside the Kingdom today.** This notice must state the regions below accurately, and must not be published with an in-Kingdom storage claim unless and until the migration is complete and re-verified.
 
-- **Google Cloud SQL (PostgreSQL)** — `me-central2` region (Dammam, KSA): all primary data storage, AI query logs, user accounts
-- **Google Cloud Run** — `me-central2` (Dammam, KSA): the application and API, including the Captain Adel gateway
-- **Google Cloud Storage** — static assets (no personal data), served behind an HTTPS load balancer
-- **Google Gemini (via Genkit)** — AI inference for Captain Adel [Note for lawyer / owner: inference runs against the Google Gemini API with an API key, **not** on our own `me-central2` infrastructure. The processing region for that inference has not been confirmed and this notice must not be published claiming in-Kingdom AI inference until it is.]
-- **Moyasar** — KSA-registered payment processor: payment data stays in KSA
+**Where personal data is processed today — as built, verified 2026-08-19:**
 
-We designed the platform so that personal data stays inside the Kingdom. Any processing outside the Kingdom is limited to technical infrastructure that processes only public, non-personal data (e.g., Cloudflare CDN for static assets).
+| Component | Provider | Region | Inside the Kingdom? |
+|---|---|---|---|
+| Application and API, including the Captain Adel gateway (Cloud Run services from the previous Functions-based build) | Google Cloud | `me-central1` — **Doha, Qatar** | **No** |
+| Primary database (Cloud SQL for PostgreSQL) — user accounts, profiles, AI query logs | Google Cloud | `us-east4` — **Northern Virginia, USA** | **No** |
+| Secondary Cloud SQL instance | Google Cloud | `me-west1` — **Tel Aviv** | **No** |
+| Static assets (Google Cloud Storage — no personal data), served behind an HTTPS load balancer | Google Cloud | Google Cloud infrastructure | Not applicable — no personal data |
+| AI inference for Captain Adel (Google Gemini via Genkit) | Google | [region unconfirmed — see note below] | **Unconfirmed** |
+| Payment processing | Moyasar (KSA-registered) | Kingdom of Saudi Arabia | Yes |
+
+**Target architecture — planned, not deployed:** the application and API move to a single Google **Cloud Run** service and the database to **Cloud SQL for PostgreSQL**, both in the **`me-central2` (Dammam, Kingdom of Saudi Arabia)** region, with the static-asset bucket alongside them. That is the intended KSA-first design and it is what our internal engineering documentation describes; it is **not** in effect today and is blocked on the Google region grant.
+
+[Note for lawyer / owner: (1) Because the application and the primary database are outside the Kingdom today, this processing involves cross-border transfer of personal data. The applicable PDPL Art. 29 transfer mechanism must be identified and the corresponding disclosure written into this notice before it is published, or publication deferred until the in-Kingdom migration is complete. (2) Google Gemini inference runs against the Google Gemini API with an API key, **not** on infrastructure we operate; its processing region has not been confirmed and this notice must not claim in-Kingdom AI inference until it is. (3) The pre-launch representations made in our commercial, investor and B2B material about in-Kingdom residency should be reviewed against this section for consistency.]
 
 ### 5.2 Security Measures
 
@@ -198,7 +209,7 @@ We share data only with:
 
 | Recipient | Purpose | Location | Legal basis |
 |-----------|---------|----------|-------------|
-| **Google Cloud** (Cloud Run, Cloud SQL, Cloud Storage) | Hosting, authentication, database | KSA (me-central2, Dammam) | Contract (processor); Google DPA signed |
+| **Google Cloud** (Cloud Run, Cloud SQL, Cloud Storage) | Hosting, authentication, database | **Today: `me-central1` (Doha, Qatar) — application and API; `us-east4` (Northern Virginia, USA) — database; `me-west1` (Tel Aviv) — second database instance. `me-central2` (Dammam, KSA) is the target and is not deployed — see §5.1.** | Contract (processor); Google DPA signed |
 | **Google Gemini** (via Genkit) | AI inference for Captain Adel | [region to be confirmed — see §5.1] | Contract (processor); [confirm which Google terms / DPA cover the Gemini API — the Google Cloud DPA above may not] |
 | **Moyasar** | Payment processing | KSA | Contract (processor); Moyasar DPA in place |
 | **Cloudflare** | CDN, Web Analytics (aggregate, cookieless only — no personal data) | Global (static assets only; analytics = no PII) | Legitimate interest |
@@ -284,6 +295,7 @@ The "Version" at the top of this notice and the changelog below record each revi
 | Version | Date | Summary of changes |
 |---------|------|--------------------|
 | Draft 1.0 | 2026-06-14 | Initial full-stage draft for legal review. Covers accounts, AI, Academy tier, B2B DPA requirement. Replaces pre-account draft in `privacy.html`. |
+| Draft 1.0 (correction) | 2026-08-20 | §5.1 and §7 corrected against a verified inventory of the live Google Cloud project (2026-08-19). The previous text asserted in-Kingdom (`me-central2`, Dammam) storage; the deployed platform runs in `me-central1` (Doha, Qatar) with its database in `us-east4` (Northern Virginia). No clause language or obligation changed — factual location statements only. |
 
 ---
 
