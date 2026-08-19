@@ -4,11 +4,19 @@ section: 06-operations-it
 doc_type: report
 status: active
 owner: Founder
-last_updated: 2026-06-16
+last_updated: 2026-08-19
 lang: ar
 ---
 
 # The-Office — تقرير صحة المستودع
+
+
+> [!NOTE]
+> **مُتجاوَز بتاريخ 2026-08-19 — محفوظ كسجل، ولم يُصحَّح.** يوثّق هذا المستند الوضع كما كان في
+> تاريخه. تغيّرت منذ ذلك الحين لوحة الأسعار ونموذج التسعير للمؤسسات وبنية المنصّة؛ راجع
+> [`01-governance/decision-log.md`](../01-governance/decision-log.md) القرار **DEC-011** و
+> [`03-finance/monetization.md`](../03-finance/monetization.md) لمعرفة الوضع الحالي. لم يُعدَّل أي شيء أدناه — فقيمته
+> أنه يسجّل ما تقرَّر أو لوحظ حينها، بما في ذلك ما تبيّن لاحقًا أنه غير صحيح.
 
 _الحالة: حالي · آخر تحديث: 2026-06-16 · المالك: ops_
 

@@ -4,7 +4,7 @@ section: 02-legal
 doc_type: legal
 status: draft
 owner: Founder
-last_updated: 2026-07-27
+last_updated: 2026-08-19
 lang: en
 ---
 
@@ -112,14 +112,14 @@ This notice does **not** cover data processed by GACA or other government websit
 | Data | Purpose | Lawful Basis | Retention |
 |------|---------|--------------|-----------|
 | IP address, browser/device type, OS | Security; abuse prevention; server logs | Legitimate interest | 30 days |
-| Firebase authentication tokens | Session management | Contract | Session duration |
+| Session token (a signed JSON Web Token held in an HttpOnly cookie, issued by our own backend) | Session management | Contract | Session duration (up to 30 days) |
 | Crash and error reports | Bug fixing; service reliability | Legitimate interest | 30 days |
 
 ### 3.7 Analytics
 
 We use **Cloudflare Web Analytics** for site-wide usage statistics. This tool is privacy-first and cookieless: it does not set tracking cookies, does not fingerprint your device, does not identify you personally, and does not track you across other websites. It records only aggregate, anonymous data (page views, referral source, broad geographic region). No personal data is processed through this tool.
 
-Where we use Firebase Analytics for in-app behaviour (screen views, feature usage), this is configured for privacy-minimal operation. We do not use Google Analytics or any advertising analytics platform.
+We do not use Google Analytics or any advertising analytics platform. [Note for lawyer / owner: the analytics description in this section could not be reconciled against the shipped platform and must be confirmed before publication — the sentence describing Firebase Analytics has been removed because there is no Firebase in the platform, but what (if anything) replaces it for in-app behaviour has not been settled.]
 
 ### 3.8 Communications and Waitlist
 
@@ -152,8 +152,10 @@ You may withdraw consent at any time without affecting the lawfulness of process
 
 Personal data is stored **within the Kingdom of Saudi Arabia**:
 
-- **Google Cloud Firestore** — `me-central2` region (Dammam, KSA): all primary data storage, AI query logs, user accounts
-- **Google Cloud Run / Vertex AI** — `me-central2` (Dammam, KSA): AI inference
+- **Google Cloud SQL (PostgreSQL)** — `me-central2` region (Dammam, KSA): all primary data storage, AI query logs, user accounts
+- **Google Cloud Run** — `me-central2` (Dammam, KSA): the application and API, including the Captain Adel gateway
+- **Google Cloud Storage** — static assets (no personal data), served behind an HTTPS load balancer
+- **Google Gemini (via Genkit)** — AI inference for Captain Adel [Note for lawyer / owner: inference runs against the Google Gemini API with an API key, **not** on our own `me-central2` infrastructure. The processing region for that inference has not been confirmed and this notice must not be published claiming in-Kingdom AI inference until it is.]
 - **Moyasar** — KSA-registered payment processor: payment data stays in KSA
 
 We designed the platform so that personal data stays inside the Kingdom. Any processing outside the Kingdom is limited to technical infrastructure that processes only public, non-personal data (e.g., Cloudflare CDN for static assets).
@@ -162,7 +164,7 @@ We designed the platform so that personal data stays inside the Kingdom. Any pro
 
 - All data in transit is encrypted (TLS 1.2+)
 - All data at rest is encrypted (AES-256 via Google Cloud)
-- Firebase security rules restrict each user's data to their own authenticated session — you cannot access another user's data
+- Server-side authorisation restricts each user's data to their own authenticated session — every request is checked against the session token before any record is returned, and you cannot access another user's data
 - Admin access is restricted to the founder via Identity-Aware Proxy (IAP) and two-factor authentication
 - Payment card data is never transmitted to or stored by Fly GACA — Moyasar handles all card processing under PCI-DSS
 - We conduct periodic security reviews; penetration testing is planned before Series A
@@ -196,7 +198,8 @@ We share data only with:
 
 | Recipient | Purpose | Location | Legal basis |
 |-----------|---------|----------|-------------|
-| **Google Cloud / Firebase** | Hosting, authentication, database, AI inference | KSA (me-central2) | Contract (processor); Google DPA signed |
+| **Google Cloud** (Cloud Run, Cloud SQL, Cloud Storage) | Hosting, authentication, database | KSA (me-central2, Dammam) | Contract (processor); Google DPA signed |
+| **Google Gemini** (via Genkit) | AI inference for Captain Adel | [region to be confirmed — see §5.1] | Contract (processor); [confirm which Google terms / DPA cover the Gemini API — the Google Cloud DPA above may not] |
 | **Moyasar** | Payment processing | KSA | Contract (processor); Moyasar DPA in place |
 | **Cloudflare** | CDN, Web Analytics (aggregate, cookieless only — no personal data) | Global (static assets only; analytics = no PII) | Legitimate interest |
 | **Academy operators** (B2B only) | Academy operators can view usage data for their own provisioned cadets only | KSA | Contract (see §9) |
@@ -212,7 +215,7 @@ Any future sub-processor (e.g., analytics, customer support) will be added to ou
 
 | Technology | Purpose | Personal data? | Consent required? |
 |-----------|---------|---------------|------------------|
-| **Firestore / Firebase Auth session tokens** (localStorage / IndexedDB) | Keep you logged in to your account | Yes (session identity) | Not required — essential to service |
+| **Fly GACA session token** (a signed JSON Web Token in an HttpOnly cookie) | Keep you logged in to your account | Yes (session identity) | Not required — essential to service |
 | **Language preference** (localStorage) | Remember your EN/AR choice | No | Not required — functional |
 | **Cloudflare Web Analytics** | Aggregate site usage (cookieless, no fingerprinting) | No | Not required |
 

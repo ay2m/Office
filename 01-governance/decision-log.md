@@ -4,7 +4,7 @@ section: 01-governance
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-08-09
+last_updated: 2026-08-19
 lang: en
 ---
 
@@ -190,6 +190,46 @@ Moyasar.
 built around. Moyasar's mada support is the deciding factor for KSA consumers; Stripe remains
 the pre-built fallback for international cards whenever it's worth the reconciliation
 overhead. iOS payments are unaffected in either case (RevenueCat IAP).
+
+## DEC-011 — Re-cut the price card, retire the Student tier, and adopt package B2B pricing
+
+| Field | Detail |
+|---|---|
+| **Date** | 2026-08-19 |
+| **Decision** | The consumer and B2B price card is replaced wholesale by the card now in [`03-finance/monetization.md`](../03-finance/monetization.md): Pro **79/mo · 649/yr**; Exam Season Pass **299 / 90 days** (replacing the 199 / 120-day "Exam Term"); exam-prep packs banded by content depth at **249 / 399 / 499**; All-Access Bundle **1,499**; Captain Adel credits **39** / 50 answers. The **Student tier is removed entirely**. B2B moves from per-seat bands to annual packages — Cohort **12,000/yr** (25 seats), Academy **39,000/yr**, Institution **from 72,000**. The licensed Captain Adel API is priced for the first time at **499 / 1,999 / 6,999** per month. |
+| **Reversibility** | Two-way door on the numbers; one-way-ish on the Student tier, since removing a plan people may already hold is harder to undo than a price change. No customer holds a paid plan yet — checkout has never been open — so the cost of this change is documentation only. |
+| **Owner** | Founder |
+| **Stakeholders Consulted** | Founder (solo) |
+| **Review Date** | 2026-11-19 (first full quarter after checkout opens) |
+
+**Context.** Two problems, found together. First, the displayed prices and the charged prices
+had drifted apart on every SKU — worst on the B2B cohort, where the site advertised SAR 6,000
+and the documented deploy charged SAR 2,499. Second, the **Student tier charged less than Pro
+for an identical entitlement** and its eligibility check (`isStudentEmail`) was never wired to
+any route, so it was strictly the better buy for every visitor and Pro's price was decorative.
+
+**Why these numbers.** Benchmarked against three anchors rather than a rival — there is no
+GACAR competitor at any price. (1) The international question-bank band: a single written costs
+SAR 188–244 at ASA/Dauntless/Sheppard, a full-year EASA bank SAR 860–960. (2) Saudi purchasing
+power: SAR 29–55/month is the corridor local consumer subscriptions occupy, and domestic
+exam-prep edtech sells one-time at SAR 199–400. (3) The buyer's committed spend: a cadet is
+already paying SAR 60,000–250,000 for training, and a single GACA practical exam costs SAR
+2,000. A Gulf pilot pays ~SAR 1,970/year for Jeppesen Middle East charts alone.
+
+**Why packages instead of per-seat B2B.** Every aviation-ops vendor prices per aircraft with
+unlimited students, so a per-seat card invites the objection "we already pay SAR 37/aircraft
+for everything." The package hides the seat and sells the admin/readiness dashboard.
+
+**What this supersedes.** The June-2026 price card in DEC-009's revenue logic, and the
+per-seat school card carried in `03-finance/finance-strategy.md`, `00-strategy/roadmap.md`,
+`07-gtm/`, `09-investor-relations/` and `02-legal/order-form-template-2026-07-03.md`. Those
+documents are corrected; the dated records that quote the old card (board packs, prior audits,
+this log's earlier entries) are **left intact** — they are the record of what was decided then.
+
+**Note on DEC-010.** Its reasoning stands, but its premise has moved: the dormant Stripe
+integration it preserved **no longer exists**. The Firebase Functions codebase it referred to
+was replaced by an Express service on Cloud Run, and no Stripe code was carried across.
+Moyasar is the only payment rail, as DEC-003 and DEC-010 both intended.
 
 ---
 

@@ -4,7 +4,7 @@ section: root
 doc_type: index
 status: active
 owner: Founder
-last_updated: 2026-08-16
+last_updated: 2026-08-19
 lang: en
 ---
 
@@ -52,7 +52,7 @@ Founding, board, and conduct documents.
 - founders-agreement.docx · shareholders-agreement-sha.docx · esop-plan-stock-option-plan.docx
 - code-of-conduct.docx · anti-bribery-aml-and-whistleblower-policy.docx
 - board-pack-template.docx · decision-log-template.docx
-- Live: decision-log.md (DEC-006…009) · board-pack-2026-07.md — the go-to-company decisions
+- Live: decision-log.md (DEC-006…011) · board-pack-2026-07.md — the go-to-company decisions
 - Repo governance: CLAUDE.md · CODE_OF_CONDUCT.md · CONTRIBUTING.md · SECURITY.md · LICENSE
 
 ## 02 — Legal
@@ -110,8 +110,13 @@ HR templates, policies, and operating rhythm.
 Digital office setup **plus** product/engineering specs, runbooks, and infra notes.
 
 > The specs and runbooks here document the product/engineering work; the actual
-> **code** — the `cloudflare-agents/` Workers project (Captain Adel + sales agents)
-> — lives in the workspace sibling `../Product-Engineering/`, not in this repo.
+> **code** lives in the separate repositories under the `ay2m` account —
+> [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA) (the web app *and* its Express
+> backend on Cloud Run, plus the regulatory corpus and content pipelines),
+> [`ay2m/Captain-Adel`](https://github.com/ay2m/Captain-Adel) (the AI flight
+> instructor service behind captadel.com), and
+> [`ay2m/FlyGACA-ios`](https://github.com/ay2m/FlyGACA-ios) (the native SwiftUI
+> app family) — not in this repo.
 
 - Office setup (01–08, .docx/.xlsx): 01-digital-office-setup-master-checklist ·
   02-tooling-stack-selection-guide · 03-drive-folder-structure · 04-email-aliases-map ·

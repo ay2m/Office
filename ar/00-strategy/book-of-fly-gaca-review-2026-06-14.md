@@ -4,11 +4,19 @@ section: 00-strategy
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-06-14
+last_updated: 2026-08-19
 lang: ar
 ---
 
 # كتاب Fly GACA — مراجعة
+
+> [!NOTE]
+> **مُتجاوَز بتاريخ 2026-08-19 — محفوظ كسجل، ولم يُصحَّح.** يوثّق هذا المستند الوضع كما كان في
+> تاريخه. تغيّرت منذ ذلك الحين لوحة الأسعار ونموذج التسعير للمؤسسات وبنية المنصّة؛ راجع
+> [`01-governance/decision-log.md`](../01-governance/decision-log.md) القرار **DEC-011** و
+> [`03-finance/monetization.md`](../03-finance/monetization.md) لمعرفة الوضع الحالي. لم يُعدَّل أي شيء أدناه — فقيمته
+> أنه يسجّل ما تقرَّر أو لوحظ حينها، بما في ذلك ما تبيّن لاحقًا أنه غير صحيح.
+
 **تاريخ المراجعة:** 2026-06-14  
 **المستند:** `the-book-of-fly-gaca.html` (44,723 بايت) + ملف PDF مرافق (1.1 ميجابايت)
 

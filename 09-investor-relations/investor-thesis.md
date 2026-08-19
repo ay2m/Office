@@ -4,7 +4,7 @@ section: 09-investor-relations
 doc_type: strategy
 status: draft
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-08-19
 lang: en
 ---
 
@@ -42,7 +42,7 @@ retrieval chunks — and wrapped it in study tools, mock exams and "Captain Adel
 flight instructor that answers only from the retrieved regulation and cites the exact Part,
 in both English and Arabic, with personal data processed in-Kingdom. The product is complete
 and deployed a year ahead of its business; the company is now executing the go-to-company
-critical path — legal entity, name clearance, and B2B seat licences to flight academies as
+critical path — legal entity, name clearance, and annual B2B cohort packages for flight academies as
 the first revenue line — into a small but winner-take-most market that is won through
 institutions before any funded competitor can lock the channel.
 
@@ -75,7 +75,7 @@ through institutions, not SEO** — 3–5 signed academies is a defended channel
 ## 3. Product & moat
 
 **What is built (deployed, live).** The GACAR/AIP regulatory library; Captain Adel answering
-with citations to the exact Part; a 162-question study system with mock exams; 21 flight
+with citations to the exact Part; a 162-question study system with mock exams; 55 flight
 tools; eleven guides; full Arabic RTL; offline PWA support; and a launch-ready SEO pass —
 eleven product phases complete (`../01-governance/board-pack-2026-07.md`).
 
@@ -86,8 +86,8 @@ eleven product phases complete (`../01-governance/board-pack-2026-07.md`).
 | **Corpus depth** | 74 GACAR Parts · 21 topical handbooks · 190 reference documents · 61 aerodromes · 13 charts, indexed by BM25 across **47,361 chunks** (canonical: `../06-operations-it/repo-health-report-2026-06-16.md` §2.2) | Machine-extracted, structured, drift-checked against GACA's publications — months of work a competitor must replicate before day one |
 | **Cited-to-Part AI** | RAG is the source of truth: Captain Adel answers only from retrieved passages, cites the exact Part/section, and refuses rather than guesses; every change is eval-gated | Trustworthy behaviour in a safety-critical domain is the product, not a feature |
 | **Native bilingual** | Every user-facing string ships EN/AR (CI-enforced); Arabic questions route to in-Kingdom Arabic model providers | No FAA-based incumbent (Gleim, Sporty's, King) is built on GACAR or serves Arabic natively |
-| **PDPL posture** | Personal data processed in-Kingdom; region plan targets **me-central2 (Dammam)** | A compliance feature institutional buyers and regulators can verify |
-| **Institutional switching cost** | Seat licences + the instructor dashboard put cohort readiness data inside the school's workflow | A school running its cohort on the platform is far harder to displace than one with no platform |
+| **PDPL posture** | Personal data processed in-Kingdom — the Express service runs on Cloud Run in **me-central2 (Dammam)** against a Cloud SQL Postgres instance in the same region | A compliance feature institutional buyers and regulators can verify |
+| **Institutional switching cost** | Cohort seat packages + the instructor dashboard put cohort readiness data inside the school's workflow | A school running its cohort on the platform is far harder to displace than one with no platform |
 
 **Stated honestly:** the corpus is public and LLM+RAG over public documents is
 commoditising (risk memo R9). The durable moat is converting the head start into signed
@@ -96,24 +96,30 @@ is exactly what the current quarter's plan does.
 
 ## 4. Business model & traction
 
-**Model** — freemium + Pro + exam-term + school-seat + packs (source of truth:
-`../03-finance/monetization.md`). The regulations library is free forever — the SEO funnel,
-the trust-builder and the safest legal posture; Fly GACA charges for the tools, teaching and
-AI that act on the regulation, never for reading the law.
+**Model** — freemium + Pro + Exam Season Pass + one-time exam-prep packs + annual school
+packages + a licensed AI API (source of truth: `../03-finance/monetization.md`, price card
+re-cut 2026-08-19; all figures VAT-inclusive). The regulations library is free forever — the
+SEO funnel, the trust-builder and the safest legal posture; Fly GACA charges for the tools,
+teaching and AI that act on the regulation, never for reading the law. The free tier is
+deliberately generous: the whole library, all 55 flight tools, 5 Captain Adel questions a day
+and one free prep pack.
 
 | Line | Headline pricing (SAR) |
 |---|---|
-| Pro subscription | 59/mo · 349/yr (headline ~29/mo) |
-| Exam Term (120 days) | 199 one-time |
-| Prep Packs (Conversion / ELPT / AIP) | 899 / 349 / 299 (bundle 1,299) |
-| Schools — seat licences, annual, min 10 seats | 299 → 249 → 199 per seat/yr by volume |
-| Consults / Premium | 899 / 1,699 |
+| Pro subscription | 79/mo · 649/yr (≈54/mo, save 32%; 7-day trial) |
+| Exam Season Pass (90 days) | 299 one-time |
+| Exam-prep packs — three content bands | Essential 249 (Conversion · Medical · AIP) · Standard 399 (ELP/SAELPT · ATPL · IR) · Complete 499 (CPL · PPL); All-Access Bundle 1,499 |
+| Captain Adel credits | 39 · 50 answers |
+| Schools — annual packages, not per-seat | Cohort 12,000/yr (25 seats, 90-day intake — 480/seat/yr) · Academy 39,000/yr (100 seats) · Institution from 72,000 |
+| Licensed Captain Adel API (`/v1/ask`) | Starter 499/mo (1,000 answers) · Growth 1,999/mo (5,000) · Scale 6,999/mo (25,000) · Enterprise custom |
 
 **Sequencing** — B2B-schools-first (DEC-009): schools are invoiceable today via manual
-ZATCA e-invoice and an existing admin licence grant; consumer checkout is gated on the
-legal entity and payment gateway (Sprint 3). Year-1 revenue logic: ~10 schools × ~50 seats ×
-~SAR 249 ≈ **SAR 125k ARR**; the board-level plan target is **SAR 1.8M ARR and 5 academies
-by Sep 2027** (`../01-governance/board-pack-2026-07.md`).
+ZATCA e-invoice and an existing admin seat grant; consumer checkout is gated on the
+legal entity and payment gateway (Sprint 3). Year-1 revenue logic: 10 Cohort packages at
+SAR 12,000 ≈ **SAR 120k ARR**; the board-level plan target is **SAR 1.8M ARR and 5 academies
+by Sep 2027** (`../01-governance/board-pack-2026-07.md`). The licensed API is the one line
+that does not depend on consumer checkout at all — it is contracted and invoiced like the
+schools line, and it monetises the corpus rather than the study product.
 
 **Traction & current status — the honest picture** (per
 `../00-strategy/ceo-execution-roadmap-2026-07.md`):
@@ -169,7 +175,7 @@ register must never diverge. The top items, stated plainly:
 |---|---|---|
 | **Name/trademark** — "Fly GACA" may be unregistrable at SAIP; passing-off exposure from a government authority's designation | Critical | Lawyer opinion due by 30 Jul 2026; name locked before entity registration; brand spend frozen (DEC-008); `captadel.com` secured as the rebrand hedge |
 | **Corpus rights** — rehosted GACAR/AIP rests on an unconfirmed copyright position under the new 2026 law | Critical | Written opinion is the legal gate (DEC-007); fallback is the deep-link index posture; AI-exception regs (post-12 Aug) may loosen it |
-| **Solo founder** — bus factor of one; consults sell founder hours; content freshness is founder-bound | High | Acknowledged, not yet mitigated; first paid help earmarked for ZATCA/payments and Arabic legal review; co-founder/first hire is a diligence item |
+| **Solo founder** — bus factor of one; B2B selling and content freshness are founder-bound | High | Acknowledged, not yet mitigated; the 1:1 consult SKU was retired on 2026-08-19 so no revenue line now sells founder hours; first paid help earmarked for ZATCA/payments and Arabic legal review; co-founder/first hire is a diligence item |
 | **GACA dependence** — the regulator could publish its own app, endorse a competitor, or object to the name | High | No relationship yet; documented non-objection is the minimum diligence target |
 | **Zero revenue validation** — prices decided but never tested on a paying customer | High | Being retired now: the current quarter's whole plan is the first paid contract |
 | **Small TAM** — single-country, single-regulator; expansion means a new corpus per country | High (structural) | Bottoms-up TAM to be built **[Owner to confirm]**; honest venture-vs-cashflow framing in the ask |

@@ -4,11 +4,19 @@ section: 06-operations-it
 doc_type: brief
 status: active
 owner: Founder
-last_updated: 2026-05-23
+last_updated: 2026-08-19
 lang: en
 ---
 
 # Fly GACA — Resume Briefing (current as of 23 May 2026)
+
+> [!NOTE]
+> **Superseded 2026-08-19 — retained as a record, not corrected.** This document captured the
+> position as it stood on its own date. The price card, the B2B pricing model and the platform
+> architecture have all changed since: see [`01-governance/decision-log.md`](../01-governance/decision-log.md)
+> **DEC-011** and [`03-finance/monetization.md`](../03-finance/monetization.md) for what is
+> current. Nothing below has been edited — its value is that it records what was decided or
+> observed at the time, including the parts that later turned out to be wrong.
 
 **How to use this file.** Paste everything inside the code block below into a fresh Claude
 conversation to resume work on Fly GACA with full context. Unlike the original briefing,

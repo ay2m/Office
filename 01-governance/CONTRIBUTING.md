@@ -4,13 +4,13 @@ section: 01-governance
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-08-09
+last_updated: 2026-08-19
 lang: en
 ---
 
 # Contributing to The Office
 
-This guide is for **this repository** — `FlyGACA/Office`, the internal documents repo.
+This guide is for **this repository** — `ay2m/Office`, the internal documents repo.
 (The application repos have their own contributing guides; setup steps and `npm run check:*`
 commands for the web app do **not** apply here.)
 

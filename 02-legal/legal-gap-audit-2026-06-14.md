@@ -4,11 +4,20 @@ section: 02-legal
 doc_type: audit
 status: active
 owner: Founder
-last_updated: 2026-06-14
+last_updated: 2026-08-19
 lang: en
 ---
 
 # Fly GACA — Legal Gap Audit
+
+> [!NOTE]
+> **Superseded 2026-08-19 — retained as a record, not corrected.** This document captured the
+> position as it stood on its own date. The price card, the B2B pricing model and the platform
+> architecture have all changed since: see [`01-governance/decision-log.md`](../01-governance/decision-log.md)
+> **DEC-011** and [`03-finance/monetization.md`](../03-finance/monetization.md) for what is
+> current. Nothing below has been edited — its value is that it records what was decided or
+> observed at the time, including the parts that later turned out to be wrong.
+
 **Date:** 2026-06-14  
 **Prepared by:** Claude (AI assistant) — for founder review and Saudi-licensed legal counsel sign-off  
 **Scope:** 02-legal/, 01-governance/, 04-compliance-ksa/ + live PWA pages (terms.html, privacy.html, disclaimer.html)  

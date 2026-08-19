@@ -4,7 +4,7 @@ section: 03-finance
 doc_type: strategy
 status: draft
 owner: Founder
-last_updated: 2026-08-09
+last_updated: 2026-08-19
 lang: en
 ---
 
@@ -41,8 +41,9 @@ quarter (Q3 FY2026), and what changes at each gate on the critical path
 
 **As of 2026-07-03.** Revenue to date: **SAR 0**. Legal entity: not yet registered. The
 product is built and deployed; the billing machine (Moyasar checkout to be integrated per
-DEC-010 — Stripe code built but dormant, RevenueCat IAP, B2B seat licences, free-tier
-quotas, protected-content gate) is dormant behind launch mode. The finance model for the
+DEC-010 — RevenueCat iOS IAP still unimplemented, B2B seat grants, free-tier
+quotas, protected-content gate) is dormant behind launch mode. Stripe was never shipped and
+the code no longer exists. The finance model for the
 next two quarters is therefore about **sequencing**, not forecasting precision: earn the
 revenue that is invoiceable now, keep fixed costs near zero, and time the one-off
 legal/entity spend against the critical-path gates.
@@ -52,55 +53,64 @@ legal/entity spend against the critical-path gates.
 Decision of record: **B2B-schools-first** (DEC-009, `01-governance/decision-log.md`).
 Consumer checkout cannot open until the legal entity exists and a payment gateway is live;
 schools can be quoted and invoiced **today** via a manual ZATCA-compliant e-invoice plus the
-existing admin grant callable (`grantSchoolLicence`). Full plan: `monetization.md` (Phases
-A–C) and `07-gtm/b2b-pipeline.md`.
+existing admin grant route (`POST /api/org/:orgId/provision-seats`, each member then
+self-claiming via `POST /api/grants/school-seat` on a verified email). Full plan:
+`monetization.md` (Phases A–C) and `07-gtm/b2b-pipeline.md`.
 
 | # | Revenue line | Status | Gate | When it earns |
 |---|---|---|---|---|
-| 1 | **Schools (B2B seat licences)** | Sellable now — quote → signed order → manual ZATCA e-invoice → bank transfer → seats granted | None for pilots; bank account (Sprint 2) for cash collection | Now — the only invoiceable line pre-entity |
-| 2 | **Prep Packs** (Conversion / ELPT / AIP, one-time) | Built, dormant | Entity + payment gateway (Sprint 3) | Paywall flip |
+| 1 | **Schools (B2B annual packages)** | Sellable now — quote → signed order → manual ZATCA e-invoice → bank transfer → seats granted | None for pilots; bank account (Sprint 2) for cash collection | Now — the only invoiceable line pre-entity |
+| 2 | **Exam-prep packs** (nine packs, three price bands, one-time) | Built, dormant | Entity + payment gateway (Sprint 3) | Paywall flip |
 | 3 | **Pro subscriptions** (monthly / annual) | Built, dormant; founding-member annual lock building the pool pre-launch | Entity + payment gateway (Sprint 3) | Paywall flip |
-| 4 | **Exam Term** (one-time, 120 days) | Built, dormant | Entity + payment gateway (Sprint 3) | Paywall flip; seasonal around exam windows |
-| 5 | **Consults / Premium** (founder time) | Priceable now; founder-time-bound | Entity for invoicing | Keep slots scarce; raise price before adding slots |
+| 4 | **Exam Season Pass** (one-time, 90 days) | Built, dormant | Entity + payment gateway (Sprint 3) | Paywall flip; seasonal around exam windows |
+| 5 | **Captain Adel credits** (39 / 50 answers) | Built, dormant | Entity + payment gateway (Sprint 3) | Paywall flip; tops up the free daily allowance without a subscription |
+| 6 | **Licensed Captain Adel API** (`/v1/ask`, metered monthly tiers) | Surface built and tiered (`docs/LICENSED-API.md`); no customers | Entity for invoicing; API keys issued per contract | Post-entity — B2B-shaped, sells like the schools line (quote → invoice), not self-serve |
 
-Year-1 revenue logic (per `monetization.md` and DEC-009): ~10 schools × ~50 seats × ~SAR 249
-≈ **SAR 125k ARR** — this dominates everything else until consumer checkout opens, so it
+Year-1 revenue logic (per `monetization.md` and DEC-009): 10 Cohort packages at SAR 12,000
+≈ **SAR 120k ARR** — this dominates everything else until consumer checkout opens, so it
 gets the founder's selling time from Sprint 1 onward.
 
-### 1.2 Pricing snapshot (SAR) — decided June 2026
+### 1.2 Pricing snapshot (SAR) — price card re-cut 2026-08-19
 
-`monetization.md` is the single source of truth; this is the summary card.
+`monetization.md` is the single source of truth; this is the summary card. Every figure is
+**VAT-inclusive**, as ZATCA requires of a published consumer price.
 
 | Line | Item | Price |
 |---|---|---|
-| Subscription | Pro Monthly | 59/mo |
-| Subscription | Pro Annual | 349/yr (headline ~SAR 29/mo; 7-day trial) |
-| Subscription | Exam Term (120 days) | 199 one-time |
-| Pack | License Conversion Prep Pack | 899 (launch 699) · incl. 90 days Pro |
-| Pack | ELPT / SAELPT Prep Pack | 349 · incl. 30 days Pro |
-| Pack | AIP Prep Pack | 299 · incl. 30 days Pro |
-| Pack | Conversion Bundle (all three) | 1,299 |
-| Service | Captain Adel 1:1 Consult (180 min) | 899 (launch 699) |
-| Service | Conversion Pack Premium | 1,699 |
-| B2B | Schools, 10–24 seats | 299/seat/yr |
-| B2B | Schools, 25–74 seats | 249/seat/yr |
-| B2B | Schools, 75+ seats | 199/seat/yr |
-| B2B | Founding partner (first 2–3 schools) | 199/seat flat, year 1 |
+| Subscription | Pro Monthly | 79/mo |
+| Subscription | Pro Annual | 649/yr (≈54/mo, save 32%; 7-day trial) |
+| Subscription | Exam Season Pass (90 days) | 299 one-time |
+| Credits | Captain Adel credits | 39 · 50 answers |
+| Pack — Essential | Conversion · Medical · AIP | 249 each |
+| Pack — Standard | ELP/SAELPT · ATPL · IR | 399 each |
+| Pack — Complete | CPL · PPL | 499 each |
+| Pack | All-Access Bundle (all eight paid packs, permanent) | 1,499 |
+| B2B | Cohort — up to 25 seats, one 90-day intake | 12,000/yr (480/seat/yr) |
+| B2B | Academy — up to 100 seats, rolling 12 months | 39,000/yr (~390/seat/yr) |
+| B2B | Institution — 100+ seats, SSO | from 72,000 |
+| API | Licensed `/v1/ask` — Starter / Growth / Scale | 499 · 1,999 · 6,999 per month (1,000 / 5,000 / 25,000 answers); Enterprise custom |
 
-Founding-member consumer offer: annual at **SAR 299** for the first year (first 500 waitlist
+Packs price by how much material each carries, not by certificate-vs-subject label;
+`airspace-vfr` stays free as the sampler. **There is no Student tier** — it was removed on
+2026-08-19 (it undercut Pro for an identical entitlement and its eligibility check was never
+wired to a route).
+
+Founding-member consumer offer: annual at **SAR 549** for the first year (first 500 waitlist
 members), honoured through a 30-day grandfather window at the paywall flip. Invariant: the
 regulations library, guides and safety lessons are **never paywalled** — Fly GACA charges
 for tools, teaching and AI, never for reading the law.
 
 ### 1.3 Cost structure — solo-founder static-site startup
 
-The cost base is deliberately minimal: a no-framework static PWA (Cloudflare Worker +
-Firebase Hosting, effectively free tier at current traffic), Cloud Functions on the Blaze
-plan, and the Captain Adel RAG service. There is no payroll, no office, no inventory.
+The cost base is deliberately minimal: a static SPA build served from a Cloud Storage bucket
+behind an HTTPS load balancer (with Cloudflare/Netlify/Vercel mirrors proxying `/api/*`), a
+single Express service on **Cloud Run me-central2 (Dammam)** backed by a **Cloud SQL
+Postgres** instance, and the Captain Adel RAG flow (Genkit + Gemini). There is no payroll, no
+office, no inventory.
 
 | Bucket | Items | Behaviour |
 |---|---|---|
-| **COGS** | Gemini API + in-Kingdom Arabic provider inference, Firebase (Functions/Firestore), VPS hosting for Captain Adel | Variable with usage; the free-tier quota design (5 Adel questions/month, 3 tool runs/day) caps it — target: Captain Adel cost per free user **< ~SAR 1/month** |
+| **COGS** | Gemini API + in-Kingdom Arabic provider inference, Cloud Run + Cloud SQL, corpus-bucket egress | Variable with usage; the free-tier quota design (5 Captain Adel questions/day, 3/day signed-out) caps it — target: Captain Adel cost per free user **< ~SAR 1/month**. The 55 flight tools are free and run client-side, so they carry no marginal cost |
 | **Operating** | Domains (flygaca.com, captadel.com), dev tooling, analytics | Small, flat |
 | **One-time (Q3, per ceo-roadmap)** | IP lawyer fixed fee (Sprint 0–1) · CR registration + bank account (Sprint 2) · ZATCA VAT/Fatoora onboarding + payment-gateway setup (Sprint 3) · Apple/Google developer accounts (iOS/Android wrappers) | Lumpy; timed against gates — amounts **[Owner to confirm]** as quotes land |
 | **Contingent** | Paid help for ZATCA/payments integration and Arabic legal-page review (the flagged solo-founder overload points); rebrand cost if the name opinion says "rebrand" | Only if triggered |
@@ -161,14 +171,16 @@ the decision log (2026-07-02) and the board pack ahead of the Sprint 3 paywall f
 
 | Aspect | Position |
 |---|---|
-| **Go-live gateway** | **Moyasar** — Saudi-licensed, mada-capable, Fatoora-compatible; the decision of record for KSA consumer payments |
-| **Stripe code** | `functions/stripe.js` checkout + webhook stays in the repo **dormant** — not removed; it remains the fallback if a non-KSA/international card-acquiring need appears later. No Stripe secrets are set and no Stripe products are created at go-live |
-| **Sprint 3 work** | Moyasar integration (products at the `monetization.md` price card, checkout + webhook) replaces the Stripe step in the Phase C checklist; this is new integration work in the highest-load sprint — plan paid help per §1.3 if needed |
-| **iOS** | Unchanged — RevenueCat IAP, independent of the web gateway choice |
+| **Go-live gateway** | **Moyasar** — Saudi-licensed, mada- and Apple Pay-capable, Fatoora-compatible; the decision of record for KSA consumer payments |
+| **Stripe** | **Not in play.** Stripe was never shipped and the code no longer exists in the product repo; no Stripe secrets are set and no Stripe products are created at go-live |
+| **Sprint 3 work** | Moyasar integration (products at the `monetization.md` price card, checkout → confirm → webhook → renewal job, all on the Cloud Run service) is the payments step in the Phase C checklist; this is new integration work in the highest-load sprint — plan paid help per §1.3 if needed |
+| **iOS** | Unchanged — RevenueCat IAP (still unimplemented), independent of the web gateway choice |
 
 Review checkpoint: DEC-010 carries a review date of **2026-08-27 (Sprint 3)** — if Moyasar
-onboarding or integration slips the paywall flip, the fallback decision (activate the
-dormant Stripe code) is taken then and logged.
+onboarding or integration slips the paywall flip, the fallback is another mada-capable Saudi
+gateway (HyperPay / PayTabs / Tap); that decision is taken then and logged.
+**[Owner to confirm]** which fallback gateway is preferred — there is no dormant integration
+to fall back on any more.
 
 ## 5. KPIs tracked
 
@@ -200,8 +212,8 @@ monetization KPIs; the dashboard workbook is financial-dashboard-kpis.xlsx.
 - **SME programmes** — Monshaat registration and NTDP eligibility are Sprint 2 actions
   (ceo-roadmap 2.2); application kits in `../04-compliance-ksa/`. Any grant/support money is
   upside, not planned cash.
-- **PDPL** — user questions are personal data; the in-Kingdom region plan (me-central2,
-  Dammam target) holds regardless of monetization phase. The DPIA gates public consumer
+- **PDPL** — user questions are personal data; the service and its database are in-Kingdom
+  (**me-central2, Dammam**) regardless of monetization phase. The DPIA gates public consumer
   accounts, not the B2B motion.
 - **VAT on prices** — **decided 2026-08-09 (brief A2):** the published SAR price card is
   **VAT-inclusive** for consumer-facing prices; B2B quotes show VAT as a separate line at

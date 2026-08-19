@@ -4,14 +4,14 @@ section: 01-governance
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-07-27
+last_updated: 2026-08-19
 lang: ar
 ---
 
 # حقائق الشركة — شركة بدع الدولية (BDA Company International)
 
-مرجع من صفحة واحدة للكيان القانوني المسجّل الذي يشغّل فلاي جاكا (flygaca.com)
-وكابتن عادل (captadel.com). **هذا الملف هو مصدر الحقيقة لهوية الشركة** — كل
+مرجع من صفحة واحدة للكيان القانوني المسجّل الذي يشغّل فلاي قاكا (flygaca.com)
+والكابتن عادل (captadel.com). **هذا الملف هو مصدر الحقيقة لهوية الشركة** — كل
 وثيقة أخرى تُحيل إلى هذه القيم بدل تكرارها. النمط يتبع
 `06-operations-it/hosting-facts.md`.
 
@@ -29,7 +29,7 @@ lang: ar
 | الرقم الوطني الموحد / السجل التجاري | **7030976893** |
 | تاريخ إصدار السجل | 23/09/2022 · الحالة: **نشط** |
 | العنوان المسجّل | الرياض، حي البقال 12965 |
-| الأسماء التجارية / المنتجات | فلاي جاكا (flygaca.com) · كابتن عادل (captadel.com) |
+| الأسماء التجارية / المنتجات | فلاي قاكا (flygaca.com) · الكابتن عادل (captadel.com) |
 
 > ملاحظة التهجئة: شهادة الآيبان البنكية تكتب الاسم "Beda International Company".
 > الصيغة الإنجليزية المعتمدة في كل النصوص القانونية والعقود والمواقع هي صيغة
@@ -56,18 +56,18 @@ lang: ar
 
 > **قاعدة صلبة — الآيبان ورقم الحساب لا يغادران هذا المستودع أبداً.** يُسجَّلان
 > هنا وفي `00-strategy/phase0.md` ‏(P0-3) فقط. ولا يجوز أن يظهرا في مستودعي
-> المنتجات (FlyGACA-app وCaptain-Adel) ولا في أي موقع أو وثيقة علنية.
+> المنتجات (`ay2m/FlyGACA` و`ay2m/Captain-Adel`) ولا في أي موقع أو وثيقة علنية.
 > الفواتير الموجهة للعملاء تحمل البيانات البنكية على الفاتورة نفسها وقت إصدارها.
 
 ## أين تظهر الهوية علنياً
 
 | السطح | ما يُعرض | مكانه |
 |---|---|---|
-| فوتر flygaca.com | سطر المشغّل: الاسم عربي/إنجليزي + س.ت + الضريبي + الرياض | `FlyGACA-app: src/i18n/*.json` (`footer.legalEntity`) + `src/app/Footer.tsx` |
-| flygaca.com ‏/terms و/privacy | بلوك الكيان، متحكم البيانات (PDPL)، اختصاص الرياض | `FlyGACA-app: src/i18n/*.json` (`legal.*`) |
-| البيانات المهيكلة flygaca.com | `legalName` والعنوان ومعرّف السجل والرقم الضريبي | `FlyGACA-app: src/lib/seo/jsonld.ts` + `index.html` + `scripts/prerender-head.mjs` |
-| فوتر captadel.com (كل الصفحات) | سطر المشغّل عربي/إنجليزي | `Captain-Adel: public/assets/js/footer.js` |
-| captadel.com ‏/terms و/privacy | بلوك الكيان، متحكم البيانات، ميسر كمعالج | `Captain-Adel: public/terms.html`، `public/privacy.html` |
+| فوتر flygaca.com | سطر المشغّل: الاسم عربي/إنجليزي + س.ت + الضريبي + الرياض | `ay2m/FlyGACA: src/i18n/*.json` (`footer.legalEntity`) + `src/app/Footer.tsx` |
+| flygaca.com ‏/terms و/privacy | بلوك الكيان، متحكم البيانات (PDPL)، اختصاص الرياض | `ay2m/FlyGACA: src/i18n/*.json` (`legal.*`) |
+| البيانات المهيكلة flygaca.com | `legalName` والعنوان ومعرّف السجل والرقم الضريبي | `ay2m/FlyGACA: src/lib/seo/jsonld.ts` + `index.html` + `scripts/prerender-head.mjs` |
+| فوتر captadel.com (كل الصفحات) | سطر المشغّل عربي/إنجليزي | `ay2m/Captain-Adel: public/assets/js/footer.js` |
+| captadel.com ‏/terms و/privacy | بلوك الكيان، متحكم البيانات، ميسر كمعالج | `ay2m/Captain-Adel: public/terms.html`، `public/privacy.html` |
 | ميتاداتا المستودعات | حامل الرخصة، author في package.json، سياسة الأمان | كلا مستودعي المنتجات |
 
 لا يُنشر أبداً: الآيبان/الحساب البنكي (القاعدة أعلاه)، هوية المؤسس الوطنية،
@@ -101,6 +101,7 @@ JSON-LD، ميتاداتا المستودعات)، `phase0.md` ‏P0-3، وثا�
   تحت `11-brand/print/*.html` (لوح B)، وأُعيد توليد PNG بدقة 300 نقطة/إنش بسطر
   هوية السجل/الضريبة (أُغلق GAP-7). قالب الفاتورة الضريبية في
   `03-finance/tax-invoice-template.html`.
-- [ ] جدول Google Sheet للفهرس الرئيسي — لصق يدوي للوثائق الجديدة/المعدّلة.
+- [ ] جدول Google Sheet للفهرس الرئيسي (`00-master-office-paperwork-index.gsheet`) — لصق
+  يدوي للوثائق الجديدة/المعدّلة.
 - [ ] تسجيل `flygaca.sa` (صار متاحاً).
 - [ ] التحقق من موجة فاتورة (زاتكا المرحلة الثانية) بعد وجود رقم ضريبي فعلي.

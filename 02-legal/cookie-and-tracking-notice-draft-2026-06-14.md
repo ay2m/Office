@@ -4,7 +4,7 @@ section: 02-legal
 doc_type: legal
 status: draft
 owner: Founder
-last_updated: 2026-06-14
+last_updated: 2026-08-19
 lang: en
 ---
 
@@ -21,7 +21,7 @@ lang: en
 >
 > This document is a working draft prepared by an AI assistant. It is NOT legal advice. It must be reviewed by a Saudi-licensed lawyer before publication.
 >
-> Key review points: (1) PDPL Art. 29 transparency obligation — whether a cookie banner and affirmative consent mechanism is required for functional/analytics technologies at account stage, and at what point; (2) CITC / CST position on analytics tracking for KSA-based services; (3) Whether Firebase Authentication session management cookies are "necessary" and exempt from consent requirements or require disclosure; (4) Whether Cloudflare security cookies are categorised as strictly necessary. Counsel should advise on the appropriate consent mechanic (implied vs. opt-in) for each category.
+> Key review points: (1) PDPL Art. 29 transparency obligation — whether a cookie banner and affirmative consent mechanism is required for functional/analytics technologies at account stage, and at what point; (2) CITC / CST position on analytics tracking for KSA-based services; (3) Whether the Fly GACA session cookie (a signed JSON Web Token issued by our own backend and held in an HttpOnly cookie) is "necessary" and exempt from consent requirements or requires disclosure; (4) Whether Cloudflare security cookies are categorised as strictly necessary. Counsel should advise on the appropriate consent mechanic (implied vs. opt-in) for each category.
 
 ---
 
@@ -50,7 +50,7 @@ This notice forms part of and should be read alongside our [Privacy Notice](http
 - **Session storage** — temporary browser storage that clears when you close your browser tab
 - **Local storage** — persistent browser storage retained between visits
 - **IndexedDB** — structured browser-side storage used for offline PWA functionality
-- **Firebase Authentication tokens** — secure session tokens issued by Google Firebase to authenticate logged-in users
+- **Session tokens** — a signed JSON Web Token (JWT) issued by the Fly GACA backend and held in an HttpOnly cookie, used to authenticate logged-in users
 
 ---
 
@@ -60,7 +60,7 @@ This notice forms part of and should be read alongside our [Privacy Notice](http
 
 | Technology | Provider | Category | Purpose | Duration | Consent Required? |
 |-----------|----------|----------|---------|----------|------------------|
-| Firebase Auth session cookie / ID token | Google Firebase (Google LLC) | Strictly Necessary — Authentication | Authenticates logged-in users; maintains session state | Session / up to 1 hour (ID token); up to 30 days (refresh token if enabled) | No (strictly necessary) |
+| Fly GACA session cookie (JWT, HttpOnly) | First party (Fly GACA) | Strictly Necessary — Authentication | Authenticates logged-in users; maintains session state | Up to 30 days (configured session lifetime), or until you sign out | No (strictly necessary) |
 | Cloudflare `__cf_bm` | Cloudflare, Inc. | Strictly Necessary — Security | Bot management and DDoS protection | 30 minutes | No (strictly necessary) |
 | Cloudflare `_cfuvid` | Cloudflare, Inc. | Strictly Necessary — Security | Rate-limiting; identifies connections for security processing | Session | No (strictly necessary) |
 | Cloudflare Web Analytics beacon | Cloudflare, Inc. | Analytics — Cookieless | Privacy-preserving analytics: page views, device type, country. No cross-site tracking. No cookies set. Cookieless by design. | N/A (no cookie) | No (cookieless; no persistent identifier) |
@@ -82,7 +82,7 @@ We do **not** use:
 
 ### 4.1 Strictly Necessary — Authentication and Security
 
-**Firebase Authentication tokens** are required for the Service to function for logged-in users. When you sign in to your Fly GACA account, Firebase issues a short-lived ID token (typically valid for 1 hour) and, where session persistence is enabled, a longer-lived refresh token stored in your browser's local storage. These are not used to track your behaviour; they exist solely to verify that you are who you say you are and to maintain your authenticated session.
+**Session tokens** are required for the Service to function for logged-in users. When you sign in to your Fly GACA account, our own backend issues a signed JSON Web Token (JWT) and stores it in an HttpOnly cookie — a cookie your browser sends back to us but which page scripts cannot read. Its configured lifetime is up to 30 days, and signing out ends it. These tokens are not used to track your behaviour; they exist solely to verify that you are who you say you are and to maintain your authenticated session.
 
 **Cloudflare security cookies** are set by Cloudflare, our network infrastructure provider, to protect the Service against bots, automated attacks, and DDoS (distributed denial of service) attempts. They are strictly necessary for the security and availability of the Service.
 
@@ -125,7 +125,7 @@ Cloudflare Web Analytics does not use cookies or persistent identifiers, so ther
 
 | Provider | Role | Privacy Information |
 |----------|------|---------------------|
-| Google Firebase (Google LLC) | Authentication, Firestore database (data processing in region as configured — see Privacy Notice) | [Firebase Privacy](https://firebase.google.com/support/privacy) |
+| Google Cloud (Google LLC) | Application hosting (Cloud Run), database (Cloud SQL — PostgreSQL) and static asset storage (Cloud Storage), in the `me-central2` (Dammam, KSA) region — see Privacy Notice | [Google Cloud Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice) |
 | Cloudflare, Inc. | CDN, DDoS protection, Web Analytics | [Cloudflare Privacy Policy](https://www.cloudflare.com/privacypolicy/) |
 
 All third-party providers are listed as sub-processors in our Sub-Processor Register, maintained in accordance with PDPL requirements.
@@ -151,4 +151,4 @@ Fly GACA | flygaca.com | Kingdom of Saudi Arabia
 ---
 
 *DRAFT 1.0 — 2026-06-14. Not published. Pending Saudi legal counsel review.*
-*Note to lawyer: The current technology stack (Firebase Auth, Cloudflare Web Analytics) is designed to be lightweight from a consent perspective. The key question for counsel is whether, at account launch, the Firebase Auth persistent refresh token stored in local storage is adequately disclosed by this notice and whether it triggers any consent obligation under PDPL or CITC/CST guidance.*
+*Note to lawyer: The current technology stack (a first-party JWT session cookie, Cloudflare Web Analytics) is designed to be lightweight from a consent perspective. The key question for counsel is whether, at account launch, the persistent (up to 30-day) HttpOnly session cookie is adequately disclosed by this notice and whether it triggers any consent obligation under PDPL or CITC/CST guidance. Separately, the analytics rows in §3.1 and §4.2 could not be reconciled against the shipped platform and must be confirmed by the owner before this notice is published.*

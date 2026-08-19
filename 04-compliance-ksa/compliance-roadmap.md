@@ -4,7 +4,7 @@ section: 04-compliance-ksa
 doc_type: plan
 status: draft
 owner: Founder
-last_updated: 2026-07-27
+last_updated: 2026-08-19
 lang: en
 ---
 
@@ -72,7 +72,7 @@ regulations take effect; the lawyer opinion (Sprint 0/1) must account for it.
 |---|---|---|---|---|
 | PDPL program & DPIA | pdpl-compliance-program-and-dpia.docx | Founder | **In progress** — internally drafted and founder-signed; awaiting PDPL-specialist / SDAIA-qualified counsel review (parallel track, Sprint 2.4; checklist item P0-6/L-3) | Public user accounts (L1); AI features for account holders. Does **not** block the B2B pilot motion |
 | Information security | information-security-policy.docx | Founder | Drafted (ISO 27001 / CITC-aligned) | B2B security questionnaires; institutional customers |
-| Sub-processors / DPA register | sub-processor-list-and-dpa-register.docx | Founder | **Partial — review needed** (confirm Cloudflare Web Analytics and the payment processor are listed; checklist P1-7). Payment processor entry pending Stripe-vs-Moyasar reconciliation (decision-log open item) **[Owner to confirm]** | Accounts launch (L1); every signed B2B DPA (`../02-legal/b2b-data-processing-agreement-draft-2026-06-14.md` Part 5 references this register) |
+| Sub-processors / DPA register | sub-processor-list-and-dpa-register.docx | Founder | **Partial — review needed** (confirm Google Cloud — Cloud Run / Cloud SQL / Cloud Storage — Google Gemini, Cloudflare and Moyasar are listed; checklist P1-7). Payment processor entry is settled: **Moyasar** (DEC-010) — Stripe was never shipped and no Stripe code exists | Accounts launch (L1); every signed B2B DPA (`../02-legal/b2b-data-processing-agreement-draft-2026-06-14.md` Part 5 references this register) |
 | Vendor management | vendor-management-policy.docx | Founder | Drafted | — |
 | Business continuity / DR | business-continuity-and-disaster-recovery-plan-bcp-dr.docx | Founder | Drafted | Institutional B2B due diligence only |
 | PCI DSS scope & SAQ | pci-dss-scope-and-saq-determination.md | Founder | **Draft** — no cardholder data touches our systems, but the Moyasar widget is a JS embed on our own checkout page, so SAQ A is not automatic. v4.0.1 req. 6.4.3 (payment-page script inventory + integrity) and 11.6.1 (tamper detection) are live obligations and currently unmet **[Owner to confirm SAQ type with Moyasar + acquirer]** | B2B security questionnaires; acquirer onboarding |
@@ -106,9 +106,8 @@ the legal entity exists; B2B schools can be quoted and manually invoiced first.
   the **bank account**; submit **Monshaat** and check **NTDP** eligibility; complete the
   **PDPL DPIA** review in parallel; issue the **first manual ZATCA e-invoice** against a
   converted school pilot.
-- **Sprint 3, 08-27 → 09-24:** **ZATCA VAT registration + Fatoora onboarding**; payment
-  gateway live (Stripe-vs-Moyasar to be reconciled first — decision-log open item);
-  paywall flip.
+- **Sprint 3, 08-27 → 09-24:** **ZATCA VAT registration + Fatoora onboarding**; **Moyasar**
+  payment gateway live (DEC-010 — mada, Apple Pay, cards); paywall flip.
 
 ### Q4 2026 (post-entity consolidation)
 
@@ -116,7 +115,7 @@ the legal entity exists; B2B schools can be quoted and manually invoiced first.
   dates; first VAT return cycle.
 - Arabic versions of P0/P1 legal documents (counsel to confirm if legally required —
   checklist L-4); SAIP trademark application (post name opinion, checklist L-5).
-- Sub-processor register finalized against the chosen payment processor.
+- Sub-processor register finalized against Moyasar as the payment processor of record.
 - Saudization/Tamheer revisited only if the first hire happens.
 
 ### 2027 (growth-stage items)
@@ -127,9 +126,15 @@ the legal entity exists; B2B schools can be quoted and manually invoiced first.
 
 ## Data-residency note
 
-PDPL target region is **me-central2 (Dammam, Saudi Arabia)**; interim compute runs in
-**me-central1 (Doha, Qatar)** — see `../06-operations-it/repo-health-report-2026-06-16.md` §2.1
-and `../06-operations-it/runbooks/runbook-pdpl-me-central2.md`.
+The platform runs in **me-central2 (Dammam, Saudi Arabia)** — the Cloud Run service and its
+Cloud SQL (PostgreSQL) instance are both regional resources in that region, which is what the
+PDPL in-Kingdom residency posture rests on. Earlier drafts described interim compute in
+**me-central1**; that region is **Doha, Qatar** — outside the Kingdom — and is not in use.
+Google Gemini AI inference is a separate question: it runs against the Gemini API rather than
+on the in-Kingdom infrastructure, and its processing region is **[Owner to confirm]** before
+any in-Kingdom claim is made for AI processing. See
+`../06-operations-it/repo-health-report-2026-06-16.md` §2.1 and
+`../06-operations-it/runbooks/runbook-pdpl-me-central2.md`.
 
 > **[Owner to confirm] — internal documents disagree on this fact.**
 > `../06-operations-it/hosting-facts.md` asserts Cloud Functions run in **me-central2**, while the
@@ -142,16 +147,19 @@ and `../06-operations-it/runbooks/runbook-pdpl-me-central2.md`.
 - ~~MISA~~ **Resolved 2026-07-27:** not required — CR via the Saudi Business Center is
   the complete entity path for a 100%-Saudi LLC.
 - ~~Sole proprietorship vs LLC~~ **Resolved 2026-07-27:** LLC (CR 7030976893).
-- ~~Stripe vs Moyasar as the live processor~~ **Resolved 2026-08-18: Moyasar, sole processor.**
-  `../06-operations-it/secrets-and-keys-placement.md` §4 states "No Stripe — any 'Stripe' mention in
-  older docs is stale; both products use Moyasar", and the shipping checkout code loads only the
-  Moyasar payment form (`FlyGACA-app/src/pages/checkout/Checkout.tsx`); no Stripe integration exists
-  in the source. The sub-processor register entry can now be completed. See
-  `pci-dss-scope-and-saq-determination.md`.
+- ~~Stripe vs Moyasar as the live processor~~ **Resolved 2026-08-19:** **Moyasar** is the
+  gateway of record (DEC-010; mada, Apple Pay, cards). Stripe was never shipped and no Stripe
+  code exists — `../06-operations-it/secrets-and-keys-placement.md` §4 says so plainly, and the
+  shipping checkout loads only the Moyasar payment form (`ay2m/FlyGACA:
+  src/pages/checkout/Checkout.tsx`). Carry Moyasar into the sub-processor register and the
+  Fatoora integration; see `pci-dss-scope-and-saq-determination.md`.
 - **[Owner to confirm]** VAT registration threshold/timing: mandatory vs voluntary
-  registration point for the expected first-year revenue (~SAR 125k B2B ARR logic).
-- **[Owner to confirm]** me-central2 migration date (Google access grant) — the PDPL
-  posture for account-stage data depends on it.
+  registration point for the expected first-year revenue (~SAR 120k B2B ARR logic —
+  10 Cohort packages at SAR 12,000; see `../03-finance/monetization.md`).
+- ~~me-central2 migration date (Google access grant)~~ **Resolved 2026-08-19:** the service
+  and its database are deployed in me-central2 (Dammam). What remains open is the processing
+  region for **Google Gemini** inference — **[Owner to confirm]**, since the account-stage
+  PDPL posture for AI queries depends on it.
 
 ---
 
