@@ -90,6 +90,9 @@ Saudi regulatory registrations and compliance programs.
 - Data/security: pdpl-compliance-program-and-dpia · information-security-policy ·
   sub-processor-list-and-dpa-register · vendor-management-policy ·
   business-continuity-and-disaster-recovery-plan-bcp-dr (.docx)
+- Data/security (.md): pci-dss-scope-and-saq-determination · pdpl-pia-instructor-dashboard ·
+  cyber-risk-assessment-2026-08 · isms-scope-and-statement-of-applicability _(all draft)_
+- E-commerce / e-invoicing: ecommerce-law-website-disclosure.md · fatoora-phase2-decision-2026-07.md
 - compliance-roadmap.md _(draft — sequenced registration roadmap, Q3 2026 →)_
 
 ## 05 — People

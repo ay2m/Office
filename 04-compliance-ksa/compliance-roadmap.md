@@ -75,6 +75,10 @@ regulations take effect; the lawyer opinion (Sprint 0/1) must account for it.
 | Sub-processors / DPA register | sub-processor-list-and-dpa-register.docx | Founder | **Partial — review needed** (confirm Google Cloud — Cloud Run / Cloud SQL / Cloud Storage — Google Gemini, Cloudflare and Moyasar are listed; checklist P1-7). Payment processor entry is settled: **Moyasar** (DEC-010) — Stripe was never shipped and no Stripe code exists | Accounts launch (L1); every signed B2B DPA (`../02-legal/b2b-data-processing-agreement-draft-2026-06-14.md` Part 5 references this register) |
 | Vendor management | vendor-management-policy.docx | Founder | Drafted | — |
 | Business continuity / DR | business-continuity-and-disaster-recovery-plan-bcp-dr.docx | Founder | Drafted | Institutional B2B due diligence only |
+| PCI DSS scope & SAQ | pci-dss-scope-and-saq-determination.md | Founder | **Draft** — no cardholder data touches our systems, but the Moyasar widget is a JS embed on our own checkout page, so SAQ A is not automatic. v4.0.1 req. 6.4.3 (payment-page script inventory + integrity) and 11.6.1 (tamper detection) are live obligations and currently unmet **[Owner to confirm SAQ type with Moyasar + acquirer]** | B2B security questionnaires; acquirer onboarding |
+| PIA — Instructor Dashboard | pdpl-pia-instructor-dashboard.md | Founder / DPO | **Draft — unsigned.** Assesses the cross-user reads the dashboard introduces; the `.docx` DPIA covers Captain Adel only. Must be signed before the dashboard ships | Instructor Dashboard launch (L1/L3) |
+| Cyber risk assessment | cyber-risk-assessment-2026-08.md | Founder | **Draft** — NIST SP 800-30 Rev 1, 11 risks scored on the risk-register scale. Feeds RR-013 / RR-021 / RR-014 and proposes five new rows | ISO 27001 Clause 6.1.2 input; investor DD |
+| ISMS scope & SoA | isms-scope-and-statement-of-applicability.md | Founder | **Draft** — Clause 4.3 scope + Statement of Applicability over all 93 Annex A controls. **Readiness artefact, not a certification claim** (2027 target) | B2B security questionnaires asking "what is your ISMS scope?" |
 
 ## Launch gates
 
@@ -132,6 +136,12 @@ any in-Kingdom claim is made for AI processing. See
 `../06-operations-it/repo-health-report-2026-06-16.md` §2.1 and
 `../06-operations-it/runbooks/runbook-pdpl-me-central2.md`.
 
+> **[Owner to confirm] — internal documents disagree on this fact.**
+> `../06-operations-it/hosting-facts.md` asserts Cloud Functions run in **me-central2**, while the
+> runbook above and `../06-operations-it/secrets-and-keys-placement.md` say compute is still in
+> **me-central1**. Since this is the load-bearing PDPL residency fact, one of the two must be
+> corrected. Carried as risk **CR-09** in `cyber-risk-assessment-2026-08.md`.
+
 ## Open questions
 
 - ~~MISA~~ **Resolved 2026-07-27:** not required — CR via the Saudi Business Center is
@@ -139,9 +149,13 @@ any in-Kingdom claim is made for AI processing. See
 - ~~Sole proprietorship vs LLC~~ **Resolved 2026-07-27:** LLC (CR 7030976893).
 - ~~Stripe vs Moyasar as the live processor~~ **Resolved 2026-08-19:** **Moyasar** is the
   gateway of record (DEC-010; mada, Apple Pay, cards). Stripe was never shipped and no Stripe
-  code exists. Carry Moyasar into the sub-processor register and the Fatoora integration.
+  code exists — `../06-operations-it/secrets-and-keys-placement.md` §4 says so plainly, and the
+  shipping checkout loads only the Moyasar payment form (`ay2m/FlyGACA:
+  src/pages/checkout/Checkout.tsx`). Carry Moyasar into the sub-processor register and the
+  Fatoora integration; see `pci-dss-scope-and-saq-determination.md`.
 - **[Owner to confirm]** VAT registration threshold/timing: mandatory vs voluntary
-  registration point for the expected first-year revenue (~SAR 125k B2B ARR logic).
+  registration point for the expected first-year revenue (~SAR 120k B2B ARR logic —
+  10 Cohort packages at SAR 12,000; see `../03-finance/monetization.md`).
 - ~~me-central2 migration date (Google access grant)~~ **Resolved 2026-08-19:** the service
   and its database are deployed in me-central2 (Dammam). What remains open is the processing
   region for **Google Gemini** inference — **[Owner to confirm]**, since the account-stage
