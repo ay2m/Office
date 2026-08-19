@@ -4,11 +4,19 @@ section: 02-legal
 doc_type: audit
 status: active
 owner: Founder
-last_updated: 2026-06-14
+last_updated: 2026-08-19
 lang: ar
 ---
 
 # فلاي قاكا (Fly GACA) — تدقيق الفجوات القانونية
+
+> [!NOTE]
+> **مُتجاوَز بتاريخ 2026-08-19 — محفوظ كسجل، ولم يُصحَّح.** يوثّق هذا المستند الوضع كما كان في
+> تاريخه. تغيّرت منذ ذلك الحين لوحة الأسعار ونموذج التسعير للمؤسسات وبنية المنصّة؛ راجع
+> [`01-governance/decision-log.md`](../01-governance/decision-log.md) القرار **DEC-011** و
+> [`03-finance/monetization.md`](../03-finance/monetization.md) لمعرفة الوضع الحالي. لم يُعدَّل أي شيء أدناه — فقيمته
+> أنه يسجّل ما تقرَّر أو لوحظ حينها، بما في ذلك ما تبيّن لاحقًا أنه غير صحيح.
+
 **التاريخ:** 2026-06-14  
 **أعدّه:** Claude (مساعد ذكاء اصطناعي) — لمراجعة المؤسس واعتماد مستشار قانوني سعودي مرخّص  
 **النطاق:** 02-legal/، 01-governance/، 04-compliance-ksa/ + صفحات تطبيق الويب التقدمي المباشر (terms.html، privacy.html، disclaimer.html)  

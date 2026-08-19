@@ -4,11 +4,19 @@ section: 06-operations-it
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-06-16
+last_updated: 2026-08-19
 lang: en
 ---
 
 # 06-product-eng Consolidation Manifest — 2026-06-16
+
+> [!NOTE]
+> **Superseded 2026-08-19 — retained as a record, not corrected.** This document captured the
+> position as it stood on its own date. The price card, the B2B pricing model and the platform
+> architecture have all changed since: see [`01-governance/decision-log.md`](../01-governance/decision-log.md)
+> **DEC-011** and [`03-finance/monetization.md`](../03-finance/monetization.md) for what is
+> current. Nothing below has been edited — its value is that it records what was decided or
+> observed at the time, including the parts that later turned out to be wrong.
 
 Closes master-index **GAP-1**: engineering docs were misfiled under `library/` (which should hold only the regulatory corpus) and duplicated inside the app at `flygaca/office/`. Documents are now consolidated into this bucket. Copy-only — originals were left in place because this folder blocks deletions for the agent (see root MOVED.md).
 

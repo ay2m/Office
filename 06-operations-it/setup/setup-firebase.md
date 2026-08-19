@@ -1,52 +1,46 @@
 ---
-title: P0-5 Walkthrough — Create the Firebase project
+title: P0-5 Walkthrough — Create the Firebase project (retired)
 section: 06-operations-it
 doc_type: setup-guide
-status: active
+status: draft
 owner: Founder
-last_updated: 2026-06-16
+last_updated: 2026-08-19
 lang: en
 ---
 
-# P0-5 Walkthrough — Create the Firebase project
+# P0-5 Walkthrough — Create the Firebase project (retired)
 
-**Goal:** create the managed cloud project that hosts the Fly GACA PWA, database, auth and
-Cloud Functions.
+> [!WARNING]
+> **Retired 2026-08-19 —** there is no Firebase project. The product was ported off Firebase
+> entirely: no Hosting, no Auth, no Cloud Functions, no Firestore, no App Check, no Blaze/Spark
+> plan. The projects this walkthrough would have created (`flygaca-firebase`, later
+> `flygaca-app`) are deleted, and the Firebase console is not a surface anyone here uses.
+>
+> **What replaced it:** a plain Google Cloud project — Cloud Run (the Express API), Cloud SQL for
+> PostgreSQL (the datastore), a Cloud Storage bucket behind an HTTPS load balancer (the SPA),
+> Secret Manager, and Cloud Scheduler — all in **`me-central2` (Dammam)**.
+>
+> **Go to instead:** `docs/RUNBOOK-deploy.md` in [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA)
+> for the real provisioning sequence, and
+> [`../hosting-facts.md`](../hosting-facts.md) for the one-page picture of what runs where.
 
-> The one irreversible decision here is the Firestore region. Get it right the first time.
+## What is still true from this page
 
-## 1. Create the project
+Only one thing, and it survived the port: **the region decision.** Personal data stays in the
+Kingdom, so Cloud SQL, Cloud Run and the buckets are all `me-central2` (Dammam). `me-central1` is
+Doha, Qatar — it is **not** in-Kingdom and must never be described as PDPL-safe.
 
-- Go to console.firebase.google.com and sign in with the Google account that should own the
-  project — use a project-dedicated account rather than a personal one if you can.
-- Add a project; name it (for example `flygaca` or `fly-gaca-prod`). Note the generated
-  **Project ID** — record it in `../phase0.md`.
+Everything else on this page — Firestore location lock-in, Authentication, App Check, Hosting, the
+Blaze upgrade — describes services the product does not use.
 
-## 2. Set the Cloud Firestore region — me-central2 (Dammam)
+## What P0-5 now means
 
-- In **Build → Firestore Database**, create the database.
-- Choose location **me-central2** (Dammam, Saudi Arabia). **This is permanent — the
-  location cannot be changed after the database is created.** me-central2 keeps data inside
-  the Kingdom, which supports PDPL data-sovereignty.
-- Start in production mode; the strict per-user security rules are written in Phase 3.
+P0-5 in [`../../00-strategy/phase0.md`](../../00-strategy/phase0.md) reads as "create the managed
+cloud project". That is still a real task; it is just a Google Cloud project rather than a Firebase
+one, and the sequence lives with the code. Record the resulting project ID and the confirmed region
+against P0-5 as before.
 
-## 3. Enable the other services
-
-- **Authentication** — enable it; sign-in providers are configured in Phase 3.
-- **App Check** — register it; enforcement comes in Phase 2/3.
-- **Hosting** — enable it; this is the Phase 1 deploy target for the static PWA.
-
-## 4. Upgrade to the Blaze plan
-
-- Cloud Functions (Phase 2) require the Blaze pay-as-you-go plan. Upgrade now and set a
-  **budget alert** so there are no surprises.
-
-## 5. Verify AI inference data-residency
-
-- Before Phase 2, confirm where Gemini / Vertex AI inference runs and whether it meets your
-  data-sovereignty posture. This is an open item in the briefing's hosting section — record
-  the answer.
-
-## 6. Record the result
-
-- Update `../phase0.md` P0-5 with the Project ID and the confirmed Firestore region.
+> [!NOTE]
+> `00-strategy/phase0.md` still narrates the Firebase-era project history (`flygaca-firebase`,
+> `flygaca-app`, the Firestore region incident). That is a dated record of what happened and is
+> left as written — but do not read it as current infrastructure.

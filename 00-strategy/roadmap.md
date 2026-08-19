@@ -4,7 +4,7 @@ section: 00-strategy
 doc_type: plan
 status: active
 owner: Founder
-last_updated: 2026-08-10
+last_updated: 2026-08-19
 lang: en
 ---
 
@@ -19,6 +19,18 @@ edit the **Status** fields and tick the checkboxes as you go.
 
 > **Staleness check (2026-06-16):** phase statuses below have not been re-verified since the
 > date above. Treat as point-in-time. **TODO(owner):** re-confirm and bump "Last updated".
+
+> **Stack note (2026-08-19).** Phases 0–4 and 9–10 record the **legacy build**: a no-build
+> vanilla PWA on Firebase (Hosting, Firestore, Cloud Functions, App Check) with a separate
+> VPS. That history is left as written. It is **not** the current architecture: the product
+> was rebuilt as a React 19 + Vite SPA served from a Cloud Storage bucket behind an HTTPS
+> load balancer, with a single Express service on **Cloud Run in me-central2 (Dammam)**
+> backed by **Cloud SQL Postgres**, Captain Adel on **Genkit + Gemini**, and **Moyasar**
+> (mada / Apple Pay) as the payment gateway. There is no Firebase, no Firestore, no App
+> Check and no Stripe anywhere in the product. Phases 5, 6, 10 and 12 and the cross-cutting
+> list have been re-cut against the current stack. The Phase 1–4 and Phase 9 checklists are
+> left as the legacy build log: read every item there — ticked or not — as a record of that
+> era, not as work still queued on the platform that runs today.
 
 **Sequenced by dependency, not by date.** Solo build, no fixed deadline. The order below
 is the order things *can* be done in; where two tracks can run in parallel, that is called
@@ -35,7 +47,7 @@ out explicitly.
 |-------|-------|--------|
 | 0 | Foundations | In progress — technical track done; legal track open |
 | 1 | The library goes live | **Done** — live; custom domain + CI still pending |
-| 2 | Captain Adel answers | **Done** — RAG function live on `gemini-2.5-flash`; App Check + evals pending |
+| 2 | Captain Adel answers | **Done** — RAG live on `gemini-2.5-flash` (Genkit + Gemini on Cloud Run); evals pending |
 | 3 | Pilot accounts & tools | In progress — accounts system built, verified & live (Auth provider on, rules deployed); PDPL DPIA is the one gate left before inviting users |
 | 4 | Arabic, offline & polish | In progress — bilingual engine + RTL live; homepage, About & all 4 section hubs translated; remaining inner pages + native review pending |
 | 5 | Money & flight schools | Not started |
@@ -43,7 +55,7 @@ out explicitly.
 | 7 | The training platform | In progress — explanations, Captain Adel in quizzes, 162-question bank, exam-readiness analytics shipped |
 | 8 | The library as a platform | **Done** — all 6 features shipped: study content, accident lessons, whole-library search, cross-links, reading paths, FAA comparison |
 | 9 | Launch & visibility | In progress — site deployed & live; SEO/structured-data/analytics done; custom domain + go-to-market pending |
-| 10 | Captain Adel, production-grade | In progress — rate limits, input guards & eval harness shipped; App Check, CI gate & budget alerts pending |
+| 10 | Captain Adel, production-grade | In progress — rate limits, input guards & eval harness shipped; CI gate & budget alerts pending |
 | 11 | Depth across the practical sections | **Done** — Tools 17→21, Guides 7→11, Study bank 60→162 + flashcards mode |
 
 **The road ahead, in priority order:** the build is far ahead of the paperwork. The
@@ -51,16 +63,16 @@ remaining work is mostly **gates and finishing**, not new construction —
 (1) the **legal track** (Phase 0): engage the Saudi lawyer, lock the name, register
 the entity; (2) the **PDPL DPIA**, which is the one gate before pilot accounts can be
 opened to the public; (3) **finish Phase 4** — translate the remaining inner pages and
-get a native Arabic review; (4) the small **console chores** — custom domain, App
-Check, budget alerts, the analytics token, a CI deploy gate; then (5) **Phase 5**
-(monetisation, gated by the legal entity) and (6) **Phase 6** (native apps + public
-API). The legal/entity track is now the critical path — the product itself is built.
+get a native Arabic review; (4) the small **console chores** — custom domain, budget
+alerts, the analytics token, a CI deploy gate; then (5) **Phase 5**
+(monetisation, gated by the legal entity) and (6) **Phase 6** (native apps + the
+licensed API). The legal/entity track is now the critical path — the product itself is built.
 
-Phase 0's technical track (repo, Firebase, VPS) is **done**; what remains in Phase 0 is the
+Phase 0's technical track (repo, hosting, backend) is **done**; what remains in Phase 0 is the
 legal track — engaging the lawyer (P0-1/P0-2) and registering the entity (P0-3).
-**Phases 1, 2, 8 and 11 have shipped**: the library, the in-app reader, the 21 flight
-tools, the 11 guides and the Study section (Ground School, 12 quiz banks, flashcards and a
-timed mock exam) are all live at `flygaca-firebase.web.app`, Captain Adel answers with
+**Phases 1, 2, 8 and 11 have shipped**: the library, the in-app reader, the flight
+tools (now 55 in the catalogue), the 11 guides and the Study section (Ground School, 12 quiz
+banks, flashcards and a timed mock exam) are all live, Captain Adel answers with
 cited sources, and the library now powers safety lessons, reading paths and whole-library
 search. Phase 7 (the training platform) is largely shipped and **Phase 9 — the public
 launch — is the immediate next step.**
@@ -83,7 +95,8 @@ The gating chain for everything else:
   (entity registration needs the name) and final branding everywhere.
 - **Legal entity (P0-3)** → unlocks the `.sa` domain, a business bank account, and the
   payment gateway + VAT in Phase 5.
-- **Blaze billing plan** → required before **Phase 2** (Cloud Functions need it).
+- **A GCP billing account** → required before **Phase 2** (the Cloud Run service and its
+  Cloud SQL instance need it).
 - **PDPL DPIA** → required before **Phase 3** (user accounts and personal data).
 
 **Recommended parallelism:** run the legal track (finish Phase 0) and the **Phase 1 build**
@@ -123,8 +136,10 @@ at the same time. Do not wait idle for the lawyer.
 
 ### Housekeeping
 
-- [ ] Delete the duplicate Firebase project `fly-gaca-495116`
-- [ ] Reconcile the old `FlyGACA/Library` repo — archive it, or fold it into `library/`
+- [x] Retire the Firebase projects — the platform no longer runs on Firebase at all
+  (Cloud Run + Cloud SQL in me-central2)
+- [ ] Reconcile the old `ay2m/Library` repo — archive it, or fold it into the corpus under
+  `ay2m/FlyGACA`
 - [ ] Verify the data-residency of Gemini / Vertex AI inference (needed before Phase 2)
 
 **Exit criteria:** the redistribution-rights question has a documented, lawyer-confirmed
@@ -369,10 +384,12 @@ Web Vitals bar, with a green E2E suite.
 ## Phase 5 — Money & flight schools
 
 **Goal:** turn Fly GACA into a revenue business — a free funnel, a paid Pro tier, a
-one-time Services line, a B2B flight-school product, Saudi payments wired to ZATCA,
+one-time exam-prep pack line, a B2B flight-school product, Saudi payments wired to ZATCA,
 and the paywall to enforce it.
-**Status:** Not started — **plan locked, prices decided** (below). **Gated by:** the
-legal entity (P0-3) for live payments; the build of the pages and paywall is not gated.
+**Status:** In progress — **plan locked, price card re-cut 2026-08-19** (below). The
+pricing/schools/checkout surfaces, the server-owned entitlement model and the org admin
+dashboard are built and dormant behind launch mode. **Gated by:** the legal entity (P0-3)
+for live payments; nothing gates the remaining build.
 
 ### Guiding rule — never paywall the regulations
 
@@ -385,17 +402,17 @@ funnel, the trust-builder, and the safest legal posture. Fly GACA charges for th
 - The whole Library — 74 GACAR Parts, 21 handbooks, 61 aerodromes, 13 charts, 190
   reference docs, full-text search, the in-app reader
 - All 11 Guides, the Safety section, Reading Paths
-- Captain Adel — **5 cited questions per month**, as a taste (this cap is both the
-  conversion engine and the per-message cost cap; a monthly allowance is *lower* cost
-  per free user than the old per-day cap, and a sharper paywall). Server window is
-  `ADEL_FREE_PERIOD=month` (or `day`) with `ADEL_DAILY_FREE` as the count
+- **All 55 flight tools**, free and ungated — they cost nothing at the margin (pure
+  client-side math), they are the SEO surface, and metering them only taxed the users
+  least likely to pay
+- Captain Adel — **5 cited questions per day** signed in, 3/day signed out. A daily
+  allowance is the conversion engine *and* the per-message cost cap; the counter is
+  server-side (`server/src/chat-quota-core.ts`)
+- **One free exam-prep pack** — `airspace-vfr`, the sampler
 - The three **funnel tools** (below) and the basic airport lookup — free by design
 
 ### Pro tier — the individual paid product
 
-- All 21 Flight Tools / calculators (tool *pages* stay public and indexable for SEO;
-  the gate is on *interactive use*). Free users get a small trial allowance
-  (≈3 runs/day) so they hit value before the wall
 - **Unlimited Captain Adel** (fair-use soft cap; the Phase 10 rate limiter guards abuse)
 - **Saudi Airport Directory** — every OE** airport: runways, frequencies, elevation,
   lighting, fuel/customs/handling, AIP cross-reference, searchable; static data from
@@ -406,31 +423,43 @@ funnel, the trust-builder, and the safest legal posture. Fly GACA charges for th
   analytics, the 34-lesson Ground School, flashcards
 - The digital logbook + currency tracking + cross-device sync
 - Billed two ways: a **monthly / annual subscription**, and a one-time fixed-term
-  **Exam Term** (120 days) for the pass-and-leave student
+  **Exam Season Pass** (90 days) for the pass-and-leave student. Beyond that, **Captain
+  Adel credits** (50 answers) top up the free daily allowance without a subscription
 
-### Services — one-time Prep Packs (the new product line)
+### Exam-prep packs — the one-time product line
 
 Fly GACA is independent of GACA, so it cannot sell a licence conversion or a test —
 only GACA does that. What it sells is **preparation**: structured playbooks, document
 checklists, process roadmaps and cited study/mock material that get a candidate ready.
-Paid once.
+Paid once, owned permanently.
 
-- **License Conversion Prep Pack** — for foreign ATPL/CPL/PPL holders converting to a
-  GACA licence: the conversion-path roadmap, the full document checklist, a GACA
-  air-law conversion study pack built only from the GACAR, mock questions, and a
-  "what to expect" process walkthrough. Includes 90 days of Pro + Captain Adel
-  Conversion Mode
-- **ELPT / SAELPT Prep Pack** — English Language Proficiency prep against the six ICAO
+Nine packs ship, priced in **three content bands** by how much material each carries —
+not by a certificate-vs-subject label, which had put a 76-question pack and a
+514-question pack at the same price:
+
+- **Essential** — *Conversion* (foreign ATPL/CPL/PPL holders converting to a GACA
+  licence: the conversion-path roadmap, the document checklist, a GACAR-only air-law
+  study pack, mock questions and a "what to expect" walkthrough) · *Medical* · *AIP*
+  (how to actually use the Saudi AIP for exams and checkrides)
+- **Standard** — *ELP / SAELPT* (English Language Proficiency against the six ICAO
   descriptors: phraseology drills, practice scenarios, a mock-interview structure, a
-  self-scoring rubric. Includes 30 days of Pro
-- **AIP Prep Pack** — how to actually use the Saudi AIP for exams and checkrides:
-  structure, how to find what an examiner asks, quizzes from real navigation
-  questions. Includes 30 days of Pro
-- **Conversion Bundle** — all three Prep Packs together
-- **Captain Adel 1:1 Consult** — a live 180-minute deep-dive session; limited slots
-  per week (it spends the founder's real time)
-- **Conversion Pack Premium** — the License Conversion Prep Pack + one 1:1 consult +
-  6 months of Pro
+  self-scoring rubric) · *ATPL* · *IR*
+- **Complete** — *CPL* · *PPL*, the two deepest banks
+- **All-Access Bundle** — all eight paid packs, permanent, for under half the cost of
+  buying them separately
+- **`airspace-vfr`** stays **free** as the sampler — the ninth pack, and the free
+  tier's proof of what a pack is
+
+Each pack carries **Captain Adel Conversion Mode** — the assistant primed on that
+pack's material. Packs no longer bundle a stretch of Pro: ownership is permanent and
+the subscription is sold on its own merits.
+
+> **Retired 2026-08-19.** The *Conversion Bundle*, the *Captain Adel 1:1 Consult*
+> (180-min) and *Conversion Pack Premium* are no longer offered. The bundle is replaced
+> by the All-Access Bundle; the two founder-time SKUs are gone because no revenue line
+> should be capped by the founder's calendar. The **Student tier** is likewise removed —
+> it undercut Pro for an identical entitlement and its eligibility check was never wired
+> to a route.
 
 > **Fees not included.** Every pack price covers Fly GACA's prep material and guidance
 > *only*. All official costs — GACA conversion/application fees, the air-law exam fee,
@@ -446,84 +475,101 @@ paid offer:
 
 - **Conversion Eligibility Checker** (free) → state / licence / hours / ratings → an
   instant read on the likely GACA conversion path and requirements → CTA to the
-  License Conversion Prep Pack
+  Conversion pack (Essential, 249)
 - **ELP Readiness Self-Check** (free) → self-assessment against the ICAO descriptors →
-  estimated band + weak areas → CTA to the ELPT Prep Pack
+  estimated band + weak areas → CTA to the ELP/SAELPT pack (Standard, 399)
 - **AIP Quiz** (free) → quick quiz answerable from the Saudi AIP → score + weak
-  sections → CTA to the AIP Prep Pack
+  sections → CTA to the AIP pack (Essential, 249)
 - **Basic airport lookup** (free) → upsells the full Airport Directory + weather in Pro
 
-The other ~18 calculators sit behind Pro with a small free trial allowance, and each
-paywall upsells contextually. Every Prep Pack bundles a stretch of Pro so the buyer
-experiences the calculators and Captain Adel — services feed the subscription rather
-than competing with it.
+All 55 calculators are free, so the funnel runs on reach rather than on metering: the
+tools bring the traffic, the free `airspace-vfr` pack shows what a pack is, and the
+Captain Adel daily wall is the paywall that actually bites. Each upgrade prompt is
+contextual to the limit the user hit.
 
 ### Captain Adel — tiering & economics
 
-- Free: 5 cited questions/month — the most magnetic feature on the site and the single
-  best conversion point; a monthly cap controls per-message API cost while making the
-  paywall bite sooner than a daily reset would
+- Free: 5 cited questions/day signed in, 3/day signed out — the most magnetic feature on
+  the site and the single best conversion point; the daily cap controls per-message API
+  cost while still letting a new user feel the product before it stops
 - Pro: unlimited (fair-use soft cap; the Phase 10 rate limiter guards abuse). At the
   Pro price a heavy user's token cost is a few riyals — healthy margin
-- Inside the Prep Packs: **Captain Adel Conversion Mode** — a focused assistant primed
-  on the conversion / ELP / AIP material, included with each pack
+- Inside the packs: **Captain Adel Conversion Mode** — a focused assistant primed
+  on that pack's material, included with each pack
+- Beyond the free allowance without subscribing: **credits**, 50 answers at a time
 
 ### Fly GACA for Schools — the B2B revenue engine
 
-- Seat-based bulk licensing — a school buys N cadet seats, each cadet gets Pro
+- **Annual packages, not per-seat bands** — a school buys a package with a seat ceiling
+  and an intake window; each cadet gets Pro. Per-seat pricing was retired on 2026-08-19:
+  it made every quote a negotiation and rewarded the school for under-counting cadets
 - A school **admin dashboard** — cohort exam-readiness, per-cadet progress, who is
   falling behind (a genuine instructor tool, not just billing)
-- Annual contracts, ZATCA-compliant invoicing, per-seat price below individual Pro
+- Annual contracts, ZATCA-compliant invoicing, effective per-seat cost well below
+  individual Pro (Cohort works out at 480/seat/yr against 649 retail)
+- **Published prices.** In flight-school software almost every vendor is quote-only, so
+  a visible price is an acquisition edge
 
-### Price sheet (SAR) — decided
+### Price sheet (SAR) — re-cut 2026-08-19
 
 > The full derivation (market benchmarks, anchoring logic, the phased revenue plan)
-> lives in **`office/monetization.md`** — that document is the source of truth;
-> `pricing.html`, `schools.html` and `flygaca.html` must match it.
+> lives in **`03-finance/monetization.md`** — that document is the source of truth and
+> this sheet mirrors it. In the product repo, `src/pages/pricing/Pricing.tsx`,
+> `src/lib/prepCatalog.ts` and `.env.example` must match, and
+> `tests/pricing-server-parity.test.ts` enforces it against the `PRICE_*` values on the
+> Cloud Run revision. **Change one, change all.** Every figure is **VAT-inclusive**, as
+> ZATCA requires of a published consumer price.
 
 **Subscriptions**
-- Pro Monthly — **59**
-- Pro Annual — **349** (≈ 29/mo billed yearly, ~6 months free vs monthly), with a 7-day
-  free trial
-- Exam Term — **199** (120 days full access, one-time)
+- Pro Monthly — **79**
+- Pro Annual — **649** (≈ 54/mo billed yearly, **save 32%**), with a 7-day free trial
+- Exam Season Pass — **299** (90 days, one-time)
+- Captain Adel credits — **39** / 50 answers
 
-> **Pricing note.** Monthly sits at 59 and annual at 349 deliberately: the wide spread
-> makes the annual the obvious buy (the decoy/anchor effect), pulls cash forward, and
-> reduces churn. The annual headline is framed as **~SAR 29/month** on the marketing
-> surfaces. Founding-member waitlist offer: annual locked at **299** for year 1
-> (first 500 members).
+> **Pricing note.** Monthly sits at 79 and annual at 649 deliberately: the spread makes
+> the annual the obvious buy, pulls cash forward and reduces churn, while the 90-day
+> Exam Season Pass at 299 stays priced so that anyone with more than one exam ahead is
+> better off on the annual. The annual headline is framed as **≈SAR 54/month** on the
+> marketing surfaces. Founding-member waitlist offer: annual locked at **549** for
+> year 1 (first 500 members). There is **no Student tier**.
 
-**Services — one-time Prep Packs** *(Fly GACA prep only — official fees not included)*
-- License Conversion Prep Pack — **899**, launch offer **699** (incl. 90 days Pro)
-- ELPT / SAELPT Prep Pack — **349** (incl. 30 days Pro)
-- AIP Prep Pack — **299** (incl. 30 days Pro)
-- Conversion Bundle (all three) — **1,299** (saves 248)
+**Exam-prep packs — one-time, permanent** *(Fly GACA prep only — official GACA/testing
+fees never included)*
+- Essential band — **249**: Conversion · Medical · AIP
+- Standard band — **399**: ELP/SAELPT · ATPL · IR
+- Complete band — **499**: CPL · PPL
+- All-Access Bundle (all eight paid packs) — **1,499**
+- `airspace-vfr` — **free**
 
-**Premium — 1:1**
-- Captain Adel 1:1 Consult — **899 / 180-min session**, with a **699 launch offer**
-  (founding rate, limited slots)
-- Conversion Pack Premium — **1,699** (pack + one 1:1 consult + 6 months Pro)
+**Schools (B2B)** — annual packages; see `07-gtm/b2b-pipeline.md` for the sales motion
+- **Cohort — 12,000 / year**: up to 25 seats, one 90-day intake (480/seat/yr).
+  Self-serve checkout
+- **Academy — 39,000 / year**: up to 100 seats, rolling 12 months (~390/seat/yr).
+  Contact sales
+- **Institution — from 72,000**: 100+ seats, SSO. Contact sales
+- Founding-partner discount for the first 2–3 academies, applied to the package price
 
-**Schools (B2B)** — minimum 10 seats; see `docs/b2b-pipeline.md` for the sales motion
-- **299** / seat / year — **249** at 25+ seats, **199** at 75+ seats; admin dashboard
-  included
-- Founding-partner rate for the first 2–3 schools: **199** flat, year 1
+**Licensed Captain Adel API (`/v1/ask`)** — metered, per calendar month; see
+`docs/LICENSED-API.md`
+- Starter — **499/mo** (1,000 answers) · Growth — **1,999/mo** (5,000) ·
+  Scale — **6,999/mo** (25,000) · Enterprise — custom, uncapped + SLA
 
 ### Build track — what can be built now (gateway deferred)
 
-- [ ] Subscription / entitlement data model — `users/{uid}` carries a plan
-  (`free` | `pro` | `school`), one-time pack entitlements, term and expiry; security
-  rules enforce it
-- [ ] Paywall + gating layer — gate interactive tool use (≈3/day trial), the full
-  Study system, the logbook, the airport directory/weather and unlimited Captain Adel;
-  the 5/month Captain Adel free counter; a clean contextual upgrade prompt at each limit
+- [x] Subscription / entitlement data model — the `entitlements` table carries the plan,
+  term and expiry, `pack_entitlements` carries permanent one-time pack ownership. It is
+  **server-owned**: only the billing and grants routes write it, and no route lets a
+  client write its own plan
+- [ ] Paywall + gating layer — gate the full Study system, the logbook, the airport
+  directory/weather and unlimited Captain Adel; the 5/day Captain Adel free counter; a
+  clean contextual upgrade prompt at each limit. The 55 flight tools stay free
 - [ ] The three funnel tools — Conversion Eligibility Checker, ELP Readiness
   Self-Check, AIP Quiz — each free, each with a CTA to its pack
 - [ ] Saudi Airport Directory + live METAR/TAF weather
-- [ ] The three Prep Packs — content + delivery
-- [ ] `pricing.html` — public pricing page: Free vs Pro vs Services vs Schools
-- [ ] `schools.html` — the B2B offering and a "request seats" enquiry path
-- [ ] School admin dashboard — seat management + cohort analytics
+- [ ] Pack content depth — the eight paid packs across the three bands
+- [x] `/pricing` — public pricing page: Free vs Pro vs Packs vs Schools
+- [x] `/schools` — the B2B offering and a "request seats" enquiry path
+- [x] School admin dashboard (`/business/admin`) — seat management + cohort analytics
 - [ ] Subscription / purchase management UI — upgrade, cancel, billing history, pack
   purchases (checkout stubbed until the gateway is live)
 
@@ -531,15 +577,16 @@ than competing with it.
 
 - [ ] ZATCA VAT registration
 - [ ] ZATCA Fatoora e-invoicing onboarding (integration + compliance)
-- [ ] Choose a mada-capable payment gateway (Moyasar / HyperPay / PayTabs / Tap)
-- [ ] Integrate the gateway via Cloud Functions; recurring subscription billing +
-  one-time pack/consult payments
+- [x] Payment gateway chosen — **Moyasar** (mada + Apple Pay), DEC-010
+- [ ] Take Moyasar live on the Cloud Run service — checkout → confirm → webhook →
+  the scheduled renewal job; recurring subscription billing + one-time pack payments
 - [ ] Wire ZATCA Fatoora — issue compliant e-invoices
-- [ ] Bulk billing and invoicing for schools
+- [ ] Annual package billing and invoicing for schools
+- [ ] Contract + key issuance flow for the licensed `/v1/ask` API tiers
 
-**Exit criteria:** individuals can subscribe, buy an Exam Pass, or buy a one-time Prep
-Pack and pay; ZATCA-compliant invoices are issued; flight schools can buy and manage
-cadet seats; the free library remains open to everyone.
+**Exit criteria:** individuals can subscribe, buy an Exam Season Pass, or buy a one-time
+exam-prep pack and pay; ZATCA-compliant invoices are issued; flight schools can buy and
+manage cadet seats on an annual package; the free library remains open to everyone.
 
 ---
 
@@ -548,12 +595,14 @@ cadet seats; the free library remains open to everyone.
 **Goal:** native apps in the app stores, and a documented public API.
 **Status:** In progress on iOS (updated 2026-08-10). The strategy changed from one
 Capacitor wrapper to a **native iOS family** — fully offline, paid up-front, built from
-the shared `ay2m/FlyGACA` repo (SwiftUI + FlyGACAKit, content synced from the monorepo).
+the shared `ay2m/FlyGACA-ios` repo (SwiftUI + FlyGACAKit, content synced from
+`ay2m/FlyGACA`, which is the web app and backend, not the iOS family).
 As of 2026-08-10 the shipping family is **ELPT and AIP**: the four licence-exam modules
 (PPL, CPL, IR, ATPL) are **paused** pending a strategic decision and their app targets
 were removed from the family repo. Their web packs are unaffected and still selling, and
-their store metadata is retained CI-green in the `FlyGACA/<MODULE>` repos, so restoring a
-module is a revert plus its Apple-portal steps. The remaining gate for ELPT and AIP is the
+their store metadata is retained CI-green **inside `ay2m/FlyGACA-ios`** (there are no
+per-module App Store repos — `FlyGACA/PPL`, `/CPL`, `/IR`, `/ATPL`, `/ELPT`, `/AIP` do not
+exist), so restoring a module is a revert plus its Apple-portal steps. The remaining gate for ELPT and AIP is the
 Apple-portal work (App IDs, signing, App Store Connect records — the family repo's
 `docs/RUNBOOK-ios-signing-CHECKLIST.md`) and submission. The Capacitor + subscription
 wrapper is superseded for launch and kept as a future option
@@ -562,7 +611,7 @@ wrapper is superseded for launch and kept as a future option
 ### Native apps
 
 - [x] Strategy pivot: native offline module apps instead of one Capacitor wrapper
-  (2026-08; `ay2m/FlyGACA` + the per-module metadata repos)
+  (2026-08; `ay2m/FlyGACA-ios`, one shared package + one app target per module)
 - [x] Scope decision: pause the licence-exam apps (PPL · CPL · IR · ATPL); ship ELPT · AIP
   (2026-08-10 — native apps only; the web packs keep selling)
 - [ ] iOS — Apple portal: App IDs, signing profiles, paid App Store Connect records
@@ -571,19 +620,27 @@ wrapper is superseded for launch and kept as a future option
   must be `com.flygaca.elpt` (the old primary, `com.flygaca.ppl`, is a paused module)
 - [ ] iOS — TestFlight via the family repo's CI lane, then submission and review
 - [x] Store assets — screenshots, descriptions, privacy disclosures, compliance
-  (EN + AR in the metadata repos, CI-gated; refreshed 2026-08-05. The four paused
+  (EN + AR in `ay2m/FlyGACA-ios`, CI-gated; refreshed 2026-08-05. The four paused
   modules' assets are retained and still CI-green.)
 - [ ] Android build — Google Play listing, submission and review
 
-### Public API
+### Public API — now a **licensed, metered revenue line**
 
-- [ ] Design the public API surface (read access to the library / regulations)
-- [ ] API authentication (keys), rate limits, and quotas
-- [ ] Write and publish the API documentation
-- [ ] Developer onboarding
+The API stopped being a developer-relations item and became a product: `/v1/ask`, the
+licensed Captain Adel surface, sold on monthly tiers (Starter 499 · Growth 1,999 ·
+Scale 6,999 · Enterprise custom — see the Phase 5 price sheet and
+`docs/LICENSED-API.md`). It monetises the corpus directly and, unlike everything else in
+Phase 5, it needs no consumer checkout — it is quoted and invoiced like a school package.
 
-**Exit criteria:** native apps are live in the App Store and Google Play; a documented
-public API is available.
+- [x] Design the API surface — `/v1/ask`, cited answers from the corpus
+- [x] API-key authentication, tiering, rate limits and monthly quotas
+  (`api-key-core.ts`, `api-tier-core.ts`)
+- [x] `/developers` marketing page
+- [ ] Publish the developer-facing API documentation and onboarding
+- [ ] First licensed customer — contract, key issuance, invoice
+
+**Exit criteria:** native apps are live in the App Store and Google Play; the licensed
+`/v1/ask` API is documented, publicly priced, and has its first paying licensee.
 
 ---
 
@@ -722,13 +779,12 @@ the legal pages depend on the lawyer review.
 control and a measured quality bar. These were Phase 2's exit criteria, deferred to
 ship the MVP; this phase closes them.
 **Status:** In progress — the code-side hardening (rate limits, input guards, eval
-harness) has shipped; the console-side items (App Check, CI gate, budget alerts)
+harness) has shipped; the console-side items (CI gate, budget alerts)
 remain. **Gated by:** real traffic starting (Phase 9).
 
-- [ ] Register **App Check**; enforce it on the `chat` Cloud Function — needs the
-  Firebase console (register a reCAPTCHA provider, then verify the token in
-  `index.js` and attach it in the browser). Steps documented in
-  `office/runbook-captain-adel.md`.
+- [x] Abuse protection on the chat gateway — server-side quota and rate limiting on the
+  Cloud Run service (`chat-quota-core.ts`, `rate-limit-core.ts`). App Check is **not**
+  used: it was a Firebase primitive and the platform no longer runs on Firebase.
 - [x] Rate limits — per IP and per session — `functions/rag/ratelimit.js`, a
   sliding-window limiter (per-IP, a 30 s burst window, and per browser session);
   a blocked turn returns HTTP 429 and `chat.js` shows a friendly message. Limits
@@ -740,10 +796,10 @@ remain. **Gated by:** real traffic starting (Phase 9).
 - [x] Build the eval harness (`evals/`) — `cases.json` (17 cases across citation,
   refusal, injection and behaviour) + `run.js`, a scoring runner that exits
   non-zero on any failure. Runs live against the agent with a `GEMINI_API_KEY`.
-- [ ] Wire a regression eval into CI — `node evals/run.js` as a GitHub Actions
-  gate on any change to `functions/rag/` or the system prompt.
-- [ ] Budget alerts on Firebase and the Gemini API; watch the 2 GiB cold-start
-  cost — needs the console (steps documented in the runbook).
+- [ ] Wire a regression eval into CI — the eval runner as a GitHub Actions
+  gate on any change to the RAG flow or the system prompt.
+- [ ] Budget alerts on the GCP project (Cloud Run + Cloud SQL) and the Gemini API;
+  watch cold-start cost — needs the console (steps documented in the runbook).
 
 **Exit criteria:** Captain Adel is protected against abuse and runaway cost, and passes
 a documented accuracy / citation / refusal bar.
@@ -803,7 +859,7 @@ These are not one-off tasks; they run continuously once the relevant phase ships
 - [ ] **Eval regression** — re-run the Captain Adel eval harness on prompt/model changes.
 - [ ] **Go-to-market** — continuous LinkedIn explainers, community seeding, waitlist → user
   conversion, and flight-school outreach.
-- [ ] **Backups & monitoring** — Firestore backups, uptime and error monitoring.
+- [ ] **Backups & monitoring** — Cloud SQL backups, uptime and error monitoring.
 
 ---
 
@@ -824,27 +880,29 @@ Much of the "ecosystem" already exists and only needs to be marketed as such:
   tools under `tools/`
 - **Checkride mock exams / question banks** — `study/checkride.html`, `study/quiz.html`,
   `study/groundschool.html` and the tagged banks in `assets/data/`
-- **School admin dashboard (concept) + bulk licensing** — `schools.html`, `functions/school.js`
+- **School admin dashboard + package licensing** — `/schools`, `/business/admin`, and the
+  org/grants routes on the Cloud Run service
 
 ### New builds — ranked by ROI (biggest pain point first)
 1. **AI Oral-Exam / Checkride Examiner** *(flagship — build first)* — a conversational AI
    that role-plays a GACA examiner: asks licence-specific (PPL/CPL/IR) questions grounded in
    the corpus, grades the answer and cites the exact Part/section. Highest willingness-to-pay
    moment, and the **lowest-cost** new AI feature because it reuses Captain Adel's RAG brain
-   (`src/brain/` in [`FlyGACA/Captain-Adel`](https://github.com/FlyGACA/Captain-Adel)) — a new `mode: 'examiner'` persona behind the `/v1/chat` contract,
-   **eval-gated**; new gated page `study/oral-exam.html` reusing `chat.js`. Pairs with the
-   Exam Term SKU. *No "guaranteed to pass" claims; always cite + verify against official source.*
+   ([`ay2m/Captain-Adel`](https://github.com/ay2m/Captain-Adel)) — a new `mode: 'examiner'`
+   persona behind the chat contract, **eval-gated**; a new gated study route reusing the chat
+   UI. Pairs with the Exam Season Pass and the CPL/PPL packs. *No "guaranteed to pass" claims;
+   always cite + verify against official source.*
 2. **GACAR / AIP Change Digest** — scheduled monitor + AI summary of regulation/AIP changes
    into plain-language bullets, on the dashboard and as an opt-in digest, every item linked to
    the official source. Heaviest ops (monitoring + email).
 3. **Instructor Dashboard** — assign custom mock exams, per-cadet weak-area analytics, review
-   cadet W&B. Needs a new instructor↔cohort↔cadet Firestore model + `firestore.rules` coverage
-   + `tests/rules.test.js`; extends `school.js`.
+   cadet W&B. Needs a new instructor↔cohort↔cadet schema in Cloud SQL plus the matching
+   server-side authorisation tests; extends the existing org/school routes.
 4. **Enterprise / white-label portal** — academy-branded curriculum + content management.
    Largest; future.
 
 ### This pass (shipped now)
-- [x] **"Coming soon to Pro" retention shelf** — bilingual section on `pricing.html` listing the
+- [x] **"Coming soon to Pro" retention shelf** — bilingual section on `/pricing` listing the
   Oral-Exam Examiner, Change Digest and Instructor Dashboard (compliance-safe, no pass guarantees)
 - [x] This roadmap section
 
@@ -861,8 +919,9 @@ guides stay free throughout.
 - **Name** — a rebrand verdict touches the repo, domains, brand assets and the entity name;
   cheaper to absorb before Phase 1's public launch than after.
 - **PDPL** — the DPIA is a hard gate for Phase 3; budget time for it.
-- **Costs that need a card** — the Blaze plan (Phase 2), the payment gateway and VAT
-  (Phase 5), and the Apple/Google developer accounts (Phase 6).
+- **Costs that need a card** — the GCP billing account behind Cloud Run + Cloud SQL
+  (Phase 2), the payment gateway and VAT (Phase 5), and the Apple/Google developer
+  accounts (Phase 6).
 - **Solo-founder load** — Phases 2 and 3 are the largest; Arabic QA (Phase 4) and the
   ZATCA/payments integration (Phase 5) are the most likely points to bring in help.
 

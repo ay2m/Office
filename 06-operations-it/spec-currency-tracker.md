@@ -4,7 +4,7 @@ section: 06-operations-it
 doc_type: spec
 status: draft
 owner: Product & Engineering
-last_updated: 2026-06-16
+last_updated: 2026-08-19
 lang: en
 doc: "SPEC-currency-tracker"
 version: "0.1"
@@ -22,15 +22,26 @@ depends_on: ["AIRAC editorial process (see airac-editorial-sync.svg)", "GACAR-So
 > This feature helps pilots *understand* GACAR recency requirements; it does
 > not replace official records, instructor endorsements, or GACA oversight.
 
+> [!NOTE]
+> **Status, 2026-08-19.** This is the original Phase 3 design brief; the feature has since
+> shipped — `/logbook` and `/currency` are live account surfaces, with the recency maths in the
+> product repo's pure `calc/` layer and the logbook rows in Postgres behind the account routes.
+> Read this document for the *rules and the rationale*; read the code and
+> [`hosting-facts.md`](hosting-facts.md) for what was actually built. Stack references throughout
+> were corrected on 2026-08-19: the product has **no Firebase** — no Firestore, no Firebase Auth,
+> no Cloud Functions, no security rules. Storage is **Cloud SQL for PostgreSQL** and the API is a
+> single **Express service on Cloud Run**, both in `me-central2` (Dammam).
+
 ---
 
 ## 1. Purpose & Strategic Rationale
 
 ### 1.1 The post-exam churn problem (§2.2 of the Action Plan)
 
-The SAR 299 Exam Pass converts cadets who would never commit to an annual plan,
-but it structurally produces churn: a cadet buys it, passes, and leaves. The Pro
-annual plan (SAR 449/yr) must earn its keep against that one-time exit path.
+The SAR 299 Exam Season Pass (90 days) converts cadets who would never commit to
+an annual plan, but it structurally produces churn: a cadet buys it, passes, and
+leaves. Pro (SAR 79/month or SAR 649/year) must earn its keep against that
+one-time exit path.
 
 **Today nothing pulls the user back after the exam.** The logbook that exists in
 the product reads like a study-aid afterthought. There is no reason for a newly
@@ -254,7 +265,7 @@ tracker targets pilot flying currency, not instructor teaching currency).
 ```
 LogbookEntry {
   id:              string (UUID)
-  user_id:         string (Firebase UID)
+  user_id:         string (account id — the app's own user record)
   date:            date (YYYY-MM-DD, Hijri stored as metadata)
   aircraft_category: enum [AIRPLANE, ROTORCRAFT, GLIDER, POWERED_LIFT, AIRSHIP, BALLOON]
   aircraft_class:  string (e.g. "single_engine_land", "multi_engine_land", "helicopter")
@@ -335,14 +346,17 @@ AlertThreshold {
 
 ### 4.5 Storage and security
 
-- All logbook data stored in Firebase Firestore, Dammam region (me-central2),
-  consistent with the existing Firebase project region selection.
-- Security rules: `user_id == request.auth.uid` on all reads and writes. No
-  cross-user data access except for CFI endorsement flow (Phase 5, separate spec).
+- All logbook data stored in **Cloud SQL for PostgreSQL**, `me-central2` (Dammam) — the same
+  region as the API, per the PDPL boundary in `hosting-facts.md`.
+- Access control is **route-level, not rule-level**: the account routes read and write only the
+  authenticated session's own rows. There is no client-side database access to constrain, so
+  there are no security rules to get wrong. No cross-user access except for the CFI endorsement
+  flow (Phase 5, separate spec).
 - Tail numbers are optional and, where entered, treated as personal data under
   PDPL (see §9 below). They are never used in analytics aggregation.
-- Currency status is computed client-side from the user's own logbook entries
-  (or on a Cloud Function triggered by entry writes) and never shared.
+- Currency status is **computed, never stored** — derived from the user's own logbook entries in
+  the pure `calc/` layer, so it runs identically offline in the browser and server-side. It is
+  never shared.
 
 ---
 
@@ -503,7 +517,7 @@ Verification manifest. The extension needed for the currency tracker:
    the editorial owner must complete after each Part 61 corpus update:
    - Compare § 61.17(a)(1), (a)(2), (a)(3), (a)(4) and § 61.21 thresholds
    - Note any changed values (day count, window, IPC trigger)
-   - Update `CurrencyRule` records in Firestore and bump `gacar_version_verified`
+   - Update the `CurrencyRule` records and bump `gacar_version_verified`
    - Redeploy currency rule engine if thresholds changed
    - Clear the amber header banner
 
@@ -530,7 +544,7 @@ Verification manifest. The extension needed for the currency tracker:
 
 ### 7.1 Tier access
 
-| Feature | Free | Pro (SAR 449/yr) | Exam Pass (SAR 299 / 90 days) |
+| Feature | Free | Pro (SAR 79/mo · 649/yr) | Exam Season Pass (SAR 299 / 90 days) |
 |---------|------|-----------------|-------------------------------|
 | Read GACAR Part 61 in library | ✓ | ✓ | ✓ |
 | Currency dashboard (view rules) | Preview only — locked cards | ✓ — full live computation | ✓ — full during pass period |
@@ -541,9 +555,13 @@ Verification manifest. The extension needed for the currency tracker:
 
 ### 7.2 The conversion moment
 
-At day 75 of an Exam Pass, the win-back offer surfaces (§2.2 of Action Plan):
-> "Your Exam Pass expires in 15 days. Your logbook and currency tracker stay
-> with you — upgrade to Pro and keep everything. First year at SAR 299."
+At day 75 of an Exam Season Pass, the win-back offer surfaces (§2.2 of Action Plan):
+> "Your Exam Season Pass expires in 15 days. Your logbook and currency tracker
+> stay with you — upgrade to Pro and keep everything."
+
+The discount, if any, is delivered as a **server-validated promo code applied to the first
+charge** (the mechanism billing already supports); the client never passes a price. Set the
+actual number in the pricing docs, not here.
 
 This is the anchor: the pilot has 75 days of logbook entries they do not want
 to lose. The logbook becomes the switching cost — the retention hook that the
@@ -570,7 +588,7 @@ Law, Royal Decree No. M/19, 2021 and its amendments). Specifically:
 - Flight dates, aerodrome codes, and tail numbers (even if optional) can constitute
   personal data and, in combination, may constitute sensitive data if they reveal
   patterns of movement.
-- User UID (Firebase Auth) links all logbook entries to an identifiable individual.
+- The account id links all logbook entries to an identifiable individual.
 
 ### 8.2 Data minimisation
 
@@ -587,23 +605,24 @@ The logbook entry schema (§4.1) is designed for minimum necessary data:
 | Right to access | Settings → "Download my logbook" — JSON export within 30 seconds for ≤ 5 years of entries |
 | Right to portability | PDF and JSON export (§ 2.1 in scope) |
 | Right to correction | Logbook entries are editable by the pilot at any time |
-| Right to deletion | Settings → "Delete account" → all logbook entries purged from Firestore within 30 days; Firebase Auth account deleted immediately |
+| Right to deletion | Settings → "Delete account" → the account record is deleted immediately and all logbook rows are purged within 30 days |
 | Right to object to processing | No logbook data is used for analytics, training, or third-party sharing |
 
 ### 8.4 Consent and transparency
 
 - On first logbook entry, a one-time prompt explains what data is collected, why,
-  and where it is stored (Firebase, Dammam region, KSA).
+  and where it is stored (Cloud SQL, Dammam / `me-central2`, KSA).
 - Privacy policy must be updated before Phase 3 launch to cover logbook data
   processing. The existing DPIA (part of the legal track) must be extended to
   cover the logbook data category. **This is a launch-blocker for Phase 3.**
 
 ### 8.5 Data residency
 
-All logbook data is stored in the existing Firebase project in the Dammam region
-(me-central2). No logbook data leaves the Kingdom. No third-party analytics service
-receives logbook data. Confirm with Firebase documentation that me-central2 stores
-Firestore data exclusively within KSA before Phase 3 launch.
+All logbook data is stored in the Cloud SQL Postgres instance in **`me-central2` (Dammam)**, and
+the API that touches it runs on Cloud Run in the same region. A Cloud SQL instance is a regional
+resource — it does not replicate outside its region unless a cross-region replica is deliberately
+created, and none is. No logbook data leaves the Kingdom. No third-party analytics service
+receives logbook data.
 
 ### 8.6 No operational reliance disclaimer
 
@@ -625,7 +644,7 @@ essential feature for the flight line).
 
 | Data | Offline behaviour |
 |------|-----------------|
-| Logbook entries | Written to local IndexedDB; synced to Firestore on reconnect |
+| Logbook entries | Written locally first; synced to the API on reconnect |
 | Currency status | Last computed status cached in IndexedDB; shown with "last computed [date/time]" label |
 | Currency rules | Bundled as a versioned JSON file in the service worker cache; updated on next app open when online |
 | GACAR Part 61 library text | Cached on first read per the existing service worker caching strategy |
@@ -682,9 +701,9 @@ Phase 3 maps to the Action Plan §5.1 priority. Effort estimates follow the
 Action Plan key: S < 0.5 day · M 1–3 days · L 1 week+ · XL multi-week.
 
 ### Phase 3a — Rule engine & data model (M–L)
-- Define and seed `CurrencyRule` records in Firestore (one per tracked section)
-- Implement `CurrencyStatus` computation function (Cloud Function triggered on
-  logbook write; also computable client-side for offline)
+- Define and seed the `CurrencyRule` records (one per tracked section)
+- Implement `CurrencyStatus` computation as a **pure, DOM-free module** in the product repo's
+  `calc/` layer, so the same code runs client-side offline and server-side
 - Write unit tests for every GACAR § 61.17 and § 61.21 scenario (day/night/IFR
   rolling windows, IPC trigger, flight review bypass conditions)
 - **Gate: VERIFY Part 61 v10.0 before seeding rules** — pull v10.0 from gaca.gov.sa,
@@ -693,7 +712,7 @@ Action Plan key: S < 0.5 day · M 1–3 days · L 1 week+ · XL multi-week.
 ### Phase 3b — Logbook entry UI (M)
 - Quick-entry screen (date, T&L count, role, home aircraft)
 - Expanded entry (instrument approaches, holding, FSTD/ATD flags)
-- Offline-first write to IndexedDB + Firestore sync
+- Offline-first local write + sync to the account API
 - Input validation
 
 ### Phase 3c — Currency dashboard UI (M)
@@ -734,7 +753,7 @@ Action Plan key: S < 0.5 day · M 1–3 days · L 1 week+ · XL multi-week.
 | OQ-2 | **IPC conduct authority:** Does § 61.17(a)(4)(ii) in v10.0 still list the same authorized parties (examiner, authorized instructor, Part 121/125/135 company check pilot)? | Editorial owner | Phase 3a gate |
 | OQ-3 | **Night window definition:** Does GACAR Part 61 v10.0 define the night period as "1 hour after sunset to 1 hour before sunrise" (per § 61.17(a)(2)(i) in v9.0), or does it cross-reference GACAR Part 1 or Part 91 for the night definition? The logbook entry UI needs to know which sunset table to use. | Editorial owner + Captain Adel review | Phase 3b |
 | OQ-4 | **PDPL DPIA scope extension:** Does the existing DPIA cover logbook data? If not, a supplementary DPIA addendum is required before Phase 3 launch. | Legal track | Phase 3e gate |
-| OQ-5 | **Firebase me-central2 data residency:** Confirm that Firestore in me-central2 stores all data exclusively within KSA (no replication to other regions). Check Firebase documentation or request confirmation from Firebase support. | Engineering | Phase 3a |
+| OQ-5 | ~~Firebase me-central2 data residency~~ — **closed 2026-08-19.** There is no Firestore. Logbook data lives in Cloud SQL Postgres in `me-central2`, a regional resource with no cross-region replica, and the API that reads it runs in the same region. See `hosting-facts.md`. | Engineering | Closed |
 | OQ-6 | **Disclaimer legal review:** Does the disclaimer language in §5.4 adequately limit Fly GACA's liability for currency miscalculation? The Saudi IP/aviation lawyer reviewing redistribution rights should opine on this. | Legal track | Phase 3e gate |
 | OQ-7 | **Turbine multi-crew alternative (§ 61.17(a)(5)(iv)):** Does v10.0 retain the alternative night currency path for turbine multi-crew PICs (6 months OR 12-month Part 142 training with 6 FFS T&L)? This path is relevant to more advanced users and affects the instrument currency sub-card design. | Editorial owner | Phase 3c |
 | OQ-8 | **Flight review bypass list (§ 61.21(d)):** In v10.0, does a passed proficiency check still automatically satisfy the flight review requirement? If the bypass list changed, the flight review card computation changes. | Editorial owner | Phase 3a gate |

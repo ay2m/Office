@@ -4,7 +4,7 @@ section: 02-legal
 doc_type: legal
 status: draft
 owner: Founder
-last_updated: 2026-07-27
+last_updated: 2026-08-19
 lang: en
 ---
 
@@ -94,7 +94,7 @@ The Processor will process the following categories of Personal Data on behalf o
 
 - **Identity data:** Full name, display name, profile image (optional)
 - **Contact data:** Email address
-- **Authentication data:** Password (stored only as a secure hash by Google Firebase; Fly GACA does not access plaintext passwords)
+- **Authentication data:** Password (stored only as a secure hash — scrypt — in the Fly GACA database; Fly GACA does not access plaintext passwords)
 - **GACA licence / student number** (where provided by the cadet or provisioned by the Controller)
 - **Academic data:** Study progress, module completion, mock examination scores, performance reports
 - **Usage data:** Login timestamps, feature usage patterns, Captain Adel AI query logs (where the Academy tier includes AI access)
@@ -130,7 +130,7 @@ It will ensure that persons authorised to process Personal Data are subject to b
 
 It will implement and maintain appropriate technical and organisational security measures, commensurate with the risks of the processing, including:
 - Data encryption in transit (TLS 1.2+) and at rest
-- Firebase Authentication for access control
+- First-party session authentication (a signed JSON Web Token in an HttpOnly cookie) for access control
 - Role-based access controls for Academy dashboard features
 - Cloudflare-level DDoS and perimeter protection
 - Incident detection, logging, and response capability
@@ -188,7 +188,8 @@ The Controller provides general written authorisation for the Processor to engag
 
 | Sub-Processor | Registered Entity | Processing Activity | Data Location |
 |--------------|-------------------|---------------------|---------------|
-| Google LLC (Firebase / Google Cloud) | Google LLC, USA | Authentication, database (Firestore), cloud infrastructure | Configured region — [note: confirm GCP region; KSA data residency requirements under PDPL Art. 29 cross-border transfer rules apply] |
+| Google LLC (Google Cloud Platform) | Google LLC, USA | Application hosting (Cloud Run), database (Cloud SQL — PostgreSQL), static asset storage (Cloud Storage) | `me-central2` (Dammam, Kingdom of Saudi Arabia) |
+| Google LLC (Google Gemini, via Genkit) | Google LLC, USA | AI inference for the Captain Adel study assistant | [Note for lawyer: inference runs against the Google Gemini API and **not** on the `me-central2` infrastructure above. The processing region must be confirmed before this DPA is executed, because PDPL Art. 29 cross-border transfer rules turn on it] |
 | Cloudflare, Inc. | Cloudflare, Inc., USA | CDN, security, DDoS protection, cookieless analytics | Distributed — processed at edge closest to user |
 | Moyasar Financial Company | Saudi Arabia | Payment processing (subscription billing) | Kingdom of Saudi Arabia |
 
@@ -254,7 +255,7 @@ Personal Data subject to this DPA may be processed by Sub-Processors outside the
 - To countries or entities recognised by SDAIA as providing an adequate level of data protection; or
 - Subject to appropriate safeguards required by the PDPL cross-border transfer rules and SDAIA Implementing Regulations
 
-[Note for lawyer: SDAIA's cross-border transfer implementing regulations and any approved adequacy decisions should be checked and the mechanism specified precisely. At the time of drafting (June 2026), counsel should advise on the applicable transfer mechanism for Google Cloud processing outside KSA.]
+[Note for lawyer: SDAIA's cross-border transfer implementing regulations and any approved adequacy decisions should be checked and the mechanism specified precisely. Counsel should advise on the applicable transfer mechanism for the processing that occurs outside the Kingdom — Google Gemini AI inference and Cloudflare edge processing. The Cloud Run application, the Cloud SQL database and the Cloud Storage bucket are all in `me-central2` (Dammam, KSA).]
 
 ### 8.2 Data Residency
 

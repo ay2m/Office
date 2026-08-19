@@ -20,7 +20,7 @@
 
 ## What is this?
 
-**FlyGACA/Office** ("The Office") is the internal document repository for [Fly GACA](https://flygaca.com) — an independent educational platform and open regulatory library for Saudi civil aviation (GACAR, AIP, charts, ground school, and Captain Adel, the AI flight instructor).
+**ay2m/Office** ("The Office") is the internal document repository for [Fly GACA](https://flygaca.com) — an independent educational platform and open regulatory library for Saudi civil aviation (GACAR, AIP, charts, ground school, and Captain Adel, the AI flight instructor).
 
 This repository stores every operating document that runs the company: strategy and OKRs, governance rules, legal contracts, finance policies, Saudi compliance bundles (PDPL, ZATCA, MISA, Nitaqat), HR frameworks, GTM playbooks, investor materials, brand assets, and product/engineering specifications.
 
@@ -28,13 +28,15 @@ This repository stores every operating document that runs the company: strategy 
 
 | Repo | Role & Description |
 | --- | --- |
-| **FlyGACA/Office** (this repo) | The business operating system — strategy, governance, legal, finance, KSA compliance, HR & GTM docs |
-| [FlyGACA/FlyGACA-app](https://github.com/FlyGACA/FlyGACA-app) | flygaca.com — React 19 + Vite 8 PWA web app, Firebase backend (`me-central1`), regulatory corpus + content pipelines |
-| [FlyGACA/Captain-Adel](https://github.com/FlyGACA/Captain-Adel) | The AI flight instructor service (captadel.com) + RAG engine behind chat, function calling & evals |
-| [ay2m/FlyGACA](https://github.com/ay2m/FlyGACA) | The native iOS app family — shared `FlyGACAKit` package + ELPT and AIP App Store targets |
-| [FlyGACA/ELPT](https://github.com/FlyGACA/ELPT) · [AIP](https://github.com/FlyGACA/AIP) · [PPL](https://github.com/FlyGACA/PPL) · [CPL](https://github.com/FlyGACA/CPL) · [IR](https://github.com/FlyGACA/IR) · [ATPL](https://github.com/FlyGACA/ATPL) | Per-app App Store metadata repos — store listing copy, localized screenshots, and per-app roadmaps |
+| **ay2m/Office** (this repo) | The business operating system — strategy, governance, legal, finance, KSA compliance, HR & GTM docs |
+| [ay2m/FlyGACA](https://github.com/ay2m/FlyGACA) | flygaca.com — the bilingual React 19 + Vite PWA **and** its Express backend on Cloud Run (`me-central2`, Cloud SQL, Moyasar), plus the regulatory corpus and content pipelines |
+| [ay2m/Captain-Adel](https://github.com/ay2m/Captain-Adel) | The AI flight instructor service (captadel.com) + the RAG engine behind chat, function calling & evals |
+| [ay2m/FlyGACA-ios](https://github.com/ay2m/FlyGACA-ios) | The native SwiftUI app family — shared `FlyGACAKit` package + ELPT and AIP App Store targets |
+| [ay2m/FlyGACA-app](https://github.com/ay2m/FlyGACA-app) | **Archived.** The retired predecessor of `ay2m/FlyGACA`, read-only, kept for its 1,005-commit history |
 
-Fly GACA is a family of ten repositories; this is the internal-docs operating system. [**The Book of Fly GACA**](https://github.com/ay2m/FlyGACA/blob/main/THE-BOOK-OF-FLY-GACA.md) maps all surfaces, shared principles, and data contracts in one place.
+Four live repositories plus one archived; this is the internal-docs operating system. Earlier
+documents in this tree describe a `FlyGACA/…` org and six per-module App Store repos — those
+paths are legacy redirects to `ay2m/…`, and the six repos never existed.
 
 > [!IMPORTANT]
 > **Fly GACA is not affiliated with GACA** (Saudi General Authority of Civil Aviation). Every document and user-facing surface reinforces one rule: verify against the latest official GACA publication. This platform helps you *find and study* regulation — it never replaces it.
@@ -45,7 +47,7 @@ Fly GACA is a family of ten repositories; this is the internal-docs operating sy
 
 ```bash
 # Clone the repository
-git clone https://github.com/FlyGACA/Office.git
+git clone https://github.com/ay2m/Office.git
 cd Office
 
 # Browse the Master Index
@@ -165,7 +167,7 @@ The Falcon design system, logo assets, and print templates in [`11-brand/`](11-b
 | **0** | Foundations | 🟡 In progress | Technical stack live; Saudi legal entity registration open |
 | **1** | Open Library | ✅ Shipped | GACAR regulations, aerodromes, and chart index live |
 | **2** | Captain Adel AI | ✅ Shipped | RAG flight instructor live on Gemini 2.5 Flash |
-| **3** | Pilot Accounts | 🟡 Built | Firebase Auth & Firestore live; PDPL DPIA pending |
+| **3** | Pilot Accounts | 🟡 Built | Session-cookie auth + Google OAuth on Cloud Run, Cloud SQL Postgres live; PDPL DPIA pending |
 | **4** | Arabic & Polish | 🟡 In progress | Bilingual engine live; inner page translations underway |
 | **5** | Monetization & Schools | ⬜ Planned | Gated on legal entity registration |
 | **6** | Native Apps | 🟡 In progress | iOS ELPT & AIP targets built; store submission pending |

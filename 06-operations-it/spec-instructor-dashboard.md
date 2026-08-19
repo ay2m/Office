@@ -4,40 +4,55 @@ section: 06-operations-it
 doc_type: spec
 status: active
 owner: Founder
-last_updated: 2026-06-16
+last_updated: 2026-08-19
 lang: en
 ---
 
 # Fly GACA — Instructor Dashboard — Design Spec
 
-**Status:** design, not built · **Maps to:** action plan §5.2, `roadmap.md` Phase 5
-**Prepared:** 2026-05-25
+**Status:** partly built · **Maps to:** action plan §5.2, `roadmap.md` Phase 5
+**Prepared:** 2026-05-25 · **Re-based on the Cloud Run / Postgres stack:** 2026-08-19
 
 This is the build spec for the B2B instructor/school dashboard. It is deliberately
-spec-first: the hard part is not the UI, it is a multi-tenant data model and the
-security rules that let one user see another's data **without** weakening the strict
-per-user isolation the platform has today. That has to be designed, not rushed.
+spec-first: the hard part is not the UI, it is a multi-tenant data model that lets one
+user see another's progress **without** weakening the strict per-user isolation the
+platform has today. That has to be designed, not rushed.
 
-`schools.html` already *sells* this — "a school admin dashboard … cohort exam-readiness
+The `/schools` page already *sells* this — "a school admin dashboard … cohort exam-readiness
 and per-cadet progress … is included with every contract." This spec builds that promise.
+
+> **What already ships.** The org-owner half of this is live: `/business/admin` renders a
+> cohort readiness report from `GET /api/org/:orgId/cohort-readiness`, backed by the `orgs`
+> and `org_seats` tables and the `study_progress` upload from `src/lib/services/studyProgressSync.ts`.
+> What is **not** built is the instructor role, per-cadet drill-down, reading-path assignment,
+> and — importantly — the consent gate in §3. Read the rest of this spec as the delta.
 
 ---
 
 ## 1. The core constraint
 
-Today the model is strict per-user isolation. `firestore.rules` says it plainly:
-*"There is no path by which one user can read another user's profile or logbook."*
-Every rule is `isOwner(uid)`.
+Today the model is strict per-user isolation, and since the Cloud Run port it is enforced
+*structurally* rather than declaratively: **the browser has no database access at all.**
+It talks only to `/api/*`, `routes/account.ts` reads and writes rows for `requireUser(req)`
+and nobody else, and there is simply **no route** that returns another user's profile,
+logbook or records.
 
 The instructor dashboard requires **controlled cross-user reads** — an instructor
-seeing a cadet's progress. The entire design below exists to do that safely. Get the
-rules wrong and a cadet's records leak; that is the single biggest risk and the reason
-this is spec-first.
+seeing a cadet's progress. The entire design below exists to do that safely.
 
-**The key design decision that resolves it:** instructors never read into
-`users/{cadetUid}`. Instead, each cadet's client writes a **scoped progress summary**
-into the school's own subtree (`schools/{id}/roster/{cadetUid}`). Instructors read the
-*school's* documents, never the cadets'. `users/{uid}` isolation stays 100% intact.
+**The key design decision that resolves it:** the cross-user read is a **server-side join
+that returns a projection, never rows.** The API joins `org_seats → users → entitlements →
+study_progress` in one query and returns only derived readiness fields (coverage %, last
+mock score, ready/not-ready, `progressUpdatedAt`). No route ever hands an instructor a
+cadet's `profiles`, `flights` or `pilot_records` row, and the projection is computed in
+`org-core.ts` where it is unit-tested. The isolation guarantee is a property of the route
+surface, not of a rules file.
+
+> This replaces the older "each cadet's client writes a scoped copy into the school's
+> subtree" design, which existed only because Firestore could not join server-side and its
+> rules could not express a column-level projection. Postgres can do both, so the duplicate
+> write — and the staleness it invited — is gone. **Reviewers: this is the single biggest
+> mechanism change in this spec.**
 
 ---
 
@@ -45,13 +60,19 @@ into the school's own subtree (`schools/{id}/roster/{cadetUid}`). Instructors re
 
 | Role | Who | Capability |
 |------|-----|-----------|
-| Cadet / pilot | exists today — `users/{uid}` | Owns their data; opts in to a cohort |
+| Cadet / pilot | exists today — a row in `users` | Owns their data; opts in to a cohort |
+| Org owner | **exists today** — `orgs.owner_user_id` | Buys seats, provisions the roster, reads the cohort rollup |
 | Instructor | new | Reads their cohort's progress; assigns reading paths |
 | School admin | new | Manages seats, instructors and the roster; sees the cohort rollup |
 
-A cadet on a school plan is already tagged: `users/{uid}.entitlement.schoolId` exists
-in the current model (`store.js`, for `entitlement.source === 'school'`). That field is
-the anchor for everything here.
+A cadet on a school plan is already tagged two ways: their seat is a row in
+`org_seats (org_id, email)` — addressed by **email**, because seats are provisioned before
+the invitee has an account and claimed on their first *verified* sign-in — and their
+`entitlements.source` is `'school'`.
+
+Today `orgs` has exactly one privileged actor, `owner_user_id`, and `routes/org.ts` checks
+it with `ownedOrg(orgId, uid)`. Instructor and admin as *distinct* roles do not exist yet;
+§4 adds them.
 
 ---
 
@@ -64,190 +85,203 @@ Two rules this spec commits to:
 
 1. **Scope.** Instructors see **study and exam-readiness data only** — ground-school
    progress, mock-exam scores, currency flags. They do **not** see the personal
-   logbook. The logbook is the pilot's own record; keep it private. (Open decision —
-   §10 — but this is the recommended default.)
+   logbook. This one is already true by construction: `study_progress.summary` holds
+   scores and completion only — never answers — and no route joins `flights` into the
+   cohort report.
 2. **Explicit, revocable consent.** When a cadet is enrolled into a cohort they see a
    consent screen naming exactly what the school will see, and must accept. They can
-   revoke it from Settings, which flips their roster entry to `consent: false` and
-   blanks the shared summary.
+   revoke it from Settings, which flips their seat to `consent = false` and blanks the
+   readiness fields the report returns for them.
+
+> [!WARNING]
+> **Rule 2 is not implemented.** `org_seats` has no consent column, and
+> `GET /api/org/:orgId/cohort-readiness` currently returns a readiness row for every seat
+> on the roster. Closing this is the first item in §8 and a DPIA prerequisite — it should
+> land before the dashboard is sold to a second school.
 
 ---
 
-## 4. Data model (Firestore)
+## 4. Data model (Postgres)
 
-New top-level `schools` tree. Nothing under `users/{uid}` changes shape; one new
-subcollection is added there (the progress summary, also useful on its own).
+Nothing about the cadet's own tables changes. Two columns and one table are added; the
+progress table the old spec called "Phase A" **already exists**.
 
+```sql
+-- SHIPPED — the cadet's own progress projection, uploaded by their client
+-- (studyProgressSync.ts, upload-only, best-effort). Scores + completion only.
+-- CREATE TABLE study_progress (
+--   user_id    uuid PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+--   summary    jsonb NOT NULL DEFAULT '{}'::jsonb,
+--   updated_at timestamptz NOT NULL DEFAULT now()
+-- );
+
+-- SHIPPED — the cohort and its roster.
+-- orgs      (id, name, owner_user_id, seat_limit, created_at)
+-- org_seats (org_id, email, status, source, expires_at, claimed_by, created_at)
+
+-- NEW — consent, per seat. Written only by the cadet's own consent/revoke route.
+ALTER TABLE org_seats
+  ADD COLUMN consent    boolean NOT NULL DEFAULT false,
+  ADD COLUMN consent_at timestamptz;
+
+-- NEW — staff of an org, beyond the single owner.
+CREATE TABLE org_members (
+  org_id     uuid NOT NULL REFERENCES orgs(id) ON DELETE CASCADE,
+  user_id    uuid NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  role       text NOT NULL CHECK (role IN ('admin','instructor')),
+  created_at timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (org_id, user_id)
+);
+CREATE INDEX org_members_user_idx ON org_members (user_id);
+
+-- NEW — instructor → cadet reading-path assignment.
+CREATE TABLE org_assignments (
+  org_id      uuid NOT NULL REFERENCES orgs(id) ON DELETE CASCADE,
+  email       citext NOT NULL,
+  path_ids    text[] NOT NULL DEFAULT '{}',
+  assigned_by uuid REFERENCES users(id),
+  updated_at  timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (org_id, email)
+);
 ```
-schools/{schoolId}
-  name             string
-  adminUids        string[]      // school admins
-  instructorUids   string[]      // instructors
-  seatLimit        number        // seats purchased
-  seatsUsed        number        // maintained by Cloud Function
-  createdAt/updatedAt timestamps
 
-schools/{schoolId}/roster/{cadetUid}
-  // Enrollment fields — written ONLY by Cloud Functions:
-  cadetName        string        // denormalised for the cohort list
-  cadetEmail       string
-  status           'invited' | 'active' | 'removed'
-  consent          boolean       // the cadet accepted the data-sharing consent
-  enrolledAt       timestamp
-  // Progress summary — written by the CADET's own client (see §6):
-  readiness        number        // exam-readiness %, 0–100
-  lastMockScore    number
-  lessonsDone      number
-  currencyFlags    map           // { day:'ok', night:'due', ifr:'lapsed' }
-  progressUpdatedAt timestamp
-  // Instructor → cadet, written by instructors:
-  assignedPaths    string[]      // reading-path ids the instructor suggests
+Denormalized cadet name/email on the roster is unnecessary — the report joins `users` on
+`org_seats.email` and reads `profiles` for the display name in the same query.
 
-users/{uid}/progress/summary        // NEW — the server-side progress doc
-  readiness, lastMockScore, lessonsDone, currencyFlags, updatedAt
-```
-
-**Prerequisite — Phase A.** Study progress is currently **not** in Firestore —
-`store.js` persists only the profile and the logbook; mock-exam scores and lesson
-progress live in `localStorage` (`study-progress.js`). For an instructor to see
-anything, the cadet's progress must be server-side. So Phase A adds
-`users/{uid}/progress/summary`, written by the cadet's client. The cadet's client then
-also mirrors that summary into their `schools/{id}/roster/{cadetUid}` entry. Verify the
-current persistence before building.
+Seat accounting stays where it is: `checkSeatLimit` in `org-core.ts` counts
+`org_seats` against `orgs.seat_limit` before provisioning, so a cohort purchase cannot
+over-provision. `seatExpiry` caps a seat at one intake window, which is what stops a
+90-day cohort from minting permanent `school` accounts.
 
 ---
 
-## 5. Security rules — sketch
+## 5. Access model — how it is actually enforced
 
-**This is a sketch and must be unit-tested in the Firebase emulator before any deploy.**
-It extends today's `firestore.rules` (the `users/{uid}` block is unchanged).
+**There is no rules file, no emulator, and no client-side database session.** Every read
+is a route, and the route is the boundary. That is a straight upgrade over the Firestore
+design, whose whole §5 was a rules sketch that had to be red-teamed in an emulator.
 
-```
-match /schools/{schoolId} {
-  function school() {
-    return get(/databases/$(database)/documents/schools/$(schoolId)).data;
-  }
-  function isAdmin() {
-    return signedIn() && request.auth.uid in school().adminUids;
-  }
-  function isStaff() {
-    return signedIn() && (request.auth.uid in school().adminUids
-                       || request.auth.uid in school().instructorUids);
-  }
+The gate for every cohort route:
 
-  // The school doc: staff read; admins edit non-structural fields.
-  // Creation and seat counts are Cloud-Function-only.
-  allow read:   if isStaff();
-  allow update: if isAdmin() && onlyAllowedSchoolFields();
-  allow create, delete: if false;
-
-  match /roster/{cadetUid} {
-    function roster() { return resource.data; }
-    // Staff see the whole cohort; a cadet sees only their own entry.
-    allow read: if isStaff() || isOwner(cadetUid);
-    // The cadet may update ONLY their own progress-summary fields, and only
-    // while their consent is true. They can never touch enrollment fields.
-    allow update: if isOwner(cadetUid)
-                  && roster().consent == true
-                  && onlyProgressFields();
-    // An instructor may update ONLY assignedPaths.
-    allow update: if isStaff() && onlyAssignedPaths();
-    // Enrollment / removal is Cloud-Function-only (it also moves a seat
-    // and sets users/{uid}.entitlement.schoolId).
-    allow create, delete: if false;
-  }
+```ts
+// server/src/routes/org.ts — the shipped owner check, generalised
+async function orgStaff(orgId: string, uid: string): Promise<OrgRole> {
+  // owner, or a row in org_members. Anything else → 403.
 }
 ```
 
-`onlyProgressFields()` / `onlyAssignedPaths()` / `onlyAllowedSchoolFields()` are diff
-checks — `request.resource.data.diff(resource.data).affectedKeys()` must be a subset of
-the allowed set. Write them explicitly; this is where a leak hides.
+Rules this commits to, each testable as an ordinary integration test:
 
-Why this is safe: instructors only ever read `schools/{id}/...`. There is still **no
-rule** anywhere that lets one user read another's `users/{uid}` tree. The cross-tenant
-surface is one collection, with a tight, testable rule set.
+| Rule | Where it lives |
+|---|---|
+| Only the owner or an `org_members` row may call any `/api/org/:orgId/*` route | `orgStaff()` in `routes/org.ts` |
+| The cohort response is a **projection** — readiness fields only, no cadet row | `cohortRow()` in `org-core.ts` |
+| A seat with `consent = false` returns status only, with readiness blanked | `cohortRow()` — pure, so this is a unit test |
+| Only the cadet may set their own `consent` | a route under `routes/account.ts`, gated by `requireUser` |
+| Only an instructor/admin of that org may write `org_assignments` | `routes/org.ts` |
+| Seat creation/removal is server-only; there is no client write path | already true — `provision-seats` is owner-gated |
+
+We are **not** adding Postgres row-level security. RLS protects a database from a client
+that connects to it directly; no client connects to this database. Adding it would be
+ceremony that hides the real boundary, which is the route surface. The Firestore-only
+feature this spec loses — a declarative, independently auditable policy file — is replaced
+by pure `*-core.ts` policy functions plus route tests, which is the pattern the whole
+backend already uses.
 
 ---
 
 ## 6. Enrollment & consent flow
 
-1. **School created** — by Fly GACA on contract signing (a Cloud Function /admin tool),
-   not self-serve. Sets `name`, `adminUids`, `seatLimit`.
-2. **Admin adds instructors** — by email; a Cloud Function resolves the email to a uid
-   and appends to `instructorUids`.
-3. **Cadets enrolled** — admin enters cadet emails (recommended) **or** shares a
-   school join-code. Either way a Cloud Function creates the `roster/{cadetUid}` entry
-   with `status:'invited'`, `consent:false`.
+1. **Org created** — by Fly GACA on contract signing, via `server/scripts/grant-org.mjs`
+   (`--dry-run` supported), not self-serve. Sets `name`, `owner_user_id`, `seat_limit`.
+2. **Owner adds instructors** — by email; a new route resolves the address to a `users.id`
+   and inserts an `org_members` row with `role = 'instructor'`.
+3. **Cadets enrolled** — the owner posts cadet emails to
+   `POST /api/org/:orgId/provision-seats` (shipped), which writes `org_seats` rows with
+   `status = 'invited'`, `consent = false`, and a capped `expires_at`. The seat is claimed
+   on the cadet's first **verified** sign-in — email verification is the ownership proof,
+   the same rule that governs staff and school-domain grants.
 4. **Cadet consents** — on next sign-in the cadet sees a consent screen: "Your flight
    school [name] will see your ground-school progress and mock-exam scores. They will
-   not see your logbook. You can revoke this anytime in Settings." On accept → a Cloud
-   Function sets `consent:true`, `status:'active'`, `entitlement.schoolId`, and
-   increments `seatsUsed`.
-5. **Revocation** — Settings → "Leave school cohort" sets `consent:false` and the
-   client blanks the shared summary fields.
+   not see your logbook. You can revoke this anytime in Settings." On accept, their own
+   route sets `consent = true`, `consent_at = now()`, and the seat goes `active`.
+5. **Revocation** — Settings → "Leave school cohort" sets `consent = false`. Nothing needs
+   blanking in storage: the report projects readiness out of a non-consenting seat, so the
+   cadet's own data stays intact and simply stops being visible.
 
-All seat/entitlement/roster-structure writes go through Cloud Functions (Admin SDK) —
-exactly as `entitlement` is handled today.
+All seat, entitlement and membership writes go through the API — exactly as `entitlements`
+is handled today, where **no route lets a client write its own plan**.
 
 ---
 
 ## 7. UI plan
 
-New page `instructor.html` (gated to `isStaff`), plus a cadet consent surface.
+A new instructor surface alongside the shipped `/business/admin`, both under the same
+`orgStaff` gate. Routes go in `src/router.tsx`, lazy-loaded, page-per-folder under
+`src/pages/`, with strings in **both** `en.json` and `ar.json` (the i18n parity test fails
+the build otherwise) and logical CSS properties so RTL mirrors.
 
 - **Cohort view** — a table/cards: each cadet's name, exam-readiness %, last mock
   score, lessons complete, currency flags, last-active. Sort + filter (e.g. "show me
   who's behind"). This is the "see at a glance who is ready and who is falling behind"
-  promised on `schools.html`.
+  promised on `/schools`. *(Shipped for the owner; needs the instructor gate.)*
 - **Per-cadet drill-down** — the cadet's readiness trend, mock-exam history,
   ground-school lesson map, currency. Plus an **Assign reading paths** control →
-  writes `assignedPaths`; the cadet sees them as suggested paths.
+  writes `org_assignments`; the cadet sees them as suggested paths.
 - **Admin view** — seats used / total, add/remove cadets and instructors, a cohort
-  readiness rollup (average, distribution, count not-yet-started).
-- **Cadet consent screen** — shown once on enrollment; re-summarised in Settings.
+  readiness rollup (average, distribution, count not-yet-started). *(Counters shipped.)*
+- **Cadet consent screen** — shown once on enrollment; re-summarised in `/settings`.
 
-Reuse the existing `.curr-card`, `.stat-card`, account-page chrome and `gate.js`.
+Reuse the existing account-page chrome and card components; do not hand-roll new ones.
 
 ---
 
 ## 8. Build phases
 
-| Phase | Scope | Effort |
-|-------|-------|--------|
-| A | Server-side progress summary (`users/{uid}/progress/summary`) written by the cadet client — useful on its own | S–M |
-| B | `schools` + `roster` data model + security rules + emulator tests | M |
-| C | Cloud Functions: create school, add instructor, enroll cadet, consent, revoke, seat accounting | M |
-| D | `instructor.html` — cohort view + per-cadet drill-down | M |
-| E | Admin seat management + reading-path assignment | M |
+| Phase | Scope | Status | Effort |
+|-------|-------|--------|--------|
+| A | Server-side progress projection (`study_progress` + `studyProgressSync`) | **done** | — |
+| A2 | Cohort readiness report + `/business/admin` for the org owner | **done** | — |
+| B | **Consent** — `org_seats.consent`, the cadet consent/revoke route, blanking in `cohortRow()` | **next — DPIA gate** | S |
+| C | `org_members` + `orgStaff()` — instructor and admin roles beyond the single owner | | M |
+| D | Instructor cohort view + per-cadet drill-down | | M |
+| E | Seat management UI + `org_assignments` reading-path assignment | | M |
 
-Total ≈ **L** (a focused multi-week build, solo) — matches the action plan's estimate.
-Phases A and B are the foundation and must land first and correctly; D is the only part
-a user ever sees.
+Phase B is small and blocking: the dashboard is live for one owner today, and consent has
+to exist before a second school's cadets are on it.
 
 ---
 
 ## 9. Open decisions (you)
 
-1. **Logbook visibility** — instructors see study data only (recommended), or the
-   logbook too? Privacy says study-only.
-2. **Enrollment** — admin-enters-emails (more control, recommended) vs a join-code
+1. **Logbook visibility** — instructors see study data only (recommended and currently
+   true by construction), or the logbook too? Privacy says study-only. Changing this would
+   mean a new join into `flights`; don't.
+2. **Enrollment** — owner-enters-emails (shipped, more control) vs a join-code
    (less friction, weaker control)? Could support both.
-3. **School creation** — Fly GACA-on-contract (recommended for a paid B2B product) vs
-   self-serve signup.
-4. **DPIA** — cross-user data sharing must be added to the PDPL DPIA scope. This is a
-   launch gate; the instructor dashboard cannot go live until it's covered.
+3. **Org creation** — Fly GACA-on-contract via `grant-org.mjs` (shipped, recommended for a
+   paid B2B product) vs self-serve signup.
+4. **Consent default for the pilot school already on the dashboard** — retro-consent
+   (email them, blank readiness until they accept) or grandfather? Recommend retro-consent;
+   it is the defensible answer in a DPIA.
+5. **DPIA** — cross-user data sharing must be in the PDPL DPIA scope. This is a launch
+   gate; the instructor dashboard cannot go wide until it's covered.
 
 ---
 
 ## 10. Risks
 
-- **Security rules.** A rule mistake leaks cadet data. Mitigations: the
-  no-reads-into-`users/{uid}` design above; explicit `affectedKeys()` diff checks;
-  mandatory Firebase-emulator rule tests; staged rollout with one pilot school.
-- **PDPL.** Cross-user visibility is exactly what a DPIA scrutinises — do not deploy
+- **Consent gap.** The live report has no consent check (§3). Highest-priority fix;
+  it is a compliance risk, not just a feature gap.
+- **A leaky projection.** The risk moved from "a rules mistake" to "a route returns one
+  column too many". Mitigations: keep the projection in `org-core.ts` where it is pure and
+  unit-tested; assert the exact response shape in the route test; never `SELECT *` into a
+  cohort response.
+- **PDPL.** Cross-user visibility is exactly what a DPIA scrutinises — do not go wide
   before it's covered.
-- **Stale summaries.** The cadet's client writes the progress summary; if it's stale
-  the instructor sees old data. Mitigation: write the summary on every study session
-  end, and show `progressUpdatedAt` in the UI so staleness is visible.
-- **Scope creep.** Resist messaging, grading, attendance, billing in v1. v1 = see the
+- **Stale summaries.** `studyProgressSync` is upload-only and best-effort: offline, or with
+  no API configured, nothing uploads and the instructor sees old data. Mitigation: the
+  report already carries `progressUpdatedAt` — surface it in the UI so staleness is visible
+  rather than silent.
+- **Scope creep.** Resist messaging, grading, attendance, billing. v1 = see the
   cohort's readiness. That alone sells seats.

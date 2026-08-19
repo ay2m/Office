@@ -4,7 +4,7 @@ section: 04-compliance-ksa
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-07-27
+last_updated: 2026-08-19
 lang: en
 ---
 
@@ -43,11 +43,11 @@ English:
 
 | Site | Surface | Implementation |
 |---|---|---|
-| flygaca.com | Footer identity line (every page) | `FlyGACA-app: src/i18n/en.json` + `ar.json` key `footer.legalEntity`, rendered by `src/app/Footer.tsx` |
-| flygaca.com | Terms §1 entity block, Privacy §1 (PDPL controller) | `FlyGACA-app: src/i18n/*.json` under `legal.terms` / `legal.privacy` |
-| flygaca.com | Machine-readable (search/AI) | Organization JSON-LD: `legalName`, `PostalAddress`, SA-CR `identifier`, `vatID` — `src/lib/seo/jsonld.ts`, `index.html`, `scripts/prerender-head.mjs` |
-| captadel.com | Footer identity line (all five pages) | `Captain-Adel: public/assets/js/footer.js` (`.footer-entity`) |
-| captadel.com | `/terms` + `/privacy` entity blocks | `Captain-Adel: public/terms.html`, `public/privacy.html` |
+| flygaca.com | Footer identity line (every page) | `ay2m/FlyGACA: src/i18n/en.json` + `ar.json` key `footer.legalEntity`, rendered by `src/app/Footer.tsx` |
+| flygaca.com | Terms §1 entity block, Privacy §1 (PDPL controller) | `ay2m/FlyGACA: src/i18n/*.json` under `legal.terms` / `legal.privacy` |
+| flygaca.com | Machine-readable (search/AI) | Organization JSON-LD: `legalName`, `PostalAddress`, SA-CR `identifier`, `vatID` — `ay2m/FlyGACA: src/lib/seo/jsonld.ts`, `index.html`, `scripts/prerender-head.mjs` |
+| captadel.com | Footer identity line (all five pages) | `ay2m/Captain-Adel: public/assets/js/footer.js` (`.footer-entity`) |
+| captadel.com | `/terms` + `/privacy` entity blocks | `ay2m/Captain-Adel: public/terms.html`, `public/privacy.html` |
 | Both | Contact means | `i@flygaca.com` / `hello@captadel.com` in footers and legal pages (per `02-legal/email-routing.md`) |
 
 ## What we never publish

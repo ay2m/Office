@@ -4,7 +4,7 @@ section: root
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-08-12
+last_updated: 2026-08-19
 lang: en
 ---
 
@@ -14,15 +14,29 @@ Guidance for Claude Code when working in this repository.
 
 ## What this is
 
-**FlyGACA/Office** ("The Office") is the internal **documents repository** for Fly GACA — an
+**ay2m/Office** ("The Office") is the internal **documents repository** for Fly GACA — an
 independent, educational platform and open regulatory library for Saudi civil aviation. It holds
 every operating document that runs the company: strategy/OKRs, governance, legal, finance,
 KSA compliance, HR/people, operations/IT specs, GTM, customer success, investor relations,
-academy curriculum, and brand — **not** product code. Fly GACA's product code lives in separate
-repos: the web monorepo `FlyGACA/FlyGACA-app`, the AI service `FlyGACA/Captain-Adel`, the iOS
-family `ay2m/FlyGACA`, and six per-module App Store metadata repos (`FlyGACA/PPL`, `CPL`, `IR`,
-`ATPL`, `ELPT`, `AIP`). A Claude Code session here is almost always **drafting, editing, or
-reorganizing organizational documents**, not writing or reviewing application code.
+academy curriculum, and brand — **not** product code. A Claude Code session here is almost always
+**drafting, editing, or reorganizing organizational documents**, not writing or reviewing
+application code.
+
+Product code lives in separate repos, all under the **`ay2m`** account:
+
+| Repo | | What it is |
+| --- | --- | --- |
+| [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA) | private | **The product.** The bilingual web app (React 19 + Vite) *and* its Express backend on Cloud Run. The regulatory corpus and content pipelines live here too. |
+| [`ay2m/Captain-Adel`](https://github.com/ay2m/Captain-Adel) | private | The AI flight instructor service behind captadel.com |
+| [`ay2m/FlyGACA-ios`](https://github.com/ay2m/FlyGACA-ios) | public | The native SwiftUI family — one shared package, one App Store app per exam module (ELPT, AIP) |
+| [`ay2m/FlyGACA-app`](https://github.com/ay2m/FlyGACA-app) | public, **archived** | The retired predecessor of `ay2m/FlyGACA`. Read-only, kept for its 1,005-commit history. Do not cite it as current. |
+
+> [!NOTE]
+> Older documents in this tree refer to a `FlyGACA/…` org and to six per-module App Store
+> metadata repos (`PPL`, `CPL`, `IR`, `ATPL`, `ELPT`, `AIP`). **Neither is current.** The
+> `FlyGACA/…` paths are legacy redirects to `ay2m/…`, and those six repos do not exist. Some
+> also call `ay2m/FlyGACA` "the iOS family" — it is the web app and backend; iOS is
+> `ay2m/FlyGACA-ios`.
 
 > [!IMPORTANT]
 > Fly GACA is **not affiliated with GACA** (Saudi General Authority of Civil Aviation). This
@@ -75,8 +89,9 @@ Several document formats coexist: polished deliverables are committed binaries
 (`.docx`/`.xlsx`/`.pptx`, plus source PDFs, investor-deck JPGs, and brand PSD/PNG assets — SVG
 logos/diagrams are committed as text — with `.gitattributes` declaring the binary set
 `.docx`/`.xlsx`/`.pptx`/`.pdf`/`.psd`/`.png`/`.jpg`/`.jpeg`/`.gsheet`); working notes, specs, drafts, and playbooks are `.md` —
-which is what the print pipeline and the doc-check CI both operate on. **16 pages are authored as
-HTML instead of Markdown** and render through `build-html.mjs` (below): the four showcase pages
+which is what the print pipeline and the doc-check CI both operate on. **18 pages are authored as
+HTML instead of Markdown** and render through `build-html.mjs` (below): the two bilingual investor
+decks in `09-investor-relations/decks/`, the four showcase pages
 (`00-strategy/brainstorms/00-strategic-brainstorms-dashboard.html`,
 `00-strategy/the-book-of-fly-gaca.html`, `11-brand/design-system.html`,
 `11-brand/tidal-reckoning.html`), the two ZATCA finance templates in `03-finance/`

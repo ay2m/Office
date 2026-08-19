@@ -4,14 +4,14 @@ section: 05-people
 doc_type: checklist
 status: draft
 owner: Founder / HR
-last_updated: 2026-08-09
+last_updated: 2026-08-19
 lang: en
 ---
 
 # Fly GACA — New Hire Onboarding Checklist
 **قائمة تهيئة الموظف الجديد — فلاي قاكا**
 
-**Version:** 0.2 (draft) | **Date:** 2026-08-09 | **Folder:** 05-people/
+**Version:** 0.3 (draft) | **Date:** 2026-08-19 | **Folder:** 05-people/
 
 > **DRAFT — PENDING LEGAL REVIEW.** This checklist must be reviewed by a qualified Saudi HR professional and/or Saudi-licensed legal counsel before the first non-founder hire starts. It is an operational aid, not legal advice. Saudi Labor Law (Royal Decree M/51 and its amendments) governs.
 
@@ -39,7 +39,7 @@ Operational, compliance-first checklist covering **Day -7 (offer accepted) throu
 | ☐ | Payroll setup: add employee to WPS payroll file / **Mudad** [Owner to confirm Mudad account status — brief D3] | F | Employee row exists in payroll with correct basic/housing/transport split |
 | ☐ | Create Google Workspace account `firstname@flygaca.com` — **decided 2026-08-09 (brief D4):** a Workspace seat once a hire needs a mailbox; role/alias addresses stay on Cloudflare Email Routing (see 02-legal/email-routing.md) | F | New hire mailbox receives test email; routing doc updated |
 | ☐ | Provision accounts: Slack, GitHub org, Google Drive shared folders (least-privilege per role) | F | Invites sent; access limited to role-required folders/repos |
-| ☐ | Provision role-specific access only if needed: HubSpot, Firebase console, Cloudflare dashboard | F | Access granted per role or explicitly deferred in writing |
+| ☐ | Provision role-specific access only if needed: HubSpot, **Google Cloud console** (Cloud Run · Cloud SQL · Secret Manager), **Moyasar dashboard**, Cloudflare dashboard — see 06-operations-it/hosting-facts.md for what each one is | F | Access granted per role or explicitly deferred in writing |
 | ☐ | Order/prepare laptop + peripherals; record serial numbers in the equipment register — **decided 2026-08-09 (brief D6):** register lives in the ops Drive folder per 06-operations-it/03-drive-folder-structure.docx | F | Equipment register row created; device ready |
 | ☐ | Prepare Day 1 signing pack: employment contract, IP assignment (02-legal/ip-assignment-agreement.docx), NDA (02-legal/), Employee Handbook Acknowledgment, Remote/Hybrid Work Acknowledgment | F | Pack printed or e-sign envelope staged |
 | ☐ | Draft role 30-60-90 plan from template; schedule Day 1 agenda and Week 1 check-ins | Mgr | Calendar invites sent to new hire's new address |
@@ -67,7 +67,7 @@ Operational, compliance-first checklist covering **Day -7 (offer accepted) throu
 | ☐ | Task | Owner | Done-when |
 |---|------|-------|-----------|
 | ☐ | Tool orientation: Slack norms (05-slack-workspace-blueprint), Drive folder structure (03-drive-folder-structure), calendar rhythm (07-calendar-and-operating-rhythm) — all in 06-operations-it/ | Mgr | New hire posts async standup unaided |
-| ☐ | Codebase / product orientation (GitHub repos, Firebase/Cloudflare hosting overview per 06-operations-it/hosting-facts.md) — engineering roles | Mgr | First small PR opened or product walkthrough completed |
+| ☐ | Codebase / product orientation (GitHub repos under the `ay2m` account; Google Cloud + Cloudflare hosting overview per 06-operations-it/hosting-facts.md) — engineering roles | Mgr | First small PR opened or product walkthrough completed |
 | ☐ | HubSpot CRM orientation — commercial roles only | Mgr | Test contact record created correctly |
 | ☐ | Confirm medical insurance card/details delivered to employee | F | Employee confirms receipt |
 | ☐ | Review and agree written 30-60-90 plan goals | NH + Mgr | Plan signed off by both parties in Drive |
@@ -117,4 +117,4 @@ All artefacts above are retained in the employee's HR folder in Google Drive (st
 ---
 
 *BDA Company International (شركة بدع الدولية) | Confidential — Internal HR Document*
-*Draft 0.2 — 2026-08-09 (owner decisions D4, D6 applied). Pending review by qualified Saudi HR/legal professional. Not legal advice.*
+*Draft 0.3 — 2026-08-19 (access surfaces corrected: the Firebase console no longer exists; the real production surfaces are the Google Cloud console, GitHub, the Moyasar dashboard and Cloudflare). Draft 0.2 — 2026-08-09 (owner decisions D4, D6 applied). Pending review by qualified Saudi HR/legal professional. Not legal advice.*

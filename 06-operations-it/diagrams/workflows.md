@@ -4,16 +4,23 @@ section: 06-operations-it
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-06-16
+last_updated: 2026-08-19
 lang: en
 ---
 
 # Fly GACA — Process Workflow Documentation
 
-**Location:** `06-product-eng/diagrams/`
-**Generated:** 2026-06-14
+**Location:** `06-operations-it/diagrams/`
+**Generated:** 2026-06-14 · **Re-based on the Cloud Run / Postgres stack:** 2026-08-19
 **Covers:** the three core operational processes illustrated in the SVG diagrams in this folder.
-**Context docs:** `fly-gaca-review-action-plan.md` (especially §2.1, §4.1, §4.2), `captadel-plan.md`, `06-product-eng/spec-freshness-pipeline.md`, `06-product-eng/diff-tracker-scope.md`, `06-product-eng/runbooks/runbook-source-updates.md`.
+**Context docs:** `fly-gaca-review-action-plan.md` (especially §2.1, §4.1, §4.2), `captadel-plan.md`, `06-operations-it/spec-freshness-pipeline.md`, `06-operations-it/diff-tracker-scope.md`, `06-operations-it/runbooks/runbook-source-updates.md`, `06-operations-it/hosting-facts.md`.
+
+> **Stack note.** Workflows 2 and 3 name code paths. Those paths moved when the product left
+> Firebase: there are no Cloud Functions, no Firestore and no App Check. The API is a single
+> Express service on **Cloud Run** (`me-central2`, Dammam) over **Cloud SQL Postgres**, the SPA
+> and corpus are served from **Cloud Storage** buckets, and the web pages are React routes, not
+> standalone `.html` files. The tables below use the real paths — see
+> [`hosting-facts.md`](../hosting-facts.md).
 
 ---
 
@@ -49,20 +56,29 @@ Content team (keeps guide pages aligned with phases); editorial owner (ensures G
 The per-AIRAC-cycle process that keeps every regulation, aerodrome, chart, and handbook page on Fly GACA current and visibly stamped. This is the §2.1 trust-gap mitigation from the action plan. The action plan is explicit: a stamp that says "synced 8 months ago" is more damaging than no stamp. Currency is a product function, not a UI feature, and it requires a named editorial owner.
 
 ### Cadence
-The AIP changes every **28-day AIRAC cycle**, effective each Thursday. GACAR Parts amend irregularly. The automated pipeline runs weekly (Monday) and every Thursday to align with AIRAC effective dates.
+The AIP changes every **28-day AIRAC cycle**, effective each Thursday. GACAR Parts amend irregularly. The pipeline is designed to run weekly (Monday) and every Thursday to align with AIRAC effective dates.
 
-### Pipeline stages (automated — `scripts/update-sources.js`, VPS cron)
+### Pipeline stages
 
 | Stage | What happens | Key file / code |
 |-------|-------------|-----------------|
-| A. Detect | Fetch canonical GACA pages; discover all document links; fingerprint the set | `assets/data/sources.json` |
-| B. Hash + diff | SHA-256 each Part/doc; compare against committed manifest; flag changed items | `assets/data/corpus-manifest.json`, `scripts/build-manifest.js` |
-| C. Re-ingest | Download changed files; run `pdftotext`; re-chunk and re-embed incrementally (not a full rebuild) | `functions/rag/`, `assistant/rag.py` |
-| D. Stamp | Write/refresh provenance block (`fetched_at`, `verified_cycle`, `amendment`, AIRAC effective date) | `assets/data/source-status.json` |
-| E. Eval gate | Run eval harness; any citation that no longer resolves to a live section **fails the build** and blocks publish | `captadel/evals/`, `scripts/check-data.js` |
-| F. Publish | Deploy `assets/data/` + rebuilt RAG index; tag deploy with AIRAC cycle | `firebase deploy` |
+| A. Detect | Fetch canonical GACA pages; discover all document links; fingerprint the set | `public/data/sources.json` |
+| B. Hash + diff | Hash each Part/doc; compare against the persisted fingerprint; flag changed items | `npm run sync:gaca` → `scripts/sync-gaca.mjs`, `scripts/lib/sync-merge.mjs` |
+| C. Re-ingest | Merge metadata deltas; re-normalise; re-chunk and re-embed incrementally (not a full rebuild) | `npm run sync:gaca:apply`, `data:normalize`, `parse:regulations`, `build:chunks` → `public/data/rag-chunks.json`, `embeddings:upsert` (Supabase pgvector) |
+| D. Stamp | Write/refresh provenance block (`fetched_at`, `verified_cycle`, `amendment`, AIRAC effective date) | `public/data/source-status.json` |
+| E. Eval gate | Run eval harness; any citation that no longer resolves to a live section **fails the build** and blocks publish | `ay2m/Captain-Adel` `evals/` |
+| F. Publish | Sync `public/data/` to the corpus bucket (served network-first, so clients refresh without an app deploy); roll a Cloud Run revision so the API picks up the rebuilt `rag-chunks.json`; tag the revision with the AIRAC cycle | `gcloud storage rsync`, `gcloud run deploy` |
 
-**If nothing changed** at stage B, the pipeline logs "current" and exits — no re-ingest, no re-deploy.
+**If nothing changed** at stage B, the pipeline logs "current" and exits — no re-ingest, no re-publish.
+
+> [!WARNING]
+> **The scheduler half of this workflow is not currently running.** `sources.json` and
+> `source-status.json` still name `scripts/update-sources.js` and an `update-sources.yml`
+> workflow as their owner; neither exists in `ay2m/FlyGACA` today, and `source-status.json` was
+> last generated 2026-06-15. Stages A–F are all runnable by hand; nothing triggers them. Until a
+> cron (VPS or Cloud Scheduler) is re-created, the freshness stamp in §"User-visible outputs"
+> below is a promise the pipeline is not keeping — which is precisely the worst failure mode
+> named further down this section.
 
 ### Editorial owner actions (human, per checklist)
 
@@ -111,13 +127,13 @@ The decision flow for Captain Adel's RAG answer pipeline, with the strict low-co
 
 | Step | Description | Code location |
 |------|-------------|---------------|
-| 1. User question | Regulatory or aeronautical query arrives via `chat.html` → `/api/chat` → Cloud Function | `chat.html`, `functions/` |
-| 2. Scope + safety pre-check | Is this a GACAR/aviation question? Injection / role-confusion detection. Out-of-scope → immediate refuse | `functions/rag/system-prompt.js` |
-| 3. BM25 retrieval | Lexical search over 47,361 GACAR chunks; hybrid embedding+BM25 fused via RRF (v0.5); parent-child chunk expansion for tables and limits | `functions/rag/bm25.js`, `_chunks.json.gz` |
-| 4. Confidence decision | If retrieval confidence is **HIGH**: proceed to generation. If **LOW**: strict fallback (refuse + redirect) | `functions/rag/agent.js` |
-| 5. Gemini generation | `gemini-2.5-flash` under system prompt; answer constrained to retrieved passage text; must cite Part + section + amendment; SSE streaming (v0.6) | `functions/rag/agent.js` |
-| 6. Citation faithfulness guard | Runtime check (v0.6): score every answer's claims against cited section text; score ≥ 0.8 to pass; fail → strip unsupported claims or refuse with partial grounding | `captadel/evals/checks/citation-faithfulness.js` |
-| 7. Answer delivered | Streamed response with cited section, retrieved source snippet (not just a link), and amendment + AIRAC stamp; clickable deep-link into Library reader | `chat.html` |
+| 1. User question | Regulatory or aeronautical query arrives from the `/chat` route → `POST /api/chat` on the Cloud Run service. The gateway resolves the session (cookie, or bearer token from the native shell), meters the caller, and preserves the SSE contract | `src/pages/chat/`, `server/src/gateway.ts` |
+| 2. Scope + safety pre-check | Is this a GACAR/aviation question? Injection / role-confusion detection. Out-of-scope → immediate refuse | `server/src/captain-adel-prompt.ts` |
+| 3. BM25 retrieval | Lexical search over the GACAR chunk index (**29,165** chunks as of the 2026-06-13 build); `RETRIEVE_K` passages, with full legal lineage (document → subpart → section → paragraph) on each. Dense/hybrid retrieval is the seam behind the retriever interface, not yet the default | `server/src/corpus.ts`, `public/data/rag-chunks.json` |
+| 4. Confidence decision | Grounding is computed **server-side** from the BM25 score, never trusted to the model: below `REFUSE_SCORE` → refuse without calling Gemini at all; below `GROUNDED_SCORE` → answer but flag "partially grounded" | `server/src/captain-adel.ts` |
+| 5. Gemini generation | Gemini via **Genkit** — `gemini-2.5-flash`, `gemini-2.5-pro` for the Pro tier — under the system prompt; answer constrained to retrieved passage text; must cite Part + section + amendment; token deltas streamed as SSE | `server/src/captain-adel.ts`, `server/src/sse.ts` |
+| 6. Citation faithfulness guard | Score every answer's claims against cited section text; score ≥ 0.8 to pass; fail → strip unsupported claims or refuse with partial grounding | `ay2m/Captain-Adel` `evals/checks/citation-faithfulness.js` |
+| 7. Answer delivered | Streamed response with cited section, retrieved source snippet (not just a link), and amendment + AIRAC stamp; clickable deep-link into the Library reader | `src/pages/chat/`, `src/calc/chat/` |
 
 ### The strict fallback (§4.2 — low confidence path)
 
@@ -154,14 +170,15 @@ The system is only as trustworthy as its eval coverage. Eval cases required befo
 | Refusal calibration | 10+ | Correct refusal on low-confidence questions |
 | Staleness (superseded citation) | New class | Hard failure — never cite a superseded source |
 
-CI gate (`eval.yml`) required on all PRs touching `captadel/**`. A refusal-calibration regression is an unconditional block.
+A CI eval gate is required on all PRs touching the Captain Adel flow (`server/src/captain-adel*.ts`, `server/src/corpus.ts`) and on `ay2m/Captain-Adel`. A refusal-calibration regression is an unconditional block.
 
 ### Supporting operational features
 
-- **Rate limiter (v0.6):** distributed (Redis/Firestore), replaces per-process `ratelimit.js`. Free tier: 5 questions/day; Pro: unlimited.
-- **App Check enforcement (v0.6):** reduces abuse.
-- **Structured observability (v0.6):** per-turn metrics — latency, sources retrieved, refusal rate, faithfulness score, provider — feeds real-world eval seeding.
-- **ALLaM (v0.7 target):** in-Kingdom model for PDPL compliance and cost trajectory; AR eval pass rate must stay within 5% of EN.
+- **Quota, in Postgres:** the daily counter is a `chat_usage (user_key, day, count)` row incremented atomically — free tier 5 questions/day (`CHAT_FREE_DAILY_LIMIT`), anonymous callers metered by hashed IP (`ANON_DAILY_LIMIT`), Pro unlimited, purchased credits spent from `chat_credits`. Policy lives in the pure `chat-quota-core.ts` and is mirrored client-side by `src/calc/chat/chatQuota.ts`; `tests/client-server-mirrors.test.ts` fails the build if the two drift.
+- **Rate limiting:** `express-rate-limit` plus the pure fixed-window `rate-limit-core.ts`. State is per-instance memory, so with `max-instances=10` the real ceiling is `limit × instances` — acceptable for a cost control, and deliberately **not** a security boundary. The hard ceiling is the Postgres quota above.
+- **Abuse controls:** session auth (HS256 JWT cookie) or an API key for the licensed `/v1/ask` tier (`api-key-core.ts` / `api-tier-core.ts`), a request-body cap, and the CORS allowlist in `gateway-core.ts`. *(There is no App Check — that was a Firebase primitive and left with it.)*
+- **Structured observability:** per-turn metrics — latency, sources retrieved, refusal rate, faithfulness score, model — via Cloud Run request logs and `analytics-core.ts`; feeds real-world eval seeding.
+- **ALLaM (target):** in-Kingdom model for PDPL compliance and cost trajectory; AR eval pass rate must stay within 5% of EN.
 
 ### Owner / role
 Captain Adel product owner (system prompt, refusal taxonomy, eval case ownership); engineering (retrieval, pipeline, CI gate); editorial owner (ensures corpus freshness so retrieval has current chunks to draw from — feeds into Workflow 2).
@@ -174,7 +191,7 @@ Captain Adel product owner (system prompt, refusal taxonomy, eval case ownership
 | Citation faithfulness guard miscalibrated (too strict) | Legitimate answers refused; user frustration | Human-labelled subset quarterly review of judge calibration |
 | Corpus stale — retrieval returns superseded chunks | Answer correct per old regulation | Staleness eval case class + AIRAC sync (Workflow 2) — superseded chunks excluded from index |
 | Injection attack rewrites system prompt | Adel behaves as non-Adel; trust destroyed | Pre-check step + adversarial eval cases; runtime injection logging |
-| Cost spike from runaway eval or high traffic | Budget overrun | Per-tenant cost caps; eval concurrency limits; budget alert in Firebase |
+| Cost spike from runaway eval or high traffic | Budget overrun | Per-caller quota (`chat_usage`) + API-tier monthly caps; `max-instances` on the Cloud Run service; eval concurrency limits; a Cloud Billing budget alert on the GCP project |
 
 ### Action plan reference
 §2.3 (AI hallucination risk), §4.2 (strict fallback protocol), `captadel-plan.md` §1b (citation-faithfulness) and Wave 1 (eval foundation), `runbook-captain-adel.md`.

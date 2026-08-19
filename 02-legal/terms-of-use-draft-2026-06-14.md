@@ -4,7 +4,7 @@ section: 02-legal
 doc_type: legal
 status: draft
 owner: Founder
-last_updated: 2026-07-27
+last_updated: 2026-08-19
 lang: en
 ---
 
@@ -234,7 +234,7 @@ Your personal data is processed in accordance with our [Privacy Notice](https://
 
 ## 10. Third-Party Services and Links
 
-The Service links to third-party websites (including gaca.gov.sa) and integrates third-party services (including Google Firebase for authentication and Cloudflare for performance). We do not control and are not responsible for the content, accuracy, availability, or practices of any third-party site or service. A link or integration is not an endorsement.
+The Service links to third-party websites (including gaca.gov.sa) and integrates third-party services (including Google Cloud for hosting and data storage, Google Gemini for Captain Adel AI responses, Moyasar for payments, and Cloudflare for performance). We do not control and are not responsible for the content, accuracy, availability, or practices of any third-party site or service. A link or integration is not an endorsement.
 
 ---
 

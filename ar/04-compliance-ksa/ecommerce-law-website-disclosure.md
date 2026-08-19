@@ -4,7 +4,7 @@ section: 04-compliance-ksa
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-07-27
+last_updated: 2026-08-19
 lang: ar
 ---
 
@@ -42,11 +42,11 @@ lang: ar
 
 | الموقع | السطح | التنفيذ |
 |---|---|---|
-| flygaca.com | سطر الهوية في الفوتر (كل صفحة) | `FlyGACA-app: src/i18n/en.json` + `ar.json` مفتاح `footer.legalEntity` يعرضه `src/app/Footer.tsx` |
-| flygaca.com | بلوك الكيان في الشروط §1 والخصوصية §1 (متحكم PDPL) | `FlyGACA-app: src/i18n/*.json` تحت `legal.terms` / `legal.privacy` |
-| flygaca.com | مقروء آلياً (البحث/الذكاء الاصطناعي) | ‏Organization JSON-LD: ‏`legalName` والعنوان ومعرّف السجل والرقم الضريبي — `src/lib/seo/jsonld.ts` و`index.html` و`scripts/prerender-head.mjs` |
-| captadel.com | سطر الهوية في الفوتر (الصفحات الخمس) | `Captain-Adel: public/assets/js/footer.js` ‏(`.footer-entity`) |
-| captadel.com | بلوكا الكيان في `/terms` و`/privacy` | `Captain-Adel: public/terms.html` و`public/privacy.html` |
+| flygaca.com | سطر الهوية في الفوتر (كل صفحة) | `ay2m/FlyGACA: src/i18n/en.json` + `ar.json` مفتاح `footer.legalEntity` يعرضه `src/app/Footer.tsx` |
+| flygaca.com | بلوك الكيان في الشروط §1 والخصوصية §1 (متحكم PDPL) | `ay2m/FlyGACA: src/i18n/*.json` تحت `legal.terms` / `legal.privacy` |
+| flygaca.com | مقروء آلياً (البحث/الذكاء الاصطناعي) | ‏Organization JSON-LD: ‏`legalName` والعنوان ومعرّف السجل والرقم الضريبي — `ay2m/FlyGACA: src/lib/seo/jsonld.ts` و`index.html` و`scripts/prerender-head.mjs` |
+| captadel.com | سطر الهوية في الفوتر (الصفحات الخمس) | `ay2m/Captain-Adel: public/assets/js/footer.js` ‏(`.footer-entity`) |
+| captadel.com | بلوكا الكيان في `/terms` و`/privacy` | `ay2m/Captain-Adel: public/terms.html` و`public/privacy.html` |
 | كلاهما | وسائل التواصل | `i@flygaca.com` / `hello@captadel.com` في الفوترات والصفحات القانونية (وفق `02-legal/email-routing.md`) |
 
 ## ما لا نُنشره أبداً

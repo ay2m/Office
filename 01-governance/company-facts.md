@@ -4,7 +4,7 @@ section: 01-governance
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-07-27
+last_updated: 2026-08-19
 lang: en
 ---
 
@@ -56,7 +56,7 @@ founder's records.
 
 > **Hard rule — the IBAN and account number never leave this repo.** They are
 > recorded here and in `00-strategy/phase0.md` (P0-3) only. They must never
-> appear in the product repos (FlyGACA-app, Captain-Adel), on any website,
+> appear in the product repos (`ay2m/FlyGACA`, `ay2m/Captain-Adel`), on any website,
 > or in any public document. Customer-facing invoices carry the bank details
 > on the invoice itself, generated at billing time.
 
@@ -64,11 +64,11 @@ founder's records.
 
 | Surface | What is shown | Where it lives |
 |---|---|---|
-| flygaca.com footer | Operator line: name AR/EN + CR + VAT + Riyadh | `FlyGACA-app: src/i18n/*.json` (`footer.legalEntity`) + `src/app/Footer.tsx` |
-| flygaca.com /terms, /privacy | Entity block, PDPL controller, Riyadh jurisdiction | `FlyGACA-app: src/i18n/*.json` (`legal.*`) |
-| flygaca.com structured data | `legalName`, address, SA-CR identifier, vatID | `FlyGACA-app: src/lib/seo/jsonld.ts` + `index.html` + `scripts/prerender-head.mjs` |
-| captadel.com footer (all pages) | Operator line AR/EN | `Captain-Adel: public/assets/js/footer.js` |
-| captadel.com /terms, /privacy | Entity block, PDPL controller, Moyasar processor | `Captain-Adel: public/terms.html`, `public/privacy.html` |
+| flygaca.com footer | Operator line: name AR/EN + CR + VAT + Riyadh | `ay2m/FlyGACA: src/i18n/*.json` (`footer.legalEntity`) + `src/app/Footer.tsx` |
+| flygaca.com /terms, /privacy | Entity block, PDPL controller, Riyadh jurisdiction | `ay2m/FlyGACA: src/i18n/*.json` (`legal.*`) |
+| flygaca.com structured data | `legalName`, address, SA-CR identifier, vatID | `ay2m/FlyGACA: src/lib/seo/jsonld.ts` + `index.html` + `scripts/prerender-head.mjs` |
+| captadel.com footer (all pages) | Operator line AR/EN | `ay2m/Captain-Adel: public/assets/js/footer.js` |
+| captadel.com /terms, /privacy | Entity block, PDPL controller, Moyasar processor | `ay2m/Captain-Adel: public/terms.html`, `public/privacy.html` |
 | Repo metadata | LICENSE holder, package.json author, SECURITY.md | both product repos |
 
 Never published: IBAN / bank account (see hard rule above), founder's national

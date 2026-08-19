@@ -4,14 +4,14 @@ section: 05-people
 doc_type: checklist
 status: draft
 owner: Founder / HR
-last_updated: 2026-08-09
+last_updated: 2026-08-19
 lang: en
 ---
 
 # Fly GACA — Offboarding / Exit Checklist
 **قائمة إنهاء الخدمة ومغادرة الموظف — فلاي قاكا**
 
-**Version:** 0.2 (draft) | **Date:** 2026-08-09 | **Folder:** 05-people/
+**Version:** 0.3 (draft) | **Date:** 2026-08-19 | **Folder:** 05-people/
 
 > **DRAFT — PENDING LEGAL REVIEW.** This checklist must be reviewed by a qualified Saudi HR professional and/or Saudi-licensed legal counsel before use. It is an operational aid, not legal advice. Saudi Labor Law (Royal Decree M/51 and its amendments) governs; where this checklist conflicts with the law, the law prevails.
 
@@ -36,7 +36,7 @@ Any termination **initiated by the Company outside probation** must first satisf
 | ☐ | Record exit reason and legal basis (resignation / Art. 74 / Art. 77 / Art. 80 / Art. 81) | F | Basis noted in HR file; counsel consulted for any contested exit |
 | ☐ | Decide leave treatment during notice (Leave & PTO Policy §3.4) | F | Decision communicated in writing |
 | ☐ | Open knowledge-handover plan (Section 3) and set weekly checkpoints | Mgr | Handover doc created in Drive with owner per item |
-| ☐ | Access review: restrict any access no longer needed for handover duties (esp. production Firebase/Cloudflare, HubSpot exports, GitHub admin) | F | Access reduced to handover-only scope |
+| ☐ | Access review: restrict any access no longer needed for handover duties (esp. the production **Google Cloud** project, **Moyasar**, Cloudflare, HubSpot exports, GitHub admin) | F | Access reduced to handover-only scope |
 
 ---
 
@@ -57,8 +57,8 @@ Any termination **initiated by the Company outside probation** must first satisf
 | ☐ | Task | Owner | Done-when |
 |---|------|-------|-----------|
 | ☐ | Revoke Google Workspace / email account (suspend, then transfer data; update aliases per 02-legal/email-routing.md so mail to the leaver routes to `i@flygaca.com`) | F | Login disabled; routing rule updated |
-| ☐ | Revoke Slack, GitHub (org membership + PATs/deploy keys), HubSpot, Firebase console, Cloudflare dashboard | F | Each system's member list shows removal |
-| ☐ | Rotate shared secrets the leaver had: API keys, service passwords, password-manager shared vaults — **decided 2026-08-09 (brief D6):** secrets inventory kept in the ops Drive folder per 06-operations-it/03-drive-folder-structure.docx | F | Rotation log completed |
+| ☐ | Revoke Slack, GitHub (`ay2m` org membership + PATs/deploy keys), HubSpot, **Google Cloud IAM** (Cloud Run · Cloud SQL · Secret Manager · Cloud Storage), **Moyasar dashboard**, Cloudflare dashboard | F | Each system's member list shows removal |
+| ☐ | Rotate shared secrets the leaver had: **Secret Manager entries** (session key, database URL, OAuth secret, Gemini key, Moyasar keys, mail key, cron secret — see 06-operations-it/hosting-facts.md), other API keys, service passwords, password-manager shared vaults — **decided 2026-08-09 (brief D6):** secrets inventory kept in the ops Drive folder per 06-operations-it/03-drive-folder-structure.docx | F | New secret versions added and a new Cloud Run revision deployed; rotation log completed |
 | ☐ | Collect equipment against the signed equipment receipt: laptop, peripherals, access cards, SIM | E → F | Equipment register updated to "returned"; condition noted |
 | ☐ | Employee deletes company data from personal devices and confirms in writing (PDPL + confidentiality obligations survive exit) | E | Signed data-deletion confirmation filed |
 | ☐ | Exit interview (voluntary exits) — themes logged for retention learning | F | Notes filed (anonymised summary if shared) |
@@ -98,7 +98,7 @@ Saudi Labor Law Art. 88/91 timing as adopted in Leave & PTO Policy §16: final s
 | ☐ | Task | Owner | Done-when |
 |---|------|-------|-----------|
 | ☐ | Archive employee HR folder per retention policy [Owner to confirm retention period with counsel — brief D5]; restrict access to Founder | F | Folder moved to archive area of Drive |
-| ☐ | 30-day access re-check: search all systems (Google, Slack, GitHub, HubSpot, Firebase, Cloudflare, vendor accounts) for residual access | F | Zero residual accounts; check logged |
+| ☐ | 30-day access re-check: search all systems (Google Workspace, Google Cloud IAM, Slack, GitHub, HubSpot, Moyasar, Cloudflare, vendor accounts) for residual access | F | Zero residual accounts; check logged |
 | ☐ | Close the loop on exit-interview actions and update HR docs if the exit exposed gaps | F | Actions tracked or explicitly declined |
 
 ---
@@ -112,4 +112,4 @@ Retain: notice/termination letters, handover sign-off, equipment receipt, EOSB w
 ---
 
 *BDA Company International (شركة بدع الدولية) | Confidential — Internal HR Document*
-*Draft 0.2 — 2026-08-09 (owner decision D6 applied; counsel markers relabelled to Group E refs). Pending review by qualified Saudi HR/legal professional. Not legal advice.*
+*Draft 0.3 — 2026-08-19 (access and secret-rotation surfaces corrected: the Firebase console no longer exists; the real production surfaces are Google Cloud IAM / Secret Manager, GitHub, Moyasar and Cloudflare). Draft 0.2 — 2026-08-09 (owner decision D6 applied; counsel markers relabelled to Group E refs). Pending review by qualified Saudi HR/legal professional. Not legal advice.*

@@ -4,7 +4,7 @@ section: 02-legal
 doc_type: memo
 status: active
 owner: Founder
-last_updated: 2026-06-16
+last_updated: 2026-08-19
 lang: en
 ---
 
@@ -39,7 +39,7 @@ real proof of demand, not before.
 | R3 | Small, single-country, single-regulator TAM | **High** | High (structural) | Unquantified |
 | R4 | Dependence on / threat from GACA itself | **High** | Medium | Unmitigated (no relationship) |
 | R5 | Solo founder / bus factor of one | **High** | — | Acknowledged, unmitigated |
-| R6 | No revenue validation; monetization unbuilt | **High** | — | Open (Phase 5 not started) |
+| R6 | No revenue validation; monetization built but untested | **High** | — | Open (Phase 5 in progress) |
 | R7 | AI accuracy/liability in a safety-critical domain | Medium–High | Medium | Partial (guards, thin evals) |
 | R8 | PDPL / data-residency compliance burden | Medium | — | Open (DPIA not done) |
 | R9 | Thin/commoditizing moat | Medium | Medium | Structural |
@@ -66,10 +66,22 @@ reader, search, and most RAG value.
 *Mitigation:* lawyer opinion; ship as deep-link index until cleared (already the plan).
 
 ### R3 — The market may be too small to justify the build *(High)*
-Saudi Arabia has a few thousand active pilots/cadets — not hundreds of thousands. At SAR
-49/mo, even strong capture is a modest revenue line. Single-country, single-regulator;
-every new market (UAE GCAA, etc.) is a corpus rebuild, not a copy-paste. Plausibly a good
-**cashflow/lifestyle business**, harder to see a **venture-scale** outcome.
+Saudi Arabia has a few thousand active pilots/cadets — not hundreds of thousands. The price
+card was re-cut on 2026-08-19 to **SAR 79/mo · 649/yr** for Pro, and that barely moves this
+risk: annual, which is the plan the product actually pushes, went from ~588 to 649/yr, so
+**the binding constraint is the number of buyers, not the price per buyer.** On a few thousand
+addressable pilots and cadets, even an aggressive 20% capture of 3,000 is ~600 subscribers,
+≈ **SAR 390k/yr** — and the B2B line, now sold as annual packages of SAR 12,000 (Cohort) to
+39,000 (Academy) rather than per seat, adds a countable handful of academies on top, not a
+long tail. Single-country, single-regulator; every new market (UAE GCAA, etc.) is a corpus
+rebuild, not a copy-paste. Plausibly a good **cashflow/lifestyle business**, harder to see a
+**venture-scale** outcome.
+
+The re-cut does add a second-order risk of its own: at **SAR 79/mo** the monthly plan now sits
+*above* the Saudi consumer-subscription corridor and is deliberately anchored to a professional
+tool rather than a study app. That is defensible against a SAR 120,000 CPL, but it is an
+assertion about willingness to pay that no Saudi cadet has yet tested with a card — see the
+diligence item below.
 *Mitigation:* a credible bottoms-up TAM (below); honest framing of the financing type.
 
 ### R4 — You depend on, and are most threatened by, the same body *(High)*
@@ -79,13 +91,16 @@ government monopoly with no endorsement and a borrowed name.
 *Mitigation:* secure at minimum a documented non-objection; ideally a pilot/partnership.
 
 ### R5 — Bus factor of one *(High)*
-"Captain Adel" is the founder. The roadmap itself flags solo-founder load. The 1:1 Consult
-line literally sells the founder's hours. No team, no redundancy, no continuity plan.
+"Captain Adel" is the founder. The roadmap itself flags solo-founder load. No team, no
+redundancy, no continuity plan. The 1:1 Consult line — which sold founder hours directly —
+was retired on 2026-08-19, so no revenue line now depends on founder availability; but the
+corpus-freshness and content-authoring paths still run through one person.
 *Mitigation:* co-founder or first hire; remove the founder from the content-freshness path.
 
 ### R6 — Enormous build, zero market validation *(High)*
-11 phases shipped, but Phase 5 (money) is "Not started," payments unwired, no legal entity
-to accept payment, waitlist capture not live. Prices are "decided" but never tested on a
+11 phases shipped, and Phase 5 (money) is now in progress — the billing machinery is built
+and priced, but checkout has never been open: no legal entity to accept payment, and the
+paywall flip is still pending. Prices are "decided" but never tested on a
 paying customer. Scarce solo-founder time was spent building before selling.
 *Mitigation:* pre-sell before finishing the paywall — LOIs / pre-paid subscriptions.
 
@@ -97,9 +112,13 @@ don't remove the risk of a confidently-wrong answer a pilot relies on. The eval 
 behavior; legal review of disclaimer sufficiency.
 
 ### R8 — PDPL / data-residency burden *(Medium)*
-Personal data must stay in-Kingdom; the DPIA is a hard gate (Phase 3) not yet done. The
-out-of-Kingdom VPS boundary is a compliance tripwire. Adds cost and operating drag.
-*Mitigation:* complete the DPIA; keep the public-data-only VPS boundary auditable.
+Personal data must stay in-Kingdom; the DPIA is a hard gate (Phase 3) not yet done. Cloud Run
+and Cloud SQL both sit in `me-central2` (Dammam), so the application and database are
+in-Kingdom — but **Captain Adel calls the Gemini API, whose processing region is not
+established**, and chat queries are personal data. That, not the retired VPS, is the live
+compliance tripwire.
+*Mitigation:* complete the DPIA; establish and document the Gemini processing region and its
+transfer mechanism before the privacy notice is published.
 
 ### R9 — The moat is thinner than claimed *(Medium)*
 "Only platform on GACAR + cited AI" — but the corpus is public and scrapable, and LLM+RAG
@@ -118,13 +137,18 @@ prep pack.
 
 ## Scalability notes
 
-- **Tech scales; the business model is the constraint.** Firebase + vanilla JS is fine for
-  realistic load. The non-scaling parts are 1:1 consults and manually-maintained prep packs.
+- **Tech scales; the business model is the constraint.** A React/Vite SPA on static hosting with
+  a single Express service on Cloud Run (`me-central2`, Dammam) over Cloud SQL Postgres is
+  comfortably sized for realistic load. The non-scaling part is the manually-maintained
+  corpus and prep-pack content.
 - **No geographic leverage** — corpus, tools, and AI grounding are Saudi-specific.
-- **B2B concentration** — only a handful of Saudi flight schools, so a few logos = most
-  revenue; long, relationship-driven sales cycles with no sales motion or entity yet.
+- **B2B concentration, now with a fixed ceiling per logo** — only a handful of Saudi flight
+  schools, so a few logos = most revenue; and because Schools is priced as annual packages
+  (12,000 / 39,000 / from 72,000) rather than per seat, revenue per school is a step function.
+  Growth inside an account happens only when it crosses a band, not as cadets are added. Long,
+  relationship-driven sales cycles with no sales motion or entity yet.
 - **Best scalable line (subscriptions)** targets the smallest audience; the per-buyer-rich
-  lines (consults, packs) don't scale.
+  line (one-time packs) is capped by how much content one person can author.
 
 ---
 
@@ -140,9 +164,12 @@ prep pack.
 ### B. Market & demand (prove people pay)
 - [ ] Bottoms-up TAM: count of Saudi pilots + cadets + flight schools, with sources
 - [ ] Realistic capture model → revenue ceiling; honest venture-vs-cashflow framing
-- [ ] 2–3 signed **flight-school LOIs** (seat commitments)
+- [ ] 2–3 signed **flight-school LOIs** — committing to a **named annual package** (Cohort at
+      SAR 12,000 or Academy at 39,000), not to a seat count
 - [ ] ≥ N pre-sold annual subscriptions or paid pilots (sell before finishing the paywall)
-- [ ] Evidence willingness-to-pay at SAR 49/mo (interviews, landing-page conversion, pre-orders)
+- [ ] Evidence willingness-to-pay at **SAR 79/mo and SAR 649/yr** — the annual is the number
+      that matters, since >60% of new Pro subscriptions are targeted to land there (interviews,
+      landing-page conversion, pre-orders)
 
 ### C. Team & continuity
 - [ ] Co-founder or first hire identified; equity/role plan

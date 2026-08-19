@@ -4,13 +4,13 @@ section: 02-legal
 doc_type: legal
 status: draft
 owner: Founder
-last_updated: 2026-08-09
+last_updated: 2026-08-19
 lang: en
 ---
 
 # Fly GACA — B2B Order Form (Template)
 **Document:** order-form-template-2026-07-03.md
-**Version:** Draft 1.1 — 2026-08-09 (owner decisions A7–A9 applied)
+**Version:** Draft 1.2 — 2026-08-19 (owner decisions A7–A9 applied; seat-tier pricing restated as the 2026-08-19 annual packages)
 **Status:** DRAFT — requires review by a qualified Saudi-licensed lawyer before use.
 **Purpose:** Fill-in order form for Fly GACA for Schools seat licences. Pairs with the Customer Agreement & EULA, the SLA, the B2B DPA, and (for pilot conversions) the 60-Day Pilot Agreement. Identified as a P1 gap in `legal-gap-audit-2026-06-14.md` §2.4 / launch-gate checklist P3-2.
 **Contact:** legal@flygaca.com
@@ -41,27 +41,27 @@ lang: en
 
 ### 2. Order Details
 
-**Product:** Fly GACA for Schools — annual, per-seat licence. Each seat gives one enrolled cadet full Fly GACA Pro access; the Customer receives the Academy admin dashboard (cohort exam-readiness, per-cadet progress). Minimum 10 seats.
+**Product:** Fly GACA for Schools — annual package licence with a seat allowance. Each seat gives one enrolled cadet full Fly GACA Pro access; the Customer receives the Academy admin dashboard (cohort exam-readiness, per-cadet progress). Minimum 10 seats.
 
 | Line | Item | Detail |
 |---|---|---|
-| Plan | Fly GACA for Schools — [standard tier / founding partner] | Seat tiers: 10–24 @ SAR 299 · 25–74 @ SAR 249 · 75+ @ SAR 199 per seat per year |
-| Seats | [N] seats | Tier applied: [10–24 / 25–74 / 75+] |
+| Plan | Fly GACA for Schools — [Cohort / Academy / Institution / founding partner] | Packages: Cohort SAR 12,000/yr (up to 25 seats, one 90-day intake) · Academy SAR 39,000/yr (up to 100 seats, rolling 12 months) · Institution from SAR 72,000/yr (100+ seats, SSO) |
+| Seats | [N] seats | Tier applied: [Cohort / Academy / Institution] — seats used must stay within the tier's allowance |
 | Term | 12 months: [start date] → [end date] | Renewal by mutual agreement — re-invoice, then re-grant (no automatic renewal) |
 | Pilot reference | [FG-Pilot ref / "none"] | If converting from a free cohort pilot or the 60-Day Pilot Agreement |
-| Price per seat | SAR [•] / seat / year | Per the seat card above |
-| **Subtotal** | **SAR [•]** | [N] × SAR [•] |
+| Package fee | SAR [•] / year | Per the price card above |
+| **Subtotal** | **SAR [•]** | Annual package fee for the tier applied |
 | **VAT (15%)** | **SAR [•]** | At the prevailing KSA rate — [Counsel question E4: confirm treatment pre-VAT-registration] |
 | **Total** | **SAR [•]** | Payable per Section 4 |
 | ZATCA e-invoice ref. | [invoice number — completed on issue] | ZATCA-compliant (Fatoora) e-invoice; number kept in the deal record |
 
-**Founding-partner terms** (first 2–3 schools only — strike if not applicable): SAR 199/seat flat for year 1 in exchange for (a) permission to use the Customer's name/logo, (b) a short case study after one term, and (c) a monthly feedback call. Renewal at the standard tier.
+**Founding-partner terms** (first 2–3 schools only — strike if not applicable): **SAR [•] discounted package fee for year 1** *[owner to set — the previous SAR 199/seat flat rate was tied to the retired per-seat bands and has no equivalent under package pricing]* in exchange for (a) permission to use the Customer's name/logo, (b) a short case study after one term, and (c) a monthly feedback call. Renewal at the standard tier.
 
 ### 3. Provisioning and Roster Management
 
 - Provider grants all seats within **1 business day** of **receipt of payment** (decided 2026-08-09 — grant on payment receipt, not signature; protects cash), against the cadet roster (emails) supplied by the Customer's admin contact.
 - Mid-term roster changes: the Customer may swap seats (revoke a departing cadet, grant a replacement) at no charge, provided active seats never exceed the seat count above.
-- Additional seats mid-term: added by a supplemental Order Form at the then-applicable tier, **pro-rated by remaining full months** of the Term (decided 2026-08-09).
+- Additional seats mid-term: where they exceed the tier's allowance, added by a supplemental Order Form at the then-applicable tier, **pro-rated by remaining full months** of the Term (decided 2026-08-09).
 
 ### 4. Payment Terms
 
@@ -107,4 +107,4 @@ Date: ___________________________
 
 ---
 
-*DRAFT 1.1 — 2026-08-09 (owner decisions applied: Net 30 payment term; seat grant on payment receipt; mid-term seats pro-rated by remaining full months). Template — complete all bracketed fields per order. Pending Saudi legal counsel review. Cross-references: `../07-gtm/b2b-pipeline.md` (offer, invoice → grant flow), `../03-finance/monetization.md` (seat card), launch-gate-legal-checklist-2026-06-14.md P3-2.*
+*DRAFT 1.2 — 2026-08-19 (owner decisions applied: Net 30 payment term; seat grant on payment receipt; mid-term seats pro-rated by remaining full months. Seat-tier pricing restated as the 2026-08-19 annual packages — Cohort / Academy / Institution — replacing the retired SAR 299/249/199 per-seat bands). Template — complete all bracketed fields per order. Pending Saudi legal counsel review. Cross-references: `../07-gtm/b2b-pipeline.md` (offer, invoice → grant flow), `../03-finance/monetization.md` (price card), launch-gate-legal-checklist-2026-06-14.md P3-2.*

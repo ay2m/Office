@@ -4,30 +4,28 @@ section: 03-finance
 doc_type: strategy
 status: active
 owner: Founder
-last_updated: 2026-08-09
+last_updated: 2026-08-19
 lang: en
 ---
 
 # Fly GACA — Monetization Strategy
 
-> Status: **adopted June 2026.** This document is the single source of truth for
-> pricing and the revenue plan. `pricing.html`, `schools.html`, `flygaca.html`,
-> `assets/js/pricing-toggle.js` and the ROADMAP Phase 5 price sheet must match the
-> price card below. The companion operational playbook for the B2B motion is
+> Status: **adopted June 2026; price card re-cut 2026-08-19.** This document is the
+> commercial source of truth for pricing and the revenue plan. `src/pages/pricing/Pricing.tsx`,
+> `src/lib/prepCatalog.ts`, `.env.example` and the ROADMAP price sheet must match the price
+> card below — and in the product repo `tests/pricing-server-parity.test.ts` enforces it. The companion operational playbook for the B2B motion is
 > [`07-gtm/b2b-pipeline.md`](../07-gtm/b2b-pipeline.md).
 
 ## Where we are
 
 The site is in **launch mode — everything is free for everyone**
-(`window.FG_LAUNCH_MODE = true` in `assets/js/entitlements.js`,
-`ADEL_LAUNCH_MODE=free` in `functions/.env.flygaca-app`). The entire billing
+(`FREE_FOR_EVERYONE` in `src/lib/services/entitlements.ts`). The entire billing
 machine is built or specified and dormant: Moyasar checkout to be integrated at
-the Sprint 3 paywall flip (**gateway of record, DEC-010** — the Stripe checkout
-code in `functions/stripe.js` stays built but dormant as a non-KSA fallback),
-RevenueCat iOS IAP (`functions/revenuecatWebhook.js`), B2B seat licences
-(`functions/school.js`), the Captain Adel free-tier quota
-(`functions/rag/dailyquota.js`), and the protected-content gate
-(`functions/content.js`).
+the paywall flip (**gateway of record: Moyasar**), B2B seat grants
+(`server/src/routes/grants.ts`), the Captain Adel free-tier quota
+(`server/src/chat-quota-core.ts`), and entitlement gating
+(`src/lib/services/features.ts`). Stripe was never shipped and the code no
+longer exists; RevenueCat iOS IAP remains unimplemented.
 
 **Online checkout cannot open until the legal entity exists (ROADMAP P0-3).**
 Schools, however, can be quoted and invoiced manually today — so the revenue
@@ -63,37 +61,67 @@ Willingness to pay is anchored by the global study-subscription band
 
 ## Price card (SAR) — the decided numbers
 
+_Effective 2026-08-19. Every figure below is **VAT-inclusive**, as ZATCA requires of a
+published consumer price. This card is the commercial statement of what
+[`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA) actually charges — the technical source of
+truth is `PRICE_*` on the Cloud Run revision, held to the displayed price by
+`tests/pricing-server-parity.test.ts`. **Change one, change both.**_
+
 **Subscriptions**
 
 | Item | Price | Why |
 |---|---|---|
-| Pro Monthly | **59/mo** | Boldmethod band, under the ChatGPT-Plus anchor. The monthly is the anchor, not the product. |
-| Pro Annual | **349/yr** (≈29/mo, save 51%) | Pulls cash forward, locks a training year, undercuts ForeFlight Basic, costs less than two Exam Terms. Headline framed as **~SAR 29/month** on marketing surfaces. 7-day free trial. |
-| Exam Term | **199** one-time, 120 days | Gleim/ASA per-test band. Deliberately priced so the annual is the obvious upgrade for anyone with more than one exam ahead. |
+| Pro Monthly | **79/mo** | Mid-band against the AI-instructor comparables (SAR 49–187/mo) and just above the Saudi consumer-subscription corridor, where a professional tool should sit. The monthly is the anchor, not the product. |
+| Pro Annual | **649/yr** (≈54/mo, save 32%) | Pulls cash forward and locks a training year. Still under the SAR 860–960 band a full-year EASA question bank commands, and a fraction of the SAR ~1,970 a Gulf pilot already pays for Jeppesen Middle East charts. 7-day free trial. |
+| Exam Season Pass | **299** one-time, 90 days | Matches the fixed-window convention this market actually uses (BGS 90-day ≈ SAR 344, ATPLQuestions 2-month ≈ SAR 343). Priced so the annual is the obvious upgrade for anyone with more than one exam ahead. |
+| Captain Adel credits | **39** · 50 answers | Tops up beyond the free daily allowance without a subscription. |
 
-**Prep Packs** (one-time; official GACA/testing fees never included)
+**Exam-prep packs** (one-time, permanent ownership; official GACA/testing fees never included)
 
-| Item | Price | Why |
+Packs price in three bands by how much material each carries — not by certificate-vs-subject
+label, which put a 76-question pack and a 514-question pack at the same price.
+
+| Band | Price | Packs |
 |---|---|---|
-| License Conversion Prep Pack | **899** (launch 699) · incl. 90 days Pro | Top of the King/Sporty's course band. Conversion candidates are employment-gated — the highest-WTP segment on the site. |
-| ELPT / SAELPT Prep Pack | **349** · incl. 30 days Pro | Right vs. one-time test-prep comparables. |
-| AIP Prep Pack | **299** · incl. 30 days Pro | Entry pack; feeds the funnel. |
-| Conversion Bundle (all three) | **1,299** (saves 248) | ~16% bundle discount after the pack raise. |
-| Captain Adel 1:1 Consult (180 min) | **899** (launch 699) | Founder time is the scarcest input; the launch discount narrows from 599 → 699. |
-| Conversion Pack Premium | **1,699** | Pack + consult + 6 months Pro; priced to keep the consult's value intact. |
+| Essential | **249** | Conversion · Medical · AIP |
+| Standard | **399** | ELP/SAELPT · ATPL · IR |
+| Complete | **499** | CPL · PPL |
+| All-Access Bundle | **1,499** | All eight paid packs, permanent — under half the price of buying them separately |
 
-**Fly GACA for Schools (B2B)** — annual, per seat, minimum **10 seats**
+The entry band sits at the international question-bank floor (ASA/Dauntless/Sheppard ≈ SAR
+188–244 per written) and inside the Saudi one-time edtech band (SAR 199–400). `airspace-vfr`
+stays **free** as the sampler.
 
-| Seats | Price/seat/yr | Why |
+**Fly GACA for Schools (B2B)** — annual packages, not per-seat bands
+
+| Tier | Price | What it covers |
 |---|---|---|
-| 10–24 | **299** | 14% under consumer annual; includes the admin dashboard. |
-| 25–74 | **249** | 29% volume discount. |
-| 75+ | **199** | The anchor for academy-scale deals. |
-| Founding partner (first 2–3 schools only) | **199 flat, year 1** | In exchange for a logo, a case study and a feedback loop. |
+| Cohort | **12,000/yr** | Up to 25 seats, one 90-day intake — **480/seat/yr**. Self-serve checkout. |
+| Academy | **39,000/yr** | Up to 100 seats, rolling 12 months (~390/seat/yr). Contact sales. |
+| Institution | **from 72,000** | 100+ seats, SSO. Contact sales. |
 
-Every pack bundles Pro days **by design** — services feed the subscription.
-The free tier (post-launch-mode) stays: library free forever, **5 Captain Adel
-questions/month**, 3 tool runs/day, all guides free.
+Publishing these is deliberate: in flight-school software almost every vendor is quote-only,
+so a visible price is an acquisition edge. Seat economics hold up against the alternative —
+25 cadets each buying a foreign course at SAR 930–1,120 is SAR 23k+.
+
+**Licensed Captain Adel API** (`/v1/ask`) — metered, per calendar month
+
+| Tier | Price | Included answers |
+|---|---|---|
+| Starter | **499/mo** | 1,000 |
+| Growth | **1,999/mo** | 5,000 |
+| Scale | **6,999/mo** | 25,000 |
+| Enterprise | custom | uncapped · SLA |
+
+Priced at roughly 24× the cost of serving a cited answer, between commodity answer APIs and
+niche regulatory-data APIs — where a first-party corpus belongs.
+
+The free tier stays: library free forever, all 55 flight tools, **5 Captain Adel questions per
+day** (3/day signed-out), one free prep pack, all guides free.
+
+> **There is no Student tier.** It charged less than Pro for an identical entitlement and its
+> eligibility check was never wired to any route, so it was strictly the better buy for
+> everyone and Pro's price was decorative. Removed 2026-08-19 rather than gated.
 
 ## The plan — three phases
 
@@ -106,11 +134,12 @@ Schools don't need a payment gateway. The flow exists end-to-end today:
 2. Quote per the seat card above; founding-partner rate for the first 2–3.
 3. Signed order → manual ZATCA-compliant e-invoice → bank transfer.
 4. Grant access with the existing admin callable:
-   `grantSchoolLicence(emails, schoolId, expiresAt)` (`functions/school.js`).
+   `POST /api/org/:orgId/provision-seats`, then each member self-claims via
+   `POST /api/grants/school-seat` on a verified email (`server/src/routes/`).
 5. Run the customer-success lifecycle (onboarding → health → renewal) using the
    playbooks already in `08-customer-success/`.
 
-Year-1 revenue logic: 10 schools × ~50 seats × ~SAR 249 ≈ **SAR 125k ARR** —
+Year-1 revenue logic: 10 Cohort packages at SAR 12,000 ≈ **SAR 120k ARR** —
 this dominates everything else until consumer checkout opens, so it gets the
 selling time.
 
@@ -120,9 +149,9 @@ Keep launch mode ON, but stop giving it away silently — make the free period a
 **founding-member campaign**:
 
 - Reframe the launch banner: free during launch, and joining the waitlist locks
-  **founding-member annual at SAR 299** for the first year (first 500 members).
+  **founding-member annual at SAR 549** for the first year (first 500 members).
 - Communicate the post-launch free tier *now* (library always free, 5 Adel
-  questions/month, 3 tools/day) so the flip surprises nobody.
+  questions/day, all 55 tools free) so the flip surprises nobody.
 - Instrument what free users actually use (Adel volume, tool opens, study
   starts) — these numbers set the day-one conversion targets.
 - Lead magnets stay free by design: Conversion Eligibility Checker, ELP
@@ -134,24 +163,24 @@ Activation checklist, in order:
 
 1. **Moyasar live (DEC-010):** create the products at the price card above in
    the Moyasar dashboard; set the Moyasar API keys/secrets; verify checkout +
-   webhook end-to-end in test mode (mada + card). The dormant Stripe code stays
-   untouched — no Stripe secrets, no Stripe products.
+   webhook end-to-end in test mode (mada + card + Apple Pay).
 2. **Gate Captain Adel first** (it is the marginal-cost item): remove
-   `ADEL_LAUNCH_MODE=free` from `functions/.env.flygaca-app` and redeploy
-   functions — the server quota (5/month, KSA month boundary) takes over.
-3. **Flip the client:** set `window.FG_LAUNCH_MODE = false` in
-   `assets/js/entitlements.js`; tool metering (3/day) and Study/logbook gating
-   resume. Bump `sw.js` version.
+   `FREE_FOR_EVERYONE` in `src/lib/services/entitlements.ts` and redeploy the
+   Cloud Run service — the server quota (5/day signed-in, 3/day anonymous, UTC
+   day boundary, `server/src/chat-quota-core.ts`) takes over.
+3. **Flip the client:** the same `FREE_FOR_EVERYONE` constant gates the UI, so
+   the flip is one deploy. The 55 flight tools stay free and unmetered; Study,
+   logbook and pack gating resume via `src/lib/services/features.ts`.
 4. **Protected content:** move paid payloads (quiz banks, Ground School, pack
-   content) into `functions/protected/`, set `ADEL_PROTECTED_CONTENT=1` per
+   content) behind the entitlement gate, set the pack bands per
    `06-operations-it/runbooks/runbook-security-rollout.md`.
 5. **Grandfather window:** 30 days — every existing account gets the
-   founding-member annual (SAR 299) offer by email before quotas bite. Honour
+   founding-member annual (SAR 549) offer by email before quotas bite. Honour
    every waitlist lock.
-6. Remove the launch banner from `pricing.html`; switch JSON-LD offers from
+6. Remove the launch banner from `/pricing`; switch JSON-LD offers from
    `PreOrder` to `InStock`.
-7. iOS: mirror prices in RevenueCat products (`pack_aip`, `pack_elpt`,
-   `pack_conversion`, monthly/annual subs).
+7. iOS: native IAP is not implemented — `src/lib/services/billing.ts` throws on
+   the native path. Mirroring prices into store products is future work.
 
 ### Revenue mix to expect (and what to build/sell first)
 
@@ -160,9 +189,9 @@ Activation checklist, in order:
    not on habit. Build content depth here second.
 3. **Pro subscriptions** — compounding but slow to start; the annual push +
    founding-member lock accelerates it.
-4. **Exam Term** — seasonal; promote in the run-up to exam windows.
-5. **Consults / Premium** — margin-rich but founder-time-bound; keep slots
-   scarce, raise price before adding slots.
+4. **Exam Season Pass** — seasonal; promote in the run-up to exam windows.
+5. **Licensed API** — invoiced, independent of consumer checkout, and the only
+   line that can be sold before the paywall flips.
 
 ### KPIs
 
@@ -176,8 +205,10 @@ Activation checklist, in order:
 
 ## Invariants to preserve
 
-- Entitlements are **server-only** (`firestore.rules`); nothing in this plan
-  changes that. All grants flow through Cloud Functions.
+- Entitlements are **server-only** — there is simply no route that lets a
+  client write its own plan; nothing in this plan
+  changes that. All grants flow through the Express routes in
+  `server/src/routes/{billing,grants}.ts` — there is no client write path.
 - Every user-facing price string is bilingual (`data-en` / `data-ar`) —
   `npm run check:i18n` enforces it.
 - PDPL: user questions are personal data; the assistant stays on the in-Kingdom

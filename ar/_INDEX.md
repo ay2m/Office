@@ -4,13 +4,13 @@ section: root
 doc_type: index
 status: active
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-08-19
 lang: ar
 ---
 
 # المكتب — الفهرس الرئيسي
 
-_وثائق تشغيل فلاي قاكا (Fly GACA). آخر إعادة تنظيم: 2026-07-03._
+_وثائق تشغيل فلاي قاكا (Fly GACA). آخر إعادة تنظيم: 2026-07-03. آخر تحديث للفهرس: 2026-08-16._
 
 يحتوي هذا المجلد على كل وثيقة داخلية لإدارة فلاي قاكا، منظَّمة في 12 قسمًا مرقّمًا
 (00–11). تحافظ البادئات المرقّمة على ترتيب الأقسام؛ افتح أيّ مجلد قسم لتطّلع على
@@ -102,8 +102,16 @@ status / owner / last_updated / lang`)، ولها **نسخة PDF جاهزة لل
   grievance-and-disciplinary-procedure · anti-harassment-policy
 - hr-pack-gap-audit-2026-06-14.md
 
-## 06 — العمليات / تقنية المعلومات  _(أُعيدت تسميته من 06-product-eng)_
+## 06 — العمليات / تقنية المعلومات
 إعداد المكتب الرقمي **إضافةً إلى** مواصفات المنتج والهندسة وأدلة التشغيل وملاحظات البنية التحتية.
+
+> توثّق المواصفات وأدلة التشغيل هنا أعمال المنتج والهندسة؛ أما **الشيفرة** نفسها فتقيم في
+> مستودعات منفصلة تحت حساب `ay2m` —
+> [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA) (تطبيق الويب *و*خلفيّته المبنية على
+> Express والعاملة على Cloud Run، إضافةً إلى المصنّف التنظيمي وخطوط إنتاج المحتوى)،
+> و[`ay2m/Captain-Adel`](https://github.com/ay2m/Captain-Adel) (خدمة مدرّب الطيران بالذكاء
+> الاصطناعي خلف captadel.com)، و[`ay2m/FlyGACA-ios`](https://github.com/ay2m/FlyGACA-ios)
+> (عائلة تطبيقات SwiftUI الأصيلة) — لا في هذا المستودع.
 
 - إعداد المكتب (01–08، .docx/.xlsx): 01-digital-office-setup-master-checklist ·
   02-tooling-stack-selection-guide · 03-drive-folder-structure · 04-email-aliases-map ·
@@ -175,6 +183,12 @@ status / owner / last_updated / lang`)، ولها **نسخة PDF جاهزة لل
 
 ## templates/
 بدايات مستندات قابلة لإعادة الاستخدام: tpl-fin-report · tpl-hr-policy · tpl-legal-memo · tpl-ops-runbook · tpl-strat-proposal (.md)
+
+## ar/
+تعريب **عربي (فصحى بالاصطلاح السعودي)** موازٍ للمكتب — يحاكي الأقسام نفسها 00–11 إضافةً إلى
+`templates/`. وله فهرسه الخاص `ar/_INDEX.md` (الخريطة الرئيسية بالعربية)، و`ar/_GLOSSARY.md`
+(مسرد المصطلحات EN↔AR)، و`ar/README.md`. أبقِ الشجرة الإنجليزية هنا والشجرة العربية في `ar/`
+متزامنتين عند تغيّر الوثائق.
 
 ## tools/print/ و _print/
 `tools/print/` هو خطّ إنتاج التحويل من markdown إلى PDF (بهوية «سمة الصقر» للوثائق،
