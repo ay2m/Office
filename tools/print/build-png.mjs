@@ -31,6 +31,7 @@ const MM_PER_IN = 25.4;
 const ASSETS = [
   ['letterhead-a4-en.html',                'letterhead-a4-english.png',            [210, 297]],
   ['letterhead-a4-ar.html',                'letterhead-a4-arabic-rtl.png',         [210, 297]],
+  ['letterhead-a4-ar-sealed.html',         'letterhead-a4-arabic-sealed.png',      [210, 297]],
   ['contract-cover-a4.html',               'contract-cover-a4.png',                [210, 297]],
   ['internal-memo-a4.html',                'internal-memo-a4.png',                 [210, 297]],
   ['press-release-a4.html',                'press-release-a4.png',                 [210, 297]],

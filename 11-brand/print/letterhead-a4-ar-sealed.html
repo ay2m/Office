@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ورقة رسمية ممهورة — شركة بدع الدولية</title>
+<link rel="stylesheet" href="brand-print.css">
+<!--
+  Sealed Arabic letterhead — plain corporate identity (BDA Company International).
+  Deliberately carries NO Fly GACA / Captain Adel / aviation branding: this sheet is
+  for company correspondence with banks, ministries and government departments, where
+  the product brands are irrelevant. The GACA-independence notice is therefore absent
+  too — there is no Fly GACA mention on this sheet for it to qualify. The Fly GACA
+  branded collateral (letterhead-a4-ar.html, -en.html, memo, press release, cards)
+  is unchanged and keeps both the tagline and the notice.
+
+  The national-ID field is left BLANK by design — the manager's national ID is not
+  committed to this repo (see CLAUDE.md, 01-governance/company-facts.md). Fill it by
+  hand on the printed sheet when a counterparty requires it.
+
+  Replace .doc-title, .doc-subject and everything inside .doc-body with the letter.
+-->
+<style>
+@page { size: A4; margin: 0; }
+
+.sheet { width:210mm; height:297mm; padding:20mm 22mm; display:flex; flex-direction:column; position:relative; }
+.lh-head { display:flex; justify-content:space-between; align-items:flex-start; border-bottom:2px solid var(--falcon-teal); padding-bottom:12px; }
+.lh-head .ar-name { font-size:17pt; } .lh-head .en-name { font-size:10pt; }
+.lh-contact { text-align:end; font-family:'Inter',sans-serif; font-size:8.5pt; color:var(--ink-mute); line-height:1.7; }
+
+.lh-meta { display:flex; justify-content:space-between; gap:16px; padding-top:9mm; font-size:9.5pt; color:var(--ink-mute); }
+.lh-meta .blank { display:inline-block; min-width:30mm; border-bottom:1px dotted var(--ink-mute); }
+
+.doc-title { text-align:center; font-size:15pt; font-weight:800; color:var(--falcon-night); margin:7mm 0 2mm; }
+.doc-subject { text-align:center; font-size:10.5pt; font-weight:700; color:var(--ink); margin-bottom:6mm; }
+.doc-body { font-size:11pt; line-height:2.05; color:var(--ink); text-align:justify; }
+.doc-body p { margin:0 0 4mm; }
+.placeholder { color:var(--ink-mute); }
+
+.block-head { font-weight:800; font-size:10.5pt; margin:6mm 0 3mm; color:var(--falcon-night); }
+.sign-block { display:flex; justify-content:space-between; align-items:flex-end; gap:10mm;
+              border:1px solid var(--ivory-edge); border-radius:6px; padding:5mm 6mm; }
+.sign-lines { font-size:10.5pt; line-height:2.0; color:var(--ink); }
+.sign-lines .closing { font-weight:700; margin-bottom:3mm; }
+.sign-lines .label { color:var(--ink-mute); }
+.sign-lines .fill { display:inline-block; min-width:44mm; border-bottom:1px dotted var(--ink-mute); }
+.sign-lines .name { font-weight:800; }
+.sign-lines .sep { height:1px; background:var(--ivory-edge); margin:3mm 0; }
+
+/* Seal — the wordmark lockup with the CR number, no frame. */
+.seal { width:44mm; flex:none; color:var(--falcon-teal); transform:rotate(-4deg); }
+.seal svg { width:100%; height:auto; display:block; }
+
+.lh-foot { margin-top:auto; padding-top:8mm; }
+.watermark { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:.035; pointer-events:none; }
+.watermark svg { width:150mm; height:auto; }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="watermark"><svg class="" viewBox="0 0 199.81 100.0" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BDA Company International — بدع">
+  <path fill="currentColor" fill-rule="evenodd" d="M23.59,43.8 L1.79,43.8 L1.32,43.33 L1.41,1.32 L23.59,1.13 L29.04,2.07 L36.0,6.02 L40.04,10.43 L41.73,13.44 L43.42,18.7 L43.61,24.72 L42.48,29.61 L40.79,33.18 L38.35,36.56 L33.55,40.6 L29.79,42.48 L23.59,43.8 Z M73.97,98.87 L61.37,98.87 L60.71,98.4 L60.71,1.6 L61.18,1.13 L74.34,1.13 L80.73,1.88 L88.63,4.32 L95.39,7.89 L100.28,11.65 L107.89,20.39 L112.78,30.36 L114.47,37.88 L114.29,63.44 L111.84,72.09 L106.95,81.11 L101.03,87.78 L92.95,93.61 L82.8,97.74 L73.97,98.87 Z M151.22,98.68 L148.78,98.5 L143.14,96.05 L135.15,89.38 L130.26,81.86 L127.82,73.59 L127.63,64.38 L129.51,57.24 L133.65,50.28 L141.35,42.2 L138.53,36.18 L137.41,30.73 L137.78,23.4 L139.29,18.89 L142.48,13.44 L146.15,9.4 L150.47,6.39 L155.17,4.51 L160.81,3.57 L198.59,3.57 L198.59,19.55 L161.37,19.55 L157.24,21.05 L154.14,24.53 L153.2,28.29 L154.14,32.61 L156.67,35.71 L160.06,37.41 L198.4,37.59 L198.68,53.67 L156.11,53.95 L152.16,55.08 L148.59,57.33 L146.05,60.06 L144.36,63.25 L143.61,65.7 L143.42,70.58 L144.17,73.97 L146.24,77.73 L151.5,82.61 L151.22,98.68 Z M23.59,98.87 L1.32,98.59 L1.13,56.86 L1.6,56.39 L24.72,56.39 L29.23,57.33 L35.81,61.09 L40.98,67.2 L42.67,71.15 L43.61,75.47 L43.42,81.3 L40.98,88.06 L37.59,92.58 L33.18,96.05 L28.48,98.12 L23.59,98.87 Z"/>
+</svg></div>
+
+  <div class="lh-head">
+    <div class="lockup"><svg class="mark mark-lg" viewBox="0 0 199.81 100.0" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BDA Company International — بدع">
+  <path fill="currentColor" fill-rule="evenodd" d="M23.59,43.8 L1.79,43.8 L1.32,43.33 L1.41,1.32 L23.59,1.13 L29.04,2.07 L36.0,6.02 L40.04,10.43 L41.73,13.44 L43.42,18.7 L43.61,24.72 L42.48,29.61 L40.79,33.18 L38.35,36.56 L33.55,40.6 L29.79,42.48 L23.59,43.8 Z M73.97,98.87 L61.37,98.87 L60.71,98.4 L60.71,1.6 L61.18,1.13 L74.34,1.13 L80.73,1.88 L88.63,4.32 L95.39,7.89 L100.28,11.65 L107.89,20.39 L112.78,30.36 L114.47,37.88 L114.29,63.44 L111.84,72.09 L106.95,81.11 L101.03,87.78 L92.95,93.61 L82.8,97.74 L73.97,98.87 Z M151.22,98.68 L148.78,98.5 L143.14,96.05 L135.15,89.38 L130.26,81.86 L127.82,73.59 L127.63,64.38 L129.51,57.24 L133.65,50.28 L141.35,42.2 L138.53,36.18 L137.41,30.73 L137.78,23.4 L139.29,18.89 L142.48,13.44 L146.15,9.4 L150.47,6.39 L155.17,4.51 L160.81,3.57 L198.59,3.57 L198.59,19.55 L161.37,19.55 L157.24,21.05 L154.14,24.53 L153.2,28.29 L154.14,32.61 L156.67,35.71 L160.06,37.41 L198.4,37.59 L198.68,53.67 L156.11,53.95 L152.16,55.08 L148.59,57.33 L146.05,60.06 L144.36,63.25 L143.61,65.7 L143.42,70.58 L144.17,73.97 L146.24,77.73 L151.5,82.61 L151.22,98.68 Z M23.59,98.87 L1.32,98.59 L1.13,56.86 L1.6,56.39 L24.72,56.39 L29.23,57.33 L35.81,61.09 L40.98,67.2 L42.67,71.15 L43.61,75.47 L43.42,81.3 L40.98,88.06 L37.59,92.58 L33.18,96.05 L28.48,98.12 L23.59,98.87 Z"/>
+</svg>
+      <div class="names">
+        <div class="ar-name">شركة بدع الدولية</div>
+        <div class="en-name en">BDA Company International</div>
+      </div>
+    </div>
+    <div class="lh-contact">الرياض، حي البقال 12965<br><span class="en">0500015682</span></div>
+  </div>
+
+  <div class="lh-meta">
+    <div>الرقم / الإشارة: <span class="blank"></span></div>
+    <div>التاريخ: <span class="blank"></span> هـ &nbsp;الموافق&nbsp; <span class="blank"></span> م</div>
+  </div>
+
+  <div class="doc-title">‹ عنوان الخطاب ›</div>
+  <div class="doc-subject">الموضوع: ‹ موضوع الخطاب ›</div>
+
+  <div class="doc-body">
+    <p class="placeholder">‹ يُستبدل هذا الجزء بنص الخطاب. ›</p>
+  </div>
+
+  <div class="block-head">بيانات الشركة والمفوِّض:</div>
+  <div class="sign-block">
+    <div class="sign-lines">
+      <div><span class="label">اسم الشركة:</span> <span class="name">شركة بدع الدولية</span></div>
+      <div><span class="label">الرقم الموحد / السجل التجاري:</span> 7030976893</div>
+      <div class="sep"></div>
+      <div><span class="label">الاسم:</span> <span class="name">يحيى أحمد علي مدخلي</span></div>
+      <div><span class="label">الصفة:</span> مدير الشركة</div>
+      <div><span class="label">رقم الهوية:</span> <span class="fill"></span></div>
+      <div><span class="label">التوقيع:</span> <span class="fill"></span></div>
+    </div>
+    <div class="seal"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" role="img" aria-label="ختم شركة بدع الدولية — BDA Company International company seal">
+  <g transform="translate(70,10) scale(1.3)" fill="currentColor">
+    <path fill-rule="evenodd" d="M23.59,43.8 L1.79,43.8 L1.32,43.33 L1.41,1.32 L23.59,1.13 L29.04,2.07 L36.0,6.02 L40.04,10.43 L41.73,13.44 L43.42,18.7 L43.61,24.72 L42.48,29.61 L40.79,33.18 L38.35,36.56 L33.55,40.6 L29.79,42.48 L23.59,43.8 Z M73.97,98.87 L61.37,98.87 L60.71,98.4 L60.71,1.6 L61.18,1.13 L74.34,1.13 L80.73,1.88 L88.63,4.32 L95.39,7.89 L100.28,11.65 L107.89,20.39 L112.78,30.36 L114.47,37.88 L114.29,63.44 L111.84,72.09 L106.95,81.11 L101.03,87.78 L92.95,93.61 L82.8,97.74 L73.97,98.87 Z M151.22,98.68 L148.78,98.5 L143.14,96.05 L135.15,89.38 L130.26,81.86 L127.82,73.59 L127.63,64.38 L129.51,57.24 L133.65,50.28 L141.35,42.2 L138.53,36.18 L137.41,30.73 L137.78,23.4 L139.29,18.89 L142.48,13.44 L146.15,9.4 L150.47,6.39 L155.17,4.51 L160.81,3.57 L198.59,3.57 L198.59,19.55 L161.37,19.55 L157.24,21.05 L154.14,24.53 L153.2,28.29 L154.14,32.61 L156.67,35.71 L160.06,37.41 L198.4,37.59 L198.68,53.67 L156.11,53.95 L152.16,55.08 L148.59,57.33 L146.05,60.06 L144.36,63.25 L143.61,65.7 L143.42,70.58 L144.17,73.97 L146.24,77.73 L151.5,82.61 L151.22,98.68 Z M23.59,98.87 L1.32,98.59 L1.13,56.86 L1.6,56.39 L24.72,56.39 L29.23,57.33 L35.81,61.09 L40.98,67.2 L42.67,71.15 L43.61,75.47 L43.42,81.3 L40.98,88.06 L37.59,92.58 L33.18,96.05 L28.48,98.12 L23.59,98.87 Z"/>
+  </g>
+  <g fill="currentColor" text-anchor="middle" font-family="Cairo, sans-serif">
+    <text x="200" y="182" font-size="33" font-weight="800" direction="rtl">شركة بدع الدولية</text>
+    <text x="200" y="206" font-size="13.5" font-weight="700" letter-spacing="2">BDA COMPANY INTERNATIONAL</text>
+    <text x="200" y="240" font-size="21" font-weight="800" direction="rtl">س.ت 7030976893</text>
+  </g>
+</svg></div>
+  </div>
+
+  <div class="lh-foot"><div class="identity-foot"><hr class="rule">شركة بدع الدولية · BDA Company International · س.ت / CR 7030976893 · الرقم الضريبي / VAT 311415259500003 · الرياض، حي البقال 12965 · هاتف 0500015682</div></div>
+</div>
+</body>
+</html>
