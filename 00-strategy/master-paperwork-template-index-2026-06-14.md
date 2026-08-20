@@ -97,8 +97,9 @@ lang: en
 | 02-L | `one-way-nda.docx` | One-way (company-to-third-party) NDA template | .docx |
 | 02-M | `risk-memo.md` | Risk memo on primary legal and regulatory exposures | .md |
 | 02-N | `service-level-agreement-sla.docx` | SLA template for B2B academy subscriptions | .docx |
+| 02-O | `authorization-letter-jawazat-2026-08-20.html` | Authorisation letter to the Passports Department — delegate for company and labour transactions (draft, unsigned) | .html |
 
-**Count: 14 documents**
+**Count: 15 documents**
 
 ---
 
@@ -338,7 +339,7 @@ lang: en
 | 11-U | `print/press-release-a4.png` | Press release letterhead/template design | .png |
 | 11-V | `print/sticker-pack-9-dies-a4-vinyl.png` | 9-die vinyl sticker pack design | .png |
 | 11-W | `logos/bda-seal.svg` | Company seal — شركة بدع الدولية (CR 7030976893), vector source | .svg |
-| 11-X | `print/letterhead-a4-arabic-sealed.png` | Arabic RTL letterhead, sealed — carries the company seal and the manager's signature block | .png |
+| 11-X | `print/letterhead-a4-arabic-sealed.png` | Arabic RTL letterhead, sealed — plain corporate identity (no product branding), company seal and manager's signature block | .png |
 
 **Count: 24 assets**
 
@@ -350,7 +351,7 @@ lang: en
 |--------|--------|-----------|
 | 00 | Strategy | 27 |
 | 01 | Governance | 12 |
-| 02 | Legal | 14 |
+| 02 | Legal | 15 |
 | 03 | Finance | 10 |
 | 04 | Compliance KSA | 13 |
 | 05 | People | 11 |
@@ -360,7 +361,7 @@ lang: en
 | 09 | Investor Relations | 5 |
 | 10 | Academy Curriculum | 6 |
 | 11 | Brand | 24 |
-| **Total** | | **180 documents/assets** |
+| **Total** | | **181 documents/assets** |
 
 ---
 

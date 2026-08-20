@@ -1,24 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400"
-     role="img" aria-label="ختم شركة بدع الدولية — BDA Company International company seal">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="400" height="250" role="img" aria-label="ختم شركة بدع الدولية — BDA Company International company seal">
   <title>ختم شركة بدع الدولية — BDA Company International</title>
-  <desc>Company seal artwork. Ink colour follows currentColor; brand teal #2D6E8A by default.</desc>
-  <g fill="none" stroke="currentColor" stroke-width="5">
-    <circle cx="200" cy="200" r="191"/>
-  </g>
-  <g fill="none" stroke="currentColor" stroke-width="1.6">
-    <circle cx="200" cy="200" r="176"/>
-  </g>
-  <!-- BDع company wordmark -->
-  <g transform="translate(164,100) scale(0.361)" fill="currentColor">
+  <desc>Company seal: the BDع wordmark, the registered name, and the CR number. No frame. Ink follows currentColor.</desc>
+  <g transform="translate(70,10) scale(1.3)" fill="currentColor">
     <path fill-rule="evenodd" d="M23.59,43.8 L1.79,43.8 L1.32,43.33 L1.41,1.32 L23.59,1.13 L29.04,2.07 L36.0,6.02 L40.04,10.43 L41.73,13.44 L43.42,18.7 L43.61,24.72 L42.48,29.61 L40.79,33.18 L38.35,36.56 L33.55,40.6 L29.79,42.48 L23.59,43.8 Z M73.97,98.87 L61.37,98.87 L60.71,98.4 L60.71,1.6 L61.18,1.13 L74.34,1.13 L80.73,1.88 L88.63,4.32 L95.39,7.89 L100.28,11.65 L107.89,20.39 L112.78,30.36 L114.47,37.88 L114.29,63.44 L111.84,72.09 L106.95,81.11 L101.03,87.78 L92.95,93.61 L82.8,97.74 L73.97,98.87 Z M151.22,98.68 L148.78,98.5 L143.14,96.05 L135.15,89.38 L130.26,81.86 L127.82,73.59 L127.63,64.38 L129.51,57.24 L133.65,50.28 L141.35,42.2 L138.53,36.18 L137.41,30.73 L137.78,23.4 L139.29,18.89 L142.48,13.44 L146.15,9.4 L150.47,6.39 L155.17,4.51 L160.81,3.57 L198.59,3.57 L198.59,19.55 L161.37,19.55 L157.24,21.05 L154.14,24.53 L153.2,28.29 L154.14,32.61 L156.67,35.71 L160.06,37.41 L198.4,37.59 L198.68,53.67 L156.11,53.95 L152.16,55.08 L148.59,57.33 L146.05,60.06 L144.36,63.25 L143.61,65.7 L143.42,70.58 L144.17,73.97 L146.24,77.73 L151.5,82.61 L151.22,98.68 Z M23.59,98.87 L1.32,98.59 L1.13,56.86 L1.6,56.39 L24.72,56.39 L29.23,57.33 L35.81,61.09 L40.98,67.2 L42.67,71.15 L43.61,75.47 L43.42,81.3 L40.98,88.06 L37.59,92.58 L33.18,96.05 L28.48,98.12 L23.59,98.87 Z"/>
   </g>
-  <g fill="currentColor" text-anchor="middle" font-family="Cairo, 'Noto Naskh Arabic', sans-serif">
-    <text x="200" y="187" font-size="34" font-weight="800" direction="rtl">شركة بدع الدولية</text>
-    <text x="200" y="214" font-size="14.5" font-weight="700" letter-spacing="2.1">BDA COMPANY INTERNATIONAL</text>
-  </g>
-  <path d="M118,231 H282" stroke="currentColor" stroke-width="1.6"/>
-  <g fill="currentColor" text-anchor="middle" font-family="Cairo, 'Noto Naskh Arabic', sans-serif">
-    <text x="200" y="262" font-size="20" font-weight="700" direction="rtl">س.ت 7030976893</text>
-    <text x="200" y="293" font-size="18" font-weight="600" direction="rtl">الرياض · المملكة العربية السعودية</text>
+  <g fill="currentColor" text-anchor="middle" font-family="Cairo, sans-serif">
+    <text x="200" y="182" font-size="33" font-weight="800" direction="rtl">شركة بدع الدولية</text>
+    <text x="200" y="206" font-size="13.5" font-weight="700" letter-spacing="2">BDA COMPANY INTERNATIONAL</text>
+    <text x="200" y="240" font-size="21" font-weight="800" direction="rtl">س.ت 7030976893</text>
   </g>
 </svg>
