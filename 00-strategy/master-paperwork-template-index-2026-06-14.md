@@ -4,7 +4,7 @@ section: 00-strategy
 doc_type: template
 status: active
 owner: Founder
-last_updated: 2026-08-05
+last_updated: 2026-08-20
 lang: en
 ---
 
@@ -337,8 +337,10 @@ lang: en
 | 11-T | `print/notepad-a5-148-210-mm.png` | A5 notepad design | .png |
 | 11-U | `print/press-release-a4.png` | Press release letterhead/template design | .png |
 | 11-V | `print/sticker-pack-9-dies-a4-vinyl.png` | 9-die vinyl sticker pack design | .png |
+| 11-W | `logos/bda-seal.svg` | Company seal — شركة بدع الدولية (CR 7030976893), vector source | .svg |
+| 11-X | `print/letterhead-a4-arabic-sealed.png` | Arabic RTL letterhead, sealed — carries the company seal and the manager's signature block | .png |
 
-**Count: 22 assets**
+**Count: 24 assets**
 
 ---
 
@@ -357,8 +359,8 @@ lang: en
 | 08 | Customer Success | 19 |
 | 09 | Investor Relations | 5 |
 | 10 | Academy Curriculum | 6 |
-| 11 | Brand | 22 |
-| **Total** | | **178 documents/assets** |
+| 11 | Brand | 24 |
+| **Total** | | **180 documents/assets** |
 
 ---
 
