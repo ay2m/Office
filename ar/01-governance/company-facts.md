@@ -4,7 +4,7 @@ section: 01-governance
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-25
 lang: ar
 ---
 
@@ -72,6 +72,27 @@ lang: ar
 
 لا يُنشر أبداً: الآيبان/الحساب البنكي (القاعدة أعلاه)، هوية المؤسس الوطنية،
 العقود الموقّعة.
+
+### النسخة المقروءة آلياً
+
+تلك الأسطح نسخٌ تُصان يدوياً، لذلك تُنسخ القيم أعلاه أيضاً إلى
+`contracts/flygaca-family.json` — عقد العائلة المودَع بصورة متطابقة تماماً في هذا المستودع
+وفي `ay2m/FlyGACA` و`ay2m/Captain-Adel`. تبقى هذه الوثيقة المصدر المرجعي؛ والملف هو الشكل
+الذي يستطيع التكامل المستمر قراءته فعلاً.
+
+تحفظ ثلاث بوابات تطابقها، واحدة لكل مستودع:
+
+| المستودع | البوابة | ما تتحقق منه |
+|---|---|---|
+| هذا المستودع | `node tools/print/check-facts.mjs` (ضمن `docs-check.yml`) | تطابق كل قيمة في بلوك `entity` مع الجداول أعلاه — وغياب الآيبان ورقم الحساب عن الملف، لأنه ينتقل إلى مستودعي المنتجات |
+| `ay2m/FlyGACA` | `tests/family-contract.test.ts` (ضمن `npm run verify`) | ورود القيم حرفياً في `src/lib/seo/jsonld.ts` وفي `footer.legalEntity` في حزمتي اللغة |
+| `ay2m/Captain-Adel` | `test/family-contract.test.js` (ضمن `npm run test:unit`) | ورود القيم حرفياً في `footer.js` و`terms.html` و`privacy.html` و`package.json` و`LICENSE` |
+
+**لذا فتغيير أي قيمة هنا تغييرٌ يمسّ خمسة ملفات في ثلاثة مستودعات.** عدّل هذه الوثيقة، وحدّث
+`contracts/flygaca-family.json`، وارفع رقم `version` وأعد ختم بصمته
+(`node tools/contracts/stamp-manifest.mjs contracts/flygaca-family.json`)، وانسخ الملف حرفياً
+إلى مستودعي المنتجات، وحدّث نسخ النص فيهما، ثم افتح طلبات الدمج الثلاثة معاً. تبقى بوابة كل
+مستودع حمراء حتى يُنجَز نصيبه.
 
 ## القرارات التي حسمها هذا التسجيل
 

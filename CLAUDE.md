@@ -4,7 +4,7 @@ section: root
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-25
 lang: en
 ---
 
@@ -85,7 +85,10 @@ Support directories:
   (the newest English additions run ahead of the mirror). The `.docx`/`.xlsx`/`.html` deliverables
   are EN-only. **English is authoritative** — on any conflict the English
   tree governs. Filenames stay ASCII kebab-case even under `ar/` for easy diffing.
-- **`tools/print/`** — the Markdown → branded A4 PDF pipeline (see below).
+- **`tools/print/`** — the Markdown → branded A4 PDF pipeline (see below), plus `check-facts.mjs`,
+  the entity-facts gate described under **The family contract**.
+- **`contracts/flygaca-family.json`** / **`tools/contracts/`** — the cross-repo family contract
+  and the tool that stamps its self-hash. See **The family contract** below.
 - **`_print/`** — generated PDFs (254 today), mirroring the whole tree (including `ar/`).
   Generated output, but **is committed** (not gitignored) — the CI gate below checks it's present
   and fresh.
@@ -201,6 +204,36 @@ so the whole pipeline runs offline; it auto-detects Chromium via `$PLAYWRIGHT_BR
 (default `/opt/pw-browsers`) or `$CHROMIUM_PATH`. Requires Node 18+ and **Chromium ≥ 131**
 (CSS `@page` margin boxes drive the footer page numbers).
 
+## The family contract
+
+`contracts/flygaca-family.json` is the one artifact the three active repos share. It is committed
+**byte-identically** to `ay2m/Office`, `ay2m/FlyGACA` and `ay2m/Captain-Adel`, and it exists because
+the family's cross-repo claims used to live only in prose and drifted without anything failing.
+
+It holds three blocks, each naming the repo that **owns** it — only the owner edits its block, the
+other two copies are mirrors:
+
+| Block | Owner | Source of truth | Mirrored into |
+| --- | --- | --- | --- |
+| `entity` | **this repo** | `01-governance/company-facts.md` | `ay2m/FlyGACA`'s `src/lib/seo/jsonld.ts` + both i18n bundles; `ay2m/Captain-Adel`'s `footer.js`, `terms.html`, `privacy.html`, `package.json`, `LICENSE` |
+| `chat` | `ay2m/FlyGACA` | `server/src/contract.ts` | the answer shape both brains must honour |
+| `repos` | **this repo** | this file's repo table | the real roster — supersedes any prose citing a `FlyGACA/…` org |
+
+Each repo gates its own half in its existing CI: here it is `node tools/print/check-facts.mjs`
+(wired into `docs-check.yml`, aliased as `npm run check:facts`), which asserts every `entity` value
+against the `company-facts.md` table it was copied from — and asserts the IBAN and account number
+from that same doc are *absent* from the manifest, since the manifest travels to both product repos.
+The product repos run `tests/family-contract.test.ts` and `test/family-contract.test.js`.
+
+**To change it:** edit the owning repo's copy, bump `version`, re-stamp the self-hash with
+`node tools/contracts/stamp-manifest.mjs contracts/flygaca-family.json`, copy the file verbatim into
+the other two repos, and open all three PRs together. Editing without re-stamping fails every repo's
+gate immediately.
+
+> Known limitation: nothing offline can prove the three copies are the same revision — `version` and
+> `sha` only reduce that to a visible one-line diff. Closing it fully needs a scheduled cross-repo
+> workflow, which does not exist yet.
+
 ## Conventions
 
 - **Bilingual, English-authoritative.** New or materially changed content docs should eventually
@@ -226,7 +259,12 @@ so the whole pipeline runs offline; it auto-detects Chromium via `$PLAYWRIGHT_BR
 
 ## Where to look
 
-> 📖 **Family context:** [The Book of Fly GACA](https://github.com/ay2m/FlyGACA/blob/main/THE-BOOK-OF-FLY-GACA.md) is the whole-family reference — all ten repos, the shared tenets, and the glossary in one place.
+> 📖 **Family context:** [The Book of Fly GACA](00-strategy/the-book-of-fly-gaca.html) — the founder's
+> canon: the origin story, the tenets, and the voice the whole family is written in. It is a
+> manifesto, not a spec. For the machine-readable side of the family — the repo roster, the
+> legal-entity facts and the shared chat contract — see **`contracts/flygaca-family.json`**,
+> which is committed byte-identically to all three active repos and gated by
+> `tools/print/check-facts.mjs`.
 
 - **`_INDEX.md`** — the readable master index across all 12 sections (and `ar/_INDEX.md` for the
   mirror). Note it defers to `00-strategy/00-master-office-paperwork-index.gsheet` as the

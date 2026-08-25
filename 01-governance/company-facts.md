@@ -4,7 +4,7 @@ section: 01-governance
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-25
 lang: en
 ---
 
@@ -73,6 +73,27 @@ founder's records.
 
 Never published: IBAN / bank account (see hard rule above), founder's national
 ID, signed contracts.
+
+### The machine-readable mirror
+
+Those surfaces are hand-maintained copies, so the values above are also mirrored into
+`contracts/flygaca-family.json` — the family contract committed byte-identically to this repo,
+`ay2m/FlyGACA` and `ay2m/Captain-Adel`. This document remains the source of truth; the manifest is
+the artifact CI can actually read.
+
+Three gates keep them in step, one per repo:
+
+| Repo | Gate | What it asserts |
+|---|---|---|
+| this repo | `node tools/print/check-facts.mjs` (in `docs-check.yml`) | every manifest `entity` value matches the tables above — and that the IBAN and account number are **absent** from the manifest, since it travels to both product repos |
+| `ay2m/FlyGACA` | `tests/family-contract.test.ts` (in `npm run verify`) | the values appear verbatim in `src/lib/seo/jsonld.ts` and `footer.legalEntity` in both i18n bundles |
+| `ay2m/Captain-Adel` | `test/family-contract.test.js` (in `npm run test:unit`) | the values appear verbatim in `footer.js`, `terms.html`, `privacy.html`, `package.json` and `LICENSE` |
+
+**Changing a value here is therefore a five-file, three-repo change.** Edit this document, update
+`contracts/flygaca-family.json`, bump its `version` and re-stamp its hash
+(`node tools/contracts/stamp-manifest.mjs contracts/flygaca-family.json`), copy the manifest
+verbatim into both product repos, update the product-repo copies of the string, and open all three
+PRs together. Each repo's gate fails until its own half is done.
 
 ## Decisions this registration settles
 

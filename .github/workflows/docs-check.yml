@@ -2,8 +2,10 @@ name: docs-check
 
 # Guards the office docs: every content .md carries the standard YAML
 # front-matter, every doc has an up-to-date PDF under _print/, and every
-# brand HTML has a rendered PDF. Dependency-free and browser-free — just
-# runs tools/print/check.mjs on Node.
+# brand HTML has a rendered PDF. Also guards the family contract: the entity
+# facts mirrored into contracts/flygaca-family.json must still match
+# 01-governance/company-facts.md, the doc that owns them. Dependency-free and
+# browser-free — just runs two scripts on Node.
 
 on:
   push:
@@ -14,6 +16,8 @@ on:
       - '**/*.html'
       - '_print/**'
       - 'tools/print/**'
+      - 'tools/contracts/**'
+      - 'contracts/**'
       - '.github/workflows/docs-check.yml'
 
 permissions:
@@ -29,3 +33,5 @@ jobs:
           node-version: '20'
       - name: Validate front-matter and _print PDF coverage
         run: node tools/print/check.mjs
+      - name: Validate the family contract's entity facts
+        run: node tools/print/check-facts.mjs
