@@ -12,7 +12,7 @@ documents repository, so the agents are document agents — not code agents.
 What these encode that a generic writing agent cannot know: the exact
 front-matter schema and its three precise exemptions; that `_print/` is
 committed and a doc edit without a rebuilt PDF fails CI; that editing
-`build.mjs` marks all 238 PDFs stale so a no-op change should re-stamp
+`build.mjs` marks all 263 PDFs stale so a no-op change should re-stamp
 `.buildcache.json` instead of re-rendering; that English is authoritative and
 `ar/` filenames stay ASCII kebab-case; and that EN/AR parity here is a practice
 rather than a CI gate, so drift is silent.

@@ -16,11 +16,12 @@ lang: ar
 
 *كل وثيقة وسياسة ودليل عمل ومواصفة تُدير فلاي قاكا — في مستودع واحد خاضع لإدارة الإصدارات.*
 
+[![docs-check](https://img.shields.io/github/actions/workflow/status/ay2m/Office/docs-check.yml?branch=main&style=flat-square&label=docs-check)](../../../actions/workflows/docs-check.yml)
 [![Status](https://img.shields.io/badge/status-active-brightgreen?style=flat-square)](00-strategy/roadmap.md)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](../01-governance/LICENSE)
 [![Languages](https://img.shields.io/badge/languages-EN%20%7C%20AR-orange?style=flat-square)](../ar/)
 [![Sections](https://img.shields.io/badge/sections-12-informational?style=flat-square)](_INDEX.md)
-[![PDFs](https://img.shields.io/badge/print--ready%20PDFs-_print%2F-lightgrey?style=flat-square)](../_print/)
+[![PDFs](https://img.shields.io/badge/print--ready%20PDFs-263-lightgrey?style=flat-square)](../_print/)
 
 **[📖 الفهرس الرئيسي](_INDEX.md)** · **[🗺 خارطة الطريق](00-strategy/roadmap.md)** · **[🖨 خطّ إنتاج الطباعة](../tools/print/README.md)** · **[🌐 النسخة العربية](_INDEX.md)**
 
@@ -104,6 +105,8 @@ npm run check           # التحقّق من البيانات الوصفية و
 | [`ar/`](../ar/) | نسخة **عربية (فصحى بالاصطلاح السعودي)** كاملة للأقسام الاثني عشر والقوالب — البنية نفسها وأسماء ملفات ASCII نفسها |
 | [`tools/print/`](../tools/print/) | خطّ إنتاج المعالجة من Markdown وHTML إلى PDF بقياس A4 بهوية العلامة (سمة «الصقر» للوثائق، خطوط تعمل دون اتصال، إنجليزي + عربي RTL) |
 | [`_print/`](../_print/) | ملفات PDF المولّدة الجاهزة للطباعة، محاكيةً شجرة الملفات بالضبط (متعقَّبة في git) |
+| [`contracts/`](../contracts/) | [`flygaca-family.json`](../contracts/flygaca-family.json) — عقد العائلة العابر للمستودعات، المشترك مع مستودعي المنتجات ([التفاصيل](#-عقد-العائلة)) |
+| [`tools/contracts/`](../tools/contracts/) | `stamp-manifest.mjs` — يختم بصمة الملف الذاتية ويتحقّق منها |
 
 ---
 
@@ -150,7 +153,40 @@ npm run build        # إعادة بناء تزايدية
 npm run build:force  # إعادة بناء كل ملفات PDF من الصفر
 node build.mjs 02-legal/terms-of-use-draft-2026-06-14.md   # معالجة وثيقة واحدة
 node check.mjs       # تشغيل بوّابة CI للتحقّق من الحداثة والبيانات الوصفية
+node check-facts.mjs # بوّابة حقائق الكيان — انظر «عقد العائلة» أدناه
 ```
+
+---
+
+## 🔗 عقد العائلة
+
+تتشارك المستودعات الثلاثة النشطة ملفًا واحدًا مُصدَّرًا:
+[`contracts/flygaca-family.json`](../contracts/flygaca-family.json)، المودَع **بصورة متطابقة تمامًا**
+في هذا المستودع وفي `ay2m/FlyGACA` و`ay2m/Captain-Adel`. وُجد هذا الملف لأن ادّعاءات العائلة
+العابرة للمستودعات كانت تعيش في النثر وحده، فانحرفت دون أن يفشل شيء.
+
+ثلاث كتل، تسمّي كل واحدة منها المستودع الذي **يملكها** — ولا يعدّل الكتلة إلا مالكها:
+
+| الكتلة | المالك | المصدر المرجعي | تُنسخ إلى |
+| --- | --- | --- | --- |
+| `entity` | **هذا المستودع** | [`01-governance/company-facts.md`](01-governance/company-facts.md) | `jsonld.ts` وحزمتا اللغة في `ay2m/FlyGACA`؛ و`footer.js` و`terms.html` و`privacy.html` و`package.json` و`LICENSE` في `ay2m/Captain-Adel` |
+| `chat` | `ay2m/FlyGACA` | ملفه `server/src/contract.ts` | شكل الإجابة الذي يلتزم به تطبيقا «كابتن عادل» |
+| `repos` | **هذا المستودع** | الجدول أعلاه | يَنسخ أي نص يشير إلى منظمة `FlyGACA/…` |
+
+يحرس كل مستودع نصيبه ضمن التكامل المستمر القائم لديه أصلًا. وهنا هو
+`node tools/print/check-facts.mjs` (المربوط بـ `docs-check.yml`، واختصاره `npm run check:facts`)،
+الذي يتحقّق من مطابقة كل قيمة في `entity` لجدول `company-facts.md` الذي نُسخت منه — ومن **غياب
+الآيبان ورقم الحساب** الواردين في تلك الوثيقة عن الملف، لأنه ينتقل إلى مستودعي المنتجات. ويشغّل
+مستودعا المنتجات `tests/family-contract.test.ts` و`test/family-contract.test.js`.
+
+**لذا فتغيير أي حقيقة من حقائق الشركة تغييرٌ يمسّ ثلاثة مستودعات.** عدّل `company-facts.md`،
+وحدّث الملف، وارفع رقم `version`، وأعد ختم بصمته بـ
+`node tools/contracts/stamp-manifest.mjs contracts/flygaca-family.json`، وانسخه حرفيًا إلى
+مستودعي المنتجات، ثم افتح طلبات الدمج الثلاثة معًا. تبقى بوابة كل مستودع حمراء حتى يُنجَز نصيبه.
+
+> قيدٌ معلوم: لا شيء يعمل دون اتصال يستطيع إثبات أن النسخ الثلاث من المراجعة ذاتها. ويقلّص
+> `version` و`sha` ذلك إلى فارق سطر واحد ظاهر؛ أما إغلاقه تمامًا فيحتاج تدفّق عمل مجدولًا عابرًا
+> للمستودعات، وهو غير موجود بعد.
 
 ---
 

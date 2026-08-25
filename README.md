@@ -6,11 +6,12 @@
 
 *Every document, policy, playbook, and specification that runs Fly GACA — in one version-controlled repository.*
 
+[![docs-check](https://img.shields.io/github/actions/workflow/status/ay2m/Office/docs-check.yml?branch=main&style=flat-square&label=docs-check)](../../actions/workflows/docs-check.yml)
 [![Status](https://img.shields.io/badge/status-active-brightgreen?style=flat-square)](00-strategy/roadmap.md)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](01-governance/LICENSE)
 [![Languages](https://img.shields.io/badge/languages-EN%20%7C%20AR-orange?style=flat-square)](ar/)
 [![Sections](https://img.shields.io/badge/sections-12-informational?style=flat-square)](_INDEX.md)
-[![PDFs](https://img.shields.io/badge/print--ready%20PDFs-_print%2F-lightgrey?style=flat-square)](_print/)
+[![PDFs](https://img.shields.io/badge/print--ready%20PDFs-263-lightgrey?style=flat-square)](_print/)
 
 **[📖 Master Index](_INDEX.md)** · **[🗺 Roadmap](00-strategy/roadmap.md)** · **[🖨 Print Pipeline](tools/print/README.md)** · **[🌐 Arabic Mirror](ar/_INDEX.md)**
 
@@ -29,7 +30,7 @@ This repository stores every operating document that runs the company: strategy 
 | Repo | Role & Description |
 | --- | --- |
 | **ay2m/Office** (this repo) | The business operating system — strategy, governance, legal, finance, KSA compliance, HR & GTM docs |
-| [ay2m/FlyGACA](https://github.com/ay2m/FlyGACA) | flygaca.com — the bilingual React 19 + Vite PWA **and** its Express backend on Cloud Run (`me-central2`, Cloud SQL, Moyasar), plus the regulatory corpus and content pipelines |
+| [ay2m/FlyGACA](https://github.com/ay2m/FlyGACA) | flygaca.com — the bilingual React 19 + Vite PWA **and** its Express backend for Cloud Run (target region `me-central2`, Cloud SQL, Moyasar — not yet deployed), plus the regulatory corpus and content pipelines |
 | [ay2m/Captain-Adel](https://github.com/ay2m/Captain-Adel) | The AI flight instructor service (captadel.com) + the RAG engine behind chat, function calling & evals |
 | [ay2m/FlyGACA-ios](https://github.com/ay2m/FlyGACA-ios) | The native SwiftUI app family — shared `FlyGACAKit` package + ELPT and AIP App Store targets |
 | [ay2m/FlyGACA-app](https://github.com/ay2m/FlyGACA-app) | **Archived.** The retired predecessor of `ay2m/FlyGACA`, read-only, kept for its 1,005-commit history |
@@ -94,6 +95,8 @@ The repository is organized into twelve numbered sections (`00–11`), each inde
 | [`ar/`](ar/) | Full **Arabic (Saudi MSA)** mirror of all 12 sections and templates — identical structure and ASCII filenames |
 | [`tools/print/`](tools/print/) | Markdown & HTML → branded A4 PDF render pipeline (Falcon document theme, offline fonts, EN + RTL AR) |
 | [`_print/`](_print/) | Generated print-ready PDFs mirroring the exact file tree (tracked in git) |
+| [`contracts/`](contracts/) | [`flygaca-family.json`](contracts/flygaca-family.json) — the cross-repo family contract shared with both product repos ([details](#-the-family-contract)) |
+| [`tools/contracts/`](tools/contracts/) | `stamp-manifest.mjs` — stamps and verifies the manifest's self-hash |
 
 ---
 
@@ -140,7 +143,41 @@ npm run build        # incremental rebuild
 npm run build:force  # rebuild all PDFs from scratch
 node build.mjs 02-legal/terms-of-use-draft-2026-06-14.md   # render a single document
 node check.mjs       # run CI freshness & front-matter validation gate
+node check-facts.mjs # the entity-facts gate — see The Family Contract below
 ```
+
+---
+
+## 🔗 The Family Contract
+
+The three active repositories share one versioned artifact:
+[`contracts/flygaca-family.json`](contracts/flygaca-family.json), committed **byte-identically**
+to this repo, `ay2m/FlyGACA` and `ay2m/Captain-Adel`. It exists because the family's cross-repo
+claims used to live only in prose and drifted with nothing failing.
+
+Three blocks, each naming the repo that **owns** it — only the owner edits its block:
+
+| Block | Owner | Source of truth | Mirrored into |
+| --- | --- | --- | --- |
+| `entity` | **this repo** | [`01-governance/company-facts.md`](01-governance/company-facts.md) | `ay2m/FlyGACA`'s `jsonld.ts` + both i18n bundles; `ay2m/Captain-Adel`'s `footer.js`, `terms.html`, `privacy.html`, `package.json`, `LICENSE` |
+| `chat` | `ay2m/FlyGACA` | its `server/src/contract.ts` | the answer shape both Captain Adel implementations must honour |
+| `repos` | **this repo** | the roster above | supersedes any prose citing a `FlyGACA/…` org |
+
+Each repo gates its own half in the CI it already runs. Here that is
+`node tools/print/check-facts.mjs` (wired into `docs-check.yml`, aliased `npm run check:facts`),
+which asserts every `entity` value against the `company-facts.md` table it was copied from — and
+asserts the **IBAN and account number from that same document are absent** from the manifest,
+since the manifest travels to both product repos. The product repos run
+`tests/family-contract.test.ts` and `test/family-contract.test.js`.
+
+**Changing a company fact is a three-repo change.** Edit `company-facts.md`, update the manifest,
+bump its `version`, re-stamp its hash with
+`node tools/contracts/stamp-manifest.mjs contracts/flygaca-family.json`, copy it verbatim into both
+product repos, and open all three PRs together. Every repo's gate stays red until its half is done.
+
+> Known limitation: nothing offline can prove the three copies are the same revision. `version` and
+> `sha` reduce that to a visible one-line diff; closing it fully needs a scheduled cross-repo
+> workflow, which does not exist yet.
 
 ---
 
