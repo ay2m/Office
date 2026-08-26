@@ -1,0 +1,36 @@
+{
+  "owner": "entity-facts-guardian",
+  "source": "01-governance/company-facts.md",
+  "timestamp": "2026-08-26T00:00:00Z",
+  "entity": {
+    "name": "Fly GACA",
+    "legal_name": "Fly GACA Educational Technology",
+    "description": "Independent educational platform and open regulatory library for Saudi civil aviation",
+    "jurisdiction": "Saudi Arabia",
+    "entity_type": "Private Limited Company",
+    "founded": "2024",
+    "office_location": "Riyadh, KSA (me-central2: Dammam region)",
+    "website": "flygaca.com",
+    "logo_url": "https://flygaca.com/logo.svg",
+    "affiliation": "NOT affiliated with GACA (General Authority of Civil Aviation)",
+    "mission": "Democratize aviation education and regulatory knowledge in the Kingdom",
+    "team_size": 1,
+    "status": "bootstrapped, pre-Series A bridge"
+  },
+  "compliance": {
+    "gdpr_applicable": false,
+    "pdpl_applicable": true,
+    "pdpl_region": "me-central2",
+    "pdpl_region_name": "Dammam (in-Kingdom)",
+    "data_residency": "Cloud SQL (me-central2 Dammam)",
+    "inference_residency": "Global (Gemini inference runs outside Kingdom - open item)",
+    "zatca_applicable": true,
+    "nitaqat_applicable": false,
+    "note": "Nitaqat, Tamheer, Doroob revisited at first employee hire"
+  },
+  "contact": {
+    "founder": "Captain Adel (Al-Subaie or A. Madkhali)",
+    "email": "flygaca@gmail.com",
+    "note": "Founder name spelling variant to resolve: check 01-governance/decision-log.md"
+  }
+}

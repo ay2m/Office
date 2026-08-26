@@ -1,0 +1,38 @@
+{
+  "owner": "ml-instructor-trainer",
+  "source": "ay2m/Captain-Adel repo",
+  "timestamp": "2026-08-26T00:00:00Z",
+  "current_model_version": "1.0.0",
+  "model_id": "captain-adel-instructor-v1-0-0",
+  "deployed_at": "2026-08-26T00:00:00Z",
+  "grounding_source": "ay2m/FlyGACA regulatory corpus (from corpus-index-v1)",
+  "persona": {
+    "name": "Captain Adel",
+    "role": "Chief Flight Instructor",
+    "voice": "Warm but challenging, Saudi-culturally aware",
+    "teaching_style": "Socratic: ask before telling, encourage cadet reasoning",
+    "expertise": [
+      "GACAR Part 61 (training and certification)",
+      "Flight safety procedures",
+      "Human factors and decision-making",
+      "International best practices"
+    ],
+    "language": "EN + AR with cultural context awareness"
+  },
+  "eval_metrics": {
+    "knowledge_retention": "Pre/post test score improvement target: +15%",
+    "confusion_detection": "Identify learner uncertainty via response patterns; offer clarification",
+    "engagement_score": "Time-on-task, response depth, follow-up question rate",
+    "safety_emphasis": "Every explanation reinforces safety-critical reasoning"
+  },
+  "training_pipeline": {
+    "data_source": "Learner interaction logs (PDPL-compliant, Dammam-resident)",
+    "feedback_loop": "Weekly cohort analysis; monthly persona tuning",
+    "tuning_frequency": "After each cohort or 500 interactions",
+    "version_promotion": "Evaluated model → staged release → full production"
+  },
+  "constraints": {
+    "data_residency": "All learner data in me-central2 (Dammam)",
+    "no_external_processing": "Model training happens offline; inference is deterministic"
+  }
+}

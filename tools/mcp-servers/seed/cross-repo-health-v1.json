@@ -1,0 +1,64 @@
+{
+  "owner": "cross-repo-sync, family-warden",
+  "source": "contracts/flygaca-family.json (three-repo byte-identical manifest)",
+  "timestamp": "2026-08-26T00:00:00Z",
+  "last_full_sync": "2026-08-26T14:30:00Z",
+  "sync_interval_hours": 24,
+  "next_scheduled_sync": "2026-08-27T14:30:00Z",
+  "repos": {
+    "ay2m/Office": {
+      "url": "https://github.com/ay2m/Office",
+      "role": "Authority on entity block",
+      "contract_path": "contracts/flygaca-family.json",
+      "contract_version": "1.3.0",
+      "contract_sha": "sha256_value_here",
+      "entity_facts_source": "01-governance/company-facts.md",
+      "last_verified": "2026-08-26T14:30:00Z",
+      "status": "green",
+      "notes": "Entity facts verified; IBAN/account absent from manifest ✓"
+    },
+    "ay2m/FlyGACA": {
+      "url": "https://github.com/ay2m/FlyGACA",
+      "role": "Authority on chat block",
+      "contract_path": "contracts/flygaca-family.json",
+      "contract_version": "1.3.0",
+      "contract_sha": "sha256_value_here",
+      "chat_contract_source": "server/src/contract.ts",
+      "last_verified": "2026-08-26T14:25:00Z",
+      "status": "green",
+      "notes": "Chat schema verified; both brains honour the answer shape ✓"
+    },
+    "ay2m/Captain-Adel": {
+      "url": "https://github.com/ay2m/Captain-Adel",
+      "role": "Consumer of entity + chat blocks",
+      "contract_path": "contracts/flygaca-family.json",
+      "contract_version": "1.3.0",
+      "contract_sha": "sha256_value_here",
+      "last_verified": "2026-08-26T14:20:00Z",
+      "status": "green",
+      "notes": "Contract in sync; ready for deployment ✓"
+    }
+  },
+  "ios_repo_status": {
+    "ay2m/FlyGACA-ios": {
+      "url": "https://github.com/ay2m/FlyGACA-ios",
+      "role": "Archived; not in active family",
+      "status": "excluded",
+      "reason": "Slated for removal; from-scratch restart planned",
+      "action": "Do not edit contracts/flygaca-family.json until iOS removal completes"
+    }
+  },
+  "critical_thresholds": {
+    "max_contract_age_hours": 24,
+    "max_entity_drift_hours": 48,
+    "max_sha_mismatch_threshold": "Any mismatch = red",
+    "alert_on_missing_repo": true
+  },
+  "validation_checklist": [
+    "All three repos have byte-identical contracts",
+    "Entity facts match company-facts.md",
+    "IBAN/account never in manifest",
+    "All SHAs match",
+    "Last sync within threshold"
+  ]
+}

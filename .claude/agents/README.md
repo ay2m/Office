@@ -19,6 +19,34 @@ second copy of this table would drift within two PRs.
 | `fly-gaca-gtm-orchestrator` | Cross-repo GTM coordination — Schools motion, pricing sync, competitive threats, conversion funnels, ARR composition |
 | ~~`flygaca-qa-reviewer`~~ | **Retired.** Its own line 15 had `me-central1`/`me-central2` reversed and a QA sweep had to catch it; the consistency-sweep function moved to `family-warden`, narrowed to reconcile against a named source rather than re-derive. The dated audit records that reference it are left intact. |
 
+## Phase 2 Expansion (Weeks 3-7)
+
+The roster grows to 15+ agents distributed across four plugins (`plugins/*/agents/`):
+
+### `plugins/office-governance/agents/`
+- `governance-auditor` — Decision log consistency, reversibility tracking
+- `entity-facts-guardian` — Company facts parity with MCP, IBAN protection
+- `cross-repo-sync` — Office ↔ FlyGACA ↔ Captain-Adel coordination
+
+### `plugins/product-engineering/agents/`
+- `react-19-architect` — React 19, Vite, TypeScript strict, RTL/i18n
+- `express-backend-pro` — Express 5, Cloud Run, SQL migrations, HttpOnly JWT
+- `regulatory-corpus-keeper` — GACAR indexing, corpus tiers, AIRAC calendar
+- `sql-migrator` — PostgreSQL schemas, forward-only migrations
+- `genkit-rag-specialist` — Gemini integration, RAG pipeline, Captain Adel grounding
+
+### `plugins/flight-service/agents/`
+- `flight-curriculum-designer` — GACAR-aligned syllabi, mock exams, learner paths
+- `ml-instructor-trainer` — Captain Adel persona, model tuning, eval metrics
+- `flight-data-pipeline-engineer` — Learner data (PDPL), flight-hour tracking
+- `instructor-deployment-steward` — captadel.com hosting, Cloud Run revision mgmt
+
+### `plugins/fly-gaca-operations/agents/`
+- `operations-orchestrator` — Multi-agent workflow router (full-sync, feature-ship, compliance-audit, security-hardening, performance-sprint)
+
+**Status:** Phase 2 Foundation (MCP server setup, plugin structure) complete. Agent implementations start Week 3.
+**See:** [`06-operations-it/agent-workforce-plan.md`](../../06-operations-it/agent-workforce-plan.md) for full Phase 2 spec, and each plugin's `README.md` for agent details.
+
 What these encode that a generic writing agent cannot know: the exact
 front-matter schema and its three precise exemptions; that `_print/` is
 committed and a doc edit without a rebuilt PDF fails CI; that editing

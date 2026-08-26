@@ -1,0 +1,27 @@
+{
+  "name": "fly-gaca-family-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for shared state across Office, FlyGACA, and Captain-Adel agents",
+  "type": "module",
+  "main": "fly-gaca-family-mcp.js",
+  "scripts": {
+    "start": "node fly-gaca-family-mcp.js",
+    "init": "node fly-gaca-family-mcp.js",
+    "test": "node --test tests/mcp.test.js",
+    "lint": "eslint *.js --fix"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0"
+  },
+  "keywords": [
+    "mcp",
+    "state-management",
+    "cross-repo",
+    "fly-gaca"
+  ],
+  "author": "Fly GACA",
+  "license": "Apache-2.0"
+}

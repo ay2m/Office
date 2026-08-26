@@ -1,0 +1,40 @@
+{
+  "owner": "regulatory-corpus-keeper",
+  "source": "ay2m/FlyGACA regulatory corpus",
+  "timestamp": "2026-08-26T00:00:00Z",
+  "gacar_airac_cycle": "current",
+  "airac_effective_date": "2026-08-28",
+  "airac_refresh_interval_days": 28,
+  "last_corpus_indexing": "2026-08-26T12:00:00Z",
+  "document_tiers": {
+    "HOST_SAFE_CORE": {
+      "description": "Authoritative GACAR excerpts, freely hostable on Fly GACA",
+      "examples": ["General definitions", "Basic procedures", "Reference tables"],
+      "citation_required": true
+    },
+    "HOST_ORIGINAL": {
+      "description": "Fly GACA-authored explanations, tutorials, worked examples (may cite GACAR)",
+      "examples": ["Study notes", "Mock exam rationale", "Instructor guidance"],
+      "citation_required": true
+    },
+    "DO_NOT_HOST": {
+      "description": "Copyright-sensitive material; cite only with link to authoritative source",
+      "examples": ["Full official test questions", "Official checklists", "Proprietary procedures"],
+      "citation_required": "link_only"
+    }
+  },
+  "corpus_coverage": {
+    "PPL": { "tier": "HOST_SAFE_CORE + HOST_ORIGINAL", "last_updated": "2026-08-20", "freshness_days": 6 },
+    "CPL": { "tier": "HOST_SAFE_CORE + HOST_ORIGINAL", "last_updated": "2026-08-15", "freshness_days": 11 },
+    "IR": { "tier": "HOST_SAFE_CORE + HOST_ORIGINAL", "last_updated": "2026-08-10", "freshness_days": 16 },
+    "ATPL": { "tier": "HOST_SAFE_CORE + HOST_ORIGINAL", "last_updated": "2026-08-05", "freshness_days": 21 },
+    "ELPT": { "tier": "HOST_SAFE_CORE + HOST_ORIGINAL", "last_updated": "2026-08-25", "freshness_days": 1 },
+    "AIP": { "tier": "HOST_SAFE_CORE + HOST_ORIGINAL", "last_updated": "2026-08-26", "freshness_days": 0 }
+  },
+  "validation_rules": [
+    "Never fabricate a regulatory citation",
+    "All citations must link to official GACAR source",
+    "Unsure of tier? Default to DO_NOT_HOST and link only",
+    "AIRAC effective dates must match regulatory calendar"
+  ]
+}

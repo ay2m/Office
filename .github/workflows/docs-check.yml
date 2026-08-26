@@ -17,7 +17,10 @@ on:
       - '_print/**'
       - 'tools/print/**'
       - 'tools/contracts/**'
+      - 'tools/agents/**'
       - 'contracts/**'
+      - '.claude/agents/**'
+      - 'plugins/*/agents/**'
       - '.github/workflows/docs-check.yml'
 
 permissions:
@@ -35,3 +38,5 @@ jobs:
         run: node tools/print/check.mjs
       - name: Validate the family contract's entity facts
         run: node tools/print/check-facts.mjs
+      - name: Validate agent definitions
+        run: node tools/agents/check-agents.mjs

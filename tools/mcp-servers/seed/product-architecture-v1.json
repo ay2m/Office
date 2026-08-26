@@ -1,0 +1,40 @@
+{
+  "owner": "react-19-architect, express-backend-pro",
+  "source": "ay2m/FlyGACA repo",
+  "timestamp": "2026-08-26T00:00:00Z",
+  "frontend": {
+    "framework": "React 19",
+    "build_tool": "Vite",
+    "language": "TypeScript (strict mode)",
+    "css": "CSS Modules + design tokens",
+    "rtl_support": "Logical properties (inline-start/end, margin-block, etc.)",
+    "i18n": "EN + AR (Saudi MSA), stored in ay2m/FlyGACA i18n bundles",
+    "key_patterns": [
+      "Functional components only (hooks)",
+      "No prop drilling; use Context + MCP for state",
+      "RTL parity: every layout tested under both directions",
+      "Accessibility: WCAG 2.1 AA minimum"
+    ]
+  },
+  "backend": {
+    "framework": "Express 5",
+    "runtime": "Node.js on Cloud Run",
+    "database": "Cloud SQL (PostgreSQL)",
+    "auth": "HttpOnly JWT (no localStorage tokens)",
+    "entitlements": "Server-owned; never client-driven",
+    "region": "me-central2 (Dammam, in-Kingdom)",
+    "data_residency": "All PII stays in Dammam region",
+    "external_services": "No Firebase; Gemini inference (open risk)",
+    "key_patterns": [
+      "All data access validated server-side",
+      "No SQL injection vectors (parameterized queries)",
+      "Secrets in Cloud Secret Manager, never in code"
+    ]
+  },
+  "deployment": {
+    "ci_provider": "GitHub Actions",
+    "container": "Cloud Run (no persistent storage)",
+    "database_migrations": "Forward-only; Unix socket to Cloud SQL",
+    "rollback_strategy": "Blue-green via Cloud Run revisions"
+  }
+}
