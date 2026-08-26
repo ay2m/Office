@@ -34,10 +34,12 @@ lang: ar
 
 > [!NOTE]
 > الملحقات **لا تحلّ محل** الوكلاء والمهارات المرتبطة بكل مستودع في مجلد `.claude/` الخاص به —
-> `doc-smith` و`ar-mirror` هنا، و`brain-retrieval` و`eval-warden` و`prompt-steward` و`site-chrome`
-> في `ay2m/Captain-Adel`، و`run-flygaca` في `ay2m/FlyGACA`. تلك تُحمَّل تلقائيًا داخل نسخة العمل
-> نفسها. أما الملحقات فتحمل المعرفة التي تنقص جلسة **خارج** نسخة العمل، إضافة إلى سير العمل
-> العابر للمستودعات الذي لا يخص مستودعًا واحدًا.
+> القائمة الواردة في `.claude/agents/README.md` هنا (`doc-smith` و`ar-mirror` و`ksa-compliance`
+> و`family-warden` ووكلاء النفاذ إلى السوق)، و`brain-retrieval` و`eval-warden` و`prompt-steward`
+> و`site-chrome` في `ay2m/Captain-Adel`، و`run-flygaca` في `ay2m/FlyGACA`. تلك تُحمَّل تلقائيًا
+> داخل نسخة العمل نفسها. أما الملحقات فتحمل المعرفة التي تنقص جلسة **خارج** نسخة العمل، إضافة
+> إلى سير العمل العابر للمستودعات الذي لا يخص مستودعًا واحدًا. وحيث يلتقي الاثنان —
+> `family-warden` هنا و`family-auditor` للقراءة فقط في الملحق — تكون الأولوية لوكيل المستودع.
 
 ---
 

@@ -22,10 +22,13 @@ gate.
 
 ## What it deliberately does not duplicate
 
-The two project subagents in `.claude/agents/` — **doc-smith** (any `.md`/`.html`
-add, edit or rename, front-matter, and the print pipeline) and **ar-mirror**
-(translating against the glossary and rebuilding the Arabic PDFs) — stay
-project-scoped. Claude Code loads them automatically for sessions in this
+The project subagents in `.claude/agents/` stay project-scoped — **doc-smith**
+(any `.md`/`.html` add, edit or rename, front-matter, the print pipeline),
+**ar-mirror** (translating against the glossary and rebuilding the Arabic PDFs),
+**ksa-compliance** (PDPL, ZATCA, MISA, Nitaqat, and anything the vendored skills
+produce), **family-warden** (the family contract, entity-facts parity, the repo
+roster) and the GTM trio. `.claude/agents/README.md` is their roster and the
+only copy of it. Claude Code loads them automatically for sessions in this
 checkout. These commands are the procedures those agents follow, packaged so a
 session that is not in the checkout can still get them right.
 

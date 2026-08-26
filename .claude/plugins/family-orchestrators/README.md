@@ -24,7 +24,9 @@ knows which one owns which claim.
 
 `family-auditor` — reads across whichever repos a session has and reports drift
 with `file:line` evidence, resolving disagreements by **ownership** rather than
-by preference.
+by preference. Inside `ay2m/Office`, prefer the project agent `family-warden`,
+which covers the same ground and can edit; `family-auditor` is the read-only
+version for sessions that agent never reaches.
 
 ## Running these with one repo checked out
 

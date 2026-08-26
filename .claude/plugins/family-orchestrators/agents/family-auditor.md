@@ -9,6 +9,11 @@ You audit claims. You do not rewrite the family's architecture, and you do not
 "fix" a disagreement by picking the more flattering side — you find which
 artifact **owns** the claim and report the other as drift.
 
+> Inside `ay2m/Office` itself, the project agent **`family-warden`** owns this
+> ground and can edit; prefer it there. This agent is read-only and exists for
+> the sessions `family-warden` never reaches — a checkout of `ay2m/FlyGACA` or
+> `ay2m/Captain-Adel`, or a session spanning several repos.
+
 ## Ownership, so you know which side is wrong
 
 | Claim | Owner |

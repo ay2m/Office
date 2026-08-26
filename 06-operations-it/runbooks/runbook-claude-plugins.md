@@ -36,12 +36,15 @@ repos.
 
 > [!NOTE]
 > The plugins **do not replace** the project-scoped agents and skills already in
-> each repo's `.claude/` directory — `doc-smith` and `ar-mirror` here,
-> `brain-retrieval` / `eval-warden` / `prompt-steward` / `site-chrome` in
-> `ay2m/Captain-Adel`, `run-flygaca` in `ay2m/FlyGACA`. Those load automatically
-> for a session inside that checkout. The plugins carry the knowledge a session
-> **outside** the checkout would otherwise lack, plus the cross-repo workflows
-> that belong to no single repo.
+> each repo's `.claude/` directory — the roster in `.claude/agents/README.md`
+> here (`doc-smith`, `ar-mirror`, `ksa-compliance`, `family-warden` and the GTM
+> agents), `brain-retrieval` / `eval-warden` / `prompt-steward` / `site-chrome`
+> in `ay2m/Captain-Adel`, `run-flygaca` in `ay2m/FlyGACA`. Those load
+> automatically for a session inside that checkout. The plugins carry the
+> knowledge a session **outside** the checkout would otherwise lack, plus the
+> cross-repo workflows that belong to no single repo. Where the two meet —
+> `family-warden` here and the plugin's read-only `family-auditor` — the project
+> agent wins inside this repo.
 
 ---
 
