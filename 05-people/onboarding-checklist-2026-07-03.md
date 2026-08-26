@@ -68,6 +68,7 @@ Operational, compliance-first checklist covering **Day -7 (offer accepted) throu
 |---|------|-------|-----------|
 | ☐ | Tool orientation: Slack norms (05-slack-workspace-blueprint), Drive folder structure (03-drive-folder-structure), calendar rhythm (07-calendar-and-operating-rhythm) — all in 06-operations-it/ | Mgr | New hire posts async standup unaided |
 | ☐ | Codebase / product orientation (GitHub repos under the `ay2m` account; Google Cloud + Cloudflare hosting overview per 06-operations-it/hosting-facts.md) — engineering roles | Mgr | First small PR opened or product walkthrough completed |
+| ☐ | **Agent infrastructure orientation** — Read 06-operations-it/agent-infrastructure-team-training.md; trigger `/full-sync` once to understand workflow automation; list agents (`ls .claude/agents/`) in your repo — all roles | Mgr | New hire can describe two agents by name and has run `/full-sync` |
 | ☐ | HubSpot CRM orientation — commercial roles only | Mgr | Test contact record created correctly |
 | ☐ | Confirm medical insurance card/details delivered to employee | F | Employee confirms receipt |
 | ☐ | Review and agree written 30-60-90 plan goals | NH + Mgr | Plan signed off by both parties in Drive |

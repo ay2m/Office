@@ -41,7 +41,7 @@
  "05-people/leave-pto-policy-2026-06-14.md": "618c55d42eaf785b13a732fc98263cb7be9fac6bdfba576e325f9afc8036c6b3",
  "05-people/offboarding-checklist-2026-07-03.md": "de528858be88bc000fa714f1b893a35be2719471ebac9138e40c62bca36d3abe",
  "05-people/offer-letter-template-2026-06-14.md": "90063bb6df07d07ada42a219afae8b7eaccdd7b4134cab9fcaaf8bdc9b4d6d6a",
- "05-people/onboarding-checklist-2026-07-03.md": "f9b53fec69174ce9c85617a204750c236ceb5921b6d33b140f63a30de85e1b28",
+ "05-people/onboarding-checklist-2026-07-03.md": "74ece9c89534a189cadcdc797d6264f879ecd8d2c6b840713ebc46b3d11cc342",
  "06-operations-it/captadel-plan.md": "9445a1b46071d2fc3e9c9b9378d237da008c8f5ee10f03ac05aa5c66e6c0a531",
  "06-operations-it/consolidation-manifest-2026-06-16.md": "0d15a86279b1e662f431a2ef54a36f1a5feea92c1c1d95c02473473113559ea8",
  "06-operations-it/content-integration-plan.md": "e17177652f5923508cd8c0a695413da08d29920662060e0255495c1f58e32995",
@@ -245,5 +245,6 @@
  "06-operations-it/agent-workforce-plan.md": "d8d8d55a7607670d563b1121dd9449f69ebcdff8cf5cacc81109f2f6efd0269a",
  "ar/06-operations-it/agent-workforce-plan.md": "0dd5c9f7d6c2ce11ee61160e27cd8fa847c35c0f147dff66e59bd006f31628c9",
  "06-operations-it/runbooks/runbook-claude-plugins.md": "7b60d331af3063caa057774270973e45569fb1b778431f491ee3472225fad6ed",
- "ar/06-operations-it/runbooks/runbook-claude-plugins.md": "6c2258a3570965fc94c2f3687866ef960172f5b4f40aaccd0c95f11899568665"
+ "ar/06-operations-it/runbooks/runbook-claude-plugins.md": "6c2258a3570965fc94c2f3687866ef960172f5b4f40aaccd0c95f11899568665",
+ "06-operations-it/agent-infrastructure-team-training.md": "4571b6450f62e371c3fb24901b88fd8a60c4dfc66c44e9b6ff955aa6c5ff6dc5"
 }
