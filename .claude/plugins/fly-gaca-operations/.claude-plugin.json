@@ -1,0 +1,34 @@
+{
+  "name": "fly-gaca-operations",
+  "title": "Fly GACA Operations & Orchestration",
+  "version": "2.0.0",
+  "description": "Cross-repo orchestration workflows and multi-agent coordination for the Fly GACA family. Office-hosted coordination layer.",
+  "author": "Fly GACA",
+  "homepage": "https://github.com/ay2m/Office",
+  "repository": "ay2m/Office",
+  "agents": [
+    {
+      "name": "operations-orchestrator",
+      "description": "Multi-agent workflow coordination, cross-repo sync, full-stack audit",
+      "color": "rose"
+    }
+  ],
+  "skills": [
+    "multi-repo-coordination",
+    "cross-service-validation"
+  ],
+  "commands": [
+    "full-sync",
+    "feature-ship",
+    "compliance-audit",
+    "security-hardening",
+    "performance-sprint"
+  ],
+  "keywords": [
+    "orchestration",
+    "multi-repo",
+    "workflow",
+    "coordination",
+    "audit"
+  ]
+}

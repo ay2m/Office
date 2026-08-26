@@ -101,7 +101,7 @@
  "11-brand/flygaca-design-tokens-readme.md": "1dbbf6a52463b76ee9b7562195b1ededfc943b64114ccdcb1f4fccf322875924",
  "11-brand/flygaca-document-style-and-design-guideline.md": "acbd50e827cda174fab7aa6f172f7ae57b77affd9080b809d5dad18fc816b687",
  "11-brand/tidal-reckoning-philosophy.md": "8043f38ae5de0e93503972e9185509dd90be5ea122109052e681b696d386999e",
- "_INDEX.md": "5ced8daa92e6cd13bb0d9525147cddeabef7a36c34972c82d46288c650a96e85",
+ "_INDEX.md": "44cfb15c710f145052b0a36bc6e00e37b1db9af19f1ecd5da61a29b53e803631",
  "ar/00-strategy/book-of-fly-gaca-review-2026-06-14.md": "b8e0c2b79ca60f51f5c5a724ef9fdd6fac57414dfaf6ad89bbdb2f7d033a3eea",
  "ar/00-strategy/fly-gaca-review-action-plan.md": "c34eda5c4a2affd5c0a96ff403a60ed0da52dcf1ddd701dd0040dd879cb09b1d",
  "ar/00-strategy/master-paperwork-template-index-2026-06-14.md": "702c96b331fbde41f3eecfc0c2f74c37bcfb962f54826a2453eb91dc3a7643f2",
@@ -248,5 +248,7 @@
  "ar/06-operations-it/runbooks/runbook-claude-plugins.md": "6c2258a3570965fc94c2f3687866ef960172f5b4f40aaccd0c95f11899568665",
  "06-operations-it/agent-infrastructure-team-training.md": "4571b6450f62e371c3fb24901b88fd8a60c4dfc66c44e9b6ff955aa6c5ff6dc5",
  "06-operations-it/agent-effectiveness-dashboard.md": "868a95170ce7286c7c03f621103a201caa20d5bc4ae580124439fb1147dbd485",
- "06-operations-it/phase5-live-execution-plan.md": "c02de5c7fbbd625cc9342951ec5d7a4020234b88aca2fb29a6c03bbb0c30e1f6"
+ "06-operations-it/phase5-live-execution-plan.md": "c02de5c7fbbd625cc9342951ec5d7a4020234b88aca2fb29a6c03bbb0c30e1f6",
+ "06-operations-it/phase2-multi-repo-architecture.md": "d42a4038cc900258b857642ab00c915246dcefa158b8543c750d5c75a9a01bde",
+ "06-operations-it/.phase5-week1-status.md": "f26b8986a9663228a8d18302e1309a57d36c6bb680b0a6cd62c46fe00c7e2c76"
 }
