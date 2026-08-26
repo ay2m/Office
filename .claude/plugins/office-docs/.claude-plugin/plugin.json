@@ -1,0 +1,14 @@
+{
+  "name": "office-docs",
+  "displayName": "Fly GACA — The Office (documents)",
+  "version": "0.1.0",
+  "description": "Workflow commands for ay2m/Office: creating a document that passes the doc gate, the Markdown/HTML → branded PDF print pipeline, the Arabic mirror, and the entity-facts gate.",
+  "author": {
+    "name": "Fly GACA",
+    "url": "https://github.com/ay2m"
+  },
+  "homepage": "https://github.com/ay2m/Office/tree/main/.claude/plugins/office-docs",
+  "repository": "https://github.com/ay2m/Office",
+  "license": "Apache-2.0",
+  "keywords": ["documents", "pdf", "front-matter", "bilingual", "arabic", "governance"]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "family-orchestrators",
+  "displayName": "Fly GACA — Cross-Repo Orchestrators",
+  "version": "0.1.0",
+  "description": "Workflows that span ay2m/Office, ay2m/FlyGACA and ay2m/Captain-Adel: the full-sync drift audit, shipping a feature across repos, the security sweep, and the compliance review.",
+  "author": {
+    "name": "Fly GACA",
+    "url": "https://github.com/ay2m"
+  },
+  "homepage": "https://github.com/ay2m/Office/tree/main/.claude/plugins/family-orchestrators",
+  "repository": "https://github.com/ay2m/Office",
+  "license": "Apache-2.0",
+  "keywords": ["orchestrator", "cross-repo", "family-contract", "security", "compliance", "pdpl"]
+}

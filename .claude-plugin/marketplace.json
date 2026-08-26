@@ -1,0 +1,49 @@
+{
+  "name": "flygaca-family",
+  "owner": {
+    "name": "Fly GACA",
+    "url": "https://github.com/ay2m"
+  },
+  "metadata": {
+    "description": "The Fly GACA family marketplace — one plugin per repo, plus the cross-repo orchestrators. Hosted in ay2m/Office, which owns the repo roster.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "office-docs",
+      "source": "./.claude/plugins/office-docs",
+      "description": "The documents repository: front-matter, the Markdown/HTML → branded PDF print pipeline, the Arabic mirror, and the entity-facts gate.",
+      "version": "0.1.0",
+      "keywords": ["documents", "pdf", "bilingual", "governance"]
+    },
+    {
+      "name": "family-orchestrators",
+      "source": "./.claude/plugins/family-orchestrators",
+      "description": "Cross-repo workflows: full-sync drift audit, shipping a feature that crosses repos, the security sweep, and the compliance review.",
+      "version": "0.1.0",
+      "keywords": ["orchestrator", "cross-repo", "security", "compliance", "pdpl"]
+    },
+    {
+      "name": "flygaca-product",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/ay2m/FlyGACA",
+        "path": ".claude/plugins/flygaca-product"
+      },
+      "description": "Product engineering for ay2m/FlyGACA: the React/Vite app, the Express + Cloud SQL backend, the corpus pipelines, the Postgres schema, and the RAG flow.",
+      "version": "0.1.0",
+      "keywords": ["react", "express", "postgres", "rag", "corpus"]
+    },
+    {
+      "name": "captain-adel-service",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/ay2m/Captain-Adel",
+        "path": ".claude/plugins/captain-adel-service"
+      },
+      "description": "The flight-instruction service in ay2m/Captain-Adel: curriculum and the exam bank, provider operations and the parity gate, the corpus/embeddings data layer, and the Cloud Run deployment path.",
+      "version": "0.1.0",
+      "keywords": ["evals", "providers", "arabic", "cloud-run", "curriculum"]
+    }
+  ]
+}

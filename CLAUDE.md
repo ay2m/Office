@@ -4,7 +4,7 @@ section: root
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-08-25
+last_updated: 2026-08-26
 lang: en
 ---
 
@@ -110,6 +110,16 @@ Support directories:
   `.claude/skills/THIRD_PARTY_NOTICES.md`. Note the whole `.claude/` tree is in `SKIP_DIRS` for
   `check.mjs`/`build.mjs`/`build-html.mjs`, so nothing under it needs front-matter or a `_print/`
   PDF — but that skip is root-anchored, so vendored skills must stay at `.claude/skills/`.
+- **`.claude-plugin/marketplace.json`** / **`.claude/plugins/`** — the `flygaca-family` Claude Code
+  plugin marketplace, hosted here because this repo owns the roster. Two plugins live locally
+  (**office-docs** — the doc convention, the print pipeline, the `ar/` mirror and the entity-facts
+  gate; **family-orchestrators** — the cross-repo full-sync, feature-ship, security-sweep and
+  compliance-review workflows plus the `family-auditor` agent); the two product plugins are
+  `git-subdir` entries pointing into `ay2m/FlyGACA` and `ay2m/Captain-Adel`, so each repo owns its
+  own. All three repos register the marketplace in `.claude/settings.json` — registering installs
+  nothing, so a plugin still has to be installed deliberately. Install, onboarding and maintenance:
+  `06-operations-it/runbooks/runbook-claude-plugins.md`. Plugin Markdown is under `.claude/`, so it
+  needs no front-matter and no `_print/` PDF.
 
 Several document formats coexist: polished deliverables are committed binaries
 (`.docx`/`.xlsx`/`.pptx`, plus source PDFs, investor-deck JPGs, and brand PSD/PNG assets — SVG

@@ -127,7 +127,7 @@ status / owner / last_updated / lang`)، ولها **نسخة PDF جاهزة لل
   flygaca-* briefings · robots.txt
 - **runbooks/** — runbook-deploy · runbook-launch · runbook-cloudflare · runbook-ios ·
   runbook-vps-hardening · runbook-security-rollout · runbook-captain-adel ·
-  runbook-captadel-(deploy/extraction/saas) · runbook-arabic-provider · runbook-pdpl-me-central2 · runbook-source-updates
+  runbook-captadel-(deploy/extraction/saas) · runbook-arabic-provider · runbook-pdpl-me-central2 · runbook-source-updates · runbook-claude-plugins
 - **setup/** — setup-entity · setup-firebase · setup-vps
 - **diagrams/** — airac-editorial-sync · captain-adel-fallback · licensing-journey (SVG) + workflows.md
 
