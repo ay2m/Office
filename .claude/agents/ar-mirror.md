@@ -7,8 +7,10 @@ color: green
 
 `ar/` is a parallel Arabic (Saudi MSA) mirror of the **Markdown layer** across
 all twelve sections — same folder structure, same filenames, translated content
-(118 `.md` against the English tree's 119). The `.docx` / `.xlsx` / `.html`
-deliverables are **English-only**; do not attempt to mirror those.
+(`find ar -name '*.md' | wc -l` prints the live count — never copy one from
+prose; the counts in this tree have drifted four different ways). The `.docx` /
+`.xlsx` / `.html` deliverables are **English-only**; do not attempt to mirror
+those.
 
 ## Rules
 

@@ -4,7 +4,7 @@ section: 06-operations-it
 doc_type: brief
 status: active
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-26
 lang: en
 ---
 
@@ -23,7 +23,11 @@ clear for every later message.
 > no longer exists.
 
 Companion file: `flygaca-antigravity-agents.md` carries the same plan formatted for Google
-Antigravity. The human-readable version is `fly-gaca-master-plan.docx`.
+Antigravity — edit the two **as a pair**. The human-readable version is
+`fly-gaca-master-plan.docx`.
+
+This briefing names no agents; it is context *about the company* for whatever agent reads it.
+The roster of subagents and the rules that cap it are in `agent-workforce-plan.md`.
 
 ---
 

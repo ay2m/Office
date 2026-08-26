@@ -4,7 +4,7 @@ section: root
 doc_type: index
 status: active
 owner: Founder
-last_updated: 2026-06-21
+last_updated: 2026-08-26
 lang: ar
 ---
 
@@ -57,11 +57,31 @@ lang: ar
 | stakeholder | صاحب المصلحة |
 | onboarding | الإعداد والتهيئة |
 | churn | معدّل التسرّب |
-| pipeline | مسار الصفقات |
+| pipeline (sales) | مسار الصفقات |
 | go-to-market (GTM) | استراتيجية النفاذ إلى السوق |
 | compliance | الامتثال |
 | governance | الحوكمة |
 | due diligence | العناية الواجبة |
 | owner action | إجراء مطلوب من المالك |
+
+## مصطلحات الوكلاء والأتمتة
+
+> هذه المصطلحات مستحدثة لهذا المستودع. تُستخدم كما هي في كل ترجمة لاحقة تتناول الوكلاء
+> البرمجية أو الأتمتة، ولا تُبتكر بدائل لها.
+
+| الإنجليزية | العربية |
+|---|---|
+| agent (AI/software) | وكيل برمجي |
+| subagent | وكيل فرعي |
+| agent roster | قائمة الوكلاء |
+| AI (artificial intelligence) | الذكاء الاصطناعي |
+| automation | الأتمتة |
+| workflow | سير العمل |
+| build pipeline | مسار البناء |
+| prompt | الموجّه |
+| guardrail | ضابط أمان |
+| human in the loop | إشراف بشري مباشر |
+| scaffolding (draft work) | أعمال تأسيسية أولية |
+| accountability | المسؤولية والمساءلة |
 
 > ملاحظة: مجلد `ar/` نسخة موطّنة من التوثيق؛ النسخة الإنجليزية تبقى المصدر المرجعي الأساسي.

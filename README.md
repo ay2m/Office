@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](01-governance/LICENSE)
 [![Languages](https://img.shields.io/badge/languages-EN%20%7C%20AR-orange?style=flat-square)](ar/)
 [![Sections](https://img.shields.io/badge/sections-12-informational?style=flat-square)](_INDEX.md)
-[![PDFs](https://img.shields.io/badge/print--ready%20PDFs-263-lightgrey?style=flat-square)](_print/)
+[![PDFs](https://img.shields.io/badge/print--ready%20PDFs-265-lightgrey?style=flat-square)](_print/)
 
 **[📖 Master Index](_INDEX.md)** · **[🗺 Roadmap](00-strategy/roadmap.md)** · **[🖨 Print Pipeline](tools/print/README.md)** · **[🌐 Arabic Mirror](ar/_INDEX.md)**
 
@@ -97,6 +97,7 @@ The repository is organized into twelve numbered sections (`00–11`), each inde
 | [`_print/`](_print/) | Generated print-ready PDFs mirroring the exact file tree (tracked in git) |
 | [`contracts/`](contracts/) | [`flygaca-family.json`](contracts/flygaca-family.json) — the cross-repo family contract shared with both product repos ([details](#-the-family-contract)) |
 | [`tools/contracts/`](tools/contracts/) | `stamp-manifest.mjs` — stamps and verifies the manifest's self-hash |
+| [`.claude/agents/`](.claude/agents/) | Four project subagents — `doc-smith`, `ar-mirror`, `ksa-compliance`, `family-warden`. Roster: [`.claude/agents/README.md`](.claude/agents/README.md); rationale: [`06-operations-it/agent-workforce-plan.md`](06-operations-it/agent-workforce-plan.md) |
 
 ---
 

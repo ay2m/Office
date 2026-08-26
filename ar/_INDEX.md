@@ -4,7 +4,7 @@ section: root
 doc_type: index
 status: active
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-26
 lang: ar
 ---
 
@@ -51,7 +51,7 @@ status / owner / last_updated / lang`)، ولها **نسخة PDF جاهزة لل
 - founders-agreement.docx · shareholders-agreement-sha.docx · esop-plan-stock-option-plan.docx
 - code-of-conduct.docx · anti-bribery-aml-and-whistleblower-policy.docx
 - board-pack-template.docx · decision-log-template.docx
-- مُحدَّثة: decision-log.md (DEC-006…009) · board-pack-2026-07.md — قرارات التحوّل إلى شركة قائمة
+- مُحدَّثة: decision-log.md (DEC-006…012) · board-pack-2026-07.md — قرارات التحوّل إلى شركة قائمة
 - حوكمة المستودع: CLAUDE.md · CODE_OF_CONDUCT.md · CONTRIBUTING.md · SECURITY.md · LICENSE
 
 ## 02 — الشؤون القانونية
@@ -124,7 +124,8 @@ status / owner / last_updated / lang`)، ولها **نسخة PDF جاهزة لل
   test-coverage-analysis-2026-06-16 · test-ready · repo-health-report-2026-06-16 ·
   slack-best-practices (أعراف/أمن Slack وPDPL — مُكمِّلة لـ 05-slack-workspace-blueprint) ·
   docs-followup-roadmap-2026-07 (متتبِّع تحويل مسودّات جولة 2026-07-03 إلى معتمَدة) ·
-  flygaca-* briefings · robots.txt
+  agent-workforce-plan (قائمة الوكلاء البرمجية الداخلية وقيدها وموضع مستودعات العائلة منها —
+  مُكمِّلة لـ `.claude/agents/README.md`) · flygaca-* briefings · robots.txt
 - **runbooks/** — runbook-deploy · runbook-launch · runbook-cloudflare · runbook-ios ·
   runbook-vps-hardening · runbook-security-rollout · runbook-captain-adel ·
   runbook-captadel-(deploy/extraction/saas) · runbook-arabic-provider · runbook-pdpl-me-central2 · runbook-source-updates

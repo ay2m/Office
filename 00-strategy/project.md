@@ -4,11 +4,16 @@ section: 00-strategy
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-07-03
+last_updated: 2026-08-26
 lang: en
 ---
 
 # Project: Fly GACA Sales Enablement Multi-Agent System
+
+> **This is the product-side agent system** — customer-facing personas served by a Python
+> package. It is **not** the internal development-agent layer in `.claude/agents/`, which is
+> governed by [`06-operations-it/agent-workforce-plan.md`](../06-operations-it/agent-workforce-plan.md).
+> The two are routinely confused; they share nothing but the word "agent".
 
 ## Architecture
 The system is implemented as a modular Python package `sales_agents/` utilizing the `google-genai` SDK for LLM interactions. It contains:
