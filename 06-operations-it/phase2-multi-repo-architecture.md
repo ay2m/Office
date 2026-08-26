@@ -261,18 +261,68 @@ subject the skill states the steps and defers the "why it is shaped this way" to
 `/feature-launch` — the command is written but unexercised, and should not be described as tested
 end-to-end until it has driven a real change.
 
-### Phase 3: Flight Service Agents (Weeks 7–8)
+### Phase 3: Flight Service Agents (Weeks 7–8) — **delivered, reconciled**
 
-1. Create `flight-service` plugin structure in ay2m/Captain-Adel
-2. Port 4 agents (flight-curriculum-designer, ml-instructor-trainer, flight-data-pipeline-engineer, instructor-deployment-steward)
-3. Link to Captain-Adel repo CLAUDE.md
-4. Create instructor-launch orchestrator
-5. Validate with one curriculum iteration
+Executed under DEC-013, which already named `captain-adel-service` as the real
+`flight-service` plugin. No fresh decision was needed: the four agents existed,
+so this phase added the layer that did not.
 
-**Deliverables:**
-- ay2m/Captain-Adel: `.claude/plugins/flight-service/`
-- 4 agents with persona
-- instructor-launch orchestrator tested
+| Planned | Resolution |
+| --- | --- |
+| 4 agents | Already present as `curriculum-author`, `model-ops`, `corpus-data`, `deploy-runner`; canonical ↔ plugin names mapped in `ay2m/Captain-Adel/CLAUDE.md` |
+| 4 skills | **Added** — `aviation-pedagogy`, `flight-instructor-personas`, `pdpl-learner-data`, `captadel-deployment` |
+| `instructor-launch` command | **Added** — sequences corpus → curriculum → persona → learner data → deploy gate |
+| `personalization-tuning` command | **Not built, deliberately.** It was specified for a learner-feedback → model-improvement loop that does not exist in the repo (see below). A command driving absent machinery would be fiction |
+| Link to Captain-Adel CLAUDE.md | **Done**, and corrected — see below |
+
+**Four more claims found false and fixed.** Phase 2.2 found three in
+`ay2m/FlyGACA`; the same audit applied here found four:
+
+1. **The pedagogy apparatus does not exist.** `CLAUDE.md` described a three-tier
+   progression (knowledge-check → skill-check → performance-check), mastery gates
+   at ≥80%, a spaced-repetition schedule (1d/3d/7d/30d) and confusion detection.
+   **None of those terms occurs anywhere in `src/` or `public/assets/js/`.** What
+   ships is one `quiz.json` with a 25-question, 30-minute, **75%** exam across 13
+   banks (174 questions), and `exam-core.js` doing seeded selection, answer remap,
+   scoring and a weakest-first breakdown. The ≥80% figure was quoted as this
+   product's threshold; the shipped figure is 75%.
+2. **In-Kingdom inference was asserted as present fact.** The `deploy-runner`
+   agent stated "the chat model runs in-Kingdom for production". It does not:
+   `MODEL_PROVIDER` defaults to `gemini`, which calls Google's Gemini Developer
+   API through `@google/genai` — a global endpoint with no region pinning — so the
+   English chat path leaves the Kingdom. The Arabic path reaches ALLaM only when
+   `ALLAM_BASE_URL` is set, and it defaults to empty. This directly contradicted
+   the repo's own `CLAUDE.md`, which correctly records external inference as a
+   documented open risk.
+3. **AIRAC freshness is not implemented here.** `CLAUDE.md` gave a "35-day
+   threshold"; AIRAC appears in this repo only as exam *content* and one line of
+   the system prompt. The implementation is `ay2m/FlyGACA`'s `src/calc/airac.ts`.
+4. **The three corpus tiers are absent from this repo's code too** — the same
+   phantom Phase 2.2 found in `ay2m/FlyGACA`, now labelled as stated editorial
+   policy in both.
+
+One stale claim was also cleared: the `deploy-runner` agent warned that
+`.env.example` shipped a real-looking `GEMINI_API_KEY`. It is blank now, and the
+agent said so as if current.
+
+**Deliverables (actual):**
+- `ay2m/Captain-Adel`: `.claude/plugins/captain-adel-service/` at v0.2.0 — 4
+  agents, **4 skills**, **5 commands**
+- `CLAUDE.md` corrections for all four false claims above
+- Gate run clean: `smoke`, `smoke:frontend`, `test:unit`, `eval:dry` all exit 0
+
+**Not delivered:** "validate with one curriculum iteration." No curriculum
+change was shipped through `/instructor-launch` — the command is written but
+unexercised, exactly as `/feature-launch` remains from Phase 2.2. Neither should
+be described as tested end to end until it has driven a real change.
+
+> [!WARNING]
+> **Open compliance item, raised not resolved.** `deploy/deploy.sh` documents
+> `me-central1` (Doha) as a fallback region, while both `CLAUDE.md` files state
+> "`me-central2` Dammam only — never `me-central1` (Doha, not PDPL-safe)".
+> Deployment tooling and stated policy disagree. This is a decision for the
+> founder with `ksa-compliance`, not something to settle in a code comment, and
+> it is deliberately left open rather than silently patched.
 
 ### Phase 4: Orchestration + Testing (Week 9)
 
@@ -342,4 +392,4 @@ Phase 5 effectiveness scoring informs Phase 2 orchestrator refinement — if an 
 
 ---
 
-*Fly GACA | Phase 2: Multi-Repo Agent Architecture | Phase 2.1 Foundation complete · Phase 2.2 delivered and reconciled*
+*Fly GACA | Phase 2: Multi-Repo Agent Architecture | Phases 2.1–2.3 delivered · 2.2 and 2.3 reconciled under DEC-013*
