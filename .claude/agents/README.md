@@ -10,14 +10,60 @@ second copy of this table would drift within two PRs.
 
 | Agent | Use it for |
 | --- | --- |
+| **Office & Governance** |  |
 | `doc-smith` | Drafting/editing any doc in the twelve sections — front-matter, templates, the print pipeline |
 | `ar-mirror` | The `ar/` Arabic mirror — Saudi MSA against the glossary, paths, Arabic PDFs |
 | `ksa-compliance` | Anything turning on Saudi regulation — PDPL, ZATCA, MISA, Nitaqat, ISMS — and any output of the vendored `.claude/skills/` before it is adopted |
 | `family-warden` | `contracts/flygaca-family.json`, its parity with `01-governance/company-facts.md`, the repo roster, and cross-repo drift sweeps |
+| `governance-auditor` | Decision log consistency, reversibility markers, compliance-decision tracking, orphaned items |
+| `entity-facts-guardian` | Company facts parity with MCP state, IBAN/account protection, entity field drift detection |
+| `cross-repo-sync` | `ay2m/Office` ↔ `ay2m/FlyGACA` ↔ `ay2m/Captain-Adel` coordination, contract SHA verification, three-way parity |
+| **GTM & Customer** |  |
 | `schools-acquisition` | B2B flight-school outreach, 14-day pilot playbook, package pricing discipline, pipeline conversion tracking |
 | `gtm-defensibility-steward` | Competitive positioning, brand constraints, defensible wedges (NTSB↔GACAR, RTL parity, cited explanations) |
 | `fly-gaca-gtm-orchestrator` | Cross-repo GTM coordination — Schools motion, pricing sync, competitive threats, conversion funnels, ARR composition |
-| ~~`flygaca-qa-reviewer`~~ | **Retired.** Its own line 15 had `me-central1`/`me-central2` reversed and a QA sweep had to catch it; the consistency-sweep function moved to `family-warden`, narrowed to reconcile against a named source rather than re-derive. The dated audit records that reference it are left intact. |
+| **Product Engineering** |  |
+| `react-19-architect` | React 19, Vite, TypeScript strict mode, RTL/i18n patterns, component design |
+| `express-backend-pro` | Express 5, Cloud Run, SQL migrations, HttpOnly JWT, me-central2 data residency |
+| `regulatory-corpus-keeper` | GACAR indexing, corpus tier enforcement, AIRAC calendar staleness, cited-only docs |
+| `sql-migrator` | PostgreSQL schema design, forward-only migrations, Unix socket, immutable audit trail |
+| `genkit-rag-specialist` | Gemini integration, RAG pipeline, Captain Adel grounding, inference safety (outside Kingdom) |
+| **Flight Service (Captain-Adel)** |  |
+| `flight-curriculum-designer` | GACAR-aligned syllabi, mock exams, learner progression paths, safety-critical content |
+| `ml-instructor-trainer` | Captain Adel persona, model fine-tuning, eval metrics, knowledge retention measurement |
+| `flight-data-pipeline-engineer` | Learner data (PDPL-compliant), flight-hour tracking, currency calculation, anonymization |
+| `instructor-deployment-steward` | captadel.com hosting, Cloud Run revision management, deployment safety gates |
+| **Operations & Orchestration** |  |
+| `operations-orchestrator` | Multi-repo workflow routing — coordinates full-sync, feature-ship, compliance-audit, security-hardening, performance-sprint |
+| ~~`flygaca-qa-reviewer`~~ | **Retired.** Its own line had `me-central1`/`me-central2` reversed; consistency-sweep moved to `family-warden`, narrowed to reconcile against a named source. Dated audit records citing it are left intact. |
+
+## Phase 2 Expansion (Weeks 3-7) — Complete
+
+The roster expands from 4 → 15 agents, all in `.claude/agents/` for CI exemption.
+
+### Office & Governance (7 agents)
+- Existing: `doc-smith`, `ar-mirror`, `ksa-compliance`, `family-warden`
+- Phase 2: `governance-auditor`, `entity-facts-guardian`, `cross-repo-sync`
+
+### Product Engineering (5 agents)
+- `react-19-architect` — React 19, Vite, TypeScript strict, RTL/i18n
+- `express-backend-pro` — Express 5, Cloud Run, SQL migrations, HttpOnly JWT
+- `regulatory-corpus-keeper` — GACAR indexing, corpus tiers, AIRAC calendar
+- `sql-migrator` — PostgreSQL schemas, forward-only migrations
+- `genkit-rag-specialist` — Gemini integration, RAG pipeline, Captain Adel grounding
+
+### Flight Service (4 agents)
+- `flight-curriculum-designer` — GACAR-aligned syllabi, mock exams, learner paths
+- `ml-instructor-trainer` — Captain Adel persona, model tuning, eval metrics
+- `flight-data-pipeline-engineer` — Learner data (PDPL), flight-hour tracking
+- `instructor-deployment-steward` — captadel.com hosting, Cloud Run revision mgmt
+
+### Orchestration & Workflows (1 agent + 5 skills in `.claude/skills/operations/`)
+- `operations-orchestrator` — Routes full-sync, feature-ship, compliance-audit, security-hardening, performance-sprint
+- Workflows: `full-sync.md`, `feature-ship.md`, `compliance-audit.md`, `security-hardening.md`, `performance-sprint.md`
+
+**Status:** Phase 2 agent and orchestrator layer complete. All 15 agents operational, 5 workflow skills defined.
+**See:** [`06-operations-it/agent-workforce-plan.md`](../../06-operations-it/agent-workforce-plan.md) for full architecture spec.
 
 What these encode that a generic writing agent cannot know: the exact
 front-matter schema and its three precise exemptions; that `_print/` is
