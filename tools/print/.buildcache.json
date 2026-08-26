@@ -12,7 +12,7 @@
  "01-governance/CONTRIBUTING.md": "a1a575b5d81591be9a456b605bd50a8ba612cdc08d398433617579c77a3560d2",
  "01-governance/SECURITY.md": "77a661e1ce0a8964f34c8dc9ffb74f8f5112da934c56996245bfa97058217e1a",
  "01-governance/board-pack-2026-07.md": "522170cfec739d46cf0c07aa7fa61abb036b8b3d9c1324f1cc9d090e524421fa",
- "01-governance/decision-log.md": "4ac72104793092b7ee1d407d54a8517df1f5a54656ca183cc03bda9171fabcd8",
+ "01-governance/decision-log.md": "5036736ac77c3b661fe37384181f604b8c5ce134d71481e502d9b868d24d1028",
  "02-legal/acceptable-use-policy-draft-2026-06-14.md": "472729fde6e0014a5b51f71de863ca82f52c6114abbab67ae0933df4080c1c58",
  "02-legal/b2b-data-processing-agreement-draft-2026-06-14.md": "88e05b573a4a0f1d97a07e4d0459c84a67d7e8ed376a2d701d503c8ff3d9d552",
  "02-legal/brief-defensible-naming.md": "d35fde9af3be6510d3cd432f948614cc3da3755291fc450ed1626aa2aa4183f2",
@@ -235,7 +235,7 @@
  "ar/06-operations-it/secrets-and-keys-placement.md": "b22d541a3542163cdc8a5ce08f1e56c8e9b9c9139f0b92b244be099b354284be",
  "06-operations-it/slack-best-practices.md": "7d2f1a2fb9025a1cfcc84b7767c37ef81009d60dd9ce948fb68195fe9eff051f",
  "ar/06-operations-it/slack-best-practices.md": "b6731601e3dd038aae6e5a7c63bcbee80484ae814d3bbbc874f2f1fa4a3a9469",
- "CLAUDE.md": "fe1f41251cd21bcbf657d3a645d1c73c718d2da420f3a2c2b6e913a26fa76bcc",
+ "CLAUDE.md": "22162a20e3e6ec8224be445a97d6d6309271034028b582a4dc061ad48b8b83c7",
  "06-operations-it/runbooks/runbook-decision-log.md": "c5750254184c4543f4c5c71411f09574e8573747629edca6623a069ac93bdd2e",
  "06-operations-it/audit-flight-school-admin-dashboard.md": "3ec04e3452bb6fd0b7de114cf9710d5708be377cd80b52aa9136f9094b6c20e6",
  "04-compliance-ksa/cyber-risk-assessment-2026-08.md": "67c0ca663f43d7995d8cb38b622dc0ca824160df3dca1aee2ddd312ea124f73a",
@@ -249,6 +249,6 @@
  "06-operations-it/agent-infrastructure-team-training.md": "4571b6450f62e371c3fb24901b88fd8a60c4dfc66c44e9b6ff955aa6c5ff6dc5",
  "06-operations-it/agent-effectiveness-dashboard.md": "868a95170ce7286c7c03f621103a201caa20d5bc4ae580124439fb1147dbd485",
  "06-operations-it/phase5-live-execution-plan.md": "c02de5c7fbbd625cc9342951ec5d7a4020234b88aca2fb29a6c03bbb0c30e1f6",
- "06-operations-it/phase2-multi-repo-architecture.md": "d42a4038cc900258b857642ab00c915246dcefa158b8543c750d5c75a9a01bde",
+ "06-operations-it/phase2-multi-repo-architecture.md": "9bf3817419faccc116efc807e279c991ef26f6b9c90193a26b08b6ce94cd4f6f",
  "06-operations-it/.phase5-week1-status.md": "f26b8986a9663228a8d18302e1309a57d36c6bb680b0a6cd62c46fe00c7e2c76"
 }

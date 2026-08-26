@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
 // check-agents.mjs
-// Validates all agent .md files in .claude/agents/ and plugins/*/agents/
+// Validates all agent .md files in .claude/agents/ and .claude/plugins/*/agents/
 // - Verifies YAML front-matter (name, description, tools, color)
 // - Checks that all declared tools are real (built-in or MCP)
 // - Verifies agent filename matches name field
 // - Flags missing or stale agent references in README
+// - Verifies a plugin agent that shadows a repo agent of the same name is
+//   byte-identical to it, so the two copies cannot drift apart silently
 
 import fs from 'fs';
 import path from 'path';
@@ -135,20 +137,49 @@ function isValidColor(color) {
 console.log('agents-check: validating agent files...\n');
 
 const claudeAgentsDir = path.join(repoRoot, '.claude', 'agents');
-const pluginsDir = path.join(repoRoot, 'plugins');
+const pluginsDir = path.join(repoRoot, '.claude', 'plugins');
+
+// Only <plugin>/agents/ holds agents — a plugin's commands/ and skills/ are
+// Markdown too, and are validated against their own schemas, not this one.
+function findPluginAgentFiles(dir) {
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir, { withFileTypes: true })
+    .filter((e) => e.isDirectory())
+    .flatMap((e) => findAgentFiles(path.join(dir, e.name, 'agents')));
+}
 
 const allAgentFiles = [
   ...findAgentFiles(claudeAgentsDir),
-  ...findAgentFiles(pluginsDir),
+  ...findPluginAgentFiles(pluginsDir),
 ];
 
 for (const file of allAgentFiles) {
   validateAgent(file);
 }
 
+// A plugin ships its own copy of an agent so the plugin works outside this
+// checkout, but a session *here* loads .claude/agents/. Two copies of the same
+// name must stay byte-identical or the roster means two different things
+// depending on how you got it.
+let parityChecked = 0;
+for (const file of findPluginAgentFiles(pluginsDir)) {
+  const twin = path.join(claudeAgentsDir, path.basename(file));
+  if (!fs.existsSync(twin)) continue;
+  parityChecked++;
+  if (fs.readFileSync(file).equals(fs.readFileSync(twin))) continue;
+  issues.push(
+    `❌ ${path.relative(repoRoot, file)}: differs from ${path.relative(repoRoot, twin)} — ` +
+      'a plugin agent that shadows a repo agent must be byte-identical to it'
+  );
+}
+
 // Report
 if (issues.length === 0) {
-  console.log(`✅ agents-check: OK — ${agentCount} agents found, ${agentFilesChecked} files checked, all valid.\n`);
+  console.log(
+    `✅ agents-check: OK — ${agentCount} agents found, ${agentFilesChecked} files checked, ` +
+      `${parityChecked} plugin/repo agent pairs in parity, all valid.\n`
+  );
   process.exit(0);
 } else {
   console.log(`agents-check: found ${issues.length} issue(s)\n`);

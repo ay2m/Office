@@ -1,0 +1,22 @@
+{
+  "name": "office-governance",
+  "displayName": "Fly GACA — Office Governance",
+  "version": "0.2.0",
+  "description": "Governance and compliance agents and skills for ay2m/Office: document authoring and the print pipeline, the Arabic mirror, KSA regulatory scaffolding, entity-facts parity and the cross-repo family contract.",
+  "author": {
+    "name": "Fly GACA",
+    "url": "https://github.com/ay2m"
+  },
+  "homepage": "https://github.com/ay2m/Office/tree/main/.claude/plugins/office-governance",
+  "repository": "https://github.com/ay2m/Office",
+  "license": "Apache-2.0",
+  "keywords": [
+    "governance",
+    "documentation",
+    "compliance",
+    "multi-repo",
+    "family-contract",
+    "pdpl",
+    "zatca"
+  ]
+}

@@ -116,15 +116,23 @@ Support directories:
   `check.mjs`/`build.mjs`/`build-html.mjs`, so nothing under it needs front-matter or a `_print/`
   PDF — but that skip is root-anchored, so vendored skills must stay at `.claude/skills/`.
 - **`.claude-plugin/marketplace.json`** / **`.claude/plugins/`** — the `flygaca-family` Claude Code
-  plugin marketplace, hosted here because this repo owns the roster. Two plugins live locally
+  plugin marketplace, hosted here because this repo owns the roster. Three plugins live locally
   (**office-docs** — the doc convention, the print pipeline, the `ar/` mirror and the entity-facts
-  gate; **family-orchestrators** — the cross-repo full-sync, feature-ship, security-sweep and
+  gate; **office-governance** — the same seven agents as `.claude/agents/`, packaged with the
+  CI-gate, entity-facts and contract-stamping skills so a session *without* this checkout can use
+  them; **family-orchestrators** — the cross-repo full-sync, feature-ship, security-sweep and
   compliance-review workflows plus the `family-auditor` agent); the two product plugins are
   `git-subdir` entries pointing into `ay2m/FlyGACA` and `ay2m/Captain-Adel`, so each repo owns its
   own. All three repos register the marketplace in `.claude/settings.json` — registering installs
   nothing, so a plugin still has to be installed deliberately. Install, onboarding and maintenance:
   `06-operations-it/runbooks/runbook-claude-plugins.md`. Plugin Markdown is under `.claude/`, so it
-  needs no front-matter and no `_print/` PDF.
+  needs no front-matter and no `_print/` PDF — but it **is** gated:
+  `tools/agents/check-agents.mjs` validates every agent under `.claude/agents/` and
+  `.claude/plugins/*/agents/`, and fails if `office-governance`'s seven agent copies drift from
+  their `.claude/agents/` originals. Edit one, copy to the other, same commit.
+  A plugin manifest is `<plugin>/.claude-plugin/plugin.json` — a flat `.claude-plugin.json` beside
+  the plugin directory is **not** read by Claude Code, and three plugins carrying only that file
+  were removed in Phase 2.2 (DEC-013).
 
 Several document formats coexist: polished deliverables are committed binaries
 (`.docx`/`.xlsx`/`.pptx`, plus source PDFs, investor-deck JPGs, and brand PSD/PNG assets — SVG

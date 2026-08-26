@@ -40,6 +40,22 @@ Both `wshobson/agents` and `msitarzewski/agency-agents` offer distinct strengths
 
 ### Four Plugins (Fly GACA Family)
 
+> [!IMPORTANT]
+> **Names below are the plan's, not the repository's.** Phase 2.2 reconciled this architecture onto
+> the plugins that already shipped rather than building a second set beside them. The real roster is
+> the one in `.claude-plugin/marketplace.json`:
+>
+> | Planned name | Actual plugin | Lives in |
+> | --- | --- | --- |
+> | `office-governance` | `office-governance` (+ `office-docs` for the doc commands) | `ay2m/Office` |
+> | `product-engineering` | **`flygaca-product`** | `ay2m/FlyGACA` |
+> | `flight-service` | **`captain-adel-service`** | `ay2m/Captain-Adel` |
+> | `fly-gaca-operations` | **`family-orchestrators`** | `ay2m/Office` |
+>
+> The three placeholder directories this document originally described in `ay2m/Office` held a
+> manifest and nothing else, in a `.claude-plugin.json` shape Claude Code does not read. They were
+> removed in Phase 2.2.
+
 | Plugin | Owner | Agents | Purpose |
 |--------|-------|--------|---------|
 | **office-governance** | ay2m/Office | 7 | Document authoring, compliance, entity facts, cross-repo sync |
@@ -191,18 +207,59 @@ Agents are scaffolding; Phase 5 measures whether they actually add ROI. Phase 2 
 - MCP memory server skeleton
 - Updated CI gates for plugin structure
 
-### Phase 2: Product Engineering Agents (Weeks 5–6)
+### Phase 2: Product Engineering Agents (Weeks 5–6) — **delivered, reconciled**
 
-1. Create `product-engineering` plugin structure in ay2m/FlyGACA
-2. Port 5 agents (react-19-architect, express-backend-pro, regulatory-corpus-keeper, sql-migrator, genkit-rag-specialist)
-3. Link to FlyGACA repo CLAUDE.md
-4. Create feature-launch orchestrator (example: new exam feature → React component + Express API + corpus update)
-5. Validate with one live feature shipping
+**What this phase planned.** A new `product-engineering` plugin in `ay2m/FlyGACA` carrying five
+agents (`react-19-architect`, `express-backend-pro`, `regulatory-corpus-keeper`, `sql-migrator`,
+`genkit-rag-specialist`), five skills and three commands.
 
-**Deliverables:**
-- ay2m/FlyGACA: `.claude/plugins/product-engineering/`
-- 5 agents with persona (emoji, color, vibe)
-- feature-launch orchestrator tested end-to-end
+**What was already there.** `ay2m/FlyGACA` had shipped a `flygaca-product` plugin covering exactly
+those five domains — `react-surface`, `express-api`, `corpus-pipeline`, `sql-schema`,
+`rag-grounding` — in the correct `.claude-plugin/plugin.json` format, registered in the family
+marketplace, with agent content grounded in the repo's real paths and gates. Building the planned
+plugin alongside it would have given one repo **ten agents for five jobs**, which is precisely what
+success criterion #2 ("No Duplication") forbids.
+
+**What was done instead.** `flygaca-product` was treated as this phase's deliverable and completed:
+
+| Planned | Resolution |
+| --- | --- |
+| 5 agents | Already present under repo-native names; canonical ↔ plugin names mapped in `ay2m/FlyGACA/CLAUDE.md` |
+| 5 skills | **Added** to `.claude/plugins/flygaca-product/skills/` — `react-typescript-strict`, `express-security-patterns`, `gacar-corpus-policy`, `postgresql-migrations`, `gemini-rag-patterns` |
+| `feature-launch` command | **Added** — sequences schema → API → corpus → surface with the right gate at each step |
+| `security-hardening`, `performance-sprint` commands | **Not duplicated.** They are family-level and stay in Office's `family-orchestrators`; a security or performance pass that stops at one repo's boundary is not the pass those commands promise |
+| Link to FlyGACA CLAUDE.md | **Done**, and corrected — see below |
+
+The split held to is: **skills carry procedures, agents carry role context.** Where both touch a
+subject the skill states the steps and defers the "why it is shaped this way" to the named agent.
+
+**Three defects this phase found and fixed:**
+
+1. **`tools/agents/check-agents.mjs` validated nothing in the plugins.** It scanned `plugins/` at the
+   repo root, a path that stopped existing when the tree moved to `.claude/plugins/` in `08147d4`.
+   It reported "all valid" over an empty set. Repointed, scoped to `<plugin>/agents/` (its recursive
+   walk would otherwise have graded commands and skills against the agent schema), and given a
+   **parity check**: a plugin agent that shadows a repo agent must be byte-identical to it. The
+   workflow's `plugins/*/agents/**` path filter was stale in the same way and now reads
+   `.claude/plugins/**`.
+2. **Both product repos claimed their agents arrive "via the family contract."** The contract carries
+   entity facts, the chat contract and the repo roster — it distributes no agents. Both `CLAUDE.md`
+   files now name the three real routes: repo-local `.claude/agents/`, the repo's marketplace plugin,
+   or the Office checkout.
+3. **The three-tier corpus policy is not a mechanism.** `HOST_SAFE_CORE` / `HOST_ORIGINAL` /
+   `DO_NOT_HOST` appear nowhere in FlyGACA's code or corpus data. They are recorded as stated
+   editorial policy, not an enforced field. AIRAC was restated to what `src/calc/airac.ts` actually
+   implements: 28-day cycles anchored to AIRAC 2001, a 7-day due window — not a "35-day threshold".
+
+**Deliverables (actual):**
+- `ay2m/FlyGACA`: `.claude/plugins/flygaca-product/` at v0.2.0 — 5 agents, **5 skills**, **5 commands**
+- `ay2m/Office`: three content-free stub plugins removed; `office-governance` converted to the real
+  plugin manifest format and registered in the marketplace; agent gate repaired
+- `ay2m/Captain-Adel`: `CLAUDE.md` agent-provenance correction
+
+**Not delivered:** "validate with one live feature shipping." No feature was shipped through
+`/feature-launch` — the command is written but unexercised, and should not be described as tested
+end-to-end until it has driven a real change.
 
 ### Phase 3: Flight Service Agents (Weeks 7–8)
 
@@ -285,4 +342,4 @@ Phase 5 effectiveness scoring informs Phase 2 orchestrator refinement — if an 
 
 ---
 
-*Fly GACA | Phase 2: Multi-Repo Agent Architecture | Foundation Complete (Week 1)*
+*Fly GACA | Phase 2: Multi-Repo Agent Architecture | Phase 2.1 Foundation complete · Phase 2.2 delivered and reconciled*

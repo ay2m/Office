@@ -288,4 +288,48 @@ Adel Yahya A. Madkhali" in the June/July governance, HR and legal documents. Tha
 legal-identity question with trademark consequences, and it is logged as an open question in
 the plan document rather than normalised inside an agent-roster change.
 
+## DEC-013 — Reconcile the Phase 2 plugin architecture onto the plugins that already shipped
+
+| Field | Detail |
+|---|---|
+| **Date** | 2026-08-26 |
+| **Decision** | Treat the **existing** repo plugins as the Phase 2 architecture rather than building the planned set beside them: `flygaca-product` is the `product-engineering` plugin, `captain-adel-service` is `flight-service`, `family-orchestrators` is `fly-gaca-operations`. Complete `flygaca-product` with the five planned skills and a `feature-launch` command; remove the three content-free stub plugins from `ay2m/Office`; convert `office-governance` to the real plugin-manifest format and register it in the family marketplace. Keep `/security-hardening` and `/perf-sprint` family-level, not per-repo. |
+| **Reversibility** | **Two-way door.** Every change is an added or deleted Markdown/JSON file under `.claude/`; nothing in CI, the print pipeline or the family contract depends on any plugin. The removed stubs carried a manifest and no content — recoverable from git history if the planned naming is ever preferred. |
+| **Owner** | Founder |
+| **Stakeholders Consulted** | Founder (solo) |
+| **Review Date** | 2026-11-26 |
+
+**Context.** `06-operations-it/phase2-multi-repo-architecture.md` was written against a roster that
+did not match the repositories. Its Phase 2.2 called for a `product-engineering` plugin in
+`ay2m/FlyGACA` carrying five agents; that repo had already shipped `flygaca-product`, covering the
+same five domains under repo-native names, in the correct manifest format, registered in the
+marketplace, with content grounded in real paths and gates. Building the planned plugin as written
+would have left one repo with ten agents for five jobs — the exact failure the architecture's own
+success criterion #2 ("No Duplication") names.
+
+**Why reconcile rather than rename.** Renaming `flygaca-product` and its five agents to the plan's
+names would have matched the document at the cost of churning the marketplace entry and every
+existing reference, to no functional gain. The document is the artifact that was wrong, so the
+document was corrected — it now carries a planned-name → actual-plugin mapping at the point where a
+reader would otherwise be misled.
+
+**What this exposed.** Three claims in the tree were false and are now fixed rather than restated:
+
+- `tools/agents/check-agents.mjs` scanned `plugins/` at the repo root — a path that stopped existing
+  when the tree moved to `.claude/plugins/` in `08147d4`. It had been reporting "all valid" over an
+  empty set, so **no plugin agent was validated by anything**. It now scans the right place, is
+  scoped to `<plugin>/agents/`, and asserts that a plugin agent shadowing a repo agent is
+  byte-identical to it.
+- Both product repos' `CLAUDE.md` claimed their agents were "available to this repo via the family
+  contract". The contract carries entity facts, the chat contract and the repo roster; it
+  distributes no agents.
+- `ay2m/FlyGACA`'s three-tier corpus policy (`HOST_SAFE_CORE` / `HOST_ORIGINAL` / `DO_NOT_HOST`)
+  appears nowhere in that repo's code or corpus data. It is recorded as stated editorial policy, not
+  an enforced mechanism.
+
+**What this does not do.** It does not add or retire an agent, so the DEC-012 cap is untouched. It
+does not exercise `/feature-launch` against a real change — the Phase 2.2 line item "validate with
+one live feature shipping" remains **open**, and the command should not be described as tested
+end-to-end until it has driven one.
+
 *Living document. Log new strategic decisions here within 7 days. Not legal advice.*

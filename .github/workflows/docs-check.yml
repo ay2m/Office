@@ -20,7 +20,7 @@ on:
       - 'tools/agents/**'
       - 'contracts/**'
       - '.claude/agents/**'
-      - 'plugins/*/agents/**'
+      - '.claude/plugins/**'
       - '.github/workflows/docs-check.yml'
 
 permissions:
