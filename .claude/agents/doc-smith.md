@@ -53,8 +53,8 @@ the source change. Adding or renaming any `.html` without running
 
 > **Editing `build.mjs` marks every PDF stale**, because its bytes fold into the
 > shared `themeHash`. For a change that genuinely alters rendering, rebuild. For
-> one that cannot (a `SKIP_DIRS` entry, a comment, a log line), re-rendering 238
-> PDFs is pure churn — Chromium restamps `CreationDate` on all of them. Instead
+> one that cannot (a `SKIP_DIRS` entry, a comment, a log line), re-rendering the
+> lot is pure churn — Chromium restamps `CreationDate` on every one. Instead
 > re-stamp `.buildcache.json`: recompute `sha256(themeHash + source)` per
 > existing key and write it back with `JSON.stringify(cache, null, 1) + '\n'`.
 > Verify with `node check.mjs` **and** a clean `git status _print/`.

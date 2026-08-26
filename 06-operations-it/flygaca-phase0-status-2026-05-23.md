@@ -3,7 +3,7 @@ title: Fly GACA — Phase 0 Status Report
 section: 06-operations-it
 doc_type: report
 status: active
-owner: Captain Adel Al-Subaie
+owner: Captain Adel Madkhali
 last_updated: 2026-08-19
 lang: en
 ---
@@ -19,7 +19,7 @@ lang: en
 > observed at the time, including the parts that later turned out to be wrong.
 
 **Date:** 23 May 2026
-**Owner:** Captain Adel Al-Subaie
+**Owner:** Captain Adel Madkhali
 **Covers:** Progress on Phase 0 — Foundations.
 
 > **Point-in-time snapshot.** This report reflects the state on 23 May 2026 and is ~3+ weeks

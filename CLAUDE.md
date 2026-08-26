@@ -80,16 +80,17 @@ Support directories:
   `tpl-legal-memo.md`, `tpl-ops-runbook.md`, `tpl-strat-proposal.md`; mirrored under
   `ar/templates/`). Base new docs on these.
 - **`ar/`** — a parallel Arabic (Saudi MSA) mirror of the **Markdown layer** across all 12
-  sections — same folder structure and filenames, translated content. It currently holds 118
-  `.md` against the English tree's 124, so **six English docs have no Arabic counterpart yet**
-  (the newest English additions run ahead of the mirror). The `.docx`/`.xlsx`/`.html` deliverables
+  sections — same folder structure and filenames, translated content. It currently holds 119
+  `.md` against the English tree's 126, so **seven English docs have no Arabic counterpart yet**
+  (the newest English additions run ahead of the mirror; four of the seven are in
+  `04-compliance-ksa/`). The `.docx`/`.xlsx`/`.html` deliverables
   are EN-only. **English is authoritative** — on any conflict the English
   tree governs. Filenames stay ASCII kebab-case even under `ar/` for easy diffing.
 - **`tools/print/`** — the Markdown → branded A4 PDF pipeline (see below), plus `check-facts.mjs`,
   the entity-facts gate described under **The family contract**.
 - **`contracts/flygaca-family.json`** / **`tools/contracts/`** — the cross-repo family contract
   and the tool that stamps its self-hash. See **The family contract** below.
-- **`_print/`** — generated PDFs (254 today), mirroring the whole tree (including `ar/`).
+- **`_print/`** — generated PDFs (265 today), mirroring the whole tree (including `ar/`).
   Generated output, but **is committed** (not gitignored) — the CI gate below checks it's present
   and fresh.
 - **`_INDEX.md`** / **`ar/_INDEX.md`** — master index of the whole tree.
@@ -98,10 +99,14 @@ Support directories:
   filename normalisation (Title Case + spaces → ASCII kebab-case). Reference it when an old
   filename turns up in a link or an external index; it is data, not a doc, and the doc-check gate
   ignores it.
-- **`.claude/agents/`** — two subagents scoped to this repo: **doc-smith** (any `.md`/`.html`
-  add/edit/rename, front-matter, and the print pipeline — use it when docs-check fails) and
+- **`.claude/agents/`** — four subagents scoped to this repo: **doc-smith** (any `.md`/`.html`
+  add/edit/rename, front-matter, and the print pipeline — use it when docs-check fails),
   **ar-mirror** (translating a new/changed English doc into `ar/` against the glossary and
-  rebuilding the Arabic PDFs). `agents/README.md` says when each applies.
+  rebuilding the Arabic PDFs), **ksa-compliance** (anything turning on Saudi regulation, and any
+  vendored-skill output before it is adopted) and **family-warden** (the family contract, entity
+  facts, and cross-repo drift). `agents/README.md` holds the roster and says when each applies;
+  `06-operations-it/agent-workforce-plan.md` explains why the roster is four and not twelve, and
+  how the family's other repos are meant to fit.
 - **`.claude/skills/`** — six vendored Apache-2.0 governance/privacy/risk skills (GDPR controls,
   privacy impact assessment, ISO 27001, NIST 800-30 risk assessment, third-party vendor risk,
   PCI DSS) chosen because their output is written policy rather than shell commands. They are
@@ -125,16 +130,17 @@ Several document formats coexist: polished deliverables are committed binaries
 (`.docx`/`.xlsx`/`.pptx`, plus source PDFs, investor-deck JPGs, and brand PSD/PNG assets — SVG
 logos/diagrams are committed as text — with `.gitattributes` declaring the binary set
 `.docx`/`.xlsx`/`.pptx`/`.pdf`/`.psd`/`.png`/`.jpg`/`.jpeg`/`.gsheet`); working notes, specs, drafts, and playbooks are `.md` —
-which is what the print pipeline and the doc-check CI both operate on. **18 pages are authored as
+which is what the print pipeline and the doc-check CI both operate on. **20 pages are authored as
 HTML instead of Markdown** and render through `build-html.mjs` (below): the two bilingual investor
 decks in `09-investor-relations/decks/`, the four showcase pages
 (`00-strategy/brainstorms/00-strategic-brainstorms-dashboard.html`,
 `00-strategy/the-book-of-fly-gaca.html`, `11-brand/design-system.html`,
 `11-brand/tidal-reckoning.html`), the two ZATCA finance templates in `03-finance/`
-(`tax-invoice-template.html`, `vat-return-worksheet.html`), and the ten print-collateral sources
-in `11-brand/print/` (letterheads EN/AR, memo, press release, business cards, envelope,
-compliments slip, contract cover — these share `11-brand/print/brand-print.css`; the
-showcase/finance pages are self-contained). `tools/print/build-png.mjs` additionally re-screenshots the `11-brand/print/`
+(`tax-invoice-template.html`, `vat-return-worksheet.html`), the eleven print-collateral sources
+in `11-brand/print/` (letterheads EN/AR — including the sealed Arabic sheet — memo, press
+release, business cards, envelope, compliments slip, contract cover; these share
+`11-brand/print/brand-print.css`), and `02-legal/authorization-letter-jawazat-2026-08-20.html`
+(the showcase/finance pages are self-contained). `tools/print/build-png.mjs` additionally re-screenshots the `11-brand/print/`
 sources into the 300 dpi PNGs the brand catalogue references.
 
 ## The doc convention (enforced by CI)
@@ -183,8 +189,8 @@ Adding or renaming **any** `.html` in the tree without running `build-html.mjs` 
 an unrebuilt `.md`.
 
 `node check.mjs` is cheap, dependency-free and the single best thing to run before you commit —
-it reports exactly which docs are missing or stale (currently: 239 markdown + 16 brand-HTML docs
-in scope). Forgetting the rebuild is the most common way this repo goes red; it has already
+it reports exactly which docs are missing or stale (currently: 245 markdown + 20 brand-HTML docs
+in scope — it prints the live figures, so quote the command rather than copying these numbers). Forgetting the rebuild is the most common way this repo goes red; it has already
 happened once (four PDFs, fixed in `016f1b2`), so make the build part of the same commit as the
 doc edit rather than a follow-up.
 
@@ -200,8 +206,8 @@ itself; CI runs Node 20).
 > **Editing `build.mjs` marks every PDF in the repo stale**, because its own bytes are folded into
 > the shared `themeHash`. For a change that genuinely alters rendering, that's correct — rebuild.
 > But for a change that *cannot* alter output (adding a `SKIP_DIRS` entry, a comment, a log line),
-> re-rendering all 254 PDFs is pure churn: Chromium restamps `CreationDate` on every one, so all
-> 254 show up as modified binaries. In that case re-stamp `.buildcache.json` with the new `themeHash`
+> re-rendering all 265 PDFs is pure churn: Chromium restamps `CreationDate` on every one, so all
+> 265 show up as modified binaries. In that case re-stamp `.buildcache.json` with the new `themeHash`
 > instead — recompute `sha256(themeHash + source)` per existing key and write it back with
 > `JSON.stringify(cache, null, 1) + '\n'`. Verify with `node check.mjs` **and** a clean
 > `git status _print/`.
@@ -280,6 +286,10 @@ gate immediately.
   mirror). Note it defers to `00-strategy/00-master-office-paperwork-index.gsheet` as the
   authoritative master index.
 - **`00-strategy/roadmap.md`** — current phase status and what's next.
+- **`06-operations-it/agent-workforce-plan.md`** — the internal agent layer: what the four
+  subagents are for, the earn-its-place test that caps the roster, the target rosters for
+  `ay2m/FlyGACA` and `ay2m/Captain-Adel`, and what agents explicitly do **not** replace.
+  Adopted as DEC-012.
 - **`tools/print/README.md`** — full print-pipeline usage/config detail beyond the summary above.
 - **`01-governance/`** — `company-facts.md`, `CODE_OF_CONDUCT.md`, `decision-log.md`,
   `CONTRIBUTING.md`, `SECURITY.md`.

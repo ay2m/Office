@@ -4,7 +4,7 @@ section: 01-governance
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-26
 lang: en
 ---
 
@@ -232,5 +232,60 @@ was replaced by an Express service on Cloud Run, and no Stripe code was carried 
 Moyasar is the only payment rail, as DEC-003 and DEC-010 both intended.
 
 ---
+
+---
+
+## DEC-012 — Adopt a bounded internal agent layer, and say what it does not replace
+
+| Field | Detail |
+|---|---|
+| **Date** | 2026-08-26 |
+| **Decision** | Adopt a **capped** internal agent layer in `ay2m/Office` — four subagents (`doc-smith`, `ar-mirror`, `ksa-compliance`, `family-warden`), governed by a written earn-its-place test in [`06-operations-it/agent-workforce-plan.md`](../06-operations-it/agent-workforce-plan.md). Formally retire `flygaca-qa-reviewer`. Record that this layer substitutes for **none** of the six roles in `05-people/job-descriptions-pack.docx`. Exclude `ay2m/FlyGACA-ios` from the roster pending its removal and restart. |
+| **Reversibility** | **Two-way door.** Deleting a `.claude/agents/*.md` removes an agent with no downstream effect — nothing in CI, the print pipeline or the family contract depends on any of them. The cap is the part that is meant to persist. |
+| **Owner** | Founder |
+| **Stakeholders Consulted** | Founder (solo) |
+| **Review Date** | 2026-11-26 |
+
+**Context.** Agents already do real work here and have for months —
+`00-strategy/phase0.md` lists *"Claude = research / scaffolding done in this workspace"* as a
+first-class **owner** alongside "You" and "Lawyer", and `.claude/agents/` has held two
+subagents since the repo was reorganised. What was missing was any governance over it. A third
+subagent, `flygaca-qa-reviewer`, was **deleted without a record**, leaving live references in
+two documents; and no document anywhere connected the agent layer to the hiring plan, so the
+two have been drifting past each other. An investor asking "who does the work?" needs a written
+answer that is neither "a team we do not have" nor "AI does it."
+
+**Options Considered.**
+- *Leave it ad-hoc* — Pro: free, and it has worked so far. Con: the silent deletion of
+  `flygaca-qa-reviewer` is proof that the layer changes without a trace, and its own reversed
+  `me-central1`/`me-central2` line is proof that an ungoverned agent can carry a load-bearing
+  factual error for weeks.
+- *A large role-mapped roster* mirroring the six planned hires — Pro: legible, looks like an
+  org chart. Con: it implies a substitution that is not true, and every agent file is a
+  maintenance surface with no CI behind it. Twelve sections would become twelve agents by
+  gravity alone.
+- *A bounded roster with a written cap* — chosen. The failure mode of an agent layer is
+  accumulation, not absence. The cap is the actual decision; the four agents are just today's
+  instance of it, and the rejected candidates are recorded in the plan so the fifth has to be
+  argued for.
+
+**What this does not do.** It does not move the month-9 ML/AI Engineer or any other role in
+`05-people/job-descriptions-pack.docx`, and it does not touch the unsized bridge those hires
+are gated on. It does not close any owner decision. `09-investor-relations/investor-thesis.md`
+names the solo founder's bus factor as an open diligence item, and this decision leaves that
+exactly where it was.
+
+**On the retirement.** `flygaca-qa-reviewer`'s consistency-sweep function moves to
+`family-warden`, deliberately narrowed to reconcile against a named source rather than
+re-derive facts. Following the precedent this log set in DEC-011, the dated audit records that
+reference the old agent — `06-operations-it/qa-consistency-sweep-2026-06-14.md` and
+`repo-health-report-2026-06-16.md` — are **left intact**; they are the record of what was true
+then. The retirement is recorded forward-only, here and in `.claude/agents/README.md`.
+
+**Open, not decided here.** The founder's name is recorded two ways across the tree —
+"Captain Adel Al-Subaie" in the May/June briefings and `02-legal/lawyer-brief.md`, "Captain
+Adel Yahya A. Madkhali" in the June/July governance, HR and legal documents. That is a
+legal-identity question with trademark consequences, and it is logged as an open question in
+the plan document rather than normalised inside an agent-roster change.
 
 *Living document. Log new strategic decisions here within 7 days. Not legal advice.*

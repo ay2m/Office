@@ -4,7 +4,7 @@ section: root
 doc_type: index
 status: active
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-26
 lang: en
 ---
 
@@ -52,7 +52,7 @@ Founding, board, and conduct documents.
 - founders-agreement.docx · shareholders-agreement-sha.docx · esop-plan-stock-option-plan.docx
 - code-of-conduct.docx · anti-bribery-aml-and-whistleblower-policy.docx
 - board-pack-template.docx · decision-log-template.docx
-- Live: decision-log.md (DEC-006…011) · board-pack-2026-07.md — the go-to-company decisions
+- Live: decision-log.md (DEC-006…012) · board-pack-2026-07.md — the go-to-company decisions
 - Repo governance: CLAUDE.md · CODE_OF_CONDUCT.md · CONTRIBUTING.md · SECURITY.md · LICENSE
 
 ## 02 — Legal
@@ -129,7 +129,8 @@ Digital office setup **plus** product/engineering specs, runbooks, and infra not
   test-coverage-analysis-2026-06-16 · test-ready · repo-health-report-2026-06-16 ·
   slack-best-practices (Slack norms/security/PDPL — companion to 05-slack-workspace-blueprint) ·
   docs-followup-roadmap-2026-07 (draft→adopted tracker for the 2026-07-03 pass) ·
-  flygaca-* briefings · robots.txt
+  agent-workforce-plan (the internal agent roster, its cap, and how the family's repos fit —
+  companion to `.claude/agents/README.md`) · flygaca-* briefings · robots.txt
 - **runbooks/** — runbook-deploy · runbook-launch · runbook-cloudflare · runbook-ios ·
   runbook-vps-hardening · runbook-security-rollout · runbook-captain-adel ·
   runbook-captadel-(deploy/extraction/saas) · runbook-arabic-provider · runbook-pdpl-me-central2 · runbook-source-updates · runbook-decision-log · runbook-claude-plugins

@@ -10,7 +10,7 @@ lang: en
 
 # Brief for a Saudi IP Lawyer — Fly GACA (P0-1 & P0-2)
 
-**Prepared by:** Captain Adel Al-Subaie — founder, Fly GACA
+**Prepared by:** Captain Adel Madkhali — founder, Fly GACA
 **Date:** 23 May 2026
 **Subject:** Two intellectual-property questions blocking launch — (1) the right to
 redistribute and index official Saudi aviation publications, and (2) the legality and

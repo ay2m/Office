@@ -4,11 +4,16 @@ section: 00-strategy
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-06-21
+last_updated: 2026-08-26
 lang: ar
 ---
 
 # المشروع: نظام Fly GACA متعدد الوكلاء لتمكين المبيعات
+
+> **هذا هو نظام الوكلاء الخاص بالمنتج** — شخصيات تخاطب العملاء وتخدمها حزمة بايثون. وهو **ليس**
+> طبقة وكلاء التطوير الداخلية في `.claude/agents/`، المحكومة بـ
+> [`06-operations-it/agent-workforce-plan.md`](../06-operations-it/agent-workforce-plan.md).
+> يُخلط بين الاثنين كثيرًا، ولا يجمعهما سوى كلمة «وكيل».
 
 ## البنية المعمارية
 يُنفَّذ النظام كحزمة بايثون معيارية `sales_agents/` تستخدم SDK الخاص بـ `google-genai` لتفاعلات نماذج اللغة الكبيرة (LLM). ويتضمن:
