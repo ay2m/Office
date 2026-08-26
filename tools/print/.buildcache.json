@@ -101,7 +101,7 @@
  "11-brand/flygaca-design-tokens-readme.md": "1dbbf6a52463b76ee9b7562195b1ededfc943b64114ccdcb1f4fccf322875924",
  "11-brand/flygaca-document-style-and-design-guideline.md": "acbd50e827cda174fab7aa6f172f7ae57b77affd9080b809d5dad18fc816b687",
  "11-brand/tidal-reckoning-philosophy.md": "8043f38ae5de0e93503972e9185509dd90be5ea122109052e681b696d386999e",
- "_INDEX.md": "800b7e25f8597389b3618d281ebd89d4325dc9f128c9aa09aa2041b5aa97b867",
+ "_INDEX.md": "5ced8daa92e6cd13bb0d9525147cddeabef7a36c34972c82d46288c650a96e85",
  "ar/00-strategy/book-of-fly-gaca-review-2026-06-14.md": "b8e0c2b79ca60f51f5c5a724ef9fdd6fac57414dfaf6ad89bbdb2f7d033a3eea",
  "ar/00-strategy/fly-gaca-review-action-plan.md": "c34eda5c4a2affd5c0a96ff403a60ed0da52dcf1ddd701dd0040dd879cb09b1d",
  "ar/00-strategy/master-paperwork-template-index-2026-06-14.md": "702c96b331fbde41f3eecfc0c2f74c37bcfb962f54826a2453eb91dc3a7643f2",
@@ -202,7 +202,7 @@
  "ar/11-brand/tidal-reckoning-philosophy.md": "ea901e2c4a1365075800bcdcc9b715cfb7cf295e5e1368856a670ddb2f8383b4",
  "ar/README.md": "21a09f7524c9e9f167c37da0ce0d7fc450336738db64a60c076dd76102bbd436",
  "ar/_GLOSSARY.md": "6a2fdb3ec29251781811ed5f9fbc73b25a596621ea82c59dccd95294c3745f71",
- "ar/_INDEX.md": "9b6b26571f8437b03ca37135208f84f8b75bded72f36ee6652c20705782e55bb",
+ "ar/_INDEX.md": "8f43e048006bd25afcd7cd204aae72db5c0dd26b1435abdcc1ea16ef17de8a7e",
  "ar/templates/tpl-fin-report.md": "cd086024aa9db4e123b25feca89e860d12efe1edfec7e4911cff682997a40686",
  "ar/templates/tpl-hr-policy.md": "7547b0e560861d087a40df59cd2ea2582c6ede05387d6379b239ce78acde1f1c",
  "ar/templates/tpl-legal-memo.md": "c5b0c2ed9dd4b1e014d96f22ba12eb1b9ef0e4540fbe4dfa75f4341258368c17",
@@ -235,7 +235,7 @@
  "ar/06-operations-it/secrets-and-keys-placement.md": "b22d541a3542163cdc8a5ce08f1e56c8e9b9c9139f0b92b244be099b354284be",
  "06-operations-it/slack-best-practices.md": "7d2f1a2fb9025a1cfcc84b7767c37ef81009d60dd9ce948fb68195fe9eff051f",
  "ar/06-operations-it/slack-best-practices.md": "b6731601e3dd038aae6e5a7c63bcbee80484ae814d3bbbc874f2f1fa4a3a9469",
- "CLAUDE.md": "7e5451436a7d1dc342a5dc20d44798468b287a7a823a60e056104a03695dbf9c",
+ "CLAUDE.md": "fe1f41251cd21bcbf657d3a645d1c73c718d2da420f3a2c2b6e913a26fa76bcc",
  "06-operations-it/runbooks/runbook-decision-log.md": "c5750254184c4543f4c5c71411f09574e8573747629edca6623a069ac93bdd2e",
  "06-operations-it/audit-flight-school-admin-dashboard.md": "3ec04e3452bb6fd0b7de114cf9710d5708be377cd80b52aa9136f9094b6c20e6",
  "04-compliance-ksa/cyber-risk-assessment-2026-08.md": "67c0ca663f43d7995d8cb38b622dc0ca824160df3dca1aee2ddd312ea124f73a",
@@ -243,5 +243,7 @@
  "04-compliance-ksa/pci-dss-scope-and-saq-determination.md": "2b78fba0dcbba2abcacf753fb5cfad09916b1e13e401af5b5a0aa0f949f7b9ba",
  "04-compliance-ksa/pdpl-pia-instructor-dashboard.md": "9f1ffeea90bb35a3ce922ff47d9180805b7b98388f49f0c786794823b2013de7",
  "06-operations-it/agent-workforce-plan.md": "d8d8d55a7607670d563b1121dd9449f69ebcdff8cf5cacc81109f2f6efd0269a",
- "ar/06-operations-it/agent-workforce-plan.md": "0dd5c9f7d6c2ce11ee61160e27cd8fa847c35c0f147dff66e59bd006f31628c9"
+ "ar/06-operations-it/agent-workforce-plan.md": "0dd5c9f7d6c2ce11ee61160e27cd8fa847c35c0f147dff66e59bd006f31628c9",
+ "06-operations-it/runbooks/runbook-claude-plugins.md": "7b60d331af3063caa057774270973e45569fb1b778431f491ee3472225fad6ed",
+ "ar/06-operations-it/runbooks/runbook-claude-plugins.md": "6c2258a3570965fc94c2f3687866ef960172f5b4f40aaccd0c95f11899568665"
 }
