@@ -16,6 +16,7 @@ second copy of this table would drift within two PRs.
 | `family-warden` | `contracts/flygaca-family.json`, its parity with `01-governance/company-facts.md`, the repo roster, and cross-repo drift sweeps |
 | `schools-acquisition` | B2B flight-school outreach, 14-day pilot playbook, package pricing discipline, pipeline conversion tracking |
 | `gtm-defensibility-steward` | Competitive positioning, brand constraints, defensible wedges (NTSB↔GACAR, RTL parity, cited explanations) |
+| `fly-gaca-gtm-orchestrator` | Cross-repo GTM coordination — Schools motion, pricing sync, competitive threats, conversion funnels, ARR composition |
 | ~~`flygaca-qa-reviewer`~~ | **Retired.** Its own line 15 had `me-central1`/`me-central2` reversed and a QA sweep had to catch it; the consistency-sweep function moved to `family-warden`, narrowed to reconcile against a named source rather than re-derive. The dated audit records that reference it are left intact. |
 
 What these encode that a generic writing agent cannot know: the exact
