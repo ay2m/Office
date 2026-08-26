@@ -130,7 +130,11 @@ Digital office setup **plus** product/engineering specs, runbooks, and infra not
   slack-best-practices (Slack norms/security/PDPL — companion to 05-slack-workspace-blueprint) ·
   docs-followup-roadmap-2026-07 (draft→adopted tracker for the 2026-07-03 pass) ·
   agent-workforce-plan (the internal agent roster, its cap, and how the family's repos fit —
-  companion to `.claude/agents/README.md`) · flygaca-* briefings · robots.txt
+  companion to `.claude/agents/README.md`) · agent-infrastructure-team-training (agent roster walkthrough,
+  cross-repo family contract, shared constraints) · phase5-live-execution-plan (12-week roadmap for team
+  adoption, Weeks 1–12, success gates and metrics) · agent-effectiveness-dashboard (Phase 5 metrics tracking:
+  weekly invocation log, per-agent scoring, monthly deep-dives, team adoption snapshot) · phase2-multi-repo-architecture
+  (wshobson plugin architecture, MCP state management, multi-harness deployment) · flygaca-* briefings · robots.txt
 - **runbooks/** — runbook-deploy · runbook-launch · runbook-cloudflare · runbook-ios ·
   runbook-vps-hardening · runbook-security-rollout · runbook-captain-adel ·
   runbook-captadel-(deploy/extraction/saas) · runbook-arabic-provider · runbook-pdpl-me-central2 · runbook-source-updates · runbook-decision-log · runbook-claude-plugins

@@ -1,0 +1,61 @@
+{
+  "name": "office-governance",
+  "title": "Office Governance & Documentation",
+  "version": "2.0.0",
+  "description": "Internal Office governance layer: document authoring, entity facts tracking, family contract parity, cross-repo sync, and KSA compliance scaffolding.",
+  "author": "Fly GACA",
+  "homepage": "https://github.com/ay2m/Office",
+  "repository": "ay2m/Office",
+  "agents": [
+    {
+      "name": "doc-smith",
+      "description": "Document authoring, editing, and the Markdown/HTML → PDF print pipeline",
+      "color": "cyan"
+    },
+    {
+      "name": "ar-mirror",
+      "description": "Arabic (Saudi MSA) translation and mirror maintenance across ar/ parallel directory",
+      "color": "purple"
+    },
+    {
+      "name": "ksa-compliance",
+      "description": "Saudi regulatory guidance: PDPL, ZATCA, MISA, Nitaqat compliance scaffolding",
+      "color": "yellow"
+    },
+    {
+      "name": "family-warden",
+      "description": "Cross-repo family contract parity and entity-facts consistency",
+      "color": "magenta"
+    },
+    {
+      "name": "governance-auditor",
+      "description": "Decision log consistency, reversibility tracking, policy drift detection",
+      "color": "blue"
+    },
+    {
+      "name": "entity-facts-guardian",
+      "description": "Entity facts parity, IBAN protection, contract versioning and MCP state",
+      "color": "green"
+    },
+    {
+      "name": "cross-repo-sync",
+      "description": "Office ↔ FlyGACA ↔ Captain-Adel coordination, contract stamping, synchronized PR workflow",
+      "color": "orange"
+    }
+  ],
+  "skills": [
+    "office-ci-gates",
+    "entity-facts-validation",
+    "cross-repo-stamping"
+  ],
+  "commands": [
+    "office-sync"
+  ],
+  "keywords": [
+    "governance",
+    "documentation",
+    "compliance",
+    "multi-repo",
+    "family-contract"
+  ]
+}
