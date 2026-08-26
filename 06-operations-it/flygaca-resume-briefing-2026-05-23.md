@@ -41,7 +41,7 @@ serves pilots, operators, instructors and cadets in the Kingdom of Saudi Arabia.
 
 Primary domain: flygaca.com
 Repository:     github.com/ay2m/flygaca (not yet created — see <progress_so_far>)
-Owner:          Captain Adel Al-Subaie — Chief Instructor, ATPL, CFII
+Owner:          Captain Adel Madkhali — Chief Instructor, ATPL, CFII
 Build mode:     solo founder, no fixed deadline, phased delivery
 </project_overview>
 

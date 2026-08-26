@@ -41,7 +41,7 @@ It serves pilots, operators, instructors, and cadets in the Kingdom of Saudi Ara
 | Primary domain | flygaca.com (API origin: api.flygaca.com) |
 | Product repo | github.com/ay2m/FlyGACA — web app + Express backend + regulatory corpus |
 | Other repos | ay2m/Captain-Adel (captadel.com service) · ay2m/FlyGACA-ios (native SwiftUI family) · ay2m/Office (this documents tree) · ay2m/FlyGACA-app (**archived** predecessor — never cite as current) |
-| Owner | Captain Adel Al-Subaie — Chief Instructor, ATPL, CFII |
+| Owner | Captain Adel Madkhali — Chief Instructor, ATPL, CFII |
 | Build mode | Solo founder · no fixed deadline · phased delivery |
 
 **Problem it solves.** Saudi pilots juggle scattered PDFs, paper logbooks, calculators,
