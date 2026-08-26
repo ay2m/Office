@@ -4,7 +4,7 @@ section: 06-operations-it
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-26
 lang: en
 ---
 
@@ -13,7 +13,12 @@ lang: en
 > **How to use this file.** It is the standing-context version of the project brief for agentic
 > tools that read an `AGENTS.md` (Google Antigravity and friends). Companion files:
 > `flygaca-claude-briefing.md` (same content, XML-tagged for Claude) and
-> `fly-gaca-master-plan.docx` (the human-readable master plan).
+> `fly-gaca-master-plan.docx` (the human-readable master plan). Edit this file and the Claude
+> briefing **as a pair** — they are one text in two formats.
+>
+> **This file names no agents.** It is context *about the company* for whatever agent reads it.
+> The roster — which subagents exist, what each owns, and why there are four and not twelve —
+> is `agent-workforce-plan.md`.
 
 > [!IMPORTANT]
 > **The repository's own `CLAUDE.md` is authoritative.** `ay2m/FlyGACA` carries a detailed,

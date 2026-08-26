@@ -4,7 +4,7 @@ section: 06-operations-it
 doc_type: brief
 status: active
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-26
 lang: ar
 ---
 
@@ -22,7 +22,11 @@ lang: ar
 > بعدما كانت نسخة حقبة Firebase تُحيط الجلسات علمًا بمنظومة لم تعد موجودة.
 
 ملف رفيق: `flygaca-antigravity-agents.md` يحمل الخطة ذاتها مُنسَّقة لـ Google
-Antigravity. والنسخة القابلة للقراءة البشرية هي `fly-gaca-master-plan.docx`.
+Antigravity — وتُحرَّر النسختان **معًا**. والنسخة القابلة للقراءة البشرية هي
+`fly-gaca-master-plan.docx`.
+
+ولا يسمّي هذا الموجز أي وكيل؛ فهو سياق *عن الشركة* لأي وكيل يقرأه. أما قائمة الوكلاء الفرعيين
+والقواعد التي تحدّها ففي `agent-workforce-plan.md`.
 
 ---
 

@@ -4,7 +4,7 @@ section: 06-operations-it
 doc_type: document
 status: active
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-26
 lang: ar
 ---
 
@@ -13,7 +13,11 @@ lang: ar
 > **كيفية استخدام هذا الملف.** هو نسخة السياق الثابت من موجز المشروع، موجَّهة للأدوات الوكيلة التي
 > تقرأ ملف `AGENTS.md` ‏(Google Antigravity وأخواتها). ملفات رفيقة:
 > `flygaca-claude-briefing.md` (المحتوى ذاته، موسومًا بـ XML لـ Claude) و
-> `fly-gaca-master-plan.docx` (الخطة الرئيسية القابلة للقراءة البشرية).
+> `fly-gaca-master-plan.docx` (الخطة الرئيسية القابلة للقراءة البشرية). حرِّر هذا الملف وموجز
+> Claude **معًا** — فهما نصّ واحد بصيغتين.
+>
+> **هذا الملف لا يسمّي أي وكيل.** فهو سياق *عن الشركة* لأي وكيل يقرأه. أما قائمة الوكلاء — أيّها
+> موجود، وما الذي يملكه كلٌّ منها، ولماذا هم أربعة لا اثنا عشر — ففي `agent-workforce-plan.md`.
 
 > [!IMPORTANT]
 > **ملف `CLAUDE.md` الخاص بالمستودع هو المرجع.** فـ `ay2m/FlyGACA` يحمل ملف إرشاد مفصّلًا ملاصقًا
