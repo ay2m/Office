@@ -332,4 +332,43 @@ does not exercise `/feature-launch` against a real change — the Phase 2.2 line
 one live feature shipping" remains **open**, and the command should not be described as tested
 end-to-end until it has driven one.
 
+## DEC-014 — Enforce me-central2-only deploys in Captain-Adel; Doha was never a compliant fallback
+
+| Field | Detail |
+|---|---|
+| **Date** | 2026-08-27 |
+| **Decision** | `ay2m/Captain-Adel`'s `deploy/deploy.sh` now hard-fails before any `gcloud` call if `REGION` is set to anything other than `me-central2`. Every other file in that repo describing `me-central1` (Doha) as an "interim" or "fallback" in-Kingdom option — the deploy runbooks, `README.md`, `CLAUDE.md`, the deploy GitHub Actions workflow, and the four `captain-adel-service` plugin files written under Phase 2.3 — is corrected to state the enforcement instead. |
+| **Reversibility** | **Fully reversible, but shouldn't be.** The guard is four lines in a bash script; removing it costs nothing technically. It is being recorded here precisely so that removal is never a quiet, unreviewed edit — the geography fact underneath it (Doha is Qatar, not Saudi Arabia) does not change. |
+| **Owner** | Founder |
+| **Stakeholders Consulted** | Founder (solo) |
+| **Review Date** | 2026-11-27 |
+
+**Context.** Phase 2.3 (DEC-013) flagged a conflict — `deploy/deploy.sh` documented `me-central1` as
+a PDPL-compliant fallback region while `CLAUDE.md` said "never `me-central1` … not PDPL-safe" — and
+deliberately left it unresolved as a founder decision rather than settling it in a code comment. On
+resuming that work, the actual geography made the resolution mechanical rather than a judgment call:
+Google Cloud's `me-central1` is in **Doha, Qatar**. Qatar is not the Kingdom of Saudi Arabia. No
+framing of that region as "in-Kingdom," "interim," or "KSA (or me-central1 fallback)" — all phrases
+that existed somewhere in the repo — was ever accurate. The documentation was asserting a compliance
+property the region cannot structurally have, regardless of how temporary or emergency-only the
+intended use was.
+
+**What was fixed.** `deploy/deploy.sh` now rejects any `REGION` other than `me-central2` immediately,
+before the script's first `gcloud` invocation — verified directly: `REGION=me-central1` exits 1 with
+an explanation naming Doha as Qatar; the default `me-central2` path proceeds past the guard. The
+die-message on a failed deploy no longer suggests retrying in Doha; `LOCATION_POLICY_VIOLATED` is now
+documented everywhere as a quota/allowlist request to Google, not a region change. Nine other files
+carried the same claim in weaker forms (a code comment, a runbook line, a workflow input description,
+a troubleshooting table row) and were swept in the same change, including a plugin skill and agent
+written earlier in Phase 2.3 that described the conflict as open — those now describe the resolution.
+One dangling reference to a `RUNBOOK-pdpl-me-central2.md` file that does not exist anywhere in the
+repo was also removed rather than left to mislead the next reader.
+
+**What this does not do.** It does not touch the separate, still-open residency risk that `CLAUDE.md`
+already documents honestly: the English chat path calls Google's global Gemini Developer API and
+therefore leaves the Kingdom regardless of which Cloud Run region the service itself runs in.
+Enforcing the deploy region closes the Doha loophole; it does not make model inference in-Kingdom.
+That distinction is now stated explicitly in the `deploy-check` command so the two are not conflated
+again. It also does not touch `ay2m/FlyGACA`, which does not carry an equivalent region-fallback claim.
+
 *Living document. Log new strategic decisions here within 7 days. Not legal advice.*
