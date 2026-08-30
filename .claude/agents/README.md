@@ -35,34 +35,54 @@ second copy of this table would drift within two PRs.
 | `instructor-deployment-steward` | captadel.com hosting, Cloud Run revision management, deployment safety gates |
 | **Operations & Orchestration** |  |
 | `operations-orchestrator` | Multi-repo workflow routing — coordinates full-sync, feature-ship, compliance-audit, security-hardening, performance-sprint |
-| ~~`flygaca-qa-reviewer`~~ | **Retired.** Its own line had `me-central1`/`me-central2` reversed; consistency-sweep moved to `family-warden`, narrowed to reconcile against a named source. Dated audit records citing it are left intact. |
+| `strategy-analyst` | `00-strategy/` — OKRs, roadmap, CEO execution plan, Phase 0 tracker, numbered brainstorms |
+| `governance-clerk` | `01-governance/` — decision log (DEC-NNN), board packs, company-facts parity |
+| `legal-scribe` | `02-legal/` — terms/EULA/NDAs/DPA/refund/IP-takedown drafts, lawyer briefs |
+| `finance-steward` | `03-finance/` — policies, monetization bands (price authority), trackers |
+| `people-ops` | `05-people/` — handbook, offer letters, onboarding/offboarding, grievance procedure |
+| `ops-it-spec` | `06-operations-it/` — product specs, runbooks/, hosting & secrets facts |
+| `seo-strategist` | `07-gtm/seo/` — bilingual EN+AR SEO strategy |
+| `customer-success` | `08-customer-success/` — onboarding playbook, health scoring, NPS, QBR |
+| `ir-steward` | `09-investor-relations/` — deck, FAQ, DD questionnaire, investor updates |
+| `academy-curriculum` | `10-academy-curriculum/` — curriculum map, coverage matrix, learner paths |
+| `brand-keeper` | `11-brand/` — Falcon Theme, tokens, style guide, print collateral |
+| `print-pipeline` | `tools/print/` + `_print/` freshness — build.mjs themeHash trap |
+| `index-curator` | `_INDEX.md` (EN+AR), gsheet master-index deference, rename cascades |
+| `consistency-sweeper` | Cross-doc fact reconciliation against named sources |
+| `templates-curator` | `templates/` + `ar/templates/` starters and their title-only schema |
+| `privacy-dpia` | Deep PDPL work — DPIA/PIA, breach notification, sub-processor register |
+| `exam-bank-author` | Mock exams/question banks in `10-academy-curriculum/` |
+| `captadel-liaison` | Office-side Captain Adel docs — refusal-protocol spec alignment |
+
+~~`flygaca-qa-reviewer`~~ | **Retired.** Its own line had `me-central1`/`me-central2` reversed; consistency-sweep moved to `family-warden` (and later `consistency-sweeper`), narrowed to reconcile against a named source rather than re-derive. The dated audit records that reference it are left intact.
 
 ## Phase 2 Expansion (Weeks 3-7) — Complete
 
-The roster expands from 4 → 15 agents, all in `.claude/agents/` for CI exemption.
+The roster expands from 4 → 25 agents, all in `.claude/agents/` for CI exemption.
 
-### Office & Governance (7 agents)
-- Existing: `doc-smith`, `ar-mirror`, `ksa-compliance`, `family-warden`
-- Phase 2: `governance-auditor`, `entity-facts-guardian`, `cross-repo-sync`
+### Office & Governance
+- Core: `doc-smith`, `ar-mirror`, `ksa-compliance`, `family-warden`
+- Governance: `governance-auditor`, `entity-facts-guardian`, `cross-repo-sync`, `governance-clerk`, `legal-scribe`, `finance-steward`, `people-ops`
 
-### Product Engineering (5 agents)
+### Product Engineering
 - `react-19-architect` — React 19, Vite, TypeScript strict, RTL/i18n
 - `express-backend-pro` — Express 5, Cloud Run, SQL migrations, HttpOnly JWT
 - `regulatory-corpus-keeper` — GACAR indexing, corpus tiers, AIRAC calendar
 - `sql-migrator` — PostgreSQL schemas, forward-only migrations
 - `genkit-rag-specialist` — Gemini integration, RAG pipeline, Captain Adel grounding
 
-### Flight Service (4 agents)
+### Flight Service & AI
 - `flight-curriculum-designer` — GACAR-aligned syllabi, mock exams, learner paths
 - `ml-instructor-trainer` — Captain Adel persona, model tuning, eval metrics
 - `flight-data-pipeline-engineer` — Learner data (PDPL), flight-hour tracking
 - `instructor-deployment-steward` — captadel.com hosting, Cloud Run revision mgmt
+- `captadel-liaison` — Office-side Captain Adel docs & chat-contract expectations
 
-### Orchestration & Workflows (1 agent + 5 skills in `.claude/skills/operations/`)
+### Operations & Orchestration
 - `operations-orchestrator` — Routes full-sync, feature-ship, compliance-audit, security-hardening, performance-sprint
 - Workflows: `full-sync.md`, `feature-ship.md`, `compliance-audit.md`, `security-hardening.md`, `performance-sprint.md`
 
-**Status:** Phase 2 agent and orchestrator layer complete. All 15 agents operational, 5 workflow skills defined.
+**Status:** Phase 2 agent and orchestrator layer complete. All 25 agents operational.
 **See:** [`06-operations-it/agent-workforce-plan.md`](../../06-operations-it/agent-workforce-plan.md) for full architecture spec.
 
 What these encode that a generic writing agent cannot know: the exact

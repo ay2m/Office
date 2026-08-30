@@ -88,8 +88,19 @@ them. They are stated once here and sourced, not restated, so there is one place
 
 ## 4. The Office roster (`ay2m/Office`)
 
-Four subagents, in `.claude/agents/`. Note this directory is inside `check.mjs`'s root-anchored
-`SKIP_DIRS`, so agent files need **no** document front-matter and **no** `_print/` PDF.
+> **2026-08-26 update — the four-agent cap is superseded.** The founder directed expansion to
+> **twenty-five** agents. The earn-its-place test itself is NOT superseded: every new agent was
+> admitted against it, each encoding non-inferable repo knowledge — the section boundaries, the
+> print-pipeline traps, the named-source reconciliation rule, the open owner decisions it must
+> not close. The original "rejected" table below is retained as history; note that several of its
+> candidates were later admitted in a narrower form once they could be given genuinely
+> non-inferable content (e.g. `legal-scribe` with the launch-gate checklist and the two-names
+> trap; `finance-steward` with monetization-band authority; `people-ops` with the D1 blocker).
+> The roster table lives in `.claude/agents/README.md`, as before.
+
+Twenty-five subagents, in `.claude/agents/`. Note this directory is inside `check.mjs`'s
+root-anchored `SKIP_DIRS`, so agent files need **no** document front-matter and **no** `_print/`
+PDF.
 
 | Agent | Owns | The non-inferable part |
 |---|---|---|

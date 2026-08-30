@@ -80,10 +80,8 @@ Support directories:
   `tpl-legal-memo.md`, `tpl-ops-runbook.md`, `tpl-strat-proposal.md`; mirrored under
   `ar/templates/`). Base new docs on these.
 - **`ar/`** — a parallel Arabic (Saudi MSA) mirror of the **Markdown layer** across all 12
-  sections — same folder structure and filenames, translated content. It currently holds 119
-  `.md` against the English tree's 126, so **seven English docs have no Arabic counterpart yet**
-  (the newest English additions run ahead of the mirror; four of the seven are in
-  `04-compliance-ksa/`). The `.docx`/`.xlsx`/`.html` deliverables
+  sections — same folder structure and filenames, translated content. It holds 126
+  `.md` matching the English tree's 126 (100% parity across all 12 sections). The `.docx`/`.xlsx`/`.html` deliverables
   are EN-only. **English is authoritative** — on any conflict the English
   tree governs. Filenames stay ASCII kebab-case even under `ar/` for easy diffing.
 - **`tools/print/`** — the Markdown → branded A4 PDF pipeline (see below), plus `check-facts.mjs`,
@@ -99,14 +97,21 @@ Support directories:
   filename normalisation (Title Case + spaces → ASCII kebab-case). Reference it when an old
   filename turns up in a link or an external index; it is data, not a doc, and the doc-check gate
   ignores it.
-- **`.claude/agents/`** — four subagents scoped to this repo: **doc-smith** (any `.md`/`.html`
-  add/edit/rename, front-matter, and the print pipeline — use it when docs-check fails),
-  **ar-mirror** (translating a new/changed English doc into `ar/` against the glossary and
+- **`.claude/agents/`** — twenty-five subagents scoped to this repo. The originals:
+  **doc-smith** (any `.md`/`.html` add/edit/rename, front-matter, and the print pipeline — use
+  it when docs-check fails), **ar-mirror** (translating into `ar/` against the glossary and
   rebuilding the Arabic PDFs), **ksa-compliance** (anything turning on Saudi regulation, and any
-  vendored-skill output before it is adopted) and **family-warden** (the family contract, entity
-  facts, and cross-repo drift). `agents/README.md` holds the roster and says when each applies;
-  `06-operations-it/agent-workforce-plan.md` explains why the roster is four and not twelve, and
-  how the family's other repos are meant to fit.
+  vendored-skill output before it is adopted), **family-warden** (the family contract, entity
+  facts, and cross-repo drift); plus three GTM agents (**schools-acquisition**,
+  **gtm-defensibility-steward**, **fly-gaca-gtm-orchestrator**) and eighteen territory agents —
+  one per numbered section (strategy-analyst, governance-clerk, legal-scribe, finance-steward,
+  people-ops, ops-it-spec, seo-strategist, customer-success, ir-steward, academy-curriculum,
+  brand-keeper) plus pipeline/governance specialists (print-pipeline, index-curator,
+  consistency-sweeper, templates-curator, privacy-dpia, exam-bank-author, captadel-liaison).
+  `agents/README.md` holds the roster and says when each applies;
+  `06-operations-it/agent-workforce-plan.md` explains why the roster exists at all, the
+  earn-its-place test every agent must pass, and how the family's other repos are meant to fit.
+  (The plan's original four-agent cap was superseded by founder direction on 2026-08-26.)
 - **`.claude/skills/`** — six vendored Apache-2.0 governance/privacy/risk skills (GDPR controls,
   privacy impact assessment, ISO 27001, NIST 800-30 risk assessment, third-party vendor risk,
   PCI DSS) chosen because their output is written policy rather than shell commands. They are
