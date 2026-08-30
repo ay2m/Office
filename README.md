@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](01-governance/LICENSE)
 [![Languages](https://img.shields.io/badge/languages-EN%20%7C%20AR-orange?style=flat-square)](ar/)
 [![Sections](https://img.shields.io/badge/sections-12-informational?style=flat-square)](_INDEX.md)
-[![PDFs](https://img.shields.io/badge/print--ready%20PDFs-265-lightgrey?style=flat-square)](_print/)
+[![PDFs](https://img.shields.io/badge/print--ready%20PDFs-263-lightgrey?style=flat-square)](_print/)
 
 **[📖 Master Index](_INDEX.md)** · **[🗺 Roadmap](00-strategy/roadmap.md)** · **[🖨 Print Pipeline](tools/print/README.md)** · **[🌐 Arabic Mirror](ar/_INDEX.md)**
 
@@ -23,15 +23,15 @@
 
 **ay2m/Office** ("The Office") is the internal document repository for [Fly GACA](https://flygaca.com) — an independent educational platform and open regulatory library for Saudi civil aviation (GACAR, AIP, charts, ground school, and Captain Adel, the AI flight instructor).
 
-This repository stores every operating document that runs the company: strategy and OKRs, governance rules, legal contracts, finance policies, Saudi compliance bundles (PDPL, ZATCA, MISA, Nitaqat), HR frameworks, GTM playbooks, investor materials, brand assets, and product/engineering specifications.
+This repository stores every operating document that runs the company: strategy and OKRs, governance rules, legal contracts, finance policies, Saudi compliance bundles (PDPL, ZATCA Phase 2 Fatoora e-invoicing, MISA, Nitaqat), HR frameworks, GTM flight school playbooks & proposals, investor materials, brand assets, and product/engineering specifications.
 
 **It contains no application source code** — Fly GACA's product software lives in separate dedicated repositories:
 
 | Repo | Role & Description |
 | --- | --- |
-| **ay2m/Office** (this repo) | The business operating system — strategy, governance, legal, finance, KSA compliance, HR & GTM docs |
-| [ay2m/FlyGACA](https://github.com/ay2m/FlyGACA) | flygaca.com — the bilingual React 19 + Vite PWA **and** its Express backend for Cloud Run (target region `me-central2`, Cloud SQL, Moyasar — not yet deployed), plus the regulatory corpus and content pipelines |
-| [ay2m/Captain-Adel](https://github.com/ay2m/Captain-Adel) | The AI flight instructor service (captadel.com) + the RAG engine behind chat, function calling & evals |
+| **ay2m/Office** (this repo) | The business operating system — strategy, governance, legal, finance, KSA compliance (PDPL, ZATCA Phase 2), HR & GTM docs |
+| [ay2m/FlyGACA](https://github.com/ay2m/FlyGACA) | flygaca.com — the bilingual React 19 + Vite PWA **and** its Express backend for Cloud Run (target region `me-central2`, Cloud SQL, Moyasar — not yet deployed), plus the regulatory corpus, 55+ flight tools, and NOAA weather feed |
+| [ay2m/Captain-Adel](https://github.com/ay2m/Captain-Adel) | The AI flight instructor service (captadel.com) + BGE-M3 hybrid dense retrieval engine behind chat, function calling & 138-case evals |
 | [ay2m/FlyGACA-ios](https://github.com/ay2m/FlyGACA-ios) | The native SwiftUI app family — shared `FlyGACAKit` package + ELPT and AIP App Store targets |
 | [ay2m/FlyGACA-app](https://github.com/ay2m/FlyGACA-app) | **Archived.** The retired predecessor of `ay2m/FlyGACA`, read-only, kept for its 1,005-commit history |
 
@@ -77,10 +77,10 @@ The repository is organized into twelve numbered sections (`00–11`), each inde
 | [`01`](01-governance/) | **Governance** | Founders' agreement, SHA, ESOP plan, Code of Conduct, decision log, board packs, repo governance (`CLAUDE.md`, `CONTRIBUTING.md`, `SECURITY.md`, `LICENSE`) |
 | [`02`](02-legal/) | **Legal** | NDAs, EULA, SLA, pilot agreement, PDPL privacy policy, DPA, IP & takedown procedure, refund policy, and Saudi lawyer briefs |
 | [`03`](03-finance/) | **Finance** | Banking & treasury policy, procurement, expense policy, budget-vs-actual trackers, financial dashboards, ZATCA e-invoicing templates |
-| [`04`](04-compliance-ksa/) | **Compliance (KSA)** | MISA investment license, ZATCA e-invoicing pack, PDPL DPIA & compliance program, Nitaqat plan, BCP/DR plans |
+| [`04`](04-compliance-ksa/) | **Compliance (KSA)** | ZATCA Phase 2 Fatoora e-invoicing architecture, MISA investment license, PDPL DPIA & compliance program, Nitaqat plan, BCP/DR plans |
 | [`05`](05-people/) | **People** | Saudi-compliant employment contracts, employee handbook, job descriptions, onboarding/offboarding checklists, performance review templates |
 | [`06`](06-operations-it/) | **Operations / IT** | Digital office setup, product specs (CRM, Captain Adel, Instructor Dashboard), runbooks, infrastructure diagrams, setup kits |
-| [`07`](07-gtm/) | **Go-To-Market** | Sales playbooks, demo scripts, objection handling, cold outreach templates, B2B pipeline, SEO strategy & keyword prospecting |
+| [`07`](07-gtm/) | **Go-To-Market** | Flight Academy B2B pilot proposals (GACAR Part 141 ATOs), sales playbooks, demo scripts, objection handling, B2B pipeline, SEO strategy |
 | [`08`](08-customer-success/) | **Customer Success** | Onboarding playbooks, customer health score framework, NPS survey packs, QBR templates, churn prevention playbooks |
 | [`09`](09-investor-relations/) | **Investor Relations** | Pitch deck, investor FAQ, due diligence questionnaire, monthly investor update templates, risk register, Saudi investor targets |
 | [`10`](10-academy-curriculum/) | **Academy & Curriculum** | Curriculum map, coverage matrix, PPL mock exams, B2C learner paths, instructor onboarding, cadet welcome packs |
@@ -107,9 +107,9 @@ The repository is organized into twelve numbered sections (`00–11`), each inde
 |-----------|--------|
 | 🗂 **Version-Controlled Operations** | Every policy, contract, and technical spec is tracked in Git — full diff history and blame. |
 | 🖨 **Automated Print Pipeline** | Any `.md` edit re-renders to a branded, watermarked A4 PDF via standard headless Chromium. |
-| 🌍 **Bilingual Native (EN / AR)** | Parallel Arabic (Saudi MSA) mirror under `ar/`; ASCII kebab-case filenames remain identical for diffing. |
+| 🌍 **Bilingual Native (EN / AR)** | Parallel Arabic (Saudi MSA) mirror under `ar/`; ASCII kebab-case filenames remain identical for diffing (128 EN / 128 AR). |
 | 📋 **YAML Front-Matter Metadata** | Standardized `title / section / doc_type / status / owner / last_updated / lang` on every document. |
-| 🔒 **KSA Regulatory Stack** | Purpose-built for Saudi legal frameworks: PDPL, ZATCA e-invoicing, MISA licensing, and Nitaqat. |
+| 🔒 **KSA Regulatory Stack** | Purpose-built for Saudi legal frameworks: PDPL, ZATCA Phase 2 Fatoora e-invoicing, MISA licensing, and Nitaqat. |
 | 🤖 **Captain Adel Technical Specs** | Full AI flight instructor specs, refusal protocol, deployment runbooks, and evaluation suite. |
 | 📐 **Falcon Design System** | Inter body font, Cairo headings & Arabic text, JetBrains Mono code, and Falcon Blue accent palette. |
 
@@ -119,7 +119,7 @@ The repository is organized into twelve numbered sections (`00–11`), each inde
 
 The [`ar/`](ar/) directory is a complete, parallel Arabic translation of the document tree — same folder structure, same ASCII filenames, written in **Modern Standard Arabic (Saudi official register)**.
 
-- 118 `.md` files maintained in sync with the English source
+- 128 `.md` files maintained in 100% sync with the English source
 - Unified terminology using [`ar/_GLOSSARY.md`](ar/_GLOSSARY.md) (EN↔AR term glossary)
 - Arabic PDFs automatically render **right-to-left** (Cairo typography, RTL margin boxes)
 - Latin code paths, identifiers, and file names remain LTR inside Arabic text
