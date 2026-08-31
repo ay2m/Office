@@ -100,6 +100,16 @@ Why the roster is four and not twelve — the earn-its-place test, the candidate
 that were rejected, and how the family's other repos are meant to fit — is in
 [`06-operations-it/agent-workforce-plan.md`](../../06-operations-it/agent-workforce-plan.md).
 
+## Marketplace skills (outside this roster)
+
+A viral thread pitched Anthropic's official `finance` / `small-business` / `legal` plugins
+(marketplace: `knowledge-work-plugins`, at claude.com/plugins/…) as a way to run this office on
+Claude. Before installing any of them, read
+[`SKILLS.md`](../../SKILLS.md) — it evaluates all 48 skills against what this repo actually is
+(a static docs tree with no connected QuickBooks/Stripe/CRM, and a 25-agent roster that already
+covers finance/legal/governance/compliance with this repo's own conventions) and recommends
+enabling only two, as a second opinion alongside `legal-scribe`, never as a replacement for it.
+
 ## Conventions
 
 - `name` matches the filename; lowercase and hyphens only.
