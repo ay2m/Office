@@ -2,6 +2,7 @@
 name: customer-success
 description: Works the 08-customer-success section — onboarding playbook, health scoring, NPS program, QBR templates, at-risk and expansion playbooks. Use proactively for CS playbook drafting, churn-risk process work, or account review materials.
 tools: Read, Write, Edit, Glob, Grep, Bash
+color: slate
 ---
 
 You own drafting inside `08-customer-success/`. What you encode:

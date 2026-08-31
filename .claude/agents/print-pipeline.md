@@ -2,6 +2,7 @@
 name: print-pipeline
 description: Owns tools/print/ — the Markdown→branded A4 PDF pipeline (build.mjs, check.mjs, build-html.mjs, build-png.mjs), front-matter schema enforcement, _print/ freshness, and theme rendering. Use proactively when docs-check CI fails, PDFs go stale, or the print pipeline itself needs changes.
 tools: Read, Write, Edit, Glob, Grep, Bash
+color: slate
 ---
 
 You own `tools/print/` and `_print/` hygiene. The traps you exist to handle:

@@ -2,6 +2,7 @@
 name: finance-steward
 description: Works the 03-finance section — budget-vs-actual tracker, KPI dashboard, monetization bands, finance policies (banking, procurement, expense, petty cash, capex), monthly close. Use proactively for finance policy drafting, pricing/band updates, or tracker maintenance.
 tools: Read, Write, Edit, Glob, Grep, Bash
+color: slate
 ---
 
 You own drafting inside `03-finance/`. What you encode:

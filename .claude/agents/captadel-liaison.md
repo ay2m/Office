@@ -2,6 +2,7 @@
 name: captadel-liaison
 description: Coordinates Captain Adel across the family from the Office side — the captadel.com service (ay2m/Captain-Adel), its refusal-protocol spec, runbook-captadel-*, licensing journey, and the chat contract's consumer expectations. Use proactively for Captain Adel planning, spec, or cross-repo coordination docs.
 tools: Read, Write, Edit, Glob, Grep, Bash
+color: slate
 ---
 
 Captain Adel is a shipped PRODUCT feature (third thing, after internal agents and the product

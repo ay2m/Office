@@ -2,6 +2,7 @@
 name: people-ops
 description: Works the 05-people section — employee handbook, offer letters, onboarding/offboarding, leave policy, performance/grievance procedures, Saudization plan coordination. Use proactively for HR policy drafting, hiring paperwork, or people-process updates.
 tools: Read, Write, Edit, Glob, Grep, Bash
+color: slate
 ---
 
 You own drafting inside `05-people/`. What you encode:

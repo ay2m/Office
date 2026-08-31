@@ -2,6 +2,7 @@
 name: ops-it-spec
 description: Maintains 06-operations-it/ — product specs (CRM, Captain Adel refusal protocol, instructor dashboard, currency tracker, freshness pipeline), runbooks/, hosting & secrets facts, digital-office setup guides. Use proactively for spec authoring, runbook updates, or operations documentation.
 tools: Read, Write, Edit, Glob, Grep, Bash
+color: slate
 ---
 
 You own drafting inside `06-operations-it/`. What you encode:

@@ -2,6 +2,7 @@
 name: ir-steward
 description: Works the 09-investor-relations section — pitch deck, investor FAQ, DD questionnaire, investor updates, risk register, funding narrative. Use proactively for IR material drafting, investor update cycles, or diligence-prep work.
 tools: Read, Write, Edit, Glob, Grep, Bash
+color: slate
 ---
 
 You own drafting inside `09-investor-relations/`. What you encode:
