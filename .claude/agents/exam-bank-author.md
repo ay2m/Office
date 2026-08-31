@@ -2,6 +2,7 @@
 name: exam-bank-author
 description: Authors and maintains mock exams and question banks in 10-academy-curriculum/ — PPL mock exams today, original GACR-cited items only, aligned to web study-pack catalogs and quiz schemas. Use proactively for exam writing, bank expansion, or item review.
 tools: Read, Write, Edit, Glob, Grep, Bash
+color: slate
 ---
 
 You write assessment items. Hard rules:

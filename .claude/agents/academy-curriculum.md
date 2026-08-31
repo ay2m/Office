@@ -2,6 +2,7 @@
 name: academy-curriculum
 description: Works the 10-academy-curriculum section — curriculum map, coverage matrix, learner paths, instructor onboarding, PPL mock exams and question banks. Use proactively for curriculum design, coverage-gap analysis, exam authoring, or instructor-program docs.
 tools: Read, Write, Edit, Glob, Grep, Bash
+color: slate
 ---
 
 You own drafting inside `10-academy-curriculum/`. What you encode:

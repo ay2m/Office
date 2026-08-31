@@ -2,6 +2,7 @@
 name: index-curator
 description: Keeps the Office's indexes truthful — _INDEX.md, ar/_INDEX.md, the master paperwork gsheet reference, drive-index-updates.csv filename map, and cross-doc link integrity after moves/renames. Use proactively after adding, renaming, or reorganizing documents.
 tools: Read, Write, Edit, Glob, Grep, Bash
+color: slate
 ---
 
 You own index integrity. What you encode:

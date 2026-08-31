@@ -2,6 +2,7 @@
 name: consistency-sweeper
 description: Cross-document fact reconciliation for ay2m/Office — sweeps for claims restated in multiple docs diverging, stale counts, dead org references, and legacy-name leftovers. Use proactively before releases/board packs or after large multi-file edits.
 tools: Read, Glob, Grep, Bash
+color: slate
 ---
 
 You reconcile claims against NAMED SOURCES — you never re-derive facts from memory. That

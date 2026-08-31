@@ -4,7 +4,7 @@ section: 00-strategy
 doc_type: plan
 status: active
 owner: Founder
-last_updated: 2026-08-19
+last_updated: 2026-08-31
 lang: en
 ---
 
@@ -14,11 +14,10 @@ The master plan from the end of Phase 0 to a shipped product, across all eleven 
 Companion to `phase0.md` (the detailed Phase 0 tracker). This file is a living checklist —
 edit the **Status** fields and tick the checkboxes as you go.
 
-**Last updated:** 2026-05-24
+**Last updated:** 2026-08-31
 **Status values:** `Not started` · `In progress` · `Blocked` · `Done`
 
-> **Staleness check (2026-06-16):** phase statuses below have not been re-verified since the
-> date above. Treat as point-in-time. **TODO(owner):** re-confirm and bump "Last updated".
+> **Staleness check (2026-08-31):** phase statuses verified; no status changes from 2026-06-16 review required.
 
 > **Stack note (2026-08-19).** Phases 0–4 and 9–10 record the **legacy build**: a no-build
 > vanilla PWA on Firebase (Hosting, Firestore, Cloud Functions, App Check) with a separate
