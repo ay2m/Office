@@ -37,14 +37,32 @@ third-party executables — every one of the 817 upstream skills ships a `script
 skill's workflow refers to a helper script, consult the pinned upstream commit above rather than
 running anything from here.
 
+## Claude-Mem (Mark Thibault) — *Added 2026-08-31*
+
+- **Project:** Claude-Mem — persistent memory and context management for Claude Code
+- **Author:** Mark Thibault (@thedotmack)
+- **Source:** https://github.com/thedotmack/claude-mem
+- **License:** Apache License 2.0
+- **Skills vendored:**
+  - `mem-setup` — configure cloud sync for persistent memory across sessions (cmem.ai credentials)
+  - `mem-search` — search memory index for prior decisions, docs, and context from previous sessions
+
+## Superpowers (Jesse Vincent) — *Added 2026-08-31*
+
+- **Project:** Superpowers — AI-native workflow orchestration for Claude Code
+- **Author:** Jesse Vincent (@obra)
+- **Source:** https://github.com/obra/superpowers
+- **License:** MIT
+- **Skill vendored:** `writing-plans` — structure and draft strategy proposals, playbooks, and planning documents
+
 ### Updating from upstream
 
-`.claude/settings.json` registers the upstream repo as a Claude Code marketplace, so
-`/plugin install cybersecurity-skills@anthropic-cybersecurity-skills` pulls the full 817-skill set
-on demand. It is **registered but not enabled** on purpose: enabling it alongside these vendored
-copies would put two skills of each vendored name on the path. Use the plugin to review what
-changed upstream, or to reach a skill outside the curated set, then port any delta into the
-vendored copy rather than running both.
+`.claude/settings.json` registers the upstream repos as Claude Code marketplaces, so
+`/plugin install cybersecurity-skills@anthropic-cybersecurity-skills` (or claude-mem, superpowers)
+pulls the full skill set on demand. They are **registered but not enabled** on purpose: enabling them
+alongside these vendored copies would put two skills of each vendored name on the path. Use the
+marketplace to review what changed upstream, or to reach a skill outside the curated set, then port
+any delta into the vendored copy rather than running both.
 
 ### The Office guardrail
 
