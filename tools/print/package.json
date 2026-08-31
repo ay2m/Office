@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "gray-matter": "4.0.3",
-    "markdown-it": "15.0.0",
+    "markdown-it": "15.0.1",
     "playwright-core": "1.62.1"
   }
 }
