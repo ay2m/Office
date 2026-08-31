@@ -1,0 +1,1 @@
+Analysis of test coverage across the Fly GACA family is documented in ay2m/FlyGACA and ay2m/FlyGACA-ios repositories.
