@@ -1,3 +1,13 @@
+---
+title: Fly GACA — The Master Office
+section: root
+doc_type: readme
+status: active
+owner: Founder
+last_updated: 2026-08-25
+lang: en
+---
+
 <div align="center">
 
 # 🏢 Fly GACA — The Master Office
