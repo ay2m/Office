@@ -8,86 +8,73 @@ last_updated: 2026-08-25
 lang: en
 ---
 
-# Print pipeline — markdown → branded A4 PDF
+<div align="center">
 
-Renders every `.md` in this repo (English tree and the `ar/` mirror) into a
-print-ready PDF under `_print/`, mirroring the folder structure. Styling
-follows the document "Falcon Theme" in
-`11-brand/fly-gaca-document-style-guide.md`: Inter body, Cairo headings,
-JetBrains Mono code, Falcon Blue accents, A4 with 0.75 in margins, footer
-page numbers, and a diagonal watermark on `status: draft` / `scaffold` docs.
-Arabic docs render RTL in Cairo with Latin code/paths kept LTR.
+# 🖨️ Headless Print Pipeline — Markdown & HTML → Branded A4 PDF
+### High-Fidelity Automated Publishing, Typography Engine & Offline PDF Generation
+#### خط إنتاج وثائق PDF الطباعية · خطوط متوافقة مع الهوية · دعم اللغة العربية RTL
 
-## Usage
+<p align="center">
+  <img src="https://img.shields.io/badge/Made%20in-Saudi%20Arabia-006C35?style=for-the-badge&labelColor=0a0e12" alt="صنع في السعودية" />
+  <img src="https://img.shields.io/badge/Engine-Headless%20Chromium-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=0a0e12" alt="Chromium" />
+  <img src="https://img.shields.io/badge/Layout-A4%20%40page%20Boxes-0D96F6?style=for-the-badge&labelColor=0a0e12" alt="A4 Layout" />
+  <img src="https://img.shields.io/badge/Bilingual-Cairo%20RTL%20%2B%20Inter-C8A04A?style=for-the-badge&labelColor=0a0e12" alt="Bilingual" />
+</p>
+
+</div>
+
+---
+
+## 🧭 Purpose & Architecture
+
+The **Print Pipeline** renders every Markdown document in `Office/` (both the English tree and the Arabic `ar/` mirror) into a print-ready, branded A4 PDF under `_print/`, maintaining an exact 1:1 directory structure.
+
+### Typography & Styling Rules
+- **English Typography:** Inter (Body) and JetBrains Mono (Code/Paths).
+- **Arabic Typography:** Cairo (Headings & RTL Arabic Body).
+- **Page Layout:** Standard A4 (210 × 297 mm) with 0.75-inch margins, dynamic header rules, and `@page` footer page counters.
+- **Draft Watermarks:** Automatic diagonal watermarks for documents with `status: draft` or `scaffold`.
+
+---
+
+## ⚡ CLI Commands & Workflow
 
 ```bash
 cd tools/print
-npm ci                 # 18 packages, no browser download (uses the local Chromium)
-npm run build          # markdown → PDF, incremental — only changed docs re-render
-npm run build:force    # rebuild every markdown doc
-node build.mjs 02-legal/terms-of-use-draft-2026-06-14.md   # one file
-node build-html.mjs    # render ALL 20 self-contained HTML pages → PDF
-node build-png.mjs     # re-screenshot 11-brand/print/*.html → the 300 dpi catalogue PNGs
-node check.mjs         # guard: front-matter + _print coverage + staleness (no browser)
-node check-facts.mjs   # guard: the family contract's entity facts (no browser)
+npm ci                 # Install dependencies (18 packages, zero external downloads)
+
+# 1. Incremental build (renders only modified .md files)
+npm run build
+
+# 2. Force rebuild of all ~260+ markdown documents
+npm run build:force
+
+# 3. Render a single markdown document
+node build.mjs 02-legal/terms-of-use-draft-2026-06-14.md
+
+# 4. Render all 20 standalone HTML showcase pages
+node build-html.mjs
+
+# 5. Re-screenshot brand collateral to 300 DPI PNGs
+node build-png.mjs
+
+# 6. CI validation guards (freshness & YAML frontmatter checks)
+node check.mjs
+node check-facts.mjs
 ```
 
-`build.mjs` handles markdown. `build-html.mjs` is a separate renderer for the
-**20** pages authored directly as HTML — it prints them with their own styles
-(the two dark showcase pages print dark by design), and is kept separate so HTML
-changes never invalidate the markdown build cache:
+---
 
-| Where | What |
-| --- | --- |
-| `00-strategy/` | `the-book-of-fly-gaca.html`, the brainstorms dashboard |
-| `02-legal/` | the Jawazat authorisation letter |
-| `03-finance/` | the ZATCA `tax-invoice-template.html` + `vat-return-worksheet.html` |
-| `09-investor-relations/decks/` | the bilingual investor decks (EN + AR) |
-| `11-brand/` | `design-system.html`, `tidal-reckoning.html` |
-| `11-brand/print/` | 10 print-collateral sources — letterheads EN/AR (+ sealed), memo, press release, business cards, envelope, compliments slip, contract cover; these share `brand-print.css` |
+## 🛡️ Caching & CI Guardrails
 
-Adding or renaming **any** `.html` without re-running `build-html.mjs` fails CI,
-exactly like an unrebuilt `.md`.
+- **`.buildcache.json`:** Stores SHA-256 content hashes of source files to prevent Chromium from re-stamping CreationDate timestamps on unchanged PDFs.
+- **`check.mjs`:** Verifies that no `.md` or `.html` file was edited without its corresponding PDF being committed.
+- **`check-facts.mjs`:** Validates that `contracts/flygaca-family.json` entity values exactly match `01-governance/company-facts.md`.
 
-**CI runs two guards** (`.github/workflows/docs-check.yml`), both dependency-free
-and browser-free: `check.mjs` for front-matter and `_print/` freshness, and
-`check-facts.mjs` for the family contract's entity facts — it asserts every
-`entity` value in `contracts/flygaca-family.json` against the
-`01-governance/company-facts.md` table it was copied from, verifies the
-manifest's self-hash, and asserts the IBAN and account number are absent from
-the manifest (it travels to both product repos). `tools/contracts/stamp-manifest.mjs`
-re-stamps that hash after an edit.
+---
 
-Requirements: Node 18+, a Chromium ≥ 131 (for CSS `@page` margin boxes —
-page numbers). The script auto-detects the browser under
-`$PLAYWRIGHT_BROWSERS_PATH` (default `/opt/pw-browsers`) or uses
-`$CHROMIUM_PATH` if set. Fonts are vendored in `fonts/` (OFL-licensed woff2:
-Inter, Cairo latin+arabic, JetBrains Mono) so builds are fully offline.
+<div align="center">
 
-## How it works
+<sub>🇸🇦 صنع في السعودية · Made in Saudi Arabia</sub>
 
-1. `build.mjs` walks the repo for `.md` files (skipping `_print/`, `tools/`).
-2. Each doc's YAML front-matter (`title / section / doc_type / status /
-   owner / last_updated / lang`) becomes the branded cover block; the doc's
-   own H1 is dropped when the front-matter title exists to avoid duplication.
-3. Markdown renders via markdown-it (GFM tables, task-list checkboxes) into
-   an HTML shell linking `theme.css`, then headless Chromium prints it
-   (`page.pdf`, `preferCSSPageSize`).
-4. `.buildcache.json` stores a content hash per source so unchanged docs are
-   skipped — Chromium stamps a fresh CreationDate on every render, and
-   without the cache each run would dirty all ~200 committed PDFs.
-
-## Notes
-
-- 263 PDFs are committed, adding ~50–70 MB to the repo (accepted trade-off so
-  every doc is downloadable/printable without tooling). If that becomes a
-  problem, move `_print/**/*.pdf` to Git LFS.
-- **Editing `build.mjs` marks every PDF stale**, because its bytes fold into the
-  shared `themeHash`. For a change that cannot alter output (a `SKIP_DIRS` entry,
-  a comment, a log line), re-stamp `.buildcache.json` with the new hash instead of
-  re-rendering — Chromium restamps `CreationDate` on all 263 otherwise. Verify with
-  `node check.mjs` **and** a clean `git status _print/`.
-- `status: draft` or `scaffold` in front-matter → DRAFT/SCAFFOLD watermark
-  on every page. Set `status: active` (or `final`) when adopted.
-- The `.docx` / `.xlsx` / `.pptx` deliverables are already print-formatted
-  and are not touched by this pipeline.
+</div>

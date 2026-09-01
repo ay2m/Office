@@ -8,19 +8,38 @@ last_updated: 2026-07-27
 lang: en
 ---
 
-# Fly GACA — Design Tokens (Tokens Studio import)
+<div align="center">
+
+# 🎨 Fly GACA — Design Tokens (Tokens Studio import)
+### Complete 130-Token Design System & Figma Token Specification
+#### رموز التصميم لمنظومة فلاي جاكا · نظام الألوان والطباعة · استيراد Figma
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Made%20in-Saudi%20Arabia-006C35?style=for-the-badge&labelColor=0a0e12" alt="صنع في السعودية" />
+  <img src="https://img.shields.io/badge/Tokens-130%20Defined-0D96F6?style=for-the-badge&labelColor=0a0e12" alt="130 Tokens" />
+  <img src="https://img.shields.io/badge/Figma-Tokens%20Studio-F24E1E?style=for-the-badge&logo=figma&logoColor=white&labelColor=0a0e12" alt="Tokens Studio" />
+  <img src="https://img.shields.io/badge/Themes-Dark%20%26%20Light-C8A04A?style=for-the-badge&labelColor=0a0e12" alt="Themes" />
+</p>
+
+</div>
+
+---
+
+## 🧭 Overview
 
 Extracted from `flygaca/assets/css/tokens.css` + `base.css`. Import into Figma with the **Tokens Studio** plugin (free) — no Figma MCP limits involved.
 
-## What's in the file
+---
+
+## 📦 What's in the file
 
 `flygaca-design-tokens.json` — 130 tokens across 8 sets:
 
 | Set | Tokens | Notes |
-|-----|--------|-------|
+|:---|:---|:---|
 | `primitives` | Falcon palette, amber, status, ink (dark text), paper (light neutrals) | raw values; referenced, not themed |
 | `spacing` | `space.1`–`space.16` | 4px base, in px |
-| `radius` | sm/md/lg/xl/pill | |
+| `radius` | sm/md/lg/xl/pill | Corner radiuses |
 | `typography` | font, weight, size, line-height, tracking | sizes are the desktop upper bound of the CSS `clamp()` scale |
 | `text` | display, h1–h3, lead, body, small, eyebrow, mono-label | composite type styles → become Figma text styles |
 | `shadow` | sm, card, pop, amber, amber-strong | → Figma effect styles |
@@ -29,7 +48,9 @@ Extracted from `flygaca/assets/css/tokens.css` + `base.css`. Import into Figma w
 
 Two themes are defined — **Dark** and **Light** — under a `mode` group. Each enables its own color set and shares the primitives, scale, type, and shadow sets.
 
-## How to import
+---
+
+## ⚡ How to Import to Figma
 
 1. In Figma, install **Tokens Studio for Figma** (Plugins → find more → "Tokens Studio").
 2. Open it → **Settings → use "Single file"**, or just **Tools → Import → Import from file** and select `flygaca-design-tokens.json`.
@@ -37,26 +58,18 @@ Two themes are defined — **Dark** and **Light** — under a `mode` group. Each
 4. Open the **Themes** dropdown → for each theme (Dark, Light) click **Export to Figma** (or "Create variables"). This generates real Figma variable collections + modes, plus text and effect styles.
 5. The `$figmaCollectionId` / `$figmaModeId` fields are left null on purpose — Tokens Studio fills them on first export so re-imports update in place instead of duplicating.
 
-After export you'll have native Figma variables (with Light/Dark modes on the color collection), text styles, and effect styles — exactly the Phase 1 foundation, just created by the plugin instead of the MCP.
+---
 
-## Decisions baked in (from discovery)
+## 💡 Key Architectural Decisions
 
 - **Primary CTA = amber `#FFB020`** (`color.primary`), brand fill = teal (`color.brand`). This matches the live `.btn-primary`, which is amber despite `--brand` being teal.
 - **Light mode is net-new.** Code is dark-only; the `color-light` set is an authored light theme using the same palette. Light `link`/`accent`/`danger-text` use darker primitives (`teal-deep`, `sage-deep`, `danger-deep`) added for WCAG contrast on white.
 - **Off-palette values folded in** as primitives: `palette.amber`, `palette.amber-bright`, `palette.amber-ink` (`#0A0E14`).
 
-## Print collateral source (Palette B)
+---
 
-The print assets in `11-brand/print/*.html` are the **editable source** for the
-letterhead/cards/envelope/memo/press-release/contract-cover PNGs (closes GAP-7).
-They deliberately use **Palette B** — the real product palette (`--falcon-night`
-`#0A0E12`, `--falcon-teal` `#2D6E8A`, `--falcon-gold` `#C8A04A`, `--ivory`
-`#F5F2ED`) via `11-brand/print/brand-print.css` — NOT `tools/print/theme.css`'s
-`#0066FF` document theme, which is intentionally left untouched. Rebuild with
-`tools/print/build-html.mjs` (PDFs) + `tools/print/build-png.mjs` (PNGs).
+<div align="center">
 
-## Resuming the native Figma build
+<sub>🇸🇦 صنع في السعودية · Made in Saudi Arabia</sub>
 
-When the Figma plan limit lifts (or you upgrade), I can resume the original MCP build — components with variants and variable bindings (Button, Field, Card, Chip, Nav, Footer) — using the saved state. This token JSON and that build target the same file, so they're compatible.
-
-— Independent educational reference. Not affiliated with GACA.
+</div>

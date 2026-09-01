@@ -1,174 +1,97 @@
-# Fly GACA Family MCP — Week 1-2 Foundation
+<div align="center">
 
-**Status:** Phase 2 Implementation (Week 1-2 Foundation)  
-**Last Updated:** 2026-08-26
+# 🤖 Fly GACA Family MCP — Shared Agent State Server
+### Multi-Agent State Synchronization, Resource Discovery & Optimistic Locking
+#### خادم بروتوكول سياق النماذج (MCP) · مزامنة حالة الوكلاء الذكية · القفل المتفائل
 
-Shared state server for the unified agent team across ay2m/Office, ay2m/FlyGACA, and ay2m/Captain-Adel.
+<p align="center">
+  <img src="https://img.shields.io/badge/Made%20in-Saudi%20Arabia-006C35?style=for-the-badge&labelColor=0a0e12" alt="صنع في السعودية" />
+  <img src="https://img.shields.io/badge/Protocol-Model%20Context%20Protocol-0D96F6?style=for-the-badge&labelColor=0a0e12" alt="MCP" />
+  <img src="https://img.shields.io/badge/Database-SQLite%20WAL%20%7C%20D1-8E75B2?style=for-the-badge&labelColor=0a0e12" alt="Database" />
+  <img src="https://img.shields.io/badge/Concurrency-SHA%20Optimistic%20Lock-C8A04A?style=for-the-badge&labelColor=0a0e12" alt="Concurrency" />
+</p>
 
-## Quick Start
+</div>
 
-### Installation
+---
+
+## 🧭 Purpose & Architecture
+
+The **Fly GACA Family MCP Server** provides a unified shared-state backbone for autonomous AI agents operating across `ay2m/Office`, `ay2m/FlyGACA`, and `ay2m/Captain-Adel`.
+
+It exposes 5 structured Key-Value (KV) resources backed by SQLite with **SHA-based optimistic locking** to prevent conflicting concurrent edits across agent sessions.
+
+```
+┌────────────────────────────────────────────────────────┐
+│             Autonomous Multi-Agent Team                │
+│    (Governance Auditor, Entity Guardian, Sync Bot)     │
+└───────────────────────────┬────────────────────────────┘
+                            │ Model Context Protocol (MCP)
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│             Fly GACA Family MCP Server                 │
+│              (tools/mcp-servers/fly-gaca-family-mcp.js)│
+├────────────────────────────────────────────────────────┤
+│ • SHA-based optimistic write locking                   │
+│ • Version auto-incrementing                            │
+│ • Resource schema validation                           │
+└───────────────────────────┬────────────────────────────┘
+                            │
+            ┌───────────────┴───────────────┐
+            ▼                               ▼
+┌─────────────────────────┐   ┌─────────────────────────┐
+│ Local SQLite (WAL Mode) │   │ Cloud Supabase D1 Store │
+│   /tmp/fly-gaca-family  │   │    (Remote Production)  │
+└─────────────────────────┘   └─────────────────────────┘
+```
+
+---
+
+## 📦 The Five KV Resources
+
+1. **`office-entity-facts-v1`:** Canonical corporate entity facts from `01-governance/company-facts.md` (read-only for bots).
+2. **`product-architecture-v1`:** Global React + Express architectural decisions and system constraints.
+3. **`corpus-index-v1`:** GACAR regulatory tier definitions, chunk indexing status, and AIRAC cycle schedules.
+4. **`captain-adel-model-v1`:** AI flight instructor persona versioning, prompt hash, and benchmark scorecards.
+5. **`cross-repo-health-v1`:** SHA verification status of `flygaca-family.json` and sync parity logs.
+
+---
+
+## ⚡ Quickstart & Testing
 
 ```bash
 cd tools/mcp-servers
 npm install
-```
 
-### Initialize (Development)
-
-```bash
+# Initialize local SQLite database with seed data
 npm run init
-# ✓ MCP server initialized at /tmp/fly-gaca-family.db
-# Seed data loaded.
-```
 
-This creates a local SQLite database at `$MCP_DB_PATH` (default `/tmp/fly-gaca-family.db`) and loads seed data from `tools/mcp-servers/seed/*.json`.
-
-### Running Tests
-
-```bash
+# Run concurrency and integrity tests
 npm test
-# All MCP tests completed.
 ```
 
-Tests verify:
-- ✓ SHA-based optimistic locking (concurrency safety)
-- ✓ Seed data integrity
-- ✓ Read/write operations
-- ✓ Resource listing and filtering
+---
 
-## Architecture
-
-### Components
-
-| File | Purpose |
-|------|---------|
-| `fly-gaca-family-mcp.js` | Core MCP server (SQLite backend, SHA-based locking) |
-| `fly-gaca-family.md` | Resource definition and API docs (agent discovery) |
-| `seed/*.json` | Initial state for all five KV resources |
-| `package.json` | Dependencies and scripts |
-| `tests/mcp.test.js` | Concurrency tests (CI gate) |
-
-### Five KV Resources
-
-**See `fly-gaca-family.md` for full schema and concurrency patterns.**
-
-1. **office-entity-facts-v1** — Entity facts from `01-governance/company-facts.md` (read-only for agents)
-2. **product-architecture-v1** — React + Express design decisions and constraints
-3. **corpus-index-v1** — GACAR document tiers, indexing status, AIRAC calendar
-4. **captain-adel-model-v1** — Instructor persona version, eval metrics, training pipeline
-5. **cross-repo-health-v1** — Contract parity, SHA verification, sync status
-
-## Deployment Paths
-
-### Local (Development)
-
-```bash
-npm run init
-# Uses /tmp/fly-gaca-family.db
-# Suitable for agent dev/test; data is ephemeral
-```
-
-### Cloud (Supabase D1) — Week 3+
-
-```bash
-# Set environment variables
-export SUPABASE_URL="https://xxx.supabase.co"
-export SUPABASE_KEY="sbp_xxx"
-export MCP_DB_PATH="https://xxx.supabase.co/rest/v1/kv_store"
-
-npm run init
-# Seed data loads to D1; uses HTTP API
-```
-
-(Schema migration to D1 dialect required; see `fly-gaca-family.md` limitations.)
-
-## CI/CD Integration
-
-**Office (docs-check.yml):**
-```bash
-node tools/agents/check-agents.mjs        # Validate agent definitions
-node tools/mcp-servers/fly-gaca-family-mcp.js  # (optional in Week 2)
-```
-
-**FlyGACA & Captain-Adel (ci.yml):**
-```bash
-npm run test:family-contract  # Includes MCP health check
-```
-
-## Concurrency Model
-
-All writes use **optimistic locking with SHA verification**:
+## 🔒 Concurrency Model (Optimistic Locking)
 
 ```javascript
 const { data, sha } = mcp.read('corpus-index-v1');
 
-// Modify data...
+// Update state
 data.last_corpus_indexing = new Date().toISOString();
 
-// Write with SHA lock (fails if another agent changed it)
+// Write back with SHA lock (fails if modified by another agent)
 try {
   mcp.write('corpus-index-v1', data, sha);
 } catch (err) {
-  // Retry: read again, merge, re-write
+  // Retry: re-read, resolve conflicts, and re-write
 }
 ```
 
-This prevents lost updates when multiple agents write to the same resource. The `version` field auto-increments on every successful write.
+---
 
-## Seed Data Format
+<div align="center">
 
-Each seed file in `seed/` is a JSON object with `owner` and `timestamp`:
+<sub>🇸🇦 صنع في السعودية · Made in Saudi Arabia</sub>
 
-```json
-{
-  "owner": "entity-facts-guardian",
-  "timestamp": "2026-08-26T00:00:00Z",
-  "source": "01-governance/company-facts.md",
-  "entity": { /* ... */ }
-}
-```
-
-Seed files are loaded on startup via `INSERT OR IGNORE`, so existing data is never overwritten by re-init.
-
-## Troubleshooting
-
-### "Cannot find module 'better-sqlite3'"
-
-```bash
-cd tools/mcp-servers
-npm install
-```
-
-### Database locked
-
-SQLite uses WAL mode. Ensure no other process is holding the database. For testing:
-
-```bash
-rm /tmp/fly-gaca-family.db*
-npm run init
-```
-
-### Concurrency conflicts in tests
-
-This is expected — tests validate that conflicts are caught. Look for error messages like:
-
-```
-Concurrency conflict on [resource]: expected sha xxx, got yyy.
-```
-
-Retry logic should read, merge, and re-write.
-
-## Links
-
-- **Phase 2 Plan:** `06-operations-it/agent-workforce-plan.md` (§7-11)
-- **Resource API:** `tools/mcp-servers/fly-gaca-family.md`
-- **Agent Validation:** `tools/agents/check-agents.mjs`
-- **CI Gate:** `.github/workflows/docs-check.yml`
-
-## Next Steps (Week 3)
-
-- [ ] Supabase D1 migration (if cloud deployment chosen)
-- [ ] Agent implementations (governance-auditor, entity-facts-guardian, cross-repo-sync)
-- [ ] MCP agent writer helpers (internal agents for entity/chat block updates)
-- [ ] Full-sync orchestrator (morning check-in across all three repos)
+</div>

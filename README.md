@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🏢 Fly GACA — The Office
-### The Operational Operating System for Saudi Arabia's Aviation Platform
-#### نظام إدارة وتشغيل منصة فلاي جاكا · الحوكمة · الامتثال السعودي
+# 🏢 Fly GACA — The Master Office
+### The Version-Controlled Operating System for Saudi Arabia's Aviation Platform
+#### نظام إدارة وتشغيل منصة فلاي جاكا · الحوكمة المؤسسية · الامتثال للأنظمة السعودية
 
 <p align="center">
   <img src="https://img.shields.io/badge/Made%20in-Saudi%20Arabia-006C35?style=for-the-badge&labelColor=0a0e12" alt="صنع في السعودية" />
@@ -19,7 +19,7 @@
 ---
 
 > [!IMPORTANT]
-> **Internal Operating Documents.** ay2m/Office houses the internal governance, strategy, legal contracts, and Saudi regulatory compliance blueprints for Fly GACA. It contains no application source code.
+> **Internal Operating Documents.** `ay2m/Office` houses the complete corporate governance, legal contracts, business blueprints, financial models, and Saudi regulatory compliance suites for Fly GACA. It contains no application source code.
 
 ---
 
@@ -49,35 +49,37 @@
 
 ---
 
-## ⚡ Quickstart
+## 🇸🇦 Saudi Regulatory & Compliance Suite
 
-### 1. Browse Master Documentation
-```bash
-# macOS
-open _INDEX.md
+1. **ZATCA Phase 2 E-Invoicing (Fatoora):** Standardized UBL 2.1 XML invoicing templates, SHA-256 canonical hashing, ECDSA signatures, and TLV QR encoding for B2B flight school billing.
+2. **PDPL (Personal Data Protection Law):** Full Data Protection Impact Assessment (DPIA), privacy notices, and consent management frameworks aligned with SDAIA requirements.
+3. **MISA & Commercial Registration:** Foreign investment blueprints, Articles of Association, and Ministry of Commerce commercial registrations.
+4. **Saudi Labor Law:** Bilingual employment agreements, IP assignment contracts, and Nitaqat localization quota tracking.
 
-# Linux
-xdg-open _INDEX.md
-```
+---
 
-### 2. Rebuild Print-Ready PDFs
-The repo includes a 100% offline, branded A4 Chromium PDF generator:
+## 🖨 Headless A4 Branded PDF Pipeline
+
+The repository includes a 100% offline, branded A4 Chromium PDF generator:
 
 ```bash
 cd tools/print
 npm ci                  # Install dependencies (Node 20+)
 npm run build           # Incrementally compile modified .md docs to branded A4 PDFs
 npm run check           # Run CI freshness and front-matter integrity check
+npm run check:facts     # Verify family contract facts against company-facts.md
 ```
 
 ---
 
 ## 🌐 Full Arabic (MSA) Mirror
 
-Every single document across all 12 domains is mirrored in native Saudi Business Arabic under the [`ar/`](ar/) directory with identical file structure and front-matter schemas.
+Every document across all 12 domains is mirrored in native Saudi Business Arabic under the [`ar/`](ar/) directory with identical file naming and YAML frontmatter schemas.
 
 ---
 
-## 🛡️ License
+<div align="center">
 
-Internal documentation and business assets are proprietary to **Fly GACA**. Public starter templates are licensed under Apache 2.0.
+<sub>🇸🇦 صنع في السعودية · Made in Saudi Arabia</sub>
+
+</div>
