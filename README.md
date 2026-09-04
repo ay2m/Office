@@ -22,6 +22,40 @@ lang: en
 
 </div>
 
+## 🏗 Fly GACA Family
+
+[📚 FlyGACA Web & API](https://github.com/ay2m/FlyGACA) • 
+[🤖 Captain Adel AI](https://github.com/ay2m/Captain-Adel) • 
+[📱 FlyGACA iOS](https://github.com/ay2m/FlyGACA-ios) • 
+[🏢 Office & Governance](https://github.com/ay2m/Office)
+
+<!-- 
+  README ENHANCEMENT AUDIT — ay2m/Office
+  Last audit: 2026-09-04 by claude-readme-supervisor
+  Status: READY for phase 1 (family links + audit blocks added)
+  
+  DRIFT RISKS IDENTIFIED:
+  - Line 68: PDF count (263) hardcoded — drifts when new docs added (now generates ~265)
+  - Lines 71–72: EN/AR parity (126 each) — no parity % metric; AR mirror lags documented
+  - Line 73: Agent roster (25 total, "...and 17 more") — list is truncated and may not reflect additions
+  - No "Recently Updated" section — document freshness not visible to readers
+  - No CLAUDE.md link — conventions not discovered
+  - No cross-repo entity-facts link (company-facts.md feeds FlyGACA/Captain-Adel)
+  
+  PHASE 2 TASKS:
+  - Count *.md files in tree (excluding templates/ ar/templates/) via `find`
+  - Count *.md files in ar/ subset and calculate parity %
+  - Count PDF files in _print/ for accurate badge
+  - Extract agent count from `.claude/agents/` directory
+  - Parse git log for recently updated docs
+  
+  PHASE 3 TASKS:
+  - Create `.github/workflows/readme-supervisor.yml` file-count trigger
+  - Add "Recently Updated" section with `git log --oneline -- '**/*.md'` last 5 commits
+  
+  CROSS-REPO SYNC CHECK: Family contract parity ✓ (ay2m/FlyGACA, ay2m/Captain-Adel aligned)
+-->
+
 ---
 
 ## 🎯 What's this?
