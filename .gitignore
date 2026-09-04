@@ -10,3 +10,6 @@ Thumbs.db
 *.bak-*
 tools/print/node_modules/
 tools/print/.buildcache.json.tmp
+
+# Metrics collection (git-ignored)
+.stats.json
