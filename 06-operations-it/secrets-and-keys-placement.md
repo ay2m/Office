@@ -129,8 +129,8 @@ origin), `VITE_MOYASAR_PUBLISHABLE_KEY` (`pk_live_…`), plus the optional
 
 ## Authoritative step-by-step
 
-- flygaca.com: `FlyGACA/docs/RUNBOOK-deploy.md` (project setup, Secret Manager entries, the
+- flygaca.com: `ay2m/FlyGACA/docs/RUNBOOK-deploy.md` (project setup, Secret Manager entries, the
   `--set-secrets` / `--set-env-vars` deploy line, the Cloud Scheduler renewal job) and
-  `FlyGACA/docs/BILLING.md` (checkout → confirm → webhook → renewal).
-- captadel.com: `Captain-Adel/docs/RUNBOOK-captadel-saas.md` §3 (Moyasar keys, webhook,
-  Apple Pay, renewals), `docs/RUNBOOK-captadel-deploy.md` (Gemini + project + deploy).
+  `ay2m/FlyGACA/docs/BILLING.md` (checkout → confirm → webhook → renewal).
+- captadel.com: `ay2m/Captain-Adel/docs/RUNBOOK-captadel-saas.md` §3 (Moyasar keys, webhook,
+  Apple Pay, renewals), `ay2m/Captain-Adel/docs/RUNBOOK-captadel-deploy.md` (Gemini + project + deploy).

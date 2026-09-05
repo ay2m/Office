@@ -1,5 +1,5 @@
 ---
-title: "Runbook — Promote Captain Adel to its own repo (`FlyGACA/captadel`)"
+title: "Runbook — Promote Captain Adel to its own repo (`iflygaca/Captain-Adel`)"
 section: 06-operations-it
 doc_type: runbook
 status: active
@@ -8,10 +8,10 @@ last_updated: 2026-06-16
 lang: en
 ---
 
-# Runbook — Promote Captain Adel to its own repo (`FlyGACA/captadel`)
+# Runbook — Promote Captain Adel to its own repo (`iflygaca/Captain-Adel`)
 
 > **STATUS — DONE (2026-06-13).** Captain Adel was split out to
-> **[`FlyGACA/Captain-Adel`](https://github.com/FlyGACA/Captain-Adel)** (as a snapshot, not a
+> **[`iflygaca/Captain-Adel`](https://github.com/iflygaca/Captain-Adel)** (as a snapshot, not a
 > `git subtree split`) and the `captadel/` subtree was removed from this repo. The procedure
 > below is kept for reference. Note the live repo is named **`Captain-Adel`**, not `captadel`,
 > and history was not preserved.
@@ -19,7 +19,7 @@ lang: en
 The Captain Adel service lives in this repo as an **extraction-ready subtree** at
 `captadel/`. Everything it needs — server, brain, corpus, evals, Dockerfile,
 its own CI workflow — sits under that one prefix and references nothing outside
-it. This runbook splits that subtree into a standalone **`FlyGACA/captadel`**
+it. This runbook splits that subtree into a standalone **`iflygaca/Captain-Adel`**
 repository (for **captadel.com**), preserving the option to keep both in sync.
 
 Fly GACA does **not** depend on the subtree staying here: the `chat` Cloud
@@ -57,7 +57,7 @@ git checkout main && git pull            # (or the branch you want to seed from)
 
 # 1. Create the EMPTY repo (or do this in the GitHub web UI). Keep it private —
 #    it carries the GACAR corpus + system prompt and serves PDPL-sensitive traffic.
-gh repo create FlyGACA/captadel --private \
+gh repo create iflygaca/Captain-Adel --private \
   --description "Captain Adel — independent AI flight instructor for Saudi civil aviation (captadel.com). Standalone RAG service and the brain Fly GACA plugs into." \
   --homepage "https://captadel.com"
 
@@ -67,7 +67,7 @@ gh repo create FlyGACA/captadel --private \
 git subtree split --prefix=captadel -b captadel-export
 
 # 3. Push that history as the new repo's main.
-git push https://github.com/FlyGACA/captadel.git captadel-export:main
+git push https://github.com/iflygaca/Captain-Adel.git captadel-export:main
 
 # 4. Tidy up the local export branch.
 git branch -D captadel-export
@@ -82,8 +82,8 @@ it lived inside this monorepo it was scoped to the subtree; once `captadel` is
 the repo root, drop that scoping (the workflow's own header comment says so):
 
 ```bash
-git clone https://github.com/FlyGACA/captadel.git
-cd captadel
+git clone https://github.com/iflygaca/Captain-Adel.git
+cd Captain-Adel
 ```
 
 In `.github/workflows/ci.yml`:
@@ -152,10 +152,10 @@ same prefix:
 
 ```bash
 # push new flygaca-side captadel/ commits up to the standalone repo:
-git subtree push --prefix=captadel https://github.com/FlyGACA/captadel.git main
+git subtree push --prefix=captadel https://github.com/iflygaca/Captain-Adel.git main
 
 # pull standalone changes back into the monorepo subtree:
-git subtree pull --prefix=captadel https://github.com/FlyGACA/captadel.git main --squash
+git subtree pull --prefix=captadel https://github.com/iflygaca/Captain-Adel.git main --squash
 ```
 
 Pick one as the source of truth (the standalone repo is the natural choice once

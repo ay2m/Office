@@ -11,7 +11,7 @@ lang: en
 # RUNBOOK — Deploy captadel.com (Captain Adel standalone)
 
 > **Note (2026-06-13):** Captain Adel now lives in its own repo,
-> **[`FlyGACA/Captain-Adel`](https://github.com/FlyGACA/Captain-Adel)**. Run these steps from
+> **[`iflygaca/Captain-Adel`](https://github.com/iflygaca/Captain-Adel)**. Run these steps from
 > that repo (its root is the former `captadel/`); a `captadel/…` path below maps to that root.
 > Deploys now run from the repo's own `.github/workflows/deploy.yml` once `GCP_SA_KEY` is set.
 
@@ -120,8 +120,8 @@ should stream a cited answer.
 
 ## 4. (If you split the repo) source
 
-`captadel/` is developed as a git subtree here and can be split to `FlyGACA/captadel`
-(`runbook-captadel-extraction.md`). Deploy works the same from either repo — the script
+`captadel/` is developed as a git subtree here and has been split to `iflygaca/Captain-Adel`
+(see `runbook-captadel-extraction.md`). Deploy works the same from either repo — the script
 only needs the `captadel/` tree with its `Dockerfile`.
 
 ---

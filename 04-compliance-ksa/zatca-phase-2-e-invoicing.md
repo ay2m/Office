@@ -80,9 +80,9 @@ Every invoice header includes a `<cac:AdditionalDocumentReference>` element cont
 ## 4. Implementation Reference
 
 The production implementation resides in:
-- Engine: `FlyGACA/server/src/zatca-core.ts`
-- Automated Verification: `FlyGACA/server/tests/zatca-core.test.ts` (4 unit tests verifying TLV encoding, SHA-256 digest, UBL 2.1 generation, and Academy B2B billing).
-- Tax Invoice Template: `Office/03-finance/tax-invoice-template.html`
+- Engine: `ay2m/FlyGACA/server/src/zatca-core.ts`
+- Automated Verification: `ay2m/FlyGACA/server/tests/zatca-core.test.ts` (4 unit tests verifying TLV encoding, SHA-256 digest, UBL 2.1 generation, and Academy B2B billing).
+- Tax Invoice Template: `ay2m/Office/03-finance/tax-invoice-template.html`
 
 ---
 
