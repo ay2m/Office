@@ -215,7 +215,7 @@
  "ar/02-legal/refund-and-cancellation-policy-draft-2026-07-03.md": "f2009817ceb1bdd8a6b5bea690225863442ba0cb1ff90f9d2749e9cc14988deb",
  "ar/05-people/anti-harassment-policy-2026-07-03.md": "fb3fa56fb88e6ffb2f329a8b90999cc756ac26be390c1b9a9efaa1dfaae4bbc8",
  "06-operations-it/docs-followup-roadmap-2026-07.md": "a0e343afcbf2cc740af99907c9eb00ed2f04586ea12c3cf01194ac9ae12208bc",
- "README.md": "2b49cb75317380006b7dcd88e4c994791e8afb9ca015fc3f111b14d681b25089",
+ "README.md": "aa9fdaf7f679b06110269675946c300f45bba3e95e03b7155ea15b9aa8ed3360",
  "ar/06-operations-it/docs-followup-roadmap-2026-07.md": "e6ae9261f64d2367809e299bb1e4c5deffe576e7d6da5904cad26010ab13fdaa",
  "00-strategy/owner-decision-brief-2026-07.md": "5ff4fe283c7d4f9f6073d0af5200af62a5eca7a4068685b7b90ecf49e748ca80",
  "ar/00-strategy/owner-decision-brief-2026-07.md": "4332ffe5c6b69eda9779e7703884403802f91ae017da93bce40118a0216c2bae",
@@ -267,5 +267,6 @@
  "ar/07-gtm/b2b-pitch-deck.md": "9cb246b44025d524fc2831a0b340b9af624efbdbbdf867981e5d56ecd6a0c35a",
  "07-gtm/press-release-official-launch.md": "6e75208d93a63ae030578e43551d1c9d2bc4fd022fabcc7f6f5a978f3d1c1507",
  "ar/07-gtm/press-release-official-launch.md": "5636f2e590a3f7c56e1c9670493bbb6ee93b74e2e5d322bde4e3ce5095a98ad7",
- "11-brand/WCAG-AA-ACCESSIBILITY-AUDIT.md": "4b9bdb8349db61444efb7d654462ad3e1b079ae0af37983292ac61dd503b18ec"
+ "11-brand/WCAG-AA-ACCESSIBILITY-AUDIT.md": "4b9bdb8349db61444efb7d654462ad3e1b079ae0af37983292ac61dd503b18ec",
+ "06-operations-it/supabase-best-practices.md": "c1243f271118482e4310d52b6da80a7ecb9e58b355eb9de2b7acd6d072d03ab9"
 }
