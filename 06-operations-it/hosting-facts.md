@@ -125,8 +125,8 @@ legacy redirects.
 > older docs reference **do not exist**. Per-app metadata lives inside `ay2m/FlyGACA-ios`.
 
 ## Sources
-- `FlyGACA/docs/RUNBOOK-deploy.md` — the authoritative provisioning + deploy sequence
-- `FlyGACA/docs/DATA-HOSTING.md` — how the corpus bucket is served
-- `FlyGACA/server/migrations/0001_init.sql` — the schema, with each table's Firestore-era ancestor noted
+- `ay2m/FlyGACA/docs/RUNBOOK-deploy.md` — the authoritative provisioning + deploy sequence
+- `ay2m/FlyGACA/docs/DATA-HOSTING.md` — how the corpus bucket is served
+- `ay2m/FlyGACA/server/migrations/0001_init.sql` — the schema, with each table's Firestore-era ancestor noted
 - `00-strategy/phase0.md` — P0-2 (domain decisions), P0-6 (VPS + PDPL boundary)
 - `flygaca-resume-briefing-2026-05-23.md` — hosting + PDPL summary (pre-dates the Cloud Run port; regions still hold, the Firebase references do not)
