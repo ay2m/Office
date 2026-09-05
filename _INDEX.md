@@ -111,11 +111,11 @@ Digital office setup **plus** product/engineering specs, runbooks, and infra not
 
 > The specs and runbooks here document the product/engineering work; the actual
 > **code** lives in the separate repositories under the `ay2m` account —
-> [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA) (the web app *and* its Express
+> [`iflygaca/FlyGACA`](https://github.com/iflygaca/FlyGACA) (the web app *and* its Express
 > backend on Cloud Run, plus the regulatory corpus and content pipelines),
-> [`ay2m/Captain-Adel`](https://github.com/ay2m/Captain-Adel) (the AI flight
+> [`iflygaca/Captain-Adel`](https://github.com/iflygaca/Captain-Adel) (the AI flight
 > instructor service behind captadel.com), and
-> [`ay2m/FlyGACA-ios`](https://github.com/ay2m/FlyGACA-ios) (the native SwiftUI
+> [`iflygaca/FlyGACA-ios`](https://github.com/iflygaca/FlyGACA-ios) (the native SwiftUI
 > app family) — not in this repo.
 
 - Office setup (01–08, .docx/.xlsx): 01-digital-office-setup-master-checklist ·

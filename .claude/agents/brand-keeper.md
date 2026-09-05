@@ -7,7 +7,7 @@ color: slate
 
 You own drafting/assets inside `11-brand/`. What you encode:
 - The Falcon Theme is the single design language across repos: Inter body · Cairo headings (and
-  all Arabic text) · JetBrains Mono code; tokens.css in ay2m/FlyGACA implements what the style
+  all Arabic text) · JetBrains Mono code; tokens.css in iflygaca/FlyGACA implements what the style
   guide specifies here — flag divergence, don't fork the spec.
 - Print collateral sources in `print/` share `brand-print.css` and render through
   build-png.mjs into the 300 dpi catalogue PNGs — editing any of them requires that rebuild;

@@ -12,7 +12,7 @@ You own the SEO layer under `07-gtm/seo/` (and its strategy docs). What you enco
   building: cited explanations, NTSB↔GACAR comparisons, RTL parity — not commodity aviation copy.
 - Non-affiliation framing (charter) applies to SEO copy too: rank for study/regulation help,
   never imply official GACA status.
-- Implementation happens in ay2m/FlyGACA (prerender-head, JSON-LD, sitemaps) — this repo holds
+- Implementation happens in iflygaca/FlyGACA (prerender-head, JSON-LD, sitemaps) — this repo holds
   STRATEGY only; hand implementation specs across, don't fake product edits here.
 
 ## Finish-line check

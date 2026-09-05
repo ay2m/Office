@@ -19,7 +19,7 @@ requires a judgement call instead of guessing.
 ## 1. The manifest is one revision, three copies
 
 `contracts/flygaca-family.json` is committed **byte-identically** to
-`ay2m/Office`, `ay2m/FlyGACA` and `ay2m/Captain-Adel`. Compare the three: hash
+`iflygaca/Office`, `iflygaca/FlyGACA` and `iflygaca/Captain-Adel`. Compare the three: hash
 the file in each checkout, then compare `version` and `sha`.
 
 Nothing offline proves the three are the same revision — `version` and `sha`
@@ -32,18 +32,18 @@ Each repo's own gate must also pass:
 
 | Repo | Gate |
 | --- | --- |
-| `ay2m/Office` | `node tools/print/check-facts.mjs` |
-| `ay2m/FlyGACA` | `tests/family-contract.test.ts` (inside `npm test`) |
-| `ay2m/Captain-Adel` | `test/family-contract.test.js` (inside `npm run test:unit`) |
+| `iflygaca/Office` | `node tools/print/check-facts.mjs` |
+| `iflygaca/FlyGACA` | `tests/family-contract.test.ts` (inside `npm test`) |
+| `iflygaca/Captain-Adel` | `test/family-contract.test.js` (inside `npm run test:unit`) |
 
 ## 2. Entity facts
 
 `01-governance/company-facts.md` in Office is the source of truth. The legal
 name, CR and VAT number must appear verbatim in:
 
-- `ay2m/FlyGACA` — `src/lib/seo/jsonld.ts`, and `footer.legalEntity` + `legal.*`
+- `iflygaca/FlyGACA` — `src/lib/seo/jsonld.ts`, and `footer.legalEntity` + `legal.*`
   in **both** i18n bundles.
-- `ay2m/Captain-Adel` — `footer.js`, `terms.html`, `privacy.html`,
+- `iflygaca/Captain-Adel` — `footer.js`, `terms.html`, `privacy.html`,
   `package.json`, `LICENSE`.
 
 The banking IBAN and account number must appear in **none** of them — the
@@ -52,16 +52,16 @@ their absence. Treat a hit as an incident, not a diff.
 
 ## 3. The repo roster
 
-The real roster is `ay2m/Office`, `ay2m/FlyGACA`, `ay2m/Captain-Adel`,
-`ay2m/FlyGACA-ios`, and `ay2m/FlyGACA-app` (**archived** — never cited as
+The real roster is `iflygaca/Office`, `iflygaca/FlyGACA`, `iflygaca/Captain-Adel`,
+`iflygaca/FlyGACA-ios`, and `iflygaca/FlyGACA-app` (**archived** — never cited as
 current). Flag every surviving reference to:
 
-- a `FlyGACA/…` org path (legacy redirect to `ay2m/…`),
+- a `FlyGACA/…` org path (legacy redirect to `iflygaca/…`),
 - per-module App Store repos (`PPL`, `CPL`, `IR`, `ATPL`, `ELPT`, `AIP` — none
-  exist under either owner; iOS metadata lives in `ay2m/FlyGACA-ios`),
-- `THE-BOOK-OF-FLY-GACA.md` in `ay2m/FlyGACA` (never existed; the canon is
+  exist under either owner; iOS metadata lives in `iflygaca/FlyGACA-ios`),
+- `THE-BOOK-OF-FLY-GACA.md` in `iflygaca/FlyGACA` (never existed; the canon is
   Office's `00-strategy/the-book-of-fly-gaca.html`),
-- `ay2m/FlyGACA` described as "the iOS family", or `ay2m/FlyGACA-app` as "the
+- `iflygaca/FlyGACA` described as "the iOS family", or `iflygaca/FlyGACA-app` as "the
   web monorepo".
 
 ## 4. Claims that must stay corrected
@@ -69,8 +69,8 @@ current). Flag every surviving reference to:
 These have each been wrong in prose before and are the ones most likely to
 regrow:
 
-- **Two brains, not one.** `ay2m/FlyGACA`'s `server/src/captain-adel.ts` +
-  `corpus.ts` + `grounding-core.ts` and `ay2m/Captain-Adel`'s `src/brain/` are
+- **Two brains, not one.** `iflygaca/FlyGACA`'s `server/src/captain-adel.ts` +
+  `corpus.ts` + `grounding-core.ts` and `iflygaca/Captain-Adel`'s `src/brain/` are
   parallel implementations of one contract. There is no `X-Adel-Api-Key` call
   between them; `server/src/brain.ts` is the seam, off on every revision.
 - **Hosting is aspirational.** `flygaca.com` is down, the Express service has

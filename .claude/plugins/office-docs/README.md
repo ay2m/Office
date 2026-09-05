@@ -1,13 +1,13 @@
 # `office-docs` — the documents repository
 
-Workflow commands for `ay2m/Office`: the doc convention CI enforces, the
+Workflow commands for `iflygaca/Office`: the doc convention CI enforces, the
 Markdown/HTML → branded A4 PDF pipeline, the Arabic mirror, and the entity-facts
 gate.
 
 ## Install
 
 ```
-/plugin marketplace add ay2m/Office
+/plugin marketplace add iflygaca/Office
 /plugin install office-docs@flygaca-family
 ```
 

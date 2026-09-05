@@ -56,7 +56,7 @@ founder's records.
 
 > **Hard rule — the IBAN and account number never leave this repo.** They are
 > recorded here and in `00-strategy/phase0.md` (P0-3) only. They must never
-> appear in the product repos (`ay2m/FlyGACA`, `ay2m/Captain-Adel`), on any website,
+> appear in the product repos (`iflygaca/FlyGACA`, `iflygaca/Captain-Adel`), on any website,
 > or in any public document. Customer-facing invoices carry the bank details
 > on the invoice itself, generated at billing time.
 
@@ -64,11 +64,11 @@ founder's records.
 
 | Surface | What is shown | Where it lives |
 |---|---|---|
-| flygaca.com footer | Operator line: name AR/EN + CR + VAT + Riyadh | `ay2m/FlyGACA: src/i18n/*.json` (`footer.legalEntity`) + `src/app/Footer.tsx` |
-| flygaca.com /terms, /privacy | Entity block, PDPL controller, Riyadh jurisdiction | `ay2m/FlyGACA: src/i18n/*.json` (`legal.*`) |
-| flygaca.com structured data | `legalName`, address, SA-CR identifier, vatID | `ay2m/FlyGACA: src/lib/seo/jsonld.ts` + `index.html` + `scripts/prerender-head.mjs` |
-| captadel.com footer (all pages) | Operator line AR/EN | `ay2m/Captain-Adel: public/assets/js/footer.js` |
-| captadel.com /terms, /privacy | Entity block, PDPL controller, Moyasar processor | `ay2m/Captain-Adel: public/terms.html`, `public/privacy.html` |
+| flygaca.com footer | Operator line: name AR/EN + CR + VAT + Riyadh | `iflygaca/FlyGACA: src/i18n/*.json` (`footer.legalEntity`) + `src/app/Footer.tsx` |
+| flygaca.com /terms, /privacy | Entity block, PDPL controller, Riyadh jurisdiction | `iflygaca/FlyGACA: src/i18n/*.json` (`legal.*`) |
+| flygaca.com structured data | `legalName`, address, SA-CR identifier, vatID | `iflygaca/FlyGACA: src/lib/seo/jsonld.ts` + `index.html` + `scripts/prerender-head.mjs` |
+| captadel.com footer (all pages) | Operator line AR/EN | `iflygaca/Captain-Adel: public/assets/js/footer.js` |
+| captadel.com /terms, /privacy | Entity block, PDPL controller, Moyasar processor | `iflygaca/Captain-Adel: public/terms.html`, `public/privacy.html` |
 | Repo metadata | LICENSE holder, package.json author, SECURITY.md | both product repos |
 
 Never published: IBAN / bank account (see hard rule above), founder's national
@@ -78,7 +78,7 @@ ID, signed contracts.
 
 Those surfaces are hand-maintained copies, so the values above are also mirrored into
 `contracts/flygaca-family.json` — the family contract committed byte-identically to this repo,
-`ay2m/FlyGACA` and `ay2m/Captain-Adel`. This document remains the source of truth; the manifest is
+`iflygaca/FlyGACA` and `iflygaca/Captain-Adel`. This document remains the source of truth; the manifest is
 the artifact CI can actually read.
 
 Three gates keep them in step, one per repo:
@@ -86,8 +86,8 @@ Three gates keep them in step, one per repo:
 | Repo | Gate | What it asserts |
 |---|---|---|
 | this repo | `node tools/print/check-facts.mjs` (in `docs-check.yml`) | every manifest `entity` value matches the tables above — and that the IBAN and account number are **absent** from the manifest, since it travels to both product repos |
-| `ay2m/FlyGACA` | `tests/family-contract.test.ts` (in `npm run verify`) | the values appear verbatim in `src/lib/seo/jsonld.ts` and `footer.legalEntity` in both i18n bundles |
-| `ay2m/Captain-Adel` | `test/family-contract.test.js` (in `npm run test:unit`) | the values appear verbatim in `footer.js`, `terms.html`, `privacy.html`, `package.json` and `LICENSE` |
+| `iflygaca/FlyGACA` | `tests/family-contract.test.ts` (in `npm run verify`) | the values appear verbatim in `src/lib/seo/jsonld.ts` and `footer.legalEntity` in both i18n bundles |
+| `iflygaca/Captain-Adel` | `test/family-contract.test.js` (in `npm run test:unit`) | the values appear verbatim in `footer.js`, `terms.html`, `privacy.html`, `package.json` and `LICENSE` |
 
 **Changing a value here is therefore a five-file, three-repo change.** Edit this document, update
 `contracts/flygaca-family.json`, bump its `version` and re-stamp its hash

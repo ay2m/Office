@@ -66,7 +66,7 @@ The AIP changes every **28-day AIRAC cycle**, effective each Thursday. GACAR Par
 | B. Hash + diff | Hash each Part/doc; compare against the persisted fingerprint; flag changed items | `npm run sync:gaca` → `scripts/sync-gaca.mjs`, `scripts/lib/sync-merge.mjs` |
 | C. Re-ingest | Merge metadata deltas; re-normalise; re-chunk and re-embed incrementally (not a full rebuild) | `npm run sync:gaca:apply`, `data:normalize`, `parse:regulations`, `build:chunks` → `public/data/rag-chunks.json`, `embeddings:upsert` (Supabase pgvector) |
 | D. Stamp | Write/refresh provenance block (`fetched_at`, `verified_cycle`, `amendment`, AIRAC effective date) | `public/data/source-status.json` |
-| E. Eval gate | Run eval harness; any citation that no longer resolves to a live section **fails the build** and blocks publish | `ay2m/Captain-Adel` `evals/` |
+| E. Eval gate | Run eval harness; any citation that no longer resolves to a live section **fails the build** and blocks publish | `iflygaca/Captain-Adel` `evals/` |
 | F. Publish | Sync `public/data/` to the corpus bucket (served network-first, so clients refresh without an app deploy); roll a Cloud Run revision so the API picks up the rebuilt `rag-chunks.json`; tag the revision with the AIRAC cycle | `gcloud storage rsync`, `gcloud run deploy` |
 
 **If nothing changed** at stage B, the pipeline logs "current" and exits — no re-ingest, no re-publish.
@@ -74,7 +74,7 @@ The AIP changes every **28-day AIRAC cycle**, effective each Thursday. GACAR Par
 > [!WARNING]
 > **The scheduler half of this workflow is not currently running.** `sources.json` and
 > `source-status.json` still name `scripts/update-sources.js` and an `update-sources.yml`
-> workflow as their owner; neither exists in `ay2m/FlyGACA` today, and `source-status.json` was
+> workflow as their owner; neither exists in `iflygaca/FlyGACA` today, and `source-status.json` was
 > last generated 2026-06-15. Stages A–F are all runnable by hand; nothing triggers them. Until a
 > cron (VPS or Cloud Scheduler) is re-created, the freshness stamp in §"User-visible outputs"
 > below is a promise the pipeline is not keeping — which is precisely the worst failure mode
@@ -132,7 +132,7 @@ The decision flow for Captain Adel's RAG answer pipeline, with the strict low-co
 | 3. BM25 retrieval | Lexical search over the GACAR chunk index (**29,165** chunks as of the 2026-06-13 build); `RETRIEVE_K` passages, with full legal lineage (document → subpart → section → paragraph) on each. Dense/hybrid retrieval is the seam behind the retriever interface, not yet the default | `server/src/corpus.ts`, `public/data/rag-chunks.json` |
 | 4. Confidence decision | Grounding is computed **server-side** from the BM25 score, never trusted to the model: below `REFUSE_SCORE` → refuse without calling Gemini at all; below `GROUNDED_SCORE` → answer but flag "partially grounded" | `server/src/captain-adel.ts` |
 | 5. Gemini generation | Gemini via **Genkit** — `gemini-2.5-flash`, `gemini-2.5-pro` for the Pro tier — under the system prompt; answer constrained to retrieved passage text; must cite Part + section + amendment; token deltas streamed as SSE | `server/src/captain-adel.ts`, `server/src/sse.ts` |
-| 6. Citation faithfulness guard | Score every answer's claims against cited section text; score ≥ 0.8 to pass; fail → strip unsupported claims or refuse with partial grounding | `ay2m/Captain-Adel` `evals/checks/citation-faithfulness.js` |
+| 6. Citation faithfulness guard | Score every answer's claims against cited section text; score ≥ 0.8 to pass; fail → strip unsupported claims or refuse with partial grounding | `iflygaca/Captain-Adel` `evals/checks/citation-faithfulness.js` |
 | 7. Answer delivered | Streamed response with cited section, retrieved source snippet (not just a link), and amendment + AIRAC stamp; clickable deep-link into the Library reader | `src/pages/chat/`, `src/calc/chat/` |
 
 ### The strict fallback (§4.2 — low confidence path)
@@ -170,7 +170,7 @@ The system is only as trustworthy as its eval coverage. Eval cases required befo
 | Refusal calibration | 10+ | Correct refusal on low-confidence questions |
 | Staleness (superseded citation) | New class | Hard failure — never cite a superseded source |
 
-A CI eval gate is required on all PRs touching the Captain Adel flow (`server/src/captain-adel*.ts`, `server/src/corpus.ts`) and on `ay2m/Captain-Adel`. A refusal-calibration regression is an unconditional block.
+A CI eval gate is required on all PRs touching the Captain Adel flow (`server/src/captain-adel*.ts`, `server/src/corpus.ts`) and on `iflygaca/Captain-Adel`. A refusal-calibration regression is an unconditional block.
 
 ### Supporting operational features
 

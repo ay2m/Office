@@ -17,7 +17,7 @@
 
 ## 🧭 Purpose & Architecture
 
-The **Fly GACA Family MCP Server** provides a unified shared-state backbone for autonomous AI agents operating across `ay2m/Office`, `ay2m/FlyGACA`, and `ay2m/Captain-Adel`.
+The **Fly GACA Family MCP Server** provides a unified shared-state backbone for autonomous AI agents operating across `iflygaca/Office`, `iflygaca/FlyGACA`, and `iflygaca/Captain-Adel`.
 
 It exposes 5 structured Key-Value (KV) resources backed by SQLite with **SHA-based optimistic locking** to prevent conflicting concurrent edits across agent sessions.
 

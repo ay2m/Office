@@ -44,11 +44,11 @@ Saudi Arabian civil aviation. Tagline: "The whole of Saudi aviation, in one cock
 serves pilots, operators, instructors, and cadets in the Kingdom of Saudi Arabia.
 
 Primary domain: flygaca.com   (API origin: api.flygaca.com)
-Repositories:   github.com/ay2m/FlyGACA      — the product: web app + Express backend + corpus
-                github.com/ay2m/Captain-Adel — the standalone assistant service (captadel.com)
-                github.com/ay2m/FlyGACA-ios  — the native SwiftUI study-app family
-                github.com/ay2m/Office       — company documents
-                github.com/ay2m/FlyGACA-app  — ARCHIVED predecessor. Never cite as current.
+Repositories:   github.com/iflygaca/FlyGACA      — the product: web app + Express backend + corpus
+                github.com/iflygaca/Captain-Adel — the standalone assistant service (captadel.com)
+                github.com/iflygaca/FlyGACA-ios  — the native SwiftUI study-app family
+                github.com/iflygaca/Office       — company documents
+                github.com/iflygaca/FlyGACA-app  — ARCHIVED predecessor. Never cite as current.
 Owner:          Captain Adel Al-Subaie — Chief Instructor, ATPL, CFII
 Build mode:     solo founder, no fixed deadline, phased delivery
 </project_overview>
@@ -160,12 +160,12 @@ described as PDPL-safe.
   server-side from retrieval confidence (low confidence refuses without calling the model).
 - Calculator logic: pure, DOM-free modules, unit-tested, kept out of the UI layer.
 - Native: a Capacitor shell for the web app, plus a separate native SwiftUI family in
-  ay2m/FlyGACA-ios.
+  iflygaca/FlyGACA-ios.
 - Testing: Vitest (with a coverage ratchet) and Playwright E2E + accessibility.
 </tech_stack>
 
 <repository_structure>
-ay2m/FlyGACA (the product):
+iflygaca/FlyGACA (the product):
   src/            React app — pages/ one folder per page, router.tsx is the single route table,
                   calc/ pure logic, lib/ typed services, i18n/ the two language bundles,
                   components/, hooks/, styles/ (tokens are the source of truth)

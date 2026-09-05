@@ -63,7 +63,7 @@ Willingness to pay is anchored by the global study-subscription band
 
 _Effective 2026-08-19. Every figure below is **VAT-inclusive**, as ZATCA requires of a
 published consumer price. This card is the commercial statement of what
-[`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA) actually charges — the technical source of
+[`iflygaca/FlyGACA`](https://github.com/iflygaca/FlyGACA) actually charges — the technical source of
 truth is `PRICE_*` on the Cloud Run revision, held to the displayed price by
 `tests/pricing-server-parity.test.ts`. **Change one, change both.**_
 

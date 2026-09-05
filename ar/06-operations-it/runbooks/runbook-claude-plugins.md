@@ -14,7 +14,7 @@ lang: ar
 في أي من المستودعات الثلاثة النشطة وعلى أي واجهة — وقواعد العمل محمّلة مسبقًا بدل إعادة
 اكتشافها في كل مرة.
 
-**النطاق.** المتجر موجود في `ay2m/Office`، ويضم أربعة ملحقات: اثنان في هذا المستودع، وواحد في
+**النطاق.** المتجر موجود في `iflygaca/Office`، ويضم أربعة ملحقات: اثنان في هذا المستودع، وواحد في
 كل مستودع منتج.
 
 ---
@@ -23,10 +23,10 @@ lang: ar
 
 | الملحق | مكانه | ما يغطيه |
 | --- | --- | --- |
-| `office-docs` | `ay2m/Office` — `.claude/plugins/office-docs` | ترويسة YAML، خط إنتاج الطباعة، النسخة العربية، بوابة بيانات الكيان |
-| `family-orchestrators` | `ay2m/Office` — `.claude/plugins/family-orchestrators` | سير العمل العابر للمستودعات: المزامنة الشاملة، شحن ميزة، المسح الأمني، مراجعة الامتثال |
-| `flygaca-product` | `ay2m/FlyGACA` — `.claude/plugins/flygaca-product` | واجهة React، وخدمة Express، وخطوط إنتاج المدونة التنظيمية، ومخطط Postgres، ومسار RAG |
-| `captain-adel-service` | `ay2m/Captain-Adel` — `.claude/plugins/captain-adel-service` | المنهج وبنك الأسئلة، وتشغيل مزوّدي النماذج، وطبقة البيانات، والنشر |
+| `office-docs` | `iflygaca/Office` — `.claude/plugins/office-docs` | ترويسة YAML، خط إنتاج الطباعة، النسخة العربية، بوابة بيانات الكيان |
+| `family-orchestrators` | `iflygaca/Office` — `.claude/plugins/family-orchestrators` | سير العمل العابر للمستودعات: المزامنة الشاملة، شحن ميزة، المسح الأمني، مراجعة الامتثال |
+| `flygaca-product` | `iflygaca/FlyGACA` — `.claude/plugins/flygaca-product` | واجهة React، وخدمة Express، وخطوط إنتاج المدونة التنظيمية، ومخطط Postgres، ومسار RAG |
+| `captain-adel-service` | `iflygaca/Captain-Adel` — `.claude/plugins/captain-adel-service` | المنهج وبنك الأسئلة، وتشغيل مزوّدي النماذج، وطبقة البيانات، والنشر |
 
 الفهرس هو `.claude-plugin/marketplace.json` في جذر هذا المستودع. ملحقا Office مُدرجان بمسار محلي
 نسبي، بينما يُدرج ملحقا المنتجين عبر مصدر `git-subdir` يشير إلى مسار داخل مستودعه، فيبقى كل
@@ -36,7 +36,7 @@ lang: ar
 > الملحقات **لا تحلّ محل** الوكلاء والمهارات المرتبطة بكل مستودع في مجلد `.claude/` الخاص به —
 > القائمة الواردة في `.claude/agents/README.md` هنا (`doc-smith` و`ar-mirror` و`ksa-compliance`
 > و`family-warden` ووكلاء النفاذ إلى السوق)، و`brain-retrieval` و`eval-warden` و`prompt-steward`
-> و`site-chrome` في `ay2m/Captain-Adel`، و`run-flygaca` في `ay2m/FlyGACA`. تلك تُحمَّل تلقائيًا
+> و`site-chrome` في `iflygaca/Captain-Adel`، و`run-flygaca` في `iflygaca/FlyGACA`. تلك تُحمَّل تلقائيًا
 > داخل نسخة العمل نفسها. أما الملحقات فتحمل المعرفة التي تنقص جلسة **خارج** نسخة العمل، إضافة
 > إلى سير العمل العابر للمستودعات الذي لا يخص مستودعًا واحدًا. وحيث يلتقي الاثنان —
 > `family-warden` هنا و`family-auditor` للقراءة فقط في الملحق — تكون الأولوية لوكيل المستودع.
@@ -46,7 +46,7 @@ lang: ar
 ## 2. التثبيت — Claude Code (الطرفية)
 
 ```shell
-/plugin marketplace add ay2m/Office
+/plugin marketplace add iflygaca/Office
 /plugin install family-orchestrators@flygaca-family
 ```
 
@@ -63,11 +63,11 @@ lang: ar
 المكافئ غير التفاعلي، للبرمجة النصية أو لجهاز جديد:
 
 ```shell
-claude plugin marketplace add ay2m/Office
+claude plugin marketplace add iflygaca/Office
 claude plugin install family-orchestrators@flygaca-family --scope project
 ```
 
-`ay2m/Office` مستودع **خاص**، لذا تتطلب إضافة المتجر هوية git لديها صلاحية القراءة. هذا هو التحكم
+`iflygaca/Office` مستودع **خاص**، لذا تتطلب إضافة المتجر هوية git لديها صلاحية القراءة. هذا هو التحكم
 المقصود بالوصول — المتجر ليس عامًا، ولا يجوز أن يصبح عامًا: فهو يقيم في مستودع الوثائق.
 
 ---
@@ -93,7 +93,7 @@ claude plugin install family-orchestrators@flygaca-family --scope project
 {
   "extraKnownMarketplaces": {
     "flygaca-family": {
-      "source": { "source": "github", "repo": "ay2m/Office" }
+      "source": { "source": "github", "repo": "iflygaca/Office" }
     }
   }
 }
@@ -131,7 +131,7 @@ claude plugin install family-orchestrators@flygaca-family --scope project
   لا يوضع هناك سوى `plugin.json`، وما عداه في جذر الملحق. هذا أشيع خطأ بنيوي.
 
 **أين يتغيّر المحتوى.** ملحقا المنتجين ملك لمستودعيهما: عدّل `flygaca-product` في
-`ay2m/FlyGACA` و`captain-adel-service` في `ay2m/Captain-Adel`. ولا يوجد هنا سوى مدخل الفهرس.
+`iflygaca/FlyGACA` و`captain-adel-service` في `iflygaca/Captain-Adel`. ولا يوجد هنا سوى مدخل الفهرس.
 وأي ملحق يناقض وكيلُه ملف `CLAUDE.md` في مستودعه فالخلل في الملحق لا في `CLAUDE.md`.
 
 ### ملاحظة بشأن بوابة الوثائق
@@ -162,11 +162,11 @@ claude plugin install family-orchestrators@flygaca-family --scope project
 | العَرَض | السبب / الحل |
 | --- | --- |
 | `/plugin` أمر غير معروف | إصدار قديم من الأداة. حدّث Claude Code وأعد تشغيل الطرفية. |
-| المتجر غير موجود | لم يُضف في هذا النطاق: `/plugin marketplace add ay2m/Office`. |
+| المتجر غير موجود | لم يُضف في هذا النطاق: `/plugin marketplace add iflygaca/Office`. |
 | الملحق يظهر غير مثبَّت بعد الاستنساخ | متوقع للمصادر الخارجية — نفّذ أمر `claude plugin install` الذي يطبعه. |
 | اختفاء الأوامر بعد تعديل | `/reload-plugins` (مع `--force` إن حذّر من ذاكرة التخزين المؤقت). |
 | ما زالت مفقودة | `rm -rf ~/.claude/plugins/cache` ثم إعادة التشغيل وإعادة التثبيت. |
-| فشل إضافة المتجر لمستودع خاص | هوية git لا تقرأ `ay2m/Office`. عالج الصلاحية، ولا تجعل المستودع عامًا. |
+| فشل إضافة المتجر لمستودع خاص | هوية git لا تقرأ `iflygaca/Office`. عالج الصلاحية، ولا تجعل المستودع عامًا. |
 
 ---
 

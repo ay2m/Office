@@ -44,9 +44,9 @@ If none of these apply, stop — ship it in the one repo and skip the ceremony.
 
 | Repo | Gate |
 | --- | --- |
-| `ay2m/FlyGACA` | `npm run verify` **and** `cd server && npm run lint && npm test && npm run build` — the root gate does not cover `server/` |
-| `ay2m/Captain-Adel` | `npm run smoke && npm run smoke:frontend && npm run test:unit && npm run eval:dry`, plus a live `npm run eval` for any brain change |
-| `ay2m/Office` | `node tools/print/check.mjs` and `node tools/print/check-facts.mjs`, with the regenerated PDFs and `.buildcache.json` in the **same commit** as the doc edit |
+| `iflygaca/FlyGACA` | `npm run verify` **and** `cd server && npm run lint && npm test && npm run build` — the root gate does not cover `server/` |
+| `iflygaca/Captain-Adel` | `npm run smoke && npm run smoke:frontend && npm run test:unit && npm run eval:dry`, plus a live `npm run eval` for any brain change |
+| `iflygaca/Office` | `node tools/print/check.mjs` and `node tools/print/check-facts.mjs`, with the regenerated PDFs and `.buildcache.json` in the **same commit** as the doc edit |
 
 ## 4. Documentation lands with the change, not after
 

@@ -56,18 +56,18 @@ lang: ar
 
 > **قاعدة صلبة — الآيبان ورقم الحساب لا يغادران هذا المستودع أبداً.** يُسجَّلان
 > هنا وفي `00-strategy/phase0.md` ‏(P0-3) فقط. ولا يجوز أن يظهرا في مستودعي
-> المنتجات (`ay2m/FlyGACA` و`ay2m/Captain-Adel`) ولا في أي موقع أو وثيقة علنية.
+> المنتجات (`iflygaca/FlyGACA` و`iflygaca/Captain-Adel`) ولا في أي موقع أو وثيقة علنية.
 > الفواتير الموجهة للعملاء تحمل البيانات البنكية على الفاتورة نفسها وقت إصدارها.
 
 ## أين تظهر الهوية علنياً
 
 | السطح | ما يُعرض | مكانه |
 |---|---|---|
-| فوتر flygaca.com | سطر المشغّل: الاسم عربي/إنجليزي + س.ت + الضريبي + الرياض | `ay2m/FlyGACA: src/i18n/*.json` (`footer.legalEntity`) + `src/app/Footer.tsx` |
-| flygaca.com ‏/terms و/privacy | بلوك الكيان، متحكم البيانات (PDPL)، اختصاص الرياض | `ay2m/FlyGACA: src/i18n/*.json` (`legal.*`) |
-| البيانات المهيكلة flygaca.com | `legalName` والعنوان ومعرّف السجل والرقم الضريبي | `ay2m/FlyGACA: src/lib/seo/jsonld.ts` + `index.html` + `scripts/prerender-head.mjs` |
-| فوتر captadel.com (كل الصفحات) | سطر المشغّل عربي/إنجليزي | `ay2m/Captain-Adel: public/assets/js/footer.js` |
-| captadel.com ‏/terms و/privacy | بلوك الكيان، متحكم البيانات، ميسر كمعالج | `ay2m/Captain-Adel: public/terms.html`، `public/privacy.html` |
+| فوتر flygaca.com | سطر المشغّل: الاسم عربي/إنجليزي + س.ت + الضريبي + الرياض | `iflygaca/FlyGACA: src/i18n/*.json` (`footer.legalEntity`) + `src/app/Footer.tsx` |
+| flygaca.com ‏/terms و/privacy | بلوك الكيان، متحكم البيانات (PDPL)، اختصاص الرياض | `iflygaca/FlyGACA: src/i18n/*.json` (`legal.*`) |
+| البيانات المهيكلة flygaca.com | `legalName` والعنوان ومعرّف السجل والرقم الضريبي | `iflygaca/FlyGACA: src/lib/seo/jsonld.ts` + `index.html` + `scripts/prerender-head.mjs` |
+| فوتر captadel.com (كل الصفحات) | سطر المشغّل عربي/إنجليزي | `iflygaca/Captain-Adel: public/assets/js/footer.js` |
+| captadel.com ‏/terms و/privacy | بلوك الكيان، متحكم البيانات، ميسر كمعالج | `iflygaca/Captain-Adel: public/terms.html`، `public/privacy.html` |
 | ميتاداتا المستودعات | حامل الرخصة، author في package.json، سياسة الأمان | كلا مستودعي المنتجات |
 
 لا يُنشر أبداً: الآيبان/الحساب البنكي (القاعدة أعلاه)، هوية المؤسس الوطنية،
@@ -77,7 +77,7 @@ lang: ar
 
 تلك الأسطح نسخٌ تُصان يدوياً، لذلك تُنسخ القيم أعلاه أيضاً إلى
 `contracts/flygaca-family.json` — عقد العائلة المودَع بصورة متطابقة تماماً في هذا المستودع
-وفي `ay2m/FlyGACA` و`ay2m/Captain-Adel`. تبقى هذه الوثيقة المصدر المرجعي؛ والملف هو الشكل
+وفي `iflygaca/FlyGACA` و`iflygaca/Captain-Adel`. تبقى هذه الوثيقة المصدر المرجعي؛ والملف هو الشكل
 الذي يستطيع التكامل المستمر قراءته فعلاً.
 
 تحفظ ثلاث بوابات تطابقها، واحدة لكل مستودع:
@@ -85,8 +85,8 @@ lang: ar
 | المستودع | البوابة | ما تتحقق منه |
 |---|---|---|
 | هذا المستودع | `node tools/print/check-facts.mjs` (ضمن `docs-check.yml`) | تطابق كل قيمة في بلوك `entity` مع الجداول أعلاه — وغياب الآيبان ورقم الحساب عن الملف، لأنه ينتقل إلى مستودعي المنتجات |
-| `ay2m/FlyGACA` | `tests/family-contract.test.ts` (ضمن `npm run verify`) | ورود القيم حرفياً في `src/lib/seo/jsonld.ts` وفي `footer.legalEntity` في حزمتي اللغة |
-| `ay2m/Captain-Adel` | `test/family-contract.test.js` (ضمن `npm run test:unit`) | ورود القيم حرفياً في `footer.js` و`terms.html` و`privacy.html` و`package.json` و`LICENSE` |
+| `iflygaca/FlyGACA` | `tests/family-contract.test.ts` (ضمن `npm run verify`) | ورود القيم حرفياً في `src/lib/seo/jsonld.ts` وفي `footer.legalEntity` في حزمتي اللغة |
+| `iflygaca/Captain-Adel` | `test/family-contract.test.js` (ضمن `npm run test:unit`) | ورود القيم حرفياً في `footer.js` و`terms.html` و`privacy.html` و`package.json` و`LICENSE` |
 
 **لذا فتغيير أي قيمة هنا تغييرٌ يمسّ خمسة ملفات في ثلاثة مستودعات.** عدّل هذه الوثيقة، وحدّث
 `contracts/flygaca-family.json`، وارفع رقم `version` وأعد ختم بصمته

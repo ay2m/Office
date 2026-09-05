@@ -21,7 +21,7 @@ lang: ar
 > PostgreSQL** — وكلها في **`me-central2` (الدمام)**.
 >
 > **اذهب بدلًا منه إلى:** `docs/RUNBOOK-deploy.md` في
-> [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA). فهو التسلسل المعتمد والمصان — يقيم مع الشيفرة،
+> [`iflygaca/FlyGACA`](https://github.com/iflygaca/FlyGACA). فهو التسلسل المعتمد والمصان — يقيم مع الشيفرة،
 > ولذلك لا يمكن أن ينحرف عن ملف Dockerfile ولا عن متغيّرات البيئة ولا عن مُشغِّل الترحيلات.
 > و[`../hosting-facts.md`](../hosting-facts.md) هو الملخّص المختصر لما يعمل وأين.
 

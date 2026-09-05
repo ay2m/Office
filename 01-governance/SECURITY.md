@@ -21,12 +21,12 @@ sensitive material**, not software vulnerabilities.
   access isolation — a file that leaks a secret, an over-broad share link, a
   document that should not have been committed, or a misconfigured permission.
 - **Product code lives elsewhere.** Vulnerabilities in Fly GACA's software belong
-  in their own repositories, all under the `ay2m` account — `ay2m/FlyGACA` (the
-  web app *and* its Express backend on Cloud Run), `ay2m/Captain-Adel` (the AI
-  flight instructor service), and `ay2m/FlyGACA-ios` (the native SwiftUI app
+  in their own repositories, all under the `ay2m` account — `iflygaca/FlyGACA` (the
+  web app *and* its Express backend on Cloud Run), `iflygaca/Captain-Adel` (the AI
+  flight instructor service), and `iflygaca/FlyGACA-ios` (the native SwiftUI app
   family). Report those through the security policy of the repository concerned.
-  `ay2m/FlyGACA-app` is **archived and read-only** — it is not a valid report
-  destination; anything found there belongs against `ay2m/FlyGACA`.
+  `iflygaca/FlyGACA-app` is **archived and read-only** — it is not a valid report
+  destination; anything found there belongs against `iflygaca/FlyGACA`.
 
 ## Reporting a concern
 

@@ -16,8 +16,8 @@ inside the one Express service on Cloud Run (`/api/chat` and `/api/feedback`, pl
 `/v1/ask` surface). Deploying Captain Adel means deploying the API.
 
 > [!NOTE]
-> This page is about Captain Adel **inside the product** (`ay2m/FlyGACA`). The standalone service
-> behind `captadel.com` lives in [`ay2m/Captain-Adel`](https://github.com/ay2m/Captain-Adel) and
+> This page is about Captain Adel **inside the product** (`iflygaca/FlyGACA`). The standalone service
+> behind `captadel.com` lives in [`iflygaca/Captain-Adel`](https://github.com/iflygaca/Captain-Adel) and
 > has its own `runbook-captadel-*` pages in this folder. Do not mix the two.
 
 ---
@@ -30,7 +30,7 @@ inside the one Express service on Cloud Run (`/api/chat` and `/api/feedback`, pl
    `public/data/rag-chunks.json`; the Dockerfile copies it into the image so the BM25 index needs
    no cold-start fetch.
 3. **The Cloud Run service itself** — provisioned per `docs/RUNBOOK-deploy.md` in
-   [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA). There is no Firebase, no Cloud Functions and
+   [`iflygaca/FlyGACA`](https://github.com/iflygaca/FlyGACA). There is no Firebase, no Cloud Functions and
    no Blaze plan involved.
 
 ---

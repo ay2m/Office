@@ -107,10 +107,10 @@ status / owner / last_updated / lang`)، ولها **نسخة PDF جاهزة لل
 
 > توثّق المواصفات وأدلة التشغيل هنا أعمال المنتج والهندسة؛ أما **الشيفرة** نفسها فتقيم في
 > مستودعات منفصلة تحت حساب `ay2m` —
-> [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA) (تطبيق الويب *و*خلفيّته المبنية على
+> [`iflygaca/FlyGACA`](https://github.com/iflygaca/FlyGACA) (تطبيق الويب *و*خلفيّته المبنية على
 > Express والعاملة على Cloud Run، إضافةً إلى المصنّف التنظيمي وخطوط إنتاج المحتوى)،
-> و[`ay2m/Captain-Adel`](https://github.com/ay2m/Captain-Adel) (خدمة مدرّب الطيران بالذكاء
-> الاصطناعي خلف captadel.com)، و[`ay2m/FlyGACA-ios`](https://github.com/ay2m/FlyGACA-ios)
+> و[`iflygaca/Captain-Adel`](https://github.com/iflygaca/Captain-Adel) (خدمة مدرّب الطيران بالذكاء
+> الاصطناعي خلف captadel.com)، و[`iflygaca/FlyGACA-ios`](https://github.com/iflygaca/FlyGACA-ios)
 > (عائلة تطبيقات SwiftUI الأصيلة) — لا في هذا المستودع.
 
 - إعداد المكتب (01–08، .docx/.xlsx): 01-digital-office-setup-master-checklist ·

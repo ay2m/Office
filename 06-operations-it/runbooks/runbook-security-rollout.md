@@ -19,7 +19,7 @@ lang: en
 >
 > **Go to instead:** [`../hosting-facts.md`](../hosting-facts.md) for what the stack actually is,
 > and `docs/RUNBOOK-deploy.md` + `SECURITY.md` in
-> [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA) for how the current service is configured and
+> [`iflygaca/FlyGACA`](https://github.com/iflygaca/FlyGACA) for how the current service is configured and
 > where to report a security concern.
 
 ## What replaced each of the three

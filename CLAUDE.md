@@ -14,7 +14,7 @@ Guidance for Claude Code when working in this repository.
 
 ## What this is
 
-**ay2m/Office** ("The Office") is the internal **documents repository** for Fly GACA — an
+**iflygaca/Office** ("The Office") is the internal **documents repository** for Fly GACA — an
 independent, educational platform and open regulatory library for Saudi civil aviation. It holds
 every operating document that runs the company: strategy/OKRs, governance, legal, finance,
 KSA compliance, HR/people, operations/IT specs, GTM, customer success, investor relations,
@@ -26,10 +26,10 @@ Product code lives in separate repos, all under the **`ay2m`** account:
 
 | Repo | | What it is |
 | --- | --- | --- |
-| [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA) | private | **The product.** The bilingual web app (React 19 + Vite) *and* its Express backend on Cloud Run. The regulatory corpus and content pipelines live here too. |
-| [`ay2m/Captain-Adel`](https://github.com/ay2m/Captain-Adel) | private | The AI flight instructor service behind captadel.com |
-| [`ay2m/FlyGACA-ios`](https://github.com/ay2m/FlyGACA-ios) | public | The native SwiftUI family — one shared package, one App Store app per exam module |
-| [`ay2m/FlyGACA-app`](https://github.com/ay2m/FlyGACA-app) | public, **archived** | The retired predecessor of `ay2m/FlyGACA`. Read-only, kept for its 1,005-commit history. Do not cite it as current. |
+| [`iflygaca/FlyGACA`](https://github.com/iflygaca/FlyGACA) | private | **The product.** The bilingual web app (React 19 + Vite) *and* its Express backend on Cloud Run. The regulatory corpus and content pipelines live here too. |
+| [`iflygaca/Captain-Adel`](https://github.com/iflygaca/Captain-Adel) | private | The AI flight instructor service behind captadel.com |
+| [`iflygaca/FlyGACA-ios`](https://github.com/iflygaca/FlyGACA-ios) | public | The native SwiftUI family — one shared package, one App Store app per exam module |
+| [`iflygaca/FlyGACA-app`](https://github.com/iflygaca/FlyGACA-app) | public, **archived** | The retired predecessor of `iflygaca/FlyGACA`. Read-only, kept for its 1,005-commit history. Do not cite it as current. |
 
 **iOS module status:** **ELPT** and **AIP** ship. **PPL, CPL, IR and ATPL are parked** — their
 modules were removed from the iOS repo in 2026-08 pending a strategic decision, while their
@@ -38,9 +38,9 @@ modules were removed from the iOS repo in 2026-08 pending a strategic decision, 
 > [!NOTE]
 > Older documents in this tree refer to a `FlyGACA/…` org and to six per-module App Store
 > metadata repos (`PPL`, `CPL`, `IR`, `ATPL`, `ELPT`, `AIP`). **Neither is current.** The
-> `FlyGACA/…` paths are legacy redirects to `ay2m/…`, and no per-module repo exists under
-> either owner — every one 404s, so App Store metadata lives in `ay2m/FlyGACA-ios`. Some
-> documents also call `ay2m/FlyGACA` "the iOS family", or `ay2m/FlyGACA-app` "the web
+> `FlyGACA/…` paths are legacy redirects to `iflygaca/…`, and no per-module repo exists under
+> either owner — every one 404s, so App Store metadata lives in `iflygaca/FlyGACA-ios`. Some
+> documents also call `iflygaca/FlyGACA` "the iOS family", or `iflygaca/FlyGACA-app` "the web
 > monorepo" — it is the web app and backend, and `FlyGACA-app` is archived.
 
 > [!IMPORTANT]
@@ -127,7 +127,7 @@ Support directories:
   CI-gate, entity-facts and contract-stamping skills so a session *without* this checkout can use
   them; **family-orchestrators** — the cross-repo full-sync, feature-ship, security-sweep and
   compliance-review workflows plus the `family-auditor` agent); the two product plugins are
-  `git-subdir` entries pointing into `ay2m/FlyGACA` and `ay2m/Captain-Adel`, so each repo owns its
+  `git-subdir` entries pointing into `iflygaca/FlyGACA` and `iflygaca/Captain-Adel`, so each repo owns its
   own. All three repos register the marketplace in `.claude/settings.json` — registering installs
   nothing, so a plugin still has to be installed deliberately. Install, onboarding and maintenance:
   `06-operations-it/runbooks/runbook-claude-plugins.md`. Plugin Markdown is under `.claude/`, so it
@@ -236,7 +236,7 @@ so the whole pipeline runs offline; it auto-detects Chromium via `$PLAYWRIGHT_BR
 ## The family contract
 
 `contracts/flygaca-family.json` is the one artifact the three active repos share. It is committed
-**byte-identically** to `ay2m/Office`, `ay2m/FlyGACA` and `ay2m/Captain-Adel`, and it exists because
+**byte-identically** to `iflygaca/Office`, `iflygaca/FlyGACA` and `iflygaca/Captain-Adel`, and it exists because
 the family's cross-repo claims used to live only in prose and drifted without anything failing.
 
 It holds three blocks, each naming the repo that **owns** it — only the owner edits its block, the
@@ -244,8 +244,8 @@ other two copies are mirrors:
 
 | Block | Owner | Source of truth | Mirrored into |
 | --- | --- | --- | --- |
-| `entity` | **this repo** | `01-governance/company-facts.md` | `ay2m/FlyGACA`'s `src/lib/seo/jsonld.ts` + both i18n bundles; `ay2m/Captain-Adel`'s `footer.js`, `terms.html`, `privacy.html`, `package.json`, `LICENSE` |
-| `chat` | `ay2m/FlyGACA` | `server/src/contract.ts` | the answer shape both brains must honour |
+| `entity` | **this repo** | `01-governance/company-facts.md` | `iflygaca/FlyGACA`'s `src/lib/seo/jsonld.ts` + both i18n bundles; `iflygaca/Captain-Adel`'s `footer.js`, `terms.html`, `privacy.html`, `package.json`, `LICENSE` |
+| `chat` | `iflygaca/FlyGACA` | `server/src/contract.ts` | the answer shape both brains must honour |
 | `repos` | **this repo** | this file's repo table | the real roster — supersedes any prose citing a `FlyGACA/…` org |
 
 Each repo gates its own half in its existing CI: here it is `node tools/print/check-facts.mjs`
@@ -301,7 +301,7 @@ gate immediately.
 - **`00-strategy/roadmap.md`** — current phase status and what's next.
 - **`06-operations-it/agent-workforce-plan.md`** — the internal agent layer: what the four
   subagents are for, the earn-its-place test that caps the roster, the target rosters for
-  `ay2m/FlyGACA` and `ay2m/Captain-Adel`, and what agents explicitly do **not** replace.
+  `iflygaca/FlyGACA` and `iflygaca/Captain-Adel`, and what agents explicitly do **not** replace.
   Adopted as DEC-012.
 - **`tools/print/README.md`** — full print-pipeline usage/config detail beyond the summary above.
 - **`01-governance/`** — `company-facts.md`, `CODE_OF_CONDUCT.md`, `decision-log.md`,

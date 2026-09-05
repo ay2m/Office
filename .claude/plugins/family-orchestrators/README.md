@@ -1,13 +1,13 @@
 # `family-orchestrators` — cross-repo workflows
 
 The workflows that do not fit in one repo. Everything here assumes the family's
-three active repos — `ay2m/Office`, `ay2m/FlyGACA`, `ay2m/Captain-Adel` — and
+three active repos — `iflygaca/Office`, `iflygaca/FlyGACA`, `iflygaca/Captain-Adel` — and
 knows which one owns which claim.
 
 ## Install
 
 ```
-/plugin marketplace add ay2m/Office
+/plugin marketplace add iflygaca/Office
 /plugin install family-orchestrators@flygaca-family
 ```
 
@@ -24,7 +24,7 @@ knows which one owns which claim.
 
 `family-auditor` — reads across whichever repos a session has and reports drift
 with `file:line` evidence, resolving disagreements by **ownership** rather than
-by preference. Inside `ay2m/Office`, prefer the project agent `family-warden`,
+by preference. Inside `iflygaca/Office`, prefer the project agent `family-warden`,
 which covers the same ground and can edit; `family-auditor` is the read-only
 version for sessions that agent never reaches.
 

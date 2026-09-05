@@ -23,7 +23,7 @@ lang: ar
 >
 > **اذهب بدلًا منه إلى:** [`../hosting-facts.md`](../hosting-facts.md) — فقسم حدود PDPL فيه هو
 > البيان الحالي لما يقيم أين ولماذا — وإلى `docs/RUNBOOK-deploy.md` في
-> [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA).
+> [`iflygaca/FlyGACA`](https://github.com/iflygaca/FlyGACA).
 
 ## التاريخ، في أربعة أسطر
 

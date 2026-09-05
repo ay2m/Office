@@ -14,7 +14,7 @@ lang: en
 session — in any of the three active repos, on any surface — starts with the same
 rules loaded instead of rediscovering them.
 
-**Scope.** The marketplace lives in `ay2m/Office`. It carries four plugins: two
+**Scope.** The marketplace lives in `iflygaca/Office`. It carries four plugins: two
 in this repository, one in each product repository.
 
 ---
@@ -23,10 +23,10 @@ in this repository, one in each product repository.
 
 | Plugin | Lives in | Covers |
 | --- | --- | --- |
-| `office-docs` | `ay2m/Office` — `.claude/plugins/office-docs` | Front-matter, the print pipeline, the Arabic mirror, the entity-facts gate |
-| `family-orchestrators` | `ay2m/Office` — `.claude/plugins/family-orchestrators` | Cross-repo workflows: full-sync, feature-ship, security sweep, compliance review |
-| `flygaca-product` | `ay2m/FlyGACA` — `.claude/plugins/flygaca-product` | React surface, Express API, corpus pipelines, Postgres schema, the RAG flow |
-| `captain-adel-service` | `ay2m/Captain-Adel` — `.claude/plugins/captain-adel-service` | Curriculum and the exam bank, provider operations, the corpus data layer, deployment |
+| `office-docs` | `iflygaca/Office` — `.claude/plugins/office-docs` | Front-matter, the print pipeline, the Arabic mirror, the entity-facts gate |
+| `family-orchestrators` | `iflygaca/Office` — `.claude/plugins/family-orchestrators` | Cross-repo workflows: full-sync, feature-ship, security sweep, compliance review |
+| `flygaca-product` | `iflygaca/FlyGACA` — `.claude/plugins/flygaca-product` | React surface, Express API, corpus pipelines, Postgres schema, the RAG flow |
+| `captain-adel-service` | `iflygaca/Captain-Adel` — `.claude/plugins/captain-adel-service` | Curriculum and the exam bank, provider operations, the corpus data layer, deployment |
 
 The catalog is `.claude-plugin/marketplace.json` at this repository's root. The
 two Office plugins are local relative-path entries; the two product plugins are
@@ -39,7 +39,7 @@ repos.
 > each repo's `.claude/` directory — the roster in `.claude/agents/README.md`
 > here (`doc-smith`, `ar-mirror`, `ksa-compliance`, `family-warden` and the GTM
 > agents), `brain-retrieval` / `eval-warden` / `prompt-steward` / `site-chrome`
-> in `ay2m/Captain-Adel`, `run-flygaca` in `ay2m/FlyGACA`. Those load
+> in `iflygaca/Captain-Adel`, `run-flygaca` in `iflygaca/FlyGACA`. Those load
 > automatically for a session inside that checkout. The plugins carry the
 > knowledge a session **outside** the checkout would otherwise lack, plus the
 > cross-repo workflows that belong to no single repo. Where the two meet —
@@ -51,7 +51,7 @@ repos.
 ## 2. Install — Claude Code (terminal)
 
 ```shell
-/plugin marketplace add ay2m/Office
+/plugin marketplace add iflygaca/Office
 /plugin install family-orchestrators@flygaca-family
 ```
 
@@ -69,11 +69,11 @@ If the install summary says `Run /reload-plugins to activate.`, run it.
 Non-interactive equivalent, for scripting or a fresh machine:
 
 ```shell
-claude plugin marketplace add ay2m/Office
+claude plugin marketplace add iflygaca/Office
 claude plugin install family-orchestrators@flygaca-family --scope project
 ```
 
-`ay2m/Office` is **private**, so adding the marketplace requires a git identity
+`iflygaca/Office` is **private**, so adding the marketplace requires a git identity
 that can read it. That is the intended access control — the marketplace is not
 public, and it should not become public: it is hosted in the documents
 repository.
@@ -104,7 +104,7 @@ teammate who trusts the folder gets the catalog without being told to add it:
 {
   "extraKnownMarketplaces": {
     "flygaca-family": {
-      "source": { "source": "github", "repo": "ay2m/Office" }
+      "source": { "source": "github", "repo": "iflygaca/Office" }
     }
   }
 }
@@ -151,8 +151,8 @@ editing a file in the repo it belongs to.
   plugin root. This is the most common structural mistake.
 
 **Where content changes.** The product plugins are owned by their repos: fix
-`flygaca-product` in `ay2m/FlyGACA` and `captain-adel-service` in
-`ay2m/Captain-Adel`. Only the catalog entry lives here. A plugin whose agent
+`flygaca-product` in `iflygaca/FlyGACA` and `captain-adel-service` in
+`iflygaca/Captain-Adel`. Only the catalog entry lives here. A plugin whose agent
 contradicts its repo's `CLAUDE.md` is a bug in the plugin, not in `CLAUDE.md`.
 
 ### Doc-gate note
@@ -186,11 +186,11 @@ Two family-specific cautions:
 | Symptom | Cause / fix |
 | --- | --- |
 | `/plugin` unknown command | Old CLI. Update Claude Code, restart the terminal. |
-| Marketplace not found | Not added in this scope: `/plugin marketplace add ay2m/Office`. |
+| Marketplace not found | Not added in this scope: `/plugin marketplace add iflygaca/Office`. |
 | Plugin listed as not installed after cloning | Expected for external sources — run the `claude plugin install` command it prints. |
 | Commands missing after an edit | `/reload-plugins` (`--force` if it warns about the prompt cache). |
 | Still missing | `rm -rf ~/.claude/plugins/cache`, restart, reinstall. |
-| Marketplace add fails on a private repo | The git identity can't read `ay2m/Office`. Fix access; do not make the repo public. |
+| Marketplace add fails on a private repo | The git identity can't read `iflygaca/Office`. Fix access; do not make the repo public. |
 
 ---
 

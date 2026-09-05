@@ -21,8 +21,8 @@ lang: en
 > is `agent-workforce-plan.md`.
 
 > [!IMPORTANT]
-> **The repository's own `CLAUDE.md` is authoritative.** `ay2m/FlyGACA` carries a detailed,
-> code-adjacent guidance file, and so does `ay2m/FlyGACA-ios`. If an agent can read the repo, that
+> **The repository's own `CLAUDE.md` is authoritative.** `iflygaca/FlyGACA` carries a detailed,
+> code-adjacent guidance file, and so does `iflygaca/FlyGACA-ios`. If an agent can read the repo, that
 > file wins over this one on anything technical. Use this page only where no repo context is
 > available — and do **not** drop a copy of it into a repo root as the old version instructed;
 > that is how the two drifted apart in the first place. Corrected 2026-08-19: the previous version
@@ -39,8 +39,8 @@ It serves pilots, operators, instructors, and cadets in the Kingdom of Saudi Ara
 | | |
 |---|---|
 | Primary domain | flygaca.com (API origin: api.flygaca.com) |
-| Product repo | github.com/ay2m/FlyGACA — web app + Express backend + regulatory corpus |
-| Other repos | ay2m/Captain-Adel (captadel.com service) · ay2m/FlyGACA-ios (native SwiftUI family) · ay2m/Office (this documents tree) · ay2m/FlyGACA-app (**archived** predecessor — never cite as current) |
+| Product repo | github.com/iflygaca/FlyGACA — web app + Express backend + regulatory corpus |
+| Other repos | iflygaca/Captain-Adel (captadel.com service) · iflygaca/FlyGACA-ios (native SwiftUI family) · iflygaca/Office (this documents tree) · iflygaca/FlyGACA-app (**archived** predecessor — never cite as current) |
 | Owner | Captain Adel Madkhali — Chief Instructor, ATPL, CFII |
 | Build mode | Solo founder · no fixed deadline · phased delivery |
 
@@ -143,7 +143,7 @@ surface under `/api/*` so the mirrors' same-origin proxy and the strict CSP keep
 | Payments | **Moyasar** — hosted widget + server-to-server confirm, webhook as defence in depth; ZATCA e-invoicing |
 | AI assistant | Captain Adel — **Gemini via Genkit**, RAG over the GACAR corpus, grounding computed server-side |
 | Calculators | Pure, DOM-free modules, unit-tested, outside the UI layer |
-| Native | Capacitor shell for the web app; separate native SwiftUI family in `ay2m/FlyGACA-ios` |
+| Native | Capacitor shell for the web app; separate native SwiftUI family in `iflygaca/FlyGACA-ios` |
 | Testing | **Vitest** (coverage ratchet) + **Playwright** E2E and accessibility |
 
 Do not introduce Firebase, Stripe, or a framework swap. New dependencies need a reason — check
@@ -155,7 +155,7 @@ The original phases 0–6 (foundations → library → Captain Adel → accounts
 → reach) are **done or superseded**. Current work is incremental and tracked in the product repo's
 `ROADMAP.md`, which is the authority. Ask which item is in play rather than inferring a phase.
 
-## 10. Repository structure (`ay2m/FlyGACA`)
+## 10. Repository structure (`iflygaca/FlyGACA`)
 
 ```
 src/                React app

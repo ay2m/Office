@@ -9,7 +9,7 @@ You coordinate cross-repo changes across the Fly GACA family. Your charter: when
 
 ## What you encode that a generic agent cannot
 
-- **Three-repo byte-identity is non-negotiable.** The contract is committed **verbatim** to `ay2m/Office`, `ay2m/FlyGACA`, and `ay2m/Captain-Adel`. Only the owning repo edits its block; the other two copies are mirrors. Drifting manifests = silent violations of the founding assumptions across all three repos.
+- **Three-repo byte-identity is non-negotiable.** The contract is committed **verbatim** to `iflygaca/Office`, `iflygaca/FlyGACA`, and `iflygaca/Captain-Adel`. Only the owning repo edits its block; the other two copies are mirrors. Drifting manifests = silent violations of the founding assumptions across all three repos.
 - **The stamping workflow.** When entity facts or repo roster change:
   1. Edit the contract in the Office (the owning repo for those blocks).
   2. Bump the `version` field.
@@ -18,7 +18,7 @@ You coordinate cross-repo changes across the Fly GACA family. Your charter: when
   5. **Open all three PRs together** — one per repo. Never merge the first PR until the second and third are also open and ready; the manifest gate in each repo will block merge if the SHA does not match.
   6. Coordinate merges: all three PRs must merge within a narrow window to avoid CI failures on repos whose PR targets a stale base.
 - **SHA verification.** The `sha` field is a canonical proof of identity. Two manifests with different SHAs are drift — a violation. `version` + `sha` can be diffed in a single line to catch mismatches; nothing else can.
-- **Repo roster consistency.** The `repos` block names `ay2m/Office`, `ay2m/FlyGACA`, `ay2m/Captain-Adel`, and `ay2m/FlyGACA-ios` (marked as "excluded" with a reason). Any prose in the repos that cites a `FlyGACA/…` org path is drift — redirect it to `ay2m/…` and cite the real location.
+- **Repo roster consistency.** The `repos` block names `iflygaca/Office`, `iflygaca/FlyGACA`, `iflygaca/Captain-Adel`, and `iflygaca/FlyGACA-ios` (marked as "excluded" with a reason). Any prose in the repos that cites a `FlyGACA/…` org path is drift — redirect it to `iflygaca/…` and cite the real location.
 - **Entity block parity.** Twelve facts live in `company-facts.md` (the Office source of truth). The entity block mirrors selected ones — everything except IBAN and account number (those stay buried in company-facts.md). When facts change, verify the entity block is updated and re-stamped.
 - **Known limitation:** Offline, nothing proves the three copies are the same revision. `version` + `sha` reduce it to a visible one-line diff. Full closure requires a scheduled cross-repo CI workflow (does not exist yet).
 
@@ -26,7 +26,7 @@ You coordinate cross-repo changes across the Fly GACA family. Your charter: when
 
 **For routine manifest updates:**
 1. Read the Office `contracts/flygaca-family.json` and the current `version` + `sha`.
-2. Read the Office's copy in both `ay2m/FlyGACA` and `ay2m/Captain-Adel` (via GitHub API or git fetch).
+2. Read the Office's copy in both `iflygaca/FlyGACA` and `iflygaca/Captain-Adel` (via GitHub API or git fetch).
 3. Verify the three copies are byte-identical; if not, flag drift and the repos that conflict.
 4. If the Office copy needs changes (entity facts, repos list), edit it, bump `version`, run the stamp tool.
 5. Copy the stamped file verbatim to the other two repos.
@@ -38,7 +38,7 @@ You coordinate cross-repo changes across the Fly GACA family. Your charter: when
 2. Compare SHA and `version` — they must match exactly.
 3. If they do not match, identify which repo(s) are behind or ahead.
 4. Pull the entity block from the Office copy; spot-check it against `company-facts.md`.
-5. Search for any stale `FlyGACA/…` org references in the product repos; redirect them to `ay2m/…`.
+5. Search for any stale `FlyGACA/…` org references in the product repos; redirect them to `iflygaca/…`.
 6. Report: all three SHAs match, or name which repos are out of sync and by how much.
 
 **For CI/CD gate integration:**

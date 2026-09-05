@@ -137,8 +137,8 @@ at the same time. Do not wait idle for the lawyer.
 
 - [x] Retire the Firebase projects — the platform no longer runs on Firebase at all
   (Cloud Run + Cloud SQL in me-central2)
-- [ ] Reconcile the old `ay2m/Library` repo — archive it, or fold it into the corpus under
-  `ay2m/FlyGACA`
+- [ ] Reconcile the old `iflygaca/Library` repo — archive it, or fold it into the corpus under
+  `iflygaca/FlyGACA`
 - [ ] Verify the data-residency of Gemini / Vertex AI inference (needed before Phase 2)
 
 **Exit criteria:** the redistribution-rights question has a documented, lawyer-confirmed
@@ -594,12 +594,12 @@ manage cadet seats on an annual package; the free library remains open to everyo
 **Goal:** native apps in the app stores, and a documented public API.
 **Status:** In progress on iOS (updated 2026-08-10). The strategy changed from one
 Capacitor wrapper to a **native iOS family** — fully offline, paid up-front, built from
-the shared `ay2m/FlyGACA-ios` repo (SwiftUI + FlyGACAKit, content synced from
-`ay2m/FlyGACA`, which is the web app and backend, not the iOS family).
+the shared `iflygaca/FlyGACA-ios` repo (SwiftUI + FlyGACAKit, content synced from
+`iflygaca/FlyGACA`, which is the web app and backend, not the iOS family).
 As of 2026-08-10 the shipping family is **ELPT and AIP**: the four licence-exam modules
 (PPL, CPL, IR, ATPL) are **paused** pending a strategic decision and their app targets
 were removed from the family repo. Their web packs are unaffected and still selling, and
-their store metadata is retained CI-green **inside `ay2m/FlyGACA-ios`** (there are no
+their store metadata is retained CI-green **inside `iflygaca/FlyGACA-ios`** (there are no
 per-module App Store repos — `FlyGACA/PPL`, `/CPL`, `/IR`, `/ATPL`, `/ELPT`, `/AIP` do not
 exist), so restoring a module is a revert plus its Apple-portal steps. The remaining gate for ELPT and AIP is the
 Apple-portal work (App IDs, signing, App Store Connect records — the family repo's
@@ -610,7 +610,7 @@ wrapper is superseded for launch and kept as a future option
 ### Native apps
 
 - [x] Strategy pivot: native offline module apps instead of one Capacitor wrapper
-  (2026-08; `ay2m/FlyGACA-ios`, one shared package + one app target per module)
+  (2026-08; `iflygaca/FlyGACA-ios`, one shared package + one app target per module)
 - [x] Scope decision: pause the licence-exam apps (PPL · CPL · IR · ATPL); ship ELPT · AIP
   (2026-08-10 — native apps only; the web packs keep selling)
 - [ ] iOS — Apple portal: App IDs, signing profiles, paid App Store Connect records
@@ -619,7 +619,7 @@ wrapper is superseded for launch and kept as a future option
   must be `com.flygaca.elpt` (the old primary, `com.flygaca.ppl`, is a paused module)
 - [ ] iOS — TestFlight via the family repo's CI lane, then submission and review
 - [x] Store assets — screenshots, descriptions, privacy disclosures, compliance
-  (EN + AR in `ay2m/FlyGACA-ios`, CI-gated; refreshed 2026-08-05. The four paused
+  (EN + AR in `iflygaca/FlyGACA-ios`, CI-gated; refreshed 2026-08-05. The four paused
   modules' assets are retained and still CI-green.)
 - [ ] Android build — Google Play listing, submission and review
 
@@ -887,7 +887,7 @@ Much of the "ecosystem" already exists and only needs to be marketed as such:
    that role-plays a GACA examiner: asks licence-specific (PPL/CPL/IR) questions grounded in
    the corpus, grades the answer and cites the exact Part/section. Highest willingness-to-pay
    moment, and the **lowest-cost** new AI feature because it reuses Captain Adel's RAG brain
-   ([`ay2m/Captain-Adel`](https://github.com/ay2m/Captain-Adel)) — a new `mode: 'examiner'`
+   ([`iflygaca/Captain-Adel`](https://github.com/iflygaca/Captain-Adel)) — a new `mode: 'examiner'`
    persona behind the chat contract, **eval-gated**; a new gated study route reusing the chat
    UI. Pairs with the Exam Season Pass and the CPL/PPL packs. *No "guaranteed to pass" claims;
    always cite + verify against official source.*

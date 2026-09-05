@@ -20,7 +20,7 @@ lang: ar
 عند الطلب.
 
 ```bash
-# From a clone of ay2m/FlyGACA, with the bundle at sync-input/records.json:
+# From a clone of iflygaca/FlyGACA, with the bundle at sync-input/records.json:
 npm run sync:gaca         # dry run — diffs and reports new / changed / unchanged. Never writes.
 npm run sync:gaca:apply   # merge metadata-only deltas, then re-normalise the corpus links
 ```
@@ -30,7 +30,7 @@ npm run sync:gaca:apply   # merge metadata-only deltas, then re-normalise the co
 
 ## ما الذي جرى ربطه
 
-| المكوّن | المسار (في `ay2m/FlyGACA`) | الدور |
+| المكوّن | المسار (في `iflygaca/FlyGACA`) | الدور |
 |-------|------|------|
 | بيان المصادر | `public/data/sources.json` | عناوين URL الرسمية للهيئة العامة للطيران المدني، وإعداد AIRAC، والبصمات لكل مصدر. يملك خط الأنابيب البصمات — لا تحرّرها يدويًا. |
 | محرّك الاستيراد / المقارنة | `scripts/sync-gaca.mjs` | يقرأ حزمة `records.json`، ويقارنها بالفهارس الحيّة، ويُبلِّغ، ويدمج (مع `--apply`). |
@@ -85,7 +85,7 @@ npm run sync:gaca:apply   # merge metadata-only deltas, then re-normalise the co
 
 ## الجدولة
 
-**لا يوجد سير عمل مجدول يفعل ذلك اليوم** — إذ يُشحن `ay2m/FlyGACA` بلا مجلد `.github/workflows/`،
+**لا يوجد سير عمل مجدول يفعل ذلك اليوم** — إذ يُشحن `iflygaca/FlyGACA` بلا مجلد `.github/workflows/`،
 فيجب ربط CI (وأي مهمة cron) بمشروعك أنت أولًا. وعمليًا الوتيرة هي: شغّل نصف الاكتشاف، ثم
 `npm run sync:gaca` قرابة خميس AIRAC وبعد أي منشور من الهيئة العامة للطيران المدني يبلغك خبره،
 وراجِع الفروق، ثم طبّق.

@@ -266,7 +266,7 @@ Versions are eval-gated. A version doesn't ship until its exit criteria are met 
 
 ### Promote to standalone repo
 
-`git subtree split --prefix=captadel → ay2m/Captain-Adel`. Schedule this between v0.6 and v0.7 — after the service is hardened, before ALLaM lands and changes the deploy surface area.
+`git subtree split --prefix=captadel → iflygaca/Captain-Adel`. Schedule this between v0.6 and v0.7 — after the service is hardened, before ALLaM lands and changes the deploy surface area.
 
 ---
 

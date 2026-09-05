@@ -1,20 +1,20 @@
-# CLAUDE.md — ay2m/FlyGACA
+# CLAUDE.md — iflygaca/FlyGACA
 
 Guidance for Claude Code in the FlyGACA product repo (React 19 web app + Express backend).
 
 ## Repository Context
 
-**ay2m/FlyGACA** is the Fly GACA product codebase:
+**iflygaca/FlyGACA** is the Fly GACA product codebase:
 - **Frontend:** React 19 + Vite, bilingual (EN/AR), RTL-aware, TypeScript strict, CSS Modules with design tokens
 - **Backend:** Express 5, Cloud Run (me-central2 Dammam), PostgreSQL, forward-only migrations, HttpOnly JWT
 - **Content:** Regulatory corpus (GACAR), learner data pipeline, flight-hour tracking, PDPL-compliant audit trail
 
-Governance, strategy, financial, legal, and HR material live in the separate `ay2m/Office` repo — not here.
+Governance, strategy, financial, legal, and HR material live in the separate `iflygaca/Office` repo — not here.
 
-## Shared Agents (from ay2m/Office)
+## Shared Agents (from iflygaca/Office)
 
-All agents below are defined in `ay2m/Office/.claude/agents/` and available to this repo via the family contract
-(`contracts/flygaca-family.json`, byte-identical across ay2m/Office, ay2m/FlyGACA, ay2m/Captain-Adel).
+All agents below are defined in `iflygaca/Office/.claude/agents/` and available to this repo via the family contract
+(`contracts/flygaca-family.json`, byte-identical across iflygaca/Office, iflygaca/FlyGACA, iflygaca/Captain-Adel).
 
 ### Product Engineering Agents
 
@@ -41,7 +41,7 @@ All agents below are defined in `ay2m/Office/.claude/agents/` and available to t
 | `ksa-compliance` | PDPL, ZATCA, data residency, breach procedures — for regulatory review before shipping | Read, Write, Edit, Glob, Grep, Bash |
 | `family-warden` | Family contract byte-identity, repo roster, drift sweeps across three repos | Read, Edit, Glob, Grep, Bash |
 
-## Workflows (from ay2m/Office/.claude/skills/operations/)
+## Workflows (from iflygaca/Office/.claude/skills/operations/)
 
 Triggered via slash commands from any repo; coordinate across all three:
 
@@ -116,8 +116,8 @@ Triggered via slash commands from any repo; coordinate across all three:
 - Tests, linting, type-checking via `npm run`
 
 ### Files Out of Scope
-- Governance, strategy, financial, legal, HR material → see `ay2m/Office`
-- Captain Adel AI instructor → see `ay2m/Captain-Adel`
+- Governance, strategy, financial, legal, HR material → see `iflygaca/Office`
+- Captain Adel AI instructor → see `iflygaca/Captain-Adel`
 
 ### CI Gates
 - Linting & TypeScript strict mode (`npm run lint`, `npm run type-check`)
@@ -126,8 +126,8 @@ Triggered via slash commands from any repo; coordinate across all three:
 
 ## See Also
 
-- **Family context & strategy:** [`ay2m/Office/00-strategy/the-book-of-fly-gaca.html`](https://github.com/ay2m/Office/blob/main/00-strategy/the-book-of-fly-gaca.html)
-- **Regulatory corpus & GACAR spec:** [`ay2m/Office/10-academy-curriculum/`](https://github.com/ay2m/Office/blob/main/10-academy-curriculum/)
-- **Compliance & PDPL:** [`ay2m/Office/04-compliance-ksa/`](https://github.com/ay2m/Office/blob/main/04-compliance-ksa/)
-- **Agent workforce plan:** [`ay2m/Office/06-operations-it/agent-workforce-plan.md`](https://github.com/ay2m/Office/blob/main/06-operations-it/agent-workforce-plan.md)
-- **Family contract:** [`ay2m/Office/contracts/flygaca-family.json`](https://github.com/ay2m/Office/blob/main/contracts/flygaca-family.json)
+- **Family context & strategy:** [`iflygaca/Office/00-strategy/the-book-of-fly-gaca.html`](https://github.com/iflygaca/Office/blob/main/00-strategy/the-book-of-fly-gaca.html)
+- **Regulatory corpus & GACAR spec:** [`iflygaca/Office/10-academy-curriculum/`](https://github.com/iflygaca/Office/blob/main/10-academy-curriculum/)
+- **Compliance & PDPL:** [`iflygaca/Office/04-compliance-ksa/`](https://github.com/iflygaca/Office/blob/main/04-compliance-ksa/)
+- **Agent workforce plan:** [`iflygaca/Office/06-operations-it/agent-workforce-plan.md`](https://github.com/iflygaca/Office/blob/main/06-operations-it/agent-workforce-plan.md)
+- **Family contract:** [`iflygaca/Office/contracts/flygaca-family.json`](https://github.com/iflygaca/Office/blob/main/contracts/flygaca-family.json)

@@ -17,7 +17,7 @@ second copy of this table would drift within two PRs.
 | `family-warden` | `contracts/flygaca-family.json`, its parity with `01-governance/company-facts.md`, the repo roster, and cross-repo drift sweeps |
 | `governance-auditor` | Decision log consistency, reversibility markers, compliance-decision tracking, orphaned items |
 | `entity-facts-guardian` | Company facts parity with MCP state, IBAN/account protection, entity field drift detection |
-| `cross-repo-sync` | `ay2m/Office` ↔ `ay2m/FlyGACA` ↔ `ay2m/Captain-Adel` coordination, contract SHA verification, three-way parity |
+| `cross-repo-sync` | `iflygaca/Office` ↔ `iflygaca/FlyGACA` ↔ `iflygaca/Captain-Adel` coordination, contract SHA verification, three-way parity |
 | **GTM & Customer** |  |
 | `schools-acquisition` | B2B flight-school outreach, 14-day pilot playbook, package pricing discipline, pipeline conversion tracking |
 | `gtm-defensibility-steward` | Competitive positioning, brand constraints, defensible wedges (NTSB↔GACAR, RTL parity, cited explanations) |

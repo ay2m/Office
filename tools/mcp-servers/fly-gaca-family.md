@@ -2,7 +2,7 @@
 
 **Resource URI base:** `mcp://fly-gaca-family`
 
-Five named KV resources store cross-repo context for the unified agent team across ay2m/Office, ay2m/FlyGACA, and ay2m/Captain-Adel. Each resource has a designated owner agent and supports optimistic concurrency via SHA verification.
+Five named KV resources store cross-repo context for the unified agent team across iflygaca/Office, iflygaca/FlyGACA, and iflygaca/Captain-Adel. Each resource has a designated owner agent and supports optimistic concurrency via SHA verification.
 
 ## Resources
 

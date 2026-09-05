@@ -29,7 +29,7 @@ lang: en
 ---
 
 > [!IMPORTANT]
-> **Internal Operating Documents.** `ay2m/Office` houses the complete corporate governance, legal contracts, business blueprints, financial models, and Saudi regulatory compliance suites for Fly GACA. It contains no application source code.
+> **Internal Operating Documents.** `iflygaca/Office` houses the complete corporate governance, legal contracts, business blueprints, financial models, and Saudi regulatory compliance suites for Fly GACA. It contains no application source code.
 
 ---
 

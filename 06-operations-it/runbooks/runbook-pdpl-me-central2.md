@@ -24,7 +24,7 @@ lang: en
 >
 > **Go to instead:** [`../hosting-facts.md`](../hosting-facts.md) — the PDPL boundary section is
 > the current statement of what lives where and why — and `docs/RUNBOOK-deploy.md` in
-> [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA).
+> [`iflygaca/FlyGACA`](https://github.com/iflygaca/FlyGACA).
 
 ## The history, in four lines
 

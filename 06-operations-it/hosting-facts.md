@@ -58,7 +58,7 @@ That makes the choice unambiguous:
 | Cloud Run (the Fly GACA API + Captain Adel gateway) | **`me-central2` (Dammam)** | Receives personal data (user queries). |
 | Cloud Storage (SPA bucket + corpus bucket) | **`me-central2` (Dammam)** | Public artifacts, but kept co-regional for latency and simplicity. |
 | Public corpus pipeline / RAG chunk build / evals / staging | EU VPS (Paris) — Hostinger | **Public data only**; explicitly never personal data. |
-| ALLaM GPU endpoint (planned) | KSA / in-Kingdom GPU host | Same reason as the gateway — see `ay2m/Captain-Adel` `deploy/allam-vllm.md`. |
+| ALLaM GPU endpoint (planned) | KSA / in-Kingdom GPU host | Same reason as the gateway — see `iflygaca/Captain-Adel` `deploy/allam-vllm.md`. |
 
 > [!WARNING]
 > **`me-central1` is Doha, Qatar — it is NOT in-Kingdom.** Never describe it as Riyadh, Saudi
@@ -114,19 +114,19 @@ legacy redirects.
 
 | Repo | | What it is |
 |---|---|---|
-| [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA) | private | **The product.** The bilingual web app (React 19 + Vite) *and* its Express backend on Cloud Run. The regulatory corpus and content pipelines live here too. |
-| [`ay2m/Captain-Adel`](https://github.com/ay2m/Captain-Adel) | private | The AI flight instructor service behind captadel.com |
-| [`ay2m/FlyGACA-ios`](https://github.com/ay2m/FlyGACA-ios) | public | The native SwiftUI family — one shared package, one App Store app per exam module |
-| [`ay2m/Office`](https://github.com/ay2m/Office) | private | This repo — the company documents tree |
-| [`ay2m/FlyGACA-app`](https://github.com/ay2m/FlyGACA-app) | public, **archived** | The retired predecessor of `ay2m/FlyGACA`. Read-only. Do not cite it as current. |
+| [`iflygaca/FlyGACA`](https://github.com/iflygaca/FlyGACA) | private | **The product.** The bilingual web app (React 19 + Vite) *and* its Express backend on Cloud Run. The regulatory corpus and content pipelines live here too. |
+| [`iflygaca/Captain-Adel`](https://github.com/iflygaca/Captain-Adel) | private | The AI flight instructor service behind captadel.com |
+| [`iflygaca/FlyGACA-ios`](https://github.com/iflygaca/FlyGACA-ios) | public | The native SwiftUI family — one shared package, one App Store app per exam module |
+| [`iflygaca/Office`](https://github.com/iflygaca/Office) | private | This repo — the company documents tree |
+| [`iflygaca/FlyGACA-app`](https://github.com/iflygaca/FlyGACA-app) | public, **archived** | The retired predecessor of `iflygaca/FlyGACA`. Read-only. Do not cite it as current. |
 
 > [!NOTE]
 > The six per-module App Store metadata repos (`PPL`, `CPL`, `IR`, `ATPL`, `ELPT`, `AIP`) that
-> older docs reference **do not exist**. Per-app metadata lives inside `ay2m/FlyGACA-ios`.
+> older docs reference **do not exist**. Per-app metadata lives inside `iflygaca/FlyGACA-ios`.
 
 ## Sources
-- `ay2m/FlyGACA/docs/RUNBOOK-deploy.md` — the authoritative provisioning + deploy sequence
-- `ay2m/FlyGACA/docs/DATA-HOSTING.md` — how the corpus bucket is served
-- `ay2m/FlyGACA/server/migrations/0001_init.sql` — the schema, with each table's Firestore-era ancestor noted
+- `iflygaca/FlyGACA/docs/RUNBOOK-deploy.md` — the authoritative provisioning + deploy sequence
+- `iflygaca/FlyGACA/docs/DATA-HOSTING.md` — how the corpus bucket is served
+- `iflygaca/FlyGACA/server/migrations/0001_init.sql` — the schema, with each table's Firestore-era ancestor noted
 - `00-strategy/phase0.md` — P0-2 (domain decisions), P0-6 (VPS + PDPL boundary)
 - `flygaca-resume-briefing-2026-05-23.md` — hosting + PDPL summary (pre-dates the Cloud Run port; regions still hold, the Firebase references do not)

@@ -11,7 +11,7 @@ lang: ar
 # دليل تشغيل — إطلاق Fly GACA
 
 أخذ المنتج إلى البيئة الحيّة. تسلسل النشر الآلي **غير** مكرَّر هنا — فهو يقيم مع الشيفرة، في
-`docs/RUNBOOK-deploy.md` داخل [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA). وهذه الصفحة هي
+`docs/RUNBOOK-deploy.md` داخل [`iflygaca/FlyGACA`](https://github.com/iflygaca/FlyGACA). وهذه الصفحة هي
 غلاف الإطلاق المحيط به: ما الذي يُطرَح، والبوّابات التي يجب أن تكون خضراء أولًا، واختبار التدخين،
 والمفاتيح التجارية/القانونية التي هي من شأننا لا من شأن أداة النشر.
 
@@ -44,7 +44,7 @@ lang: ar
 
 ## 1 — البوّابات التي يجب أن تكون خضراء قبل النشر
 
-شغّلها من نسخة نظيفة من `ay2m/FlyGACA`:
+شغّلها من نسخة نظيفة من `iflygaca/FlyGACA`:
 
 ```sh
 npm run verify        # typecheck → lint → format:check → test → build → check:bundle → check:perf

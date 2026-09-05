@@ -1,22 +1,22 @@
-# CLAUDE.md — ay2m/Captain-Adel
+# CLAUDE.md — iflygaca/Captain-Adel
 
 Guidance for Claude Code in the Captain Adel flight instructor service repository.
 
 ## Repository Context
 
-**ay2m/Captain-Adel** is the AI flight instructor service:
+**iflygaca/Captain-Adel** is the AI flight instructor service:
 - **Delivery:** Cloud Run (me-central2 Dammam), standalone captadel.com domain
 - **Instructor Persona:** Warm, challenging, culturally aware (Saudi); mastery-based progression
 - **Data:** Learner profiles (PDPL-compliant), flight-hour tracking, curriculum progress, evaluation metrics
 - **Curriculum:** GACAR-aligned syllabi, mock exams, knowledge-retention measurement, aviation-safety-critical content
 - **Integration:** Grounded in FlyGACA's regulatory corpus; feeds learner signals back to main platform
 
-Governance, strategy, financial, and legal material live in the separate `ay2m/Office` repo.
+Governance, strategy, financial, and legal material live in the separate `iflygaca/Office` repo.
 
-## Shared Agents (from ay2m/Office)
+## Shared Agents (from iflygaca/Office)
 
-All agents below are defined in `ay2m/Office/.claude/agents/` and available to this repo via the family contract
-(`contracts/flygaca-family.json`, byte-identical across ay2m/Office, ay2m/FlyGACA, ay2m/Captain-Adel).
+All agents below are defined in `iflygaca/Office/.claude/agents/` and available to this repo via the family contract
+(`contracts/flygaca-family.json`, byte-identical across iflygaca/Office, iflygaca/FlyGACA, iflygaca/Captain-Adel).
 
 ### Flight Service Agents
 
@@ -42,7 +42,7 @@ All agents below are defined in `ay2m/Office/.claude/agents/` and available to t
 | `ksa-compliance` | PDPL, ZATCA, data residency, learner-data audit, curriculum compliance review | Read, Write, Edit, Glob, Grep, Bash |
 | `family-warden` | Family contract byte-identity, repo roster, cross-repo drift sweeps | Read, Edit, Glob, Grep, Bash |
 
-## Workflows (from ay2m/Office/.claude/skills/operations/)
+## Workflows (from iflygaca/Office/.claude/skills/operations/)
 
 Triggered via slash commands from any repo; coordinate across all three:
 
@@ -136,8 +136,8 @@ Triggered via slash commands from any repo; coordinate across all three:
 
 ### Files Out of Scope
 
-- Governance, strategy, financial, legal, HR material → see `ay2m/Office`
-- Product code, web app, API backend → see `ay2m/FlyGACA`
+- Governance, strategy, financial, legal, HR material → see `iflygaca/Office`
+- Product code, web app, API backend → see `iflygaca/FlyGACA`
 
 ### CI Gates
 
@@ -148,9 +148,9 @@ Triggered via slash commands from any repo; coordinate across all three:
 
 ## See Also
 
-- **Family context & strategy:** [`ay2m/Office/00-strategy/the-book-of-fly-gaca.html`](https://github.com/ay2m/Office/blob/main/00-strategy/the-book-of-fly-gaca.html)
-- **GACAR curriculum specs:** [`ay2m/Office/10-academy-curriculum/`](https://github.com/ay2m/Office/blob/main/10-academy-curriculum/)
-- **Compliance & PDPL:** [`ay2m/Office/04-compliance-ksa/`](https://github.com/ay2m/Office/blob/main/04-compliance-ksa/)
-- **Agent workforce plan:** [`ay2m/Office/06-operations-it/agent-workforce-plan.md`](https://github.com/ay2m/Office/blob/main/06-operations-it/agent-workforce-plan.md)
-- **Family contract:** [`ay2m/Office/contracts/flygaca-family.json`](https://github.com/ay2m/Office/blob/main/contracts/flygaca-family.json)
-- **FlyGACA integration:** [`ay2m/FlyGACA/CLAUDE.md`](https://github.com/ay2m/FlyGACA/blob/main/CLAUDE.md)
+- **Family context & strategy:** [`iflygaca/Office/00-strategy/the-book-of-fly-gaca.html`](https://github.com/iflygaca/Office/blob/main/00-strategy/the-book-of-fly-gaca.html)
+- **GACAR curriculum specs:** [`iflygaca/Office/10-academy-curriculum/`](https://github.com/iflygaca/Office/blob/main/10-academy-curriculum/)
+- **Compliance & PDPL:** [`iflygaca/Office/04-compliance-ksa/`](https://github.com/iflygaca/Office/blob/main/04-compliance-ksa/)
+- **Agent workforce plan:** [`iflygaca/Office/06-operations-it/agent-workforce-plan.md`](https://github.com/iflygaca/Office/blob/main/06-operations-it/agent-workforce-plan.md)
+- **Family contract:** [`iflygaca/Office/contracts/flygaca-family.json`](https://github.com/iflygaca/Office/blob/main/contracts/flygaca-family.json)
+- **FlyGACA integration:** [`iflygaca/FlyGACA/CLAUDE.md`](https://github.com/iflygaca/FlyGACA/blob/main/CLAUDE.md)

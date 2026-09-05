@@ -88,7 +88,7 @@ It contains the folder tree from the briefing (`assets`, `assistant`, `build_fin
 top-level HTML page placeholders with the unofficial-status disclaimer baked into each, a
 README, `.gitignore`, a CI workflow, issue and PR templates, and a Dependabot config. The
 PR template carries a legal/corpus checklist. Git is initialised with an initial commit.
-**Outstanding:** create the private `github.com/ay2m/flygaca` repository and push; turn on
+**Outstanding:** create the private `github.com/iflygaca/flygaca` repository and push; turn on
 branch protection for `main`.
 
 ### Firebase (P0-5 — done)
@@ -181,7 +181,7 @@ Immediate — finishing P0-6 (VPS):
 
 Then:
 
-- Create the `github.com/ay2m/flygaca` repository and push (finishes P0-4).
+- Create the `github.com/iflygaca/flygaca` repository and push (finishes P0-4).
 - Brief a Saudi IP lawyer on P0-1 and P0-2 together.
 - Begin P0-3 (legal entity) once the name is locked.
 - Delete the duplicate Firebase project `fly-gaca-495116`.

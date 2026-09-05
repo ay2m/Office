@@ -240,7 +240,7 @@ Moyasar is the only payment rail, as DEC-003 and DEC-010 both intended.
 | Field | Detail |
 |---|---|
 | **Date** | 2026-08-26 |
-| **Decision** | Adopt a **capped** internal agent layer in `ay2m/Office` — four subagents (`doc-smith`, `ar-mirror`, `ksa-compliance`, `family-warden`), governed by a written earn-its-place test in [`06-operations-it/agent-workforce-plan.md`](../06-operations-it/agent-workforce-plan.md). Formally retire `flygaca-qa-reviewer`. Record that this layer substitutes for **none** of the six roles in `05-people/job-descriptions-pack.docx`. Exclude `ay2m/FlyGACA-ios` from the roster pending its removal and restart. |
+| **Decision** | Adopt a **capped** internal agent layer in `iflygaca/Office` — four subagents (`doc-smith`, `ar-mirror`, `ksa-compliance`, `family-warden`), governed by a written earn-its-place test in [`06-operations-it/agent-workforce-plan.md`](../06-operations-it/agent-workforce-plan.md). Formally retire `flygaca-qa-reviewer`. Record that this layer substitutes for **none** of the six roles in `05-people/job-descriptions-pack.docx`. Exclude `iflygaca/FlyGACA-ios` from the roster pending its removal and restart. |
 | **Reversibility** | **Two-way door.** Deleting a `.claude/agents/*.md` removes an agent with no downstream effect — nothing in CI, the print pipeline or the family contract depends on any of them. The cap is the part that is meant to persist. |
 | **Owner** | Founder |
 | **Stakeholders Consulted** | Founder (solo) |
@@ -293,7 +293,7 @@ the plan document rather than normalised inside an agent-roster change.
 | Field | Detail |
 |---|---|
 | **Date** | 2026-08-26 |
-| **Decision** | Treat the **existing** repo plugins as the Phase 2 architecture rather than building the planned set beside them: `flygaca-product` is the `product-engineering` plugin, `captain-adel-service` is `flight-service`, `family-orchestrators` is `fly-gaca-operations`. Complete `flygaca-product` with the five planned skills and a `feature-launch` command; remove the three content-free stub plugins from `ay2m/Office`; convert `office-governance` to the real plugin-manifest format and register it in the family marketplace. Keep `/security-hardening` and `/perf-sprint` family-level, not per-repo. |
+| **Decision** | Treat the **existing** repo plugins as the Phase 2 architecture rather than building the planned set beside them: `flygaca-product` is the `product-engineering` plugin, `captain-adel-service` is `flight-service`, `family-orchestrators` is `fly-gaca-operations`. Complete `flygaca-product` with the five planned skills and a `feature-launch` command; remove the three content-free stub plugins from `iflygaca/Office`; convert `office-governance` to the real plugin-manifest format and register it in the family marketplace. Keep `/security-hardening` and `/perf-sprint` family-level, not per-repo. |
 | **Reversibility** | **Two-way door.** Every change is an added or deleted Markdown/JSON file under `.claude/`; nothing in CI, the print pipeline or the family contract depends on any plugin. The removed stubs carried a manifest and no content — recoverable from git history if the planned naming is ever preferred. |
 | **Owner** | Founder |
 | **Stakeholders Consulted** | Founder (solo) |
@@ -301,7 +301,7 @@ the plan document rather than normalised inside an agent-roster change.
 
 **Context.** `06-operations-it/phase2-multi-repo-architecture.md` was written against a roster that
 did not match the repositories. Its Phase 2.2 called for a `product-engineering` plugin in
-`ay2m/FlyGACA` carrying five agents; that repo had already shipped `flygaca-product`, covering the
+`iflygaca/FlyGACA` carrying five agents; that repo had already shipped `flygaca-product`, covering the
 same five domains under repo-native names, in the correct manifest format, registered in the
 marketplace, with content grounded in real paths and gates. Building the planned plugin as written
 would have left one repo with ten agents for five jobs — the exact failure the architecture's own
@@ -323,7 +323,7 @@ reader would otherwise be misled.
 - Both product repos' `CLAUDE.md` claimed their agents were "available to this repo via the family
   contract". The contract carries entity facts, the chat contract and the repo roster; it
   distributes no agents.
-- `ay2m/FlyGACA`'s three-tier corpus policy (`HOST_SAFE_CORE` / `HOST_ORIGINAL` / `DO_NOT_HOST`)
+- `iflygaca/FlyGACA`'s three-tier corpus policy (`HOST_SAFE_CORE` / `HOST_ORIGINAL` / `DO_NOT_HOST`)
   appears nowhere in that repo's code or corpus data. It is recorded as stated editorial policy, not
   an enforced mechanism.
 
@@ -337,7 +337,7 @@ end-to-end until it has driven one.
 | Field | Detail |
 |---|---|
 | **Date** | 2026-08-27 |
-| **Decision** | `ay2m/Captain-Adel`'s `deploy/deploy.sh` now hard-fails before any `gcloud` call if `REGION` is set to anything other than `me-central2`. Every other file in that repo describing `me-central1` (Doha) as an "interim" or "fallback" in-Kingdom option — the deploy runbooks, `README.md`, `CLAUDE.md`, the deploy GitHub Actions workflow, and the four `captain-adel-service` plugin files written under Phase 2.3 — is corrected to state the enforcement instead. |
+| **Decision** | `iflygaca/Captain-Adel`'s `deploy/deploy.sh` now hard-fails before any `gcloud` call if `REGION` is set to anything other than `me-central2`. Every other file in that repo describing `me-central1` (Doha) as an "interim" or "fallback" in-Kingdom option — the deploy runbooks, `README.md`, `CLAUDE.md`, the deploy GitHub Actions workflow, and the four `captain-adel-service` plugin files written under Phase 2.3 — is corrected to state the enforcement instead. |
 | **Reversibility** | **Fully reversible, but shouldn't be.** The guard is four lines in a bash script; removing it costs nothing technically. It is being recorded here precisely so that removal is never a quiet, unreviewed edit — the geography fact underneath it (Doha is Qatar, not Saudi Arabia) does not change. |
 | **Owner** | Founder |
 | **Stakeholders Consulted** | Founder (solo) |
@@ -369,6 +369,6 @@ already documents honestly: the English chat path calls Google's global Gemini D
 therefore leaves the Kingdom regardless of which Cloud Run region the service itself runs in.
 Enforcing the deploy region closes the Doha loophole; it does not make model inference in-Kingdom.
 That distinction is now stated explicitly in the `deploy-check` command so the two are not conflated
-again. It also does not touch `ay2m/FlyGACA`, which does not carry an equivalent region-fallback claim.
+again. It also does not touch `iflygaca/FlyGACA`, which does not carry an equivalent region-fallback claim.
 
 *Living document. Log new strategic decisions here within 7 days. Not legal advice.*

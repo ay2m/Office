@@ -25,7 +25,7 @@ lang: ar
   ولا ملف `functions/.env.*` — فكل شيء إعداد على مراجعة Cloud Run. انظر
   [`hosting-facts.md`](hosting-facts.md).
 
-## أ) flygaca.com — ‏`ay2m/FlyGACA` · خدمة Cloud Run ‏`flygaca-api` · الإقليم `me-central2` (الدمام)
+## أ) flygaca.com — ‏`iflygaca/FlyGACA` · خدمة Cloud Run ‏`flygaca-api` · الإقليم `me-central2` (الدمام)
 
 **الأسرار** ← Google Secret Manager، سرٌّ واحد لكل قيمة:
 
@@ -82,7 +82,7 @@ printf '%s' 'VALUE' | gcloud secrets create NAME --data-file=-
 `CLOUDFLARE_API_TOKEN` · `CLOUDFLARE_ACCOUNT_ID` لمرآة العامل. *(ولا وجود لـ
 `FIREBASE_SERVICE_ACCOUNT` — فذلك الاعتماد كان يخص المستودع السلف المؤرشف.)*
 
-## ب) captadel.com — ‏`ay2m/Captain-Adel` · Cloud Run · الإقليم `me-central2` (الدمام)
+## ب) captadel.com — ‏`iflygaca/Captain-Adel` · Cloud Run · الإقليم `me-central2` (الدمام)
 
 **الأسرار** ← Google Secret Manager، عبر `printf '%s' "VALUE" | gcloud secrets create NAME --data-file=-`،
 أو الاختصار الدُفعي `export NAME=… … && ./deploy/deploy.sh secrets`:

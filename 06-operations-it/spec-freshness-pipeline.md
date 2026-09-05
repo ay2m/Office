@@ -83,7 +83,7 @@ reads both and is what the `/updates` page renders.
    `source-status.json`.
 5. **Validate** — run the eval harness against the rebuilt corpus; a citation that no longer
    resolves to a live section **fails the build** (ties to Phase 10's CI eval gate). The evals
-   live in `ay2m/Captain-Adel` (`evals/`).
+   live in `iflygaca/Captain-Adel` (`evals/`).
 6. **Publish** — sync the refreshed `public/data/` to the corpus bucket (served **network-first**
    by the service worker, so a refreshed corpus reaches clients without a new app deploy), and
    roll a new Cloud Run revision so the API picks up the rebuilt `rag-chunks.json` — the
@@ -100,7 +100,7 @@ fetch → hash/diff → [changed?] → re-ingest → stamp → eval-gate → pub
 > [!NOTE]
 > **The scheduler is the missing half.** `public/data/sources.json` and `source-status.json` still
 > name `scripts/update-sources.js` and a `.github/workflows/update-sources.yml` as their owner;
-> neither exists in `ay2m/FlyGACA` today (the repo ships with no `.github/workflows/` at all), and
+> neither exists in `iflygaca/FlyGACA` today (the repo ships with no `.github/workflows/` at all), and
 > `source-status.json` was last generated 2026-06-15 with `gacar` marked `unreachable`. The
 > *app-side* half of the pipeline is real and runnable; the *automation* half is a cron job (VPS
 > or Cloud Scheduler) that nobody has re-created since the port. That is the highest-value gap in

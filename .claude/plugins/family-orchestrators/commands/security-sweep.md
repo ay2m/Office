@@ -14,19 +14,19 @@ what is unambiguous and small, and never weaken a control to make a check pass.
 
 ## Everywhere
 
-- **Secrets.** No live credential in any tracked file. `ay2m/Captain-Adel`'s
+- **Secrets.** No live credential in any tracked file. `iflygaca/Captain-Adel`'s
   `.env.example` is committed and is meant to hold **placeholders only** — it
   currently ships a real-looking `GEMINI_API_KEY` (added in `75e6003`); that key
   should be rotated and the line blanked. Check for new instances rather than
   re-reporting only that one. The vendored `implementing-secret-scanning-with-gitleaks`
-  skill in `ay2m/Captain-Adel` carries the scanning workflow.
+  skill in `iflygaca/Captain-Adel` carries the scanning workflow.
 - **Dependencies.** `npm audit --omit=dev` in each package (report-only in CI —
   read it, don't assume someone did).
-- **Sensitive content.** `ay2m/Office` holds real legal, financial, HR and
+- **Sensitive content.** `iflygaca/Office` holds real legal, financial, HR and
   investor material. Never quote it into another repo, a PR body, or an external
   tool beyond what the task needs.
 
-## `ay2m/FlyGACA`
+## `iflygaca/FlyGACA`
 
 - **Security headers live in `config/headers.json` and nowhere else.**
   `tests/headers-parity.test.ts` holds the dormant Vercel/Netlify mirrors and
@@ -45,7 +45,7 @@ what is unambiguous and small, and never weaken a control to make a check pass.
 - Keep every API surface under `/api/*`, so the same-origin proxy rewrites hold
   and `connect-src 'self'` never has to be widened.
 
-## `ay2m/Captain-Adel`
+## `iflygaca/Captain-Adel`
 
 - **The CSP is tight and hand-maintained** in `src/server.js`. Any new
   third-party asset needs an explicit edit; the deliberate exceptions are
@@ -65,7 +65,7 @@ what is unambiguous and small, and never weaken a control to make a check pass.
   `performing-security-headers-audit`, `testing-api-security-with-owasp-top-10` —
   are the playbooks for testing this surface.
 
-## `ay2m/Office`
+## `iflygaca/Office`
 
 - Security and data-isolation concerns go to the maintainer directly per
   `01-governance/SECURITY.md` — **not** a public issue.

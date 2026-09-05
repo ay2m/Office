@@ -20,7 +20,7 @@ the app repo and hand over a normalised `records.json`; the app-side script diff
 against the live indexes and, on request, merges the deltas.
 
 ```bash
-# From a clone of ay2m/FlyGACA, with the bundle at sync-input/records.json:
+# From a clone of iflygaca/FlyGACA, with the bundle at sync-input/records.json:
 npm run sync:gaca         # dry run — diffs and reports new / changed / unchanged. Never writes.
 npm run sync:gaca:apply   # merge metadata-only deltas, then re-normalise the corpus links
 ```
@@ -30,7 +30,7 @@ the diff before anything touches the corpus.
 
 ## What's wired
 
-| Piece | Path (in `ay2m/FlyGACA`) | Role |
+| Piece | Path (in `iflygaca/FlyGACA`) | Role |
 |-------|------|------|
 | Source manifest | `public/data/sources.json` | The official GACA URLs, the AIRAC config, and the per-source fingerprints. The pipeline owns the fingerprints — don't hand-edit them. |
 | Ingest / diff engine | `scripts/sync-gaca.mjs` | Reads a `records.json` bundle, diffs it against the live indexes, reports, and (with `--apply`) merges. |
@@ -88,7 +88,7 @@ index with the **effective AIRAC date**, not the run date, so the published date
 
 ## Scheduling
 
-There is **no scheduled workflow doing this today** — `ay2m/FlyGACA` ships without a
+There is **no scheduled workflow doing this today** — `iflygaca/FlyGACA` ships without a
 `.github/workflows/` directory, so CI (and any cron) has to be wired against your own project
 first. In practice the cadence is: run the discovery half, then `npm run sync:gaca` around AIRAC
 Thursdays and after any GACA publication you hear about, review the diff, and apply.

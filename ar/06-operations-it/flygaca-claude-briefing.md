@@ -43,11 +43,11 @@ Fly GACA منصّة طيران رقمية تعليمية ومكتبة تنظيم
 الطيارين والمشغّلين والمدربين والمتدربين في المملكة العربية السعودية.
 
 النطاق الرئيسي: flygaca.com   (أصل واجهة API: api.flygaca.com)
-المستودعات:    github.com/ay2m/FlyGACA      — المنتج: تطبيق الويب + خلفية Express + المتن
-               github.com/ay2m/Captain-Adel — خدمة المساعد المستقلة (captadel.com)
-               github.com/ay2m/FlyGACA-ios  — عائلة تطبيقات الدراسة الأصلية بـ SwiftUI
-               github.com/ay2m/Office       — وثائق الشركة
-               github.com/ay2m/FlyGACA-app  — السلف المؤرشف. لا يُستشهد به بوصفه قائمًا أبدًا.
+المستودعات:    github.com/iflygaca/FlyGACA      — المنتج: تطبيق الويب + خلفية Express + المتن
+               github.com/iflygaca/Captain-Adel — خدمة المساعد المستقلة (captadel.com)
+               github.com/iflygaca/FlyGACA-ios  — عائلة تطبيقات الدراسة الأصلية بـ SwiftUI
+               github.com/iflygaca/Office       — وثائق الشركة
+               github.com/iflygaca/FlyGACA-app  — السلف المؤرشف. لا يُستشهد به بوصفه قائمًا أبدًا.
 المالك:        الكابتن عادل السبيعي — كبير المدربين، ATPL، CFII
 نمط البناء:    مؤسّس منفرد، لا موعد نهائي ثابت، تسليم على مراحل
 </project_overview>
@@ -165,12 +165,12 @@ Moyasar، لا Stripe أبدًا.
   الخادم من ثقة الاسترجاع (والثقة المنخفضة ترفض دون استدعاء النموذج).
 - منطق الحاسبات: وحدات صافية خالية من DOM، مُختبَرة بالوحدات، خارج طبقة الواجهة.
 - التطبيقات الأصلية: غلاف Capacitor لتطبيق الويب، إضافةً إلى عائلة SwiftUI أصلية منفصلة في
-  ay2m/FlyGACA-ios.
+  iflygaca/FlyGACA-ios.
 - الاختبار: Vitest (مع سقّاطة تغطية) وPlaywright من طرف إلى طرف + إمكانية الوصول.
 </tech_stack>
 
 <repository_structure>
-ay2m/FlyGACA (المنتج):
+iflygaca/FlyGACA (المنتج):
   src/            تطبيق React — pages/ مجلد لكل صفحة، وrouter.tsx جدول المسارات الوحيد،
                   وcalc/ المنطق الصافي، وlib/ الخدمات المُنمَّطة، وi18n/ حزمتا اللغة،
                   وcomponents/، وhooks/، وstyles/ (الرموز هي مصدر الحقيقة)

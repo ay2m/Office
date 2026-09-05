@@ -40,7 +40,7 @@ Saudi Arabian civil aviation. Tagline: "The whole of Saudi aviation, in one cock
 serves pilots, operators, instructors and cadets in the Kingdom of Saudi Arabia.
 
 Primary domain: flygaca.com
-Repository:     github.com/ay2m/flygaca (not yet created — see <progress_so_far>)
+Repository:     github.com/iflygaca/flygaca (not yet created — see <progress_so_far>)
 Owner:          Captain Adel Madkhali — Chief Instructor, ATPL, CFII
 Build mode:     solo founder, no fixed deadline, phased delivery
 </project_overview>
@@ -177,7 +177,7 @@ P0-4 REPOSITORY — IN PROGRESS. The full structure above is scaffolded locally 
 tree, 11 HTML page stubs with the disclaimer baked in, README, .gitignore, CI workflow,
 issue/PR templates, Dependabot, a phase0.md tracker, legal/DISCLAIMER.md, and Phase 0
 setup walkthroughs in office/). Git is initialised with an initial commit. Still to do:
-create the private github.com/ay2m/flygaca repo and push. Note: an existing
+create the private github.com/iflygaca/flygaca repo and push. Note: an existing
 github.com/FlyGACA org with a Library repo should be reconciled.
 
 P0-6 VPS — IN PROGRESS. Hostinger KVM 2 (2 vCPU / 8 GB / 100 GB), IP 72.62.20.20,
@@ -197,7 +197,7 @@ P0-3 LEGAL ENTITY — not started; needs the final name locked first.
 - VPS: Hostinger KVM 2, IP 72.62.20.20, hostname srv1209075.hstgr.cloud, Ubuntu 24.04 LTS
 - VPS admin user: adel (in the sudo group)
 - Canonical domain: flygaca.com
-- Repository: scaffolded locally; github.com/ay2m/flygaca not yet created
+- Repository: scaffolded locally; github.com/iflygaca/flygaca not yet created
 </environment>
 
 <next_steps>

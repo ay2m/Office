@@ -145,8 +145,8 @@ a Saudi government authority. Realistically:
 
 **Existing GitHub footprint:** there is already a `github.com/FlyGACA` org with a `Library`
 repo. **DECIDED 2026-05-23:** the project was initially planned for the FlyGACA org. **UPDATED 2026-09:**
-the actual repo is now at `github.com/ay2m/FlyGACA`. The old `Library` repo (now
-`ay2m/FlyGACA-app`, archived) was replaced by the monorepo's comprehensive structure (see P0-4).
+the actual repo is now at `github.com/iflygaca/FlyGACA`. The old `Library` repo (now
+`iflygaca/FlyGACA-app`, archived) was replaced by the monorepo's comprehensive structure (see P0-4).
 
 **Done when:** the canonical domain is set, the name is locked, and the trademark position
 is confirmed by the lawyer.
@@ -182,18 +182,18 @@ above, and `flygaca.sa` is now unblocked (SaudiNIC needed the entity).
 
 ## P0-4 · Create the repository
 
-**Status:** Done — repo on GitHub (ay2m/FlyGACA), pushed, branch protection on
+**Status:** Done — repo on GitHub (iflygaca/FlyGACA), pushed, branch protection on
 **Owner:** Claude (scaffold) + You (GitHub + push) · **Blocks:** all later build phases
 
 **Steps**
 
 - [x] Scaffold the full folder/file structure — done, in this `flygaca/` folder
 - [x] Add README, `.gitignore`, CI workflow, issue templates and Dependabot config
-- [x] Decide the repo home — **DECIDED 2026-05-23:** initially `github.com/FlyGACA/flygaca`; **later moved to** `github.com/ay2m/FlyGACA`
-- [x] Create the private `github.com/ay2m/FlyGACA` repository — done 2026-05-23, migrated to ay2m org
+- [x] Decide the repo home — **DECIDED 2026-05-23:** initially `github.com/FlyGACA/flygaca`; **later moved to** `github.com/iflygaca/FlyGACA`
+- [x] Create the private `github.com/iflygaca/FlyGACA` repository — done 2026-05-23, migrated to ay2m org
 - [x] Add the remote and push — `origin` set; `main` pushed and tracking `origin/main`
 - [x] Turn on branch protection for `main` — ruleset: restrict deletions + block force pushes
-- [x] Reconcile the old `FlyGACA/Library` repo — archived as `ay2m/FlyGACA-app` (read-only)
+- [x] Reconcile the old `FlyGACA/Library` repo — archived as `iflygaca/FlyGACA-app` (read-only)
 
 **Done when:** the structured repository exists on GitHub. ✅ Met.
 

@@ -231,7 +231,7 @@ Cloud Run، ولم تُنقَل أي شيفرة Stripe معها. وMoyasar هي 
 | الحقل | التفصيل |
 |---|---|
 | **التاريخ** | 2026-08-26 |
-| **القرار** | اعتماد طبقة **وكلاء برمجية داخلية مُقيَّدة** في `ay2m/Office` — أربعة وكلاء فرعيين (`doc-smith` و`ar-mirror` و`ksa-compliance` و`family-warden`)، محكومة باختبار مكتوب لاستحقاق الموضع في [`06-operations-it/agent-workforce-plan.md`](../06-operations-it/agent-workforce-plan.md). وإحالة `flygaca-qa-reviewer` إلى التقاعد رسميًا. وتسجيل أن هذه الطبقة **لا تحلّ محلّ أيٍّ** من الأدوار الستة في `05-people/job-descriptions-pack.docx`. واستثناء `ay2m/FlyGACA-ios` من قائمة الوكلاء ريثما يُزال ويُعاد بناؤه. |
+| **القرار** | اعتماد طبقة **وكلاء برمجية داخلية مُقيَّدة** في `iflygaca/Office` — أربعة وكلاء فرعيين (`doc-smith` و`ar-mirror` و`ksa-compliance` و`family-warden`)، محكومة باختبار مكتوب لاستحقاق الموضع في [`06-operations-it/agent-workforce-plan.md`](../06-operations-it/agent-workforce-plan.md). وإحالة `flygaca-qa-reviewer` إلى التقاعد رسميًا. وتسجيل أن هذه الطبقة **لا تحلّ محلّ أيٍّ** من الأدوار الستة في `05-people/job-descriptions-pack.docx`. واستثناء `iflygaca/FlyGACA-ios` من قائمة الوكلاء ريثما يُزال ويُعاد بناؤه. |
 | **قابلية التراجع** | **باب باتجاهين.** حذف أي ملف `.claude/agents/*.md` يزيل وكيلًا دون أي أثر لاحق — إذ لا يعتمد عليه شيء في التكامل المستمر ولا في مسار الطباعة ولا في عقد العائلة. والقيد هو الجزء المقصود بقاؤه. |
 | **المالك** | المؤسّس |
 | **الجهات المستشارة** | المؤسّس (منفردًا) |

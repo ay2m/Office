@@ -31,11 +31,11 @@ Ports the Office repo's seven governance and documentation agents into a wshobso
 Registered in the family marketplace at `.claude-plugin/marketplace.json`:
 
 ```
-/plugin marketplace add ay2m/Office
+/plugin marketplace add iflygaca/Office
 /plugin install office-governance@flygaca-family
 ```
 
-**Installing it inside `ay2m/Office` itself is redundant.** A session in this repo already loads
+**Installing it inside `iflygaca/Office` itself is redundant.** A session in this repo already loads
 `.claude/agents/` automatically; this plugin exists so the same seven agents are available in a
 session that does *not* have the Office checkout. The seven agent files here are byte-identical
 copies of `.claude/agents/`, and `tools/agents/check-agents.mjs` fails CI if they ever diverge —

@@ -26,7 +26,7 @@ the map on top of them.
   step any more, and no `functions/.env.*` file — everything is a Cloud Run
   revision setting. See [`hosting-facts.md`](hosting-facts.md).
 
-## A) flygaca.com — `ay2m/FlyGACA` · Cloud Run service `flygaca-api` · region `me-central2` (Dammam)
+## A) flygaca.com — `iflygaca/FlyGACA` · Cloud Run service `flygaca-api` · region `me-central2` (Dammam)
 
 **Secrets** → Google Secret Manager, one secret per value:
 
@@ -83,7 +83,7 @@ origin), `VITE_MOYASAR_PUBLISHABLE_KEY` (`pk_live_…`), plus the optional
 `CLOUDFLARE_API_TOKEN` · `CLOUDFLARE_ACCOUNT_ID` for the Worker mirror. *(There is no
 `FIREBASE_SERVICE_ACCOUNT` — that credential belonged to the archived predecessor repo.)*
 
-## B) captadel.com — `ay2m/Captain-Adel` · Cloud Run · region `me-central2` (Dammam)
+## B) captadel.com — `iflygaca/Captain-Adel` · Cloud Run · region `me-central2` (Dammam)
 
 **Secrets** → Google Secret Manager, via `printf '%s' "VALUE" | gcloud secrets create NAME --data-file=-`, or the batch shortcut `export NAME=… … && ./deploy/deploy.sh secrets`:
 
@@ -129,8 +129,8 @@ origin), `VITE_MOYASAR_PUBLISHABLE_KEY` (`pk_live_…`), plus the optional
 
 ## Authoritative step-by-step
 
-- flygaca.com: `ay2m/FlyGACA/docs/RUNBOOK-deploy.md` (project setup, Secret Manager entries, the
+- flygaca.com: `iflygaca/FlyGACA/docs/RUNBOOK-deploy.md` (project setup, Secret Manager entries, the
   `--set-secrets` / `--set-env-vars` deploy line, the Cloud Scheduler renewal job) and
-  `ay2m/FlyGACA/docs/BILLING.md` (checkout → confirm → webhook → renewal).
-- captadel.com: `ay2m/Captain-Adel/docs/RUNBOOK-captadel-saas.md` §3 (Moyasar keys, webhook,
-  Apple Pay, renewals), `ay2m/Captain-Adel/docs/RUNBOOK-captadel-deploy.md` (Gemini + project + deploy).
+  `iflygaca/FlyGACA/docs/BILLING.md` (checkout → confirm → webhook → renewal).
+- captadel.com: `iflygaca/Captain-Adel/docs/RUNBOOK-captadel-saas.md` §3 (Moyasar keys, webhook,
+  Apple Pay, renewals), `iflygaca/Captain-Adel/docs/RUNBOOK-captadel-deploy.md` (Gemini + project + deploy).

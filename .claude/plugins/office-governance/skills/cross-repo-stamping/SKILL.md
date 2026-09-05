@@ -5,9 +5,9 @@
 ## What this does
 
 The family contract (`contracts/flygaca-family.json`) is committed byte-identically to three repos:
-- **ay2m/Office** (owns `entity` and `repos` blocks)
-- **ay2m/FlyGACA** (owns `chat` block — the answer shape for both brains)
-- **ay2m/Captain-Adel** (mirrors both blocks)
+- **iflygaca/Office** (owns `entity` and `repos` blocks)
+- **iflygaca/FlyGACA** (owns `chat` block — the answer shape for both brains)
+- **iflygaca/Captain-Adel** (mirrors both blocks)
 
 Only the owning repo edits its block. When it changes:
 

@@ -12,13 +12,13 @@ lang: en
 
 > **Current track.** The shipping iOS strategy is the **native app family** — one offline SwiftUI
 > app per study module, paid up-front, built from
-> [`ay2m/FlyGACA-ios`](https://github.com/ay2m/FlyGACA-ios) (a shared `FlyGACAKit` package plus one
+> [`iflygaca/FlyGACA-ios`](https://github.com/iflygaca/FlyGACA-ios) (a shared `FlyGACAKit` package plus one
 > app target per module, with per-app content snapshots synced from the web monorepo). The
 > single-app **Capacitor + subscription** wrapper this runbook originally documented is retired —
 > see the note at the end.
 
 > [!IMPORTANT]
-> **iOS is `ay2m/FlyGACA-ios`, not `ay2m/FlyGACA`.** `ay2m/FlyGACA` is the web app and its Express
+> **iOS is `iflygaca/FlyGACA-ios`, not `iflygaca/FlyGACA`.** `iflygaca/FlyGACA` is the web app and its Express
 > backend; it is the **content** source of truth (the corpus, `src/lib/prepCatalog.ts`, the content
 > and icon generators) but holds no Swift. Earlier versions of this page named the wrong repo.
 
@@ -35,8 +35,8 @@ selling. Do not "fix" a doc by restoring a six-app list.
 
 The operational detail lives with the code — this section only points at it:
 
-1. **Content sync** — `scripts/sync-content.sh` in `ay2m/FlyGACA-ios`, run against a clone of
-   `ay2m/FlyGACA`. The web repo stays the corpus source of truth; the sync only ever runs
+1. **Content sync** — `scripts/sync-content.sh` in `iflygaca/FlyGACA-ios`, run against a clone of
+   `iflygaca/FlyGACA`. The web repo stays the corpus source of truth; the sync only ever runs
    monorepo → iOS repo, never the reverse.
 2. **Build / test / CI** — `docs/RUNBOOK-ios-release.md` and `.github/workflows/ios.yml` in the iOS
    repo: Swift tests, XcodeGen validation, a per-app build matrix, and a TestFlight lane that
@@ -76,13 +76,13 @@ the server's billing and grants routes. See [`../hosting-facts.md`](../hosting-f
 > [!WARNING]
 > **There is no Firebase in this product.** Any step that says "add an iOS app to the
 > `flygaca-app` Firebase project", "download `GoogleService-Info.plist`", or "enable the Firebase
-> Auth Apple provider" is retired — those projects are deleted. `ay2m/FlyGACA-ios` still carries a
+> Auth Apple provider" is retired — those projects are deleted. `iflygaca/FlyGACA-ios` still carries a
 > `docs/RUNBOOK-ios-firebase.md` written for that plan; it is stale and needs retiring in its own
 > repo (flagged, not fixed from here).
 
 If the subscription wrapper is ever revived, note two things:
 
-- The Capacitor shell and its native bridge still exist in `ay2m/FlyGACA` (`capacitor.config.ts`,
+- The Capacitor shell and its native bridge still exist in `iflygaca/FlyGACA` (`capacitor.config.ts`,
   `src/lib/native/nativeBridge.ts`) — inert on web, routing auth/IAP/offline-cache through
   Capacitor plugins inside a native shell. That is the mechanism; **RevenueCat and Stripe are not**
   — both are gone, and web payments are Moyasar.
@@ -108,4 +108,4 @@ If the subscription wrapper is ever revived, note two things:
 > What survives conceptually is captured above: the native family is the launch path, and any
 > future subscription wrapper builds on the Cloud Run API. B2B school licences are handled today by
 > the product's own grants routes and the org-admin dashboard — see the B2B design docs in
-> `ay2m/FlyGACA` `docs/b2b/`.
+> `iflygaca/FlyGACA` `docs/b2b/`.

@@ -21,7 +21,7 @@ copied from it. Instead, this evaluation was built from the actual marketplace c
 claimed 8 / 31 / 9, which at least confirms the thread described the real catalog) and from what
 this repository actually is.
 
-**What this repo actually is, and why that matters for the verdict below.** `ay2m/Office` is a
+**What this repo actually is, and why that matters for the verdict below.** `iflygaca/Office` is a
 git-versioned tree of Markdown, `.docx`/`.xlsx`, and rendered PDFs — not a live operating system.
 There is no QuickBooks, Stripe, PayPal, Square, HubSpot, DocuSign, or Canva connection anywhere in
 this repo (checked — none referenced), and the "CRM" and payroll/currency-tracker documents under
@@ -52,7 +52,7 @@ All three plugins live in Anthropic's first-party `knowledge-work-plugins` marke
 **Add** button on those pages, or **claude.ai → Settings → Capabilities → Plugins**. This is a
 different mechanism from the `flygaca-family` marketplace this repo hosts itself (see
 `06-operations-it/runbooks/runbook-claude-plugins.md`): `flygaca-family` is a GitHub-hosted
-marketplace added with `/plugin marketplace add ay2m/Office`, while `knowledge-work-plugins` is an
+marketplace added with `/plugin marketplace add iflygaca/Office`, while `knowledge-work-plugins` is an
 Anthropic-hosted catalog with no public git source to point `/plugin marketplace add` at — install
 it through the claude.ai UI, not the CLI. As of this evaluation, `finance`, `small-business`, and
 `legal` (plus `operations` — see below) already show as **enabled** on the connected claude.ai

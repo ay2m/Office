@@ -4,7 +4,7 @@
 
 ## What it does
 
-Runs a full consistency check across all three repos (ay2m/Office, ay2m/FlyGACA, ay2m/Captain-Adel):
+Runs a full consistency check across all three repos (iflygaca/Office, iflygaca/FlyGACA, iflygaca/Captain-Adel):
 
 1. Verifies family contract is byte-identical (SHA matches)
 2. Checks entity facts parity between Office `company-facts.md` and FlyGACA/Captain-Adel consumption points

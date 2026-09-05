@@ -22,7 +22,7 @@ lang: en
 > **Cloud SQL for PostgreSQL** — all in **`me-central2` (Dammam)**.
 >
 > **Go to instead:** `docs/RUNBOOK-deploy.md` in
-> [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA). That is the authoritative, maintained
+> [`iflygaca/FlyGACA`](https://github.com/iflygaca/FlyGACA). That is the authoritative, maintained
 > sequence — it lives with the code, so it cannot drift from the Dockerfile, the env vars or the
 > migration runner. [`../hosting-facts.md`](../hosting-facts.md) is the one-page summary of what
 > runs where.

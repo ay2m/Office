@@ -12,7 +12,7 @@ lang: en
 
 **Version:** 1.0 | **Effective:** 2026-08-26
 
-> **Purpose.** This guide trains internal team members on the Fly GACA agent infrastructure — how to discover agents, trigger workflows, and understand shared constraints across the ay2m/Office, ay2m/FlyGACA, and ay2m/Captain-Adel family. It is **required reading for all new hires in their first week** and **reference material for anyone working with Claude Code in any repo**. See integration into the general onboarding checklist below.
+> **Purpose.** This guide trains internal team members on the Fly GACA agent infrastructure — how to discover agents, trigger workflows, and understand shared constraints across the iflygaca/Office, iflygaca/FlyGACA, and iflygaca/Captain-Adel family. It is **required reading for all new hires in their first week** and **reference material for anyone working with Claude Code in any repo**. See integration into the general onboarding checklist below.
 
 ---
 
@@ -44,7 +44,7 @@ An agent is justified only when it **encodes non-inferable, repo-specific knowle
 
 ### Office Agents (Governance Layer)
 
-These seven agents live in `ay2m/Office/.claude/agents/` and are available to all three repos via the family contract.
+These seven agents live in `iflygaca/Office/.claude/agents/` and are available to all three repos via the family contract.
 
 | Agent | Scope | Best for | Non-inferable fact |
 | --- | --- | --- | --- |
@@ -56,9 +56,9 @@ These seven agents live in `ay2m/Office/.claude/agents/` and are available to al
 | **entity-facts-guardian** | Entity facts parity, MCP validation | Ensuring `company-facts.md` and the family contract stay synchronized | 12 entity fields; company facts table semantics; MCP assertion logic |
 | **cross-repo-sync** | Multi-repo coordination, contract distribution | Synchronizing PRs across Office, FlyGACA, and Captain-Adel when contract or entity facts change | Three-repo stamping workflow; PR title/body conventions; simultaneous-merge timing |
 
-### Product Agents (ay2m/FlyGACA)
+### Product Agents (iflygaca/FlyGACA)
 
-These five agents are documented in `ay2m/FlyGACA/CLAUDE.md` and handle the web app and backend.
+These five agents are documented in `iflygaca/FlyGACA/CLAUDE.md` and handle the web app and backend.
 
 | Agent | Scope | Best for |
 | --- | --- | --- |
@@ -68,9 +68,9 @@ These five agents are documented in `ay2m/FlyGACA/CLAUDE.md` and handle the web 
 | **sql-migrator** | PostgreSQL, forward-only migrations, indexes | Schema design, migration safety, query optimization, index strategy |
 | **genkit-rag-specialist** | Gemini integration, RAG pipeline, grounding | Prompt design, RAG chunking, inference safety, PDPL-compliant grounding |
 
-### Flight Agents (ay2m/Captain-Adel)
+### Flight Agents (iflygaca/Captain-Adel)
 
-These four agents are documented in `ay2m/Captain-Adel/CLAUDE.md` and handle the flight instructor service.
+These four agents are documented in `iflygaca/Captain-Adel/CLAUDE.md` and handle the flight instructor service.
 
 | Agent | Scope | Best for |
 | --- | --- | --- |
@@ -79,7 +79,7 @@ These four agents are documented in `ay2m/Captain-Adel/CLAUDE.md` and handle the
 | **flight-data-pipeline-engineer** | Learner data, flight-hour tracking, currency, PDPL | Data schema design, currency calculations, PDPL-compliant ingestion |
 | **instructor-deployment-steward** | Cloud Run deployment, captadel.com, versioning | Revision management, webhook routing, version pinning, rollback procedures |
 
-### GTM Agents (ay2m/Office)
+### GTM Agents (iflygaca/Office)
 
 These three agents coordinate go-to-market work across the family.
 
@@ -105,7 +105,7 @@ These three agents coordinate go-to-market work across the family.
 ls .claude/agents/
 ```
 
-This shows all agents available to that repo. In `ay2m/Office`, you see all 7 Office + shared infrastructure agents. In `ay2m/FlyGACA`, you see the 5 product agents + Office agents + shared. In `ay2m/Captain-Adel`, you see the 4 flight agents + Office agents + shared.
+This shows all agents available to that repo. In `iflygaca/Office`, you see all 7 Office + shared infrastructure agents. In `iflygaca/FlyGACA`, you see the 5 product agents + Office agents + shared. In `iflygaca/Captain-Adel`, you see the 4 flight agents + Office agents + shared.
 
 ### Step 2: Read an agent's documentation
 
@@ -261,12 +261,12 @@ Your first hands-on workflow is **`/full-sync`** — it runs weekly automaticall
 
 ### Before You Start
 
-- You are in `ay2m/Office` (any branch).
+- You are in `iflygaca/Office` (any branch).
 - You have read this guide through section 5.
 
 ### The Walkthrough
 
-1. **Open Claude Code in `ay2m/Office`.**
+1. **Open Claude Code in `iflygaca/Office`.**
 
    ```bash
    cd ~/Office
@@ -333,9 +333,9 @@ Add this line to **Phase C — Week 1 (Days 2–7), after the "Codebase / produc
 | --- | --- | --- |
 | **This guide** | Agent overview, roster, constraints, workflows, first hands-on | All new hires, week 1 |
 | **06-operations-it/agent-workforce-plan.md** | Why the roster is bounded, the "earn its slot" test, target rosters for each repo | Ops lead, agent oversight |
-| **ay2m/Office/.claude/agents/README.md** | Detailed agent table, shared constraints, retirement notices | Anyone invoking agents |
-| **ay2m/FlyGACA/CLAUDE.md** | Product agent reference (5 agents, 3 workflows scoped to product) | Product engineers |
-| **ay2m/Captain-Adel/CLAUDE.md** | Flight agent reference (4 agents, 3 workflows scoped to flight service) | Flight engineers |
+| **iflygaca/Office/.claude/agents/README.md** | Detailed agent table, shared constraints, retirement notices | Anyone invoking agents |
+| **iflygaca/FlyGACA/CLAUDE.md** | Product agent reference (5 agents, 3 workflows scoped to product) | Product engineers |
+| **iflygaca/Captain-Adel/CLAUDE.md** | Flight agent reference (4 agents, 3 workflows scoped to flight service) | Flight engineers |
 | **01-governance/decision-log.md** | Corporate decisions, reversibility, stakeholders, review dates | Ops lead, governance auditor |
 | **contracts/flygaca-family.json** | The shared manifest (entity facts, chat contract, repo roster) | cross-repo-sync, family-warden agents |
 
@@ -367,7 +367,7 @@ Then commit both the `.md` and the regenerated PDF together. The `doc-smith` age
 
 ### Q: Can I invoke an agent from a repo where it's not "scoped" to work?
 
-**A:** No. Agents are only available in repos where they are documented in `CLAUDE.md`. For example, `react-19-architect` is available in `ay2m/FlyGACA` only. If you need React guidance in another repo, ask Claude directly — it won't have the pre-approved tools, but you can still get advice.
+**A:** No. Agents are only available in repos where they are documented in `CLAUDE.md`. For example, `react-19-architect` is available in `iflygaca/FlyGACA` only. If you need React guidance in another repo, ask Claude directly — it won't have the pre-approved tools, but you can still get advice.
 
 ### Q: How often should I run `/full-sync`?
 

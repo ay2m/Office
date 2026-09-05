@@ -58,7 +58,7 @@ lang: ar
 | Cloud Run (واجهة برمجة Fly GACA وبوابة الكابتن عادل) | **`me-central2` (الدمام)** | تستقبل بيانات شخصية (استعلامات المستخدمين). |
 | Cloud Storage (حاوية تطبيق الصفحة الواحدة وحاوية المتن) | **`me-central2` (الدمام)** | مخرجات عامة، لكنها تبقى في الإقليم ذاته لخفض زمن الاستجابة وللتبسيط. |
 | خط أنابيب المتن العام / بناء مقاطع RAG / التقييمات / البيئة التجريبية | VPS الأوروبي (باريس) — Hostinger | **بيانات عامة فقط**؛ ولا بيانات شخصية صراحةً أبدًا. |
-| نقطة نهاية ALLaM على وحدات المعالجة الرسومية (مخطَّطة) | مضيف GPU في المملكة / داخل المملكة | السبب ذاته كالبوابة — راجع `ay2m/Captain-Adel` ‏`deploy/allam-vllm.md`. |
+| نقطة نهاية ALLaM على وحدات المعالجة الرسومية (مخطَّطة) | مضيف GPU في المملكة / داخل المملكة | السبب ذاته كالبوابة — راجع `iflygaca/Captain-Adel` ‏`deploy/allam-vllm.md`. |
 
 > [!WARNING]
 > **`me-central1` هي الدوحة، قطر — وهي ليست داخل المملكة.** لا تصفها أبدًا بالرياض أو
@@ -113,15 +113,15 @@ lang: ar
 
 | المستودع | | ما هو |
 |---|---|---|
-| [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA) | خاص | **المنتج.** تطبيق الويب ثنائي اللغة (React 19 + Vite) *و* خلفيته على Express فوق Cloud Run. والمتن التنظيمي وخطوط أنابيب المحتوى هنا أيضًا. |
-| [`ay2m/Captain-Adel`](https://github.com/ay2m/Captain-Adel) | خاص | خدمة مدرّب الطيران بالذكاء الاصطناعي خلف captadel.com |
-| [`ay2m/FlyGACA-ios`](https://github.com/ay2m/FlyGACA-ios) | عام | عائلة SwiftUI الأصلية — حزمة مشتركة واحدة، وتطبيق واحد على App Store لكل وحدة اختبار |
-| [`ay2m/Office`](https://github.com/ay2m/Office) | خاص | هذا المستودع — شجرة وثائق الشركة |
-| [`ay2m/FlyGACA-app`](https://github.com/ay2m/FlyGACA-app) | عام، **مؤرشف** | السلف المتقاعد لـ `ay2m/FlyGACA`. للقراءة فقط. لا تُذكر بوصفها الحالية. |
+| [`iflygaca/FlyGACA`](https://github.com/iflygaca/FlyGACA) | خاص | **المنتج.** تطبيق الويب ثنائي اللغة (React 19 + Vite) *و* خلفيته على Express فوق Cloud Run. والمتن التنظيمي وخطوط أنابيب المحتوى هنا أيضًا. |
+| [`iflygaca/Captain-Adel`](https://github.com/iflygaca/Captain-Adel) | خاص | خدمة مدرّب الطيران بالذكاء الاصطناعي خلف captadel.com |
+| [`iflygaca/FlyGACA-ios`](https://github.com/iflygaca/FlyGACA-ios) | عام | عائلة SwiftUI الأصلية — حزمة مشتركة واحدة، وتطبيق واحد على App Store لكل وحدة اختبار |
+| [`iflygaca/Office`](https://github.com/iflygaca/Office) | خاص | هذا المستودع — شجرة وثائق الشركة |
+| [`iflygaca/FlyGACA-app`](https://github.com/iflygaca/FlyGACA-app) | عام، **مؤرشف** | السلف المتقاعد لـ `iflygaca/FlyGACA`. للقراءة فقط. لا تُذكر بوصفها الحالية. |
 
 > [!NOTE]
 > مستودعات بيانات App Store الستة لكل وحدة (`PPL`، `CPL`، `IR`، `ATPL`، `ELPT`، `AIP`) التي
-> تشير إليها وثائق أقدم **غير موجودة**. فبيانات كل تطبيق تعيش داخل `ay2m/FlyGACA-ios`.
+> تشير إليها وثائق أقدم **غير موجودة**. فبيانات كل تطبيق تعيش داخل `iflygaca/FlyGACA-ios`.
 
 ## المصادر
 - `FlyGACA/docs/RUNBOOK-deploy.md` — تسلسل التهيئة والنشر المعتمد

@@ -11,7 +11,7 @@ lang: en
 # Runbook — Launch Fly GACA
 
 Taking the product live. The mechanical deploy sequence is **not** duplicated here — it lives with
-the code, in `docs/RUNBOOK-deploy.md` in [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA). This
+the code, in `docs/RUNBOOK-deploy.md` in [`iflygaca/FlyGACA`](https://github.com/iflygaca/FlyGACA). This
 page is the launch wrapper around it: what ships, the gates that must be green first, the smoke
 test, and the commercial/legal switches that are ours rather than the deploy tool's.
 
@@ -43,7 +43,7 @@ Cloud Run service, backed by Cloud SQL. All in `me-central2` (Dammam). See
 
 ## 1 — Gates that must be green before you deploy
 
-Run these from a clean checkout of `ay2m/FlyGACA`:
+Run these from a clean checkout of `iflygaca/FlyGACA`:
 
 ```sh
 npm run verify        # typecheck → lint → format:check → test → build → check:bundle → check:perf

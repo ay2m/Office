@@ -47,21 +47,21 @@ Both `wshobson/agents` and `msitarzewski/agency-agents` offer distinct strengths
 >
 > | Planned name | Actual plugin | Lives in |
 > | --- | --- | --- |
-> | `office-governance` | `office-governance` (+ `office-docs` for the doc commands) | `ay2m/Office` |
-> | `product-engineering` | **`flygaca-product`** | `ay2m/FlyGACA` |
-> | `flight-service` | **`captain-adel-service`** | `ay2m/Captain-Adel` |
-> | `fly-gaca-operations` | **`family-orchestrators`** | `ay2m/Office` |
+> | `office-governance` | `office-governance` (+ `office-docs` for the doc commands) | `iflygaca/Office` |
+> | `product-engineering` | **`flygaca-product`** | `iflygaca/FlyGACA` |
+> | `flight-service` | **`captain-adel-service`** | `iflygaca/Captain-Adel` |
+> | `fly-gaca-operations` | **`family-orchestrators`** | `iflygaca/Office` |
 >
-> The three placeholder directories this document originally described in `ay2m/Office` held a
+> The three placeholder directories this document originally described in `iflygaca/Office` held a
 > manifest and nothing else, in a `.claude-plugin.json` shape Claude Code does not read. They were
 > removed in Phase 2.2.
 
 | Plugin | Owner | Agents | Purpose |
 |--------|-------|--------|---------|
-| **office-governance** | ay2m/Office | 7 | Document authoring, compliance, entity facts, cross-repo sync |
-| **product-engineering** | ay2m/FlyGACA | 5 | React, Express, corpus, SQL, RAG |
-| **flight-service** | ay2m/Captain-Adel | 4 | Curriculum, model tuning, learner data, deployment |
-| **fly-gaca-operations** | ay2m/Office | 5 orchestrators | Cross-repo workflows (full-sync, feature-ship, compliance-audit, security-hardening, performance-sprint) |
+| **office-governance** | iflygaca/Office | 7 | Document authoring, compliance, entity facts, cross-repo sync |
+| **product-engineering** | iflygaca/FlyGACA | 5 | React, Express, corpus, SQL, RAG |
+| **flight-service** | iflygaca/Captain-Adel | 4 | Curriculum, model tuning, learner data, deployment |
+| **fly-gaca-operations** | iflygaca/Office | 5 orchestrators | Cross-repo workflows (full-sync, feature-ship, compliance-audit, security-hardening, performance-sprint) |
 
 ### Office Governance Plugin (7 agents)
 
@@ -82,7 +82,7 @@ Both `wshobson/agents` and `msitarzewski/agency-agents` offer distinct strengths
 **Commands:**
 - office-sync — Manual cross-repo synchronization
 
-### Product Engineering Plugin (5 agents, ay2m/FlyGACA)
+### Product Engineering Plugin (5 agents, iflygaca/FlyGACA)
 
 **Agents:**
 - **react-19-architect** (teal) — React 19, Vite, RTL, TypeScript strict
@@ -103,7 +103,7 @@ Both `wshobson/agents` and `msitarzewski/agency-agents` offer distinct strengths
 - security-hardening — Security audit across frontend + backend
 - performance-sprint — Bundle + endpoint + query optimization
 
-### Flight Service Plugin (4 agents, ay2m/Captain-Adel)
+### Flight Service Plugin (4 agents, iflygaca/Captain-Adel)
 
 **Agents:**
 - **flight-curriculum-designer** (sky) — Syllabus, exam scope, learner paths
@@ -121,7 +121,7 @@ Both `wshobson/agents` and `msitarzewski/agency-agents` offer distinct strengths
 - instructor-launch — Curriculum + model + deployment sequencing
 - personalization-tuning — Learner feedback loop → model improvement
 
-### Operations & Orchestration Plugin (5 orchestrators, ay2m/Office)
+### Operations & Orchestration Plugin (5 orchestrators, iflygaca/Office)
 
 **Agents:**
 - **operations-orchestrator** (rose) — Multi-agent workflow coordination
@@ -209,11 +209,11 @@ Agents are scaffolding; Phase 5 measures whether they actually add ROI. Phase 2 
 
 ### Phase 2: Product Engineering Agents (Weeks 5–6) — **delivered, reconciled**
 
-**What this phase planned.** A new `product-engineering` plugin in `ay2m/FlyGACA` carrying five
+**What this phase planned.** A new `product-engineering` plugin in `iflygaca/FlyGACA` carrying five
 agents (`react-19-architect`, `express-backend-pro`, `regulatory-corpus-keeper`, `sql-migrator`,
 `genkit-rag-specialist`), five skills and three commands.
 
-**What was already there.** `ay2m/FlyGACA` had shipped a `flygaca-product` plugin covering exactly
+**What was already there.** `iflygaca/FlyGACA` had shipped a `flygaca-product` plugin covering exactly
 those five domains — `react-surface`, `express-api`, `corpus-pipeline`, `sql-schema`,
 `rag-grounding` — in the correct `.claude-plugin/plugin.json` format, registered in the family
 marketplace, with agent content grounded in the repo's real paths and gates. Building the planned
@@ -224,7 +224,7 @@ success criterion #2 ("No Duplication") forbids.
 
 | Planned | Resolution |
 | --- | --- |
-| 5 agents | Already present under repo-native names; canonical ↔ plugin names mapped in `ay2m/FlyGACA/CLAUDE.md` |
+| 5 agents | Already present under repo-native names; canonical ↔ plugin names mapped in `iflygaca/FlyGACA/CLAUDE.md` |
 | 5 skills | **Added** to `.claude/plugins/flygaca-product/skills/` — `react-typescript-strict`, `express-security-patterns`, `gacar-corpus-policy`, `postgresql-migrations`, `gemini-rag-patterns` |
 | `feature-launch` command | **Added** — sequences schema → API → corpus → surface with the right gate at each step |
 | `security-hardening`, `performance-sprint` commands | **Not duplicated.** They are family-level and stay in Office's `family-orchestrators`; a security or performance pass that stops at one repo's boundary is not the pass those commands promise |
@@ -252,10 +252,10 @@ subject the skill states the steps and defers the "why it is shaped this way" to
    implements: 28-day cycles anchored to AIRAC 2001, a 7-day due window — not a "35-day threshold".
 
 **Deliverables (actual):**
-- `ay2m/FlyGACA`: `.claude/plugins/flygaca-product/` at v0.2.0 — 5 agents, **5 skills**, **5 commands**
-- `ay2m/Office`: three content-free stub plugins removed; `office-governance` converted to the real
+- `iflygaca/FlyGACA`: `.claude/plugins/flygaca-product/` at v0.2.0 — 5 agents, **5 skills**, **5 commands**
+- `iflygaca/Office`: three content-free stub plugins removed; `office-governance` converted to the real
   plugin manifest format and registered in the marketplace; agent gate repaired
-- `ay2m/Captain-Adel`: `CLAUDE.md` agent-provenance correction
+- `iflygaca/Captain-Adel`: `CLAUDE.md` agent-provenance correction
 
 **Not delivered:** "validate with one live feature shipping." No feature was shipped through
 `/feature-launch` — the command is written but unexercised, and should not be described as tested
@@ -269,14 +269,14 @@ so this phase added the layer that did not.
 
 | Planned | Resolution |
 | --- | --- |
-| 4 agents | Already present as `curriculum-author`, `model-ops`, `corpus-data`, `deploy-runner`; canonical ↔ plugin names mapped in `ay2m/Captain-Adel/CLAUDE.md` |
+| 4 agents | Already present as `curriculum-author`, `model-ops`, `corpus-data`, `deploy-runner`; canonical ↔ plugin names mapped in `iflygaca/Captain-Adel/CLAUDE.md` |
 | 4 skills | **Added** — `aviation-pedagogy`, `flight-instructor-personas`, `pdpl-learner-data`, `captadel-deployment` |
 | `instructor-launch` command | **Added** — sequences corpus → curriculum → persona → learner data → deploy gate |
 | `personalization-tuning` command | **Not built, deliberately.** It was specified for a learner-feedback → model-improvement loop that does not exist in the repo (see below). A command driving absent machinery would be fiction |
 | Link to Captain-Adel CLAUDE.md | **Done**, and corrected — see below |
 
 **Four more claims found false and fixed.** Phase 2.2 found three in
-`ay2m/FlyGACA`; the same audit applied here found four:
+`iflygaca/FlyGACA`; the same audit applied here found four:
 
 1. **The pedagogy apparatus does not exist.** `CLAUDE.md` described a three-tier
    progression (knowledge-check → skill-check → performance-check), mastery gates
@@ -296,9 +296,9 @@ so this phase added the layer that did not.
    documented open risk.
 3. **AIRAC freshness is not implemented here.** `CLAUDE.md` gave a "35-day
    threshold"; AIRAC appears in this repo only as exam *content* and one line of
-   the system prompt. The implementation is `ay2m/FlyGACA`'s `src/calc/airac.ts`.
+   the system prompt. The implementation is `iflygaca/FlyGACA`'s `src/calc/airac.ts`.
 4. **The three corpus tiers are absent from this repo's code too** — the same
-   phantom Phase 2.2 found in `ay2m/FlyGACA`, now labelled as stated editorial
+   phantom Phase 2.2 found in `iflygaca/FlyGACA`, now labelled as stated editorial
    policy in both.
 
 One stale claim was also cleared: the `deploy-runner` agent warned that
@@ -306,7 +306,7 @@ One stale claim was also cleared: the `deploy-runner` agent warned that
 agent said so as if current.
 
 **Deliverables (actual):**
-- `ay2m/Captain-Adel`: `.claude/plugins/captain-adel-service/` at v0.2.0 — 4
+- `iflygaca/Captain-Adel`: `.claude/plugins/captain-adel-service/` at v0.2.0 — 4
   agents, **4 skills**, **5 commands**
 - `CLAUDE.md` corrections for all four false claims above
 - Gate run clean: `smoke`, `smoke:frontend`, `test:unit`, `eval:dry` all exit 0

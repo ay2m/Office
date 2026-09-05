@@ -148,7 +148,7 @@ description: End-to-end feature shipping — coordinate React component, Express
      
      frontend:
        status: pass
-       repo: ay2m/FlyGACA
+       repo: iflygaca/FlyGACA
        files-changed: 8
        ts-errors: 0
        i18n-complete: true
@@ -156,7 +156,7 @@ description: End-to-end feature shipping — coordinate React component, Express
      
      backend:
        status: pass
-       repo: ay2m/FlyGACA
+       repo: iflygaca/FlyGACA
        files-changed: 5
        security-issues: 0
        migration-required: true
@@ -168,7 +168,7 @@ description: End-to-end feature shipping — coordinate React component, Express
      
      docs:
        status: pass
-       repo: ay2m/Office
+       repo: iflygaca/Office
        files-changed: 2
        bilingual: true
      

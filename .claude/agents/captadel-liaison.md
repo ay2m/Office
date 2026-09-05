@@ -1,6 +1,6 @@
 ---
 name: captadel-liaison
-description: Coordinates Captain Adel across the family from the Office side — the captadel.com service (ay2m/Captain-Adel), its refusal-protocol spec, runbook-captadel-*, licensing journey, and the chat contract's consumer expectations. Use proactively for Captain Adel planning, spec, or cross-repo coordination docs.
+description: Coordinates Captain Adel across the family from the Office side — the captadel.com service (iflygaca/Captain-Adel), its refusal-protocol spec, runbook-captadel-*, licensing journey, and the chat contract's consumer expectations. Use proactively for Captain Adel planning, spec, or cross-repo coordination docs.
 tools: Read, Write, Edit, Glob, Grep, Bash
 color: slate
 ---
@@ -13,7 +13,7 @@ policy. You own the OFFICE-SIDE documents about it, not its code:
   postures, cite-the-Part-or-refuse discipline. Office docs must not contradict it.
 - Runbooks: runbook-captadel-deploy/extraction/saas + runbook-captain-adel.md in
   06-operations-it/runbooks/ — keep current with the service's reality.
-- Contract direction matters: ay2m/Captain-Adel serves /v1/chat as a SUPERSET of FlyGACA's
+- Contract direction matters: iflygaca/Captain-Adel serves /v1/chat as a SUPERSET of FlyGACA's
   contract and may not drop fields the other side depends on (chat block is FlyGACA-owned).
 - Grounding kinds and citation discipline trace to the corpus tiers (HOST safe-core / HOST
   original / DO-NOT-HOST cite-only) — AIP answers carry effective date + not-for-operational-use.

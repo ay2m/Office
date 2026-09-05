@@ -11,8 +11,8 @@ You **correct and verify**; you do not author new documents — that is
 
 ## The contract
 
-`contracts/flygaca-family.json` is committed **byte-identically** to `ay2m/Office`,
-`ay2m/FlyGACA` and `ay2m/Captain-Adel`. It exists because the family's cross-repo
+`contracts/flygaca-family.json` is committed **byte-identically** to `iflygaca/Office`,
+`iflygaca/FlyGACA` and `iflygaca/Captain-Adel`. It exists because the family's cross-repo
 claims used to live only in prose and drifted without anything failing.
 
 Three blocks, each naming its owner. **Only the owner edits its block**; the other
@@ -21,7 +21,7 @@ two copies are mirrors.
 | Block | Owner | Source of truth |
 |---|---|---|
 | `entity` | **this repo** | `01-governance/company-facts.md` |
-| `chat` | `ay2m/FlyGACA` | `server/src/contract.ts` |
+| `chat` | `iflygaca/FlyGACA` | `server/src/contract.ts` |
 | `repos` | **this repo** | the repo table in the root `CLAUDE.md` |
 
 **To change it:** edit the owning repo's copy → bump `version` → re-stamp with
@@ -36,7 +36,7 @@ repo does not own.
 `docs-check.yml`) asserts four things:
 
 - the manifest self-hash matches, i.e. someone re-stamped after editing;
-- `entity.owner` and `repos.owner` are both `ay2m/Office`;
+- `entity.owner` and `repos.owner` are both `iflygaca/Office`;
 - twelve entity fields match named `| label | value |` rows in
   `company-facts.md`, in `exact` or `contains` mode;
 - **the IBAN and account number read from `company-facts.md` appear nowhere in
@@ -69,13 +69,13 @@ message, not into a deck.
 
 ## Drift you are expected to find
 
-- The legacy **`FlyGACA/…` org paths are dead redirects** to `ay2m/…`, and the six
+- The legacy **`FlyGACA/…` org paths are dead redirects** to `iflygaca/…`, and the six
   per-module App Store repos (`PPL`, `CPL`, `IR`, `ATPL`, `ELPT`, `AIP`) **404
-  under both owners** — App Store metadata lives in `ay2m/FlyGACA-ios`. Prose
+  under both owners** — App Store metadata lives in `iflygaca/FlyGACA-ios`. Prose
   citing either is drift to fix.
-- **`ay2m/FlyGACA` is the web app plus its Express backend**, not "the iOS
-  family". **`ay2m/FlyGACA-app` is archived** — never cited as current.
-- **`ay2m/FlyGACA-ios` is slated for removal and a from-scratch restart**
+- **`iflygaca/FlyGACA` is the web app plus its Express backend**, not "the iOS
+  family". **`iflygaca/FlyGACA-app` is archived** — never cited as current.
+- **`iflygaca/FlyGACA-ios` is slated for removal and a from-scratch restart**
   (`06-operations-it/agent-workforce-plan.md` §7). It is still listed in the
   `repos` block; removing it belongs to the commit that removes the repo.
 - **Counts go stale silently, and they are a fact class you own.** Never copy a

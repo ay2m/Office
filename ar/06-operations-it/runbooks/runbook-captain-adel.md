@@ -16,8 +16,8 @@ lang: ar
 الكابتن عادل يعني نشر واجهة API.
 
 > [!NOTE]
-> هذه الصفحة تخصّ الكابتن عادل **داخل المنتج** (`ay2m/FlyGACA`). أما الخدمة المستقلة الكامنة خلف
-> `captadel.com` فتقيم في [`ay2m/Captain-Adel`](https://github.com/ay2m/Captain-Adel) ولها صفحاتها
+> هذه الصفحة تخصّ الكابتن عادل **داخل المنتج** (`iflygaca/FlyGACA`). أما الخدمة المستقلة الكامنة خلف
+> `captadel.com` فتقيم في [`iflygaca/Captain-Adel`](https://github.com/iflygaca/Captain-Adel) ولها صفحاتها
 > الخاصة `runbook-captadel-*` في هذا المجلد. لا تخلط بين الاثنتين.
 
 ---
@@ -30,7 +30,7 @@ lang: ar
    `public/data/rag-chunks.json`؛ وينسخه ملف Dockerfile إلى الصورة كي لا يحتاج فهرس BM25 إلى أي جلب
    عند الإقلاع البارد.
 3. **خدمة Cloud Run نفسها** — مُزوَّدة وفق `docs/RUNBOOK-deploy.md` في
-   [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA). ولا دخل لـ Firebase ولا Cloud Functions ولا
+   [`iflygaca/FlyGACA`](https://github.com/iflygaca/FlyGACA). ولا دخل لـ Firebase ولا Cloud Functions ولا
    خطة Blaze في الأمر.
 
 ---

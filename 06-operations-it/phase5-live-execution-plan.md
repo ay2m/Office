@@ -19,7 +19,7 @@ lang: en
 ## Context
 
 **Phase 3 & 4 complete.** The family infrastructure is live:
-- 21 agents operational across ay2m/Office, ay2m/FlyGACA, ay2m/Captain-Adel
+- 21 agents operational across iflygaca/Office, iflygaca/FlyGACA, iflygaca/Captain-Adel
 - 5 workflows registered (`/full-sync`, `/feature-ship`, `/compliance-audit`, `/security-hardening`, `/perf-sprint`)
 - Family contract synchronized (byte-identical across three repos)
 - Team training materials published; all new hires receive agent infrastructure training in Week 1

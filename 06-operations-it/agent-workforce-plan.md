@@ -86,7 +86,7 @@ them. They are stated once here and sourced, not restated, so there is one place
 > repo's own `CLAUDE.md` is authoritative inside that repo; the briefings are for sessions with
 > no repo access.
 
-## 4. The Office roster (`ay2m/Office`)
+## 4. The Office roster (`iflygaca/Office`)
 
 > **2026-08-26 update — the four-agent cap is superseded.** The founder directed expansion to
 > **twenty-five** agents. The earn-its-place test itself is NOT superseded: every new agent was
@@ -126,7 +126,7 @@ Recorded so the next session does not re-propose them.
 | `legal-scribe` | Contract drafting is craft a general model does well. The genuinely non-inferable parts (corpus tiers, non-affiliation, "not legal advice") are charter-level, §3. |
 | `gtm-cs` · `ir-steward` · `people-ops` · `brand-keeper` | Nothing they would encode that `doc-smith` plus the charter does not already carry. Adding them would be roster theatre. |
 
-## 5. Target roster — `ay2m/FlyGACA`
+## 5. Target roster — `iflygaca/FlyGACA`
 
 **Not built by this change.** The Office cannot write to the product repos; this is the
 hand-off, and the owning repo decides. Each proposal is stated as what it would encode, so it
@@ -138,7 +138,7 @@ can be judged against the same earn-its-slot test.
 | `i18n-parity` | That `src/i18n/en.json` and `ar.json` are edited together and the suite already fails on a key present in one and missing from the other; that physical `left`/`right` is banned where a logical property exists |
 | `contract-mirror` | That `contracts/flygaca-family.json` is byte-identical across three repos, that `chat` is this repo's block to own via `server/src/contract.ts`, and that `tests/family-contract.test.ts` is the local gate |
 
-## 6. Target roster — `ay2m/Captain-Adel`
+## 6. Target roster — `iflygaca/Captain-Adel`
 
 Also a hand-off.
 
@@ -147,7 +147,7 @@ Also a hand-off.
 | `grounding-auditor` | That `src/brain` is the reference implementation of retrieve → ground → cite; the four `groundingKinds` (`grounded`/`partial`/`refusal`/`na`); that `/v1/chat` is a **superset** of FlyGACA's contract and may not drop a field the other side depends on |
 | `contract-mirror` | Same as above, gated locally by `test/family-contract.test.js`; this repo owns **no** block, so both its copies are mirrors it may not edit |
 
-## 7. Excluded — `ay2m/FlyGACA-ios`
+## 7. Excluded — `iflygaca/FlyGACA-ios`
 
 **Deliberately no roster.** The repo is slated for removal and a from-scratch restart, so
 building agents against its current shape would be work thrown away. This is an exclusion, not
@@ -167,7 +167,7 @@ The Office is the governance hub. Product-repo agents do not read Office prose �
 They read the one machine-readable artifact the family shares.
 
 - **`contracts/flygaca-family.json`** carries three blocks, each naming its owner: `entity` and
-  `repos` are the Office's, `chat` is `ay2m/FlyGACA`'s. It is committed **byte-identically** to
+  `repos` are the Office's, `chat` is `iflygaca/FlyGACA`'s. It is committed **byte-identically** to
   all three active repos.
 - **`01-governance/company-facts.md`** is the source the `entity` block is copied from. Any
   agent about to restate a company fact — legal name, CR, VAT, address — reads that file, not a

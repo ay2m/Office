@@ -13,7 +13,7 @@ description: Weekly heartbeat workflow — verify entity facts, contract SHA, de
 ## Pre-flight checks
 
 - [ ] MCP server is running (required for state reads/writes)
-- [ ] All three repos are accessible (ay2m/Office, ay2m/FlyGACA, ay2m/Captain-Adel)
+- [ ] All three repos are accessible (iflygaca/Office, iflygaca/FlyGACA, iflygaca/Captain-Adel)
 - [ ] No ongoing feature-ship or orchestrator workflows (avoid conflicts)
 
 ## Workflow Steps
@@ -21,7 +21,7 @@ description: Weekly heartbeat workflow — verify entity facts, contract SHA, de
 ### Step 1: Entity Facts Verification (entity-facts-guardian)
 **Duration:** 3-4 minutes
 
-1. Fetch `01-governance/company-facts.md` from ay2m/Office (source of truth)
+1. Fetch `01-governance/company-facts.md` from iflygaca/Office (source of truth)
 2. Parse the entity facts table and extract 12 fields:
    - Legal entity name
    - Founder name
@@ -52,9 +52,9 @@ description: Weekly heartbeat workflow — verify entity facts, contract SHA, de
 **Duration:** 5-6 minutes
 
 1. Fetch `contracts/flygaca-family.json` from all three repos:
-   - ay2m/Office (primary, owns entity block)
-   - ay2m/FlyGACA (mirror, owns chat block)
-   - ay2m/Captain-Adel (mirror, owns repos block)
+   - iflygaca/Office (primary, owns entity block)
+   - iflygaca/FlyGACA (mirror, owns chat block)
+   - iflygaca/Captain-Adel (mirror, owns repos block)
 2. Compute SHA256 hash of each file
 3. Compare SHAs:
    - All three match → ✅ manifest in sync
@@ -78,7 +78,7 @@ description: Weekly heartbeat workflow — verify entity facts, contract SHA, de
 ### Step 3: Decision Log Audit (governance-auditor)
 **Duration:** 3-4 minutes
 
-1. Fetch `01-governance/decision-log.md` from ay2m/Office
+1. Fetch `01-governance/decision-log.md` from iflygaca/Office
 2. Parse all DEC-NNN entries (extract decision ID, date, reversibility, owner, stakeholders)
 3. Verify format compliance:
    - Each decision has format "**DEC-NNN:** Decision title" (✅ if all match)

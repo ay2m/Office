@@ -19,7 +19,7 @@ lang: ar
 >
 > **اذهب بدلًا منه إلى:** [`../hosting-facts.md`](../hosting-facts.md) لمعرفة ما هي المنظومة
 > فعليًا، وإلى `docs/RUNBOOK-deploy.md` و`SECURITY.md` في
-> [`ay2m/FlyGACA`](https://github.com/ay2m/FlyGACA) لمعرفة كيف تُضبط الخدمة الحالية وأين يُبلَّغ عن
+> [`iflygaca/FlyGACA`](https://github.com/iflygaca/FlyGACA) لمعرفة كيف تُضبط الخدمة الحالية وأين يُبلَّغ عن
 > أي مخاوف أمنية.
 
 ## ما الذي حلّ محلّ كلٍّ من الثلاثة

@@ -150,7 +150,7 @@ any in-Kingdom claim is made for AI processing. See
 - ~~Stripe vs Moyasar as the live processor~~ **Resolved 2026-08-19:** **Moyasar** is the
   gateway of record (DEC-010; mada, Apple Pay, cards). Stripe was never shipped and no Stripe
   code exists — `../06-operations-it/secrets-and-keys-placement.md` §4 says so plainly, and the
-  shipping checkout loads only the Moyasar payment form (`ay2m/FlyGACA:
+  shipping checkout loads only the Moyasar payment form (`iflygaca/FlyGACA:
   src/pages/checkout/Checkout.tsx`). Carry Moyasar into the sub-processor register and the
   Fatoora integration; see `pci-dss-scope-and-saq-determination.md`.
 - **[Owner to confirm]** VAT registration threshold/timing: mandatory vs voluntary

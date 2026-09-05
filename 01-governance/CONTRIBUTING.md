@@ -10,7 +10,7 @@ lang: en
 
 # Contributing to The Office
 
-This guide is for **this repository** — `ay2m/Office`, the internal documents repo.
+This guide is for **this repository** — `iflygaca/Office`, the internal documents repo.
 (The application repos have their own contributing guides; setup steps and `npm run check:*`
 commands for the web app do **not** apply here.)
 
